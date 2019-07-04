@@ -1,0 +1,13 @@
+.logo{
+	width: 60px;
+	height: 60px;
+	background: url(../../assets/logo/muguet.svg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin-left: 40px;
+	@media screen and (max-width: 500px){
+		margin-left: 20px;
+	}
+	display: inline-block;
+}
+

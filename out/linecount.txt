@@ -1,0 +1,245 @@
+===============================================================================
+EXTENSION NAME : linecount
+EXTENSION VERSION : 0.1.7
+-------------------------------------------------------------------------------
+count time : 2019-06-13 23:49:57
+count workspace : c:\Users\wangh\Desktop\muguet-ui
+total files : 233
+total code lines : 27218
+total comment lines : 720
+total blank lines : 2094
+
+.babelrc, code is 42, comment is 0, blank is 2.
+.editorconfig, code is 10, comment is 0, blank is 1.
+.eslintrc.json, code is 22, comment is 0, blank is 1.
+.gitattributes, code is 4, comment is 0, blank is 0.
+.gitignore, code is 11, comment is 0, blank is 0.
+.npmignore, code is 3, comment is 0, blank is 0.
+config\webpack\webpack.default.js, code is 118, comment is 0, blank is 5.
+doc\images\bubble.gif, it is a binary file.
+doc\images\button.jpg, it is a binary file.
+doc\images\drag-ghost.gif, it is a binary file.
+doc\images\drag-split.gif, it is a binary file.
+doc\images\drag-split1.gif, it is a binary file.
+doc\images\drag-upload.gif, it is a binary file.
+doc\images\gradients.gif, it is a binary file.
+doc\images\logo.jpg, it is a binary file.
+doc\images\message.gif, it is a binary file.
+jest.config.js, code is 23, comment is 111, blank is 56.
+LICENSE, code is 17, comment is 0, blank is 4.
+package-lock.json, code is 11793, comment is 0, blank is 0.
+package.json, code is 85, comment is 0, blank is 1.
+README.md, code is 180, comment is 14, blank is 51.
+README_EN.md, code is 176, comment is 15, blank is 51.
+scripts\delete.js, code is 6, comment is 0, blank is 1.
+scripts\dev.js, code is 0, comment is 0, blank is 0.
+scripts\generate.css.js, code is 62, comment is 0, blank is 7.
+scripts\generate.info.js, code is 0, comment is 0, blank is 0.
+scripts\generate.pkg.js, code is 0, comment is 0, blank is 0.
+scripts\nodeSass.js, code is 6, comment is 0, blank is 4.
+scripts\progress.js, code is 19, comment is 0, blank is 10.
+scripts\release.js, code is 5, comment is 0, blank is 3.
+site\assets\back-g.svg, code is 1, comment is 0, blank is 0.
+site\assets\back.svg, code is 1, comment is 0, blank is 0.
+site\assets\bug.svg, code is 1, comment is 0, blank is 0.
+site\assets\code.svg, code is 1, comment is 0, blank is 0.
+site\assets\copy.svg, code is 1, comment is 0, blank is 0.
+site\assets\logo\muguet-2.svg, code is 118, comment is 0, blank is 0.
+site\assets\logo\muguet.ai, code is 741, comment is 14, blank is 21.
+site\assets\logo\muguet.ico, it is a binary file.
+site\assets\logo\muguet.png, it is a binary file.
+site\assets\logo\muguet.svg, code is 103, comment is 0, blank is 0.
+site\assets\logo\muguet128.gif, it is a binary file.
+site\assets\logo\muguet256.gif, it is a binary file.
+site\assets\menu.svg, code is 1, comment is 0, blank is 0.
+site\assets\upload.svg, code is 1, comment is 0, blank is 0.
+site\color\gradients.htm, code is 580, comment is 1, blank is 0.
+site\color\site.scss, code is 2, comment is 0, blank is 0.
+site\doc\i18n\en.ts, code is 15, comment is 3, blank is 1.
+site\doc\i18n\index.ts, code is 3, comment is 0, blank is 2.
+site\doc\i18n\zh.ts, code is 15, comment is 3, blank is 1.
+site\pages\articleContent.tsx, code is 26, comment is 0, blank is 4.
+site\pages\articleIndex.tsx, code is 71, comment is 0, blank is 6.
+site\pages\articleList.json, code is 38, comment is 0, blank is 7.
+site\pages\block.tsx, code is 22, comment is 0, blank is 2.
+site\pages\components\avatar.tsx, code is 17, comment is 0, blank is 2.
+site\pages\components\bubble.tsx, code is 17, comment is 0, blank is 3.
+site\pages\components\button.tsx, code is 31, comment is 1, blank is 6.
+site\pages\components\citation.tsx, code is 15, comment is 0, blank is 3.
+site\pages\components\confirm.tsx, code is 17, comment is 0, blank is 4.
+site\pages\components\dragBox.tsx, code is 110, comment is 0, blank is 4.
+site\pages\components\example\pdf.tsx, code is 16, comment is 1, blank is 4.
+site\pages\components\example\pdfStyles.tsx, code is 21, comment is 0, blank is 3.
+site\pages\components\example\pdfView.tsx, code is 31, comment is 0, blank is 6.
+site\pages\components\flex.tsx, code is 17, comment is 0, blank is 4.
+site\pages\components\gradientsBar.tsx, code is 110, comment is 0, blank is 4.
+site\pages\components\gradientsFont.tsx, code is 17, comment is 0, blank is 4.
+site\pages\components\grid.tsx, code is 17, comment is 0, blank is 4.
+site\pages\components\icon.tsx, code is 11, comment is 0, blank is 6.
+site\pages\components\input.tsx, code is 17, comment is 0, blank is 4.
+site\pages\components\introduce.tsx, code is 30, comment is 10, blank is 7.
+site\pages\components\list.tsx, code is 17, comment is 0, blank is 4.
+site\pages\components\message.tsx, code is 150, comment is 0, blank is 11.
+site\pages\components\modal.tsx, code is 17, comment is 0, blank is 4.
+site\pages\components\muguet.tsx, code is 17, comment is 0, blank is 4.
+site\pages\components\notification.tsx, code is 17, comment is 0, blank is 4.
+site\pages\components\others\code.tsx, code is 19, comment is 0, blank is 2.
+site\pages\components\others\showCode.tsx, code is 106, comment is 0, blank is 4.
+site\pages\components\others\title.tsx, code is 75, comment is 0, blank is 3.
+site\pages\components\others\wordBlock.tsx, code is 35, comment is 0, blank is 7.
+site\pages\components\red.tsx, code is 17, comment is 0, blank is 4.
+site\pages\components\scrollBox.tsx, code is 110, comment is 0, blank is 4.
+site\pages\components\shortCusts.tsx, code is 17, comment is 0, blank is 4.
+site\pages\components\socket.tsx, code is 17, comment is 0, blank is 4.
+site\pages\components\table.tsx, code is 17, comment is 0, blank is 4.
+site\pages\coverPage.tsx, code is 17, comment is 0, blank is 4.
+site\pages\doc.tsx, code is 85, comment is 0, blank is 8.
+site\pages\header.tsx, code is 59, comment is 0, blank is 5.
+site\pages\routes\articleRouter.tsx, code is 83, comment is 0, blank is 3.
+site\pages\routes\index.tsx, code is 7, comment is 5, blank is 2.
+site\pages\style\articleIndex.scss, code is 35, comment is 0, blank is 1.
+site\pages\style\code.scss, code is 3, comment is 0, blank is 0.
+site\pages\style\doc.scss, code is 14, comment is 0, blank is 1.
+site\pages\style\header.scss, code is 12, comment is 0, blank is 1.
+site\pages\style\introduce.scss, code is 101, comment is 0, blank is 8.
+site\pages\style\showCode.scss, code is 36, comment is 1, blank is 4.
+site\pages\style\title.scss, code is 30, comment is 0, blank is 0.
+src\assets\icons\forbid.ico, it is a binary file.
+src\assets\icons\local\arrow-down.svg, code is 1, comment is 0, blank is 0.
+src\assets\icons\local\arrow-left.svg, code is 1, comment is 0, blank is 0.
+src\assets\icons\local\arrow-right.svg, code is 1, comment is 0, blank is 0.
+src\assets\icons\local\arrow-up.svg, code is 1, comment is 0, blank is 0.
+src\assets\icons\local\danger.svg, code is 1, comment is 0, blank is 0.
+src\assets\icons\local\danger_black.svg, code is 1, comment is 0, blank is 0.
+src\assets\icons\local\full.svg, code is 1, comment is 0, blank is 0.
+src\assets\icons\local\information.svg, code is 1, comment is 0, blank is 0.
+src\assets\icons\local\information_black.svg, code is 1, comment is 0, blank is 0.
+src\assets\icons\local\notice.svg, code is 1, comment is 0, blank is 0.
+src\assets\icons\local\notice_black.svg, code is 1, comment is 0, blank is 0.
+src\assets\icons\local\success.svg, code is 1, comment is 0, blank is 0.
+src\assets\icons\local\success_black.svg, code is 1, comment is 0, blank is 0.
+src\assets\icons\local\warning.svg, code is 1, comment is 0, blank is 0.
+src\assets\icons\local\warning_black.svg, code is 1, comment is 0, blank is 0.
+src\exports.tsx, code is 28, comment is 6, blank is 5.
+src\inputData\input\input.tsx, code is 95, comment is 21, blank is 15.
+src\inputData\input\style\input.css, code is 29, comment is 0, blank is 6.
+src\inputData\input\style\input.scss, code is 40, comment is 2, blank is 7.
+src\inputData\select\option.tsx, code is 49, comment is 0, blank is 14.
+src\inputData\select\select.tsx, code is 49, comment is 0, blank is 12.
+src\inputData\select\style\option.css, code is 0, comment is 0, blank is 0.
+src\inputData\select\style\option.scss, code is 2, comment is 0, blank is 0.
+src\inputData\select\style\select.css, code is 9, comment is 0, blank is 0.
+src\inputData\select\style\select.scss, code is 15, comment is 0, blank is 2.
+src\interfaces\common.interface.tsx, code is 24, comment is 1, blank is 4.
+src\interfaces\types.tsx, code is 39, comment is 0, blank is 4.
+src\layout\dragBox\dragBox.tsx, code is 238, comment is 45, blank is 35.
+src\layout\dragBox\style\dragBox.css, code is 83, comment is 0, blank is 14.
+src\layout\dragBox\style\dragBox.scss, code is 101, comment is 14, blank is 18.
+src\layout\flex\flex.tsx, code is 13, comment is 8, blank is 3.
+src\layout\flex\flex.utils.tsx, code is 46, comment is 10, blank is 9.
+src\layout\flex\style\flex.css, code is 36, comment is 0, blank is 4.
+src\layout\flex\style\flex.scss, code is 23, comment is 0, blank is 5.
+src\layout\grid\col.tsx, code is 34, comment is 4, blank is 11.
+src\layout\grid\grid.tsx, code is 34, comment is 4, blank is 14.
+src\layout\grid\row.tsx, code is 34, comment is 4, blank is 15.
+src\layout\scrollBox\scrollBox.tsx, code is 70, comment is 0, blank is 8.
+src\layout\scrollBox\style\scrollBox.css, code is 13, comment is 0, blank is 0.
+src\layout\scrollBox\style\scrollBox.scss, code is 17, comment is 0, blank is 2.
+src\muguet\langType.tsx, code is 247, comment is 0, blank is 0.
+src\muguet\muguet.tsx, code is 49, comment is 12, blank is 8.
+src\muguet\style\muguet.css, code is 38, comment is 0, blank is 7.
+src\muguet\style\muguet.scss, code is 12, comment is 0, blank is 3.
+src\muguet\supportLang.js, code is 15, comment is 0, blank is 3.
+src\others\global\global.tsx, code is 39, comment is 8, blank is 11.
+src\others\internation\internation.tsx, code is 35, comment is 21, blank is 8.
+src\others\shortcuts\shortcuts.tsx, code is 24, comment is 11, blank is 8.
+src\stylesheet\animations.css, code is 0, comment is 0, blank is 0.
+src\stylesheet\animations.scss, code is 84, comment is 1, blank is 11.
+src\stylesheet\color\customGradients.css, code is 30, comment is 0, blank is 4.
+src\stylesheet\color\customGradients.scss, code is 16, comment is 4, blank is 2.
+src\stylesheet\color\defualtColor.css, code is 0, comment is 0, blank is 0.
+src\stylesheet\color\defualtColor.scss, code is 46, comment is 10, blank is 9.
+src\stylesheet\color\getGadientsFromWebgradient.js, code is 23, comment is 7, blank is 6.
+src\stylesheet\color\gradientColor.css, code is 1150, comment is 0, blank is 179.
+src\stylesheet\color\gradientColor.scss, code is 1330, comment is 180, blank is 180.
+src\stylesheet\default.css, code is 0, comment is 0, blank is 0.
+src\stylesheet\default.scss, code is 109, comment is 27, blank is 27.
+src\stylesheet\mixin.css, code is 0, comment is 0, blank is 0.
+src\stylesheet\mixin.scss, code is 125, comment is 1, blank is 23.
+src\tips\bubble\bubble.tsx, code is 183, comment is 23, blank is 27.
+src\tips\bubble\initPosition.tsx, code is 54, comment is 1, blank is 11.
+src\tips\bubble\style\bubble.css, code is 215, comment is 0, blank is 6.
+src\tips\bubble\style\bubble.scss, code is 145, comment is 1, blank is 14.
+src\tips\confirm\confirm.tsx, code is 91, comment is 0, blank is 12.
+src\tips\confirm\style\confirm.css, code is 3, comment is 0, blank is 0.
+src\tips\confirm\style\confirm.scss, code is 6, comment is 0, blank is 1.
+src\tips\message\message.tsx, code is 39, comment is 0, blank is 5.
+src\tips\message\messageTemplate.tsx, code is 125, comment is 0, blank is 16.
+src\tips\message\msg.tsx, code is 74, comment is 1, blank is 10.
+src\tips\message\style\message.css, code is 1215, comment is 0, blank is 186.
+src\tips\message\style\message.scss, code is 45, comment is 0, blank is 7.
+src\tips\modal\modal.tsx, code is 113, comment is 0, blank is 18.
+src\tips\modal\style\modal.css, code is 89, comment is 0, blank is 2.
+src\tips\modal\style\modal.scss, code is 74, comment is 0, blank is 11.
+src\tips\notification\notification.tsx, code is 65, comment is 1, blank is 12.
+src\tips\red\red.tsx, code is 93, comment is 0, blank is 14.
+src\tips\red\style\red.css, code is 21, comment is 0, blank is 0.
+src\tips\red\style\red.scss, code is 26, comment is 0, blank is 2.
+src\tools\avatar\avatar.tsx, code is 105, comment is 0, blank is 11.
+src\tools\avatar\style\avatar.css, code is 33, comment is 0, blank is 6.
+src\tools\avatar\style\avatar.scss, code is 38, comment is 0, blank is 9.
+src\tools\button\button.tsx, code is 186, comment is 24, blank is 25.
+src\tools\button\style\button.css, code is 231, comment is 0, blank is 32.
+src\tools\button\style\button.scss, code is 134, comment is 0, blank is 20.
+src\tools\citation\citation.tsx, code is 80, comment is 0, blank is 9.
+src\tools\citation\citationTypeOne.tsx, code is 50, comment is 0, blank is 7.
+src\tools\citation\citationTypeTwo.tsx, code is 85, comment is 0, blank is 11.
+src\tools\citation\style\citationTypeOne.css, code is 40, comment is 0, blank is 1.
+src\tools\citation\style\citationTypeOne.scss, code is 38, comment is 0, blank is 6.
+src\tools\citation\style\citationTypeTwo.css, code is 62, comment is 0, blank is 1.
+src\tools\citation\style\citationTypeTwo.scss, code is 61, comment is 0, blank is 7.
+src\tools\gradientsBar\gradientsBar.md, code is 16, comment is 2, blank is 0.
+src\tools\gradientsBar\gradientsBar.tsx, code is 91, comment is 0, blank is 13.
+src\tools\gradientsBar\style\gradientsBar.css, code is 1236, comment is 0, blank is 189.
+src\tools\gradientsBar\style\gradientsBar.scss, code is 57, comment is 4, blank is 13.
+src\tools\gradientsFont\gradientsFont.tsx, code is 55, comment is 9, blank is 11.
+src\tools\gradientsFont\style\gradientsFont.css, code is 15, comment is 0, blank is 4.
+src\tools\gradientsFont\style\gradientsFont.scss, code is 23, comment is 0, blank is 7.
+src\tools\icon\__tests__\icon.test.tsx, code is 22, comment is 0, blank is 7.
+src\tools\icon\icon.tsx, code is 83, comment is 26, blank is 12.
+src\tools\icon\style\icon.css, code is 198, comment is 0, blank is 23.
+src\tools\icon\style\icon.scss, code is 84, comment is 1, blank is 6.
+src\tools\loading\content.tsx, code is 58, comment is 0, blank is 14.
+src\tools\loading\ellipsis.tsx, code is 58, comment is 0, blank is 14.
+src\tools\loading\font.tsx, code is 62, comment is 0, blank is 15.
+src\tools\loading\hoop.tsx, code is 58, comment is 0, blank is 12.
+src\tools\loading\loading.tsx, code is 20, comment is 0, blank is 8.
+src\tools\loading\style\elipsis.css, code is 0, comment is 0, blank is 0.
+src\tools\loading\style\elipsis.scss, code is 0, comment is 0, blank is 0.
+src\tools\loading\style\hoop.css, code is 54, comment is 0, blank is 10.
+src\tools\loading\style\hoop.scss, code is 48, comment is 0, blank is 9.
+src\tools\loading\style\loading.css, code is 33, comment is 0, blank is 4.
+src\tools\loading\style\loading.scss, code is 43, comment is 2, blank is 11.
+src\tools\menu\contextMenu.tsx, code is 85, comment is 0, blank is 16.
+src\tools\menu\menu.tsx, code is 59, comment is 0, blank is 13.
+src\tools\rollFilm\rollFilm.tsx, code is 4, comment is 0, blank is 3.
+src\tools\rollFilm\style\rollFilm.css, code is 0, comment is 0, blank is 0.
+src\tools\rollFilm\style\rollFilm.scss, code is 0, comment is 0, blank is 0.
+src\tools\socket\socket.tsx, code is 111, comment is 19, blank is 17.
+src\tools\socket\style\socket.css, code is 47, comment is 0, blank is 1.
+src\tools\socket\style\socket.scss, code is 50, comment is 0, blank is 10.
+src\tools\sticky\sticky.tsx, code is 68, comment is 0, blank is 12.
+src\tools\sticky\style\sticky.css, code is 4, comment is 0, blank is 0.
+src\tools\sticky\style\sticky.scss, code is 8, comment is 0, blank is 4.
+src\tools\tree\leaf.tsx, code is 30, comment is 0, blank is 1.
+src\tools\tree\style\tree.css, code is 0, comment is 0, blank is 0.
+src\tools\tree\style\tree.scss, code is 0, comment is 0, blank is 0.
+src\tools\tree\tree.tsx, code is 30, comment is 0, blank is 1.
+src\utils\browser-console.tsx, code is 9, comment is 0, blank is 2.
+src\utils\flexible.tsx, code is 36, comment is 4, blank is 5.
+src\utils\gradientsArray.tsx, code is 1, comment is 0, blank is 1.
+src\utils\handleJSXProps.tsx, code is 27, comment is 10, blank is 6.
+src\utils\muguetDash.tsx, code is 22, comment is 12, blank is 11.
+tsconfig.json, code is 32, comment is 0, blank is 0.
+webpack.config.js, code is 24, comment is 0, blank is 5.
+===============================================================================

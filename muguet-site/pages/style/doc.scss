@@ -1,0 +1,15 @@
+body{
+	color: #242424;
+	overflow-y: hidden;
+}
+
+@media screen and (max-width: 768px){
+	.menuBtn{
+		padding: 5px;
+		position: fixed;
+		 bottom: 35px;
+		 right: 35px;
+		 z-index: 2;
+		transition: all 200ms ease;
+	}
+}

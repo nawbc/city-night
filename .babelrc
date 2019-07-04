@@ -1,0 +1,48 @@
+{
+	"presets": [
+		"@babel/preset-react"
+	],
+	"env": {
+		"production": {
+			"presets": [
+				[
+					"@babel/preset-env",
+					{
+						"targets": {
+							"browsers": [
+								"last 2 versions",
+								"ie >= 8"
+							]
+						},
+						"loose": true,
+						"useBuiltIns": "usage"
+					}
+				],
+				[
+					"@babel/preset-react",
+					{
+						"development": true
+					}
+				],
+				[
+					"@babel/preset-typescript",
+					{
+						"isTSX": true,
+						"allExtensions": true,
+					}
+				]
+			],
+			"plugins": [
+				[
+					"@babel/plugin-proposal-class-properties",
+					{
+						"loose": true
+					}
+				],
+				[
+					"@babel/plugin-transform-runtime"
+				]
+			]
+		},
+	}
+}

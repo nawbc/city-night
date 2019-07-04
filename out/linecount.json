@@ -1,0 +1,1429 @@
+{
+    "extension": "linecount",
+    "version": "0.1.7",
+    "workspace": "c:\\Users\\wangh\\Desktop\\muguet-ui",
+    "linecount": [
+        {
+            "version": "0.1.7",
+            "counttime": "2019-06-13 23:49:57",
+            "filesum": 233,
+            "codesum": 27218,
+            "commentsum": 720,
+            "blanksum": 2094,
+            "filelist": [
+                {
+                    "blank": 2,
+                    "code": 42,
+                    "comment": 0,
+                    "filename": ".babelrc"
+                },
+                {
+                    "blank": 1,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": ".editorconfig"
+                },
+                {
+                    "blank": 1,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": ".eslintrc.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": ".gitattributes"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": ".gitignore"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": ".npmignore"
+                },
+                {
+                    "blank": 5,
+                    "code": 118,
+                    "comment": 0,
+                    "filename": "config\\webpack\\webpack.default.js"
+                },
+                {
+                    "filename": "doc\\images\\bubble.gif",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "doc\\images\\button.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "doc\\images\\drag-ghost.gif",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "doc\\images\\drag-split.gif",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "doc\\images\\drag-split1.gif",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "doc\\images\\drag-upload.gif",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "doc\\images\\gradients.gif",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "doc\\images\\logo.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "doc\\images\\message.gif",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 56,
+                    "code": 23,
+                    "comment": 111,
+                    "filename": "jest.config.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "LICENSE"
+                },
+                {
+                    "blank": 0,
+                    "code": 11793,
+                    "comment": 0,
+                    "filename": "package-lock.json"
+                },
+                {
+                    "blank": 1,
+                    "code": 85,
+                    "comment": 0,
+                    "filename": "package.json"
+                },
+                {
+                    "blank": 51,
+                    "code": 180,
+                    "comment": 14,
+                    "filename": "README.md"
+                },
+                {
+                    "blank": 51,
+                    "code": 176,
+                    "comment": 15,
+                    "filename": "README_EN.md"
+                },
+                {
+                    "blank": 1,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "scripts\\delete.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "scripts\\dev.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 62,
+                    "comment": 0,
+                    "filename": "scripts\\generate.css.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "scripts\\generate.info.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "scripts\\generate.pkg.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "scripts\\nodeSass.js"
+                },
+                {
+                    "blank": 10,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "scripts\\progress.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "scripts\\release.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "site\\assets\\back-g.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "site\\assets\\back.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "site\\assets\\bug.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "site\\assets\\code.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "site\\assets\\copy.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 118,
+                    "comment": 0,
+                    "filename": "site\\assets\\logo\\muguet-2.svg"
+                },
+                {
+                    "blank": 21,
+                    "code": 741,
+                    "comment": 14,
+                    "filename": "site\\assets\\logo\\muguet.ai"
+                },
+                {
+                    "filename": "site\\assets\\logo\\muguet.ico",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "site\\assets\\logo\\muguet.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 103,
+                    "comment": 0,
+                    "filename": "site\\assets\\logo\\muguet.svg"
+                },
+                {
+                    "filename": "site\\assets\\logo\\muguet128.gif",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "site\\assets\\logo\\muguet256.gif",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "site\\assets\\menu.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "site\\assets\\upload.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 580,
+                    "comment": 1,
+                    "filename": "site\\color\\gradients.htm"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": "site\\color\\site.scss"
+                },
+                {
+                    "blank": 1,
+                    "code": 15,
+                    "comment": 3,
+                    "filename": "site\\doc\\i18n\\en.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "site\\doc\\i18n\\index.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 15,
+                    "comment": 3,
+                    "filename": "site\\doc\\i18n\\zh.ts"
+                },
+                {
+                    "blank": 4,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "site\\pages\\articleContent.tsx"
+                },
+                {
+                    "blank": 6,
+                    "code": 71,
+                    "comment": 0,
+                    "filename": "site\\pages\\articleIndex.tsx"
+                },
+                {
+                    "blank": 7,
+                    "code": 38,
+                    "comment": 0,
+                    "filename": "site\\pages\\articleList.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "site\\pages\\block.tsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\avatar.tsx"
+                },
+                {
+                    "blank": 3,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\bubble.tsx"
+                },
+                {
+                    "blank": 6,
+                    "code": 31,
+                    "comment": 1,
+                    "filename": "site\\pages\\components\\button.tsx"
+                },
+                {
+                    "blank": 3,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\citation.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\confirm.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 110,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\dragBox.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 16,
+                    "comment": 1,
+                    "filename": "site\\pages\\components\\example\\pdf.tsx"
+                },
+                {
+                    "blank": 3,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\example\\pdfStyles.tsx"
+                },
+                {
+                    "blank": 6,
+                    "code": 31,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\example\\pdfView.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\flex.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 110,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\gradientsBar.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\gradientsFont.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\grid.tsx"
+                },
+                {
+                    "blank": 6,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\icon.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\input.tsx"
+                },
+                {
+                    "blank": 7,
+                    "code": 30,
+                    "comment": 10,
+                    "filename": "site\\pages\\components\\introduce.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\list.tsx"
+                },
+                {
+                    "blank": 11,
+                    "code": 150,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\message.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\modal.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\muguet.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\notification.tsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\others\\code.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 106,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\others\\showCode.tsx"
+                },
+                {
+                    "blank": 3,
+                    "code": 75,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\others\\title.tsx"
+                },
+                {
+                    "blank": 7,
+                    "code": 35,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\others\\wordBlock.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\red.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 110,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\scrollBox.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\shortCusts.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\socket.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "site\\pages\\components\\table.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "site\\pages\\coverPage.tsx"
+                },
+                {
+                    "blank": 8,
+                    "code": 85,
+                    "comment": 0,
+                    "filename": "site\\pages\\doc.tsx"
+                },
+                {
+                    "blank": 5,
+                    "code": 59,
+                    "comment": 0,
+                    "filename": "site\\pages\\header.tsx"
+                },
+                {
+                    "blank": 3,
+                    "code": 83,
+                    "comment": 0,
+                    "filename": "site\\pages\\routes\\articleRouter.tsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 7,
+                    "comment": 5,
+                    "filename": "site\\pages\\routes\\index.tsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 35,
+                    "comment": 0,
+                    "filename": "site\\pages\\style\\articleIndex.scss"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "site\\pages\\style\\code.scss"
+                },
+                {
+                    "blank": 1,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "site\\pages\\style\\doc.scss"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "site\\pages\\style\\header.scss"
+                },
+                {
+                    "blank": 8,
+                    "code": 101,
+                    "comment": 0,
+                    "filename": "site\\pages\\style\\introduce.scss"
+                },
+                {
+                    "blank": 4,
+                    "code": 36,
+                    "comment": 1,
+                    "filename": "site\\pages\\style\\showCode.scss"
+                },
+                {
+                    "blank": 0,
+                    "code": 30,
+                    "comment": 0,
+                    "filename": "site\\pages\\style\\title.scss"
+                },
+                {
+                    "filename": "src\\assets\\icons\\forbid.ico",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\assets\\icons\\local\\arrow-down.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\assets\\icons\\local\\arrow-left.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\assets\\icons\\local\\arrow-right.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\assets\\icons\\local\\arrow-up.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\assets\\icons\\local\\danger.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\assets\\icons\\local\\danger_black.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\assets\\icons\\local\\full.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\assets\\icons\\local\\information.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\assets\\icons\\local\\information_black.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\assets\\icons\\local\\notice.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\assets\\icons\\local\\notice_black.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\assets\\icons\\local\\success.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\assets\\icons\\local\\success_black.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\assets\\icons\\local\\warning.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\assets\\icons\\local\\warning_black.svg"
+                },
+                {
+                    "blank": 5,
+                    "code": 28,
+                    "comment": 6,
+                    "filename": "src\\exports.tsx"
+                },
+                {
+                    "blank": 15,
+                    "code": 95,
+                    "comment": 21,
+                    "filename": "src\\inputData\\input\\input.tsx"
+                },
+                {
+                    "blank": 6,
+                    "code": 29,
+                    "comment": 0,
+                    "filename": "src\\inputData\\input\\style\\input.css"
+                },
+                {
+                    "blank": 7,
+                    "code": 40,
+                    "comment": 2,
+                    "filename": "src\\inputData\\input\\style\\input.scss"
+                },
+                {
+                    "blank": 14,
+                    "code": 49,
+                    "comment": 0,
+                    "filename": "src\\inputData\\select\\option.tsx"
+                },
+                {
+                    "blank": 12,
+                    "code": 49,
+                    "comment": 0,
+                    "filename": "src\\inputData\\select\\select.tsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "src\\inputData\\select\\style\\option.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": "src\\inputData\\select\\style\\option.scss"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "src\\inputData\\select\\style\\select.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src\\inputData\\select\\style\\select.scss"
+                },
+                {
+                    "blank": 4,
+                    "code": 24,
+                    "comment": 1,
+                    "filename": "src\\interfaces\\common.interface.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "src\\interfaces\\types.tsx"
+                },
+                {
+                    "blank": 35,
+                    "code": 238,
+                    "comment": 45,
+                    "filename": "src\\layout\\dragBox\\dragBox.tsx"
+                },
+                {
+                    "blank": 14,
+                    "code": 83,
+                    "comment": 0,
+                    "filename": "src\\layout\\dragBox\\style\\dragBox.css"
+                },
+                {
+                    "blank": 18,
+                    "code": 101,
+                    "comment": 14,
+                    "filename": "src\\layout\\dragBox\\style\\dragBox.scss"
+                },
+                {
+                    "blank": 3,
+                    "code": 13,
+                    "comment": 8,
+                    "filename": "src\\layout\\flex\\flex.tsx"
+                },
+                {
+                    "blank": 9,
+                    "code": 46,
+                    "comment": 10,
+                    "filename": "src\\layout\\flex\\flex.utils.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 36,
+                    "comment": 0,
+                    "filename": "src\\layout\\flex\\style\\flex.css"
+                },
+                {
+                    "blank": 5,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "src\\layout\\flex\\style\\flex.scss"
+                },
+                {
+                    "blank": 11,
+                    "code": 34,
+                    "comment": 4,
+                    "filename": "src\\layout\\grid\\col.tsx"
+                },
+                {
+                    "blank": 14,
+                    "code": 34,
+                    "comment": 4,
+                    "filename": "src\\layout\\grid\\grid.tsx"
+                },
+                {
+                    "blank": 15,
+                    "code": 34,
+                    "comment": 4,
+                    "filename": "src\\layout\\grid\\row.tsx"
+                },
+                {
+                    "blank": 8,
+                    "code": 70,
+                    "comment": 0,
+                    "filename": "src\\layout\\scrollBox\\scrollBox.tsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "src\\layout\\scrollBox\\style\\scrollBox.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "src\\layout\\scrollBox\\style\\scrollBox.scss"
+                },
+                {
+                    "blank": 0,
+                    "code": 247,
+                    "comment": 0,
+                    "filename": "src\\muguet\\langType.tsx"
+                },
+                {
+                    "blank": 8,
+                    "code": 49,
+                    "comment": 12,
+                    "filename": "src\\muguet\\muguet.tsx"
+                },
+                {
+                    "blank": 7,
+                    "code": 38,
+                    "comment": 0,
+                    "filename": "src\\muguet\\style\\muguet.css"
+                },
+                {
+                    "blank": 3,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "src\\muguet\\style\\muguet.scss"
+                },
+                {
+                    "blank": 3,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src\\muguet\\supportLang.js"
+                },
+                {
+                    "blank": 11,
+                    "code": 39,
+                    "comment": 8,
+                    "filename": "src\\others\\global\\global.tsx"
+                },
+                {
+                    "blank": 8,
+                    "code": 35,
+                    "comment": 21,
+                    "filename": "src\\others\\internation\\internation.tsx"
+                },
+                {
+                    "blank": 8,
+                    "code": 24,
+                    "comment": 11,
+                    "filename": "src\\others\\shortcuts\\shortcuts.tsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "src\\stylesheet\\animations.css"
+                },
+                {
+                    "blank": 11,
+                    "code": 84,
+                    "comment": 1,
+                    "filename": "src\\stylesheet\\animations.scss"
+                },
+                {
+                    "blank": 4,
+                    "code": 30,
+                    "comment": 0,
+                    "filename": "src\\stylesheet\\color\\customGradients.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 16,
+                    "comment": 4,
+                    "filename": "src\\stylesheet\\color\\customGradients.scss"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "src\\stylesheet\\color\\defualtColor.css"
+                },
+                {
+                    "blank": 9,
+                    "code": 46,
+                    "comment": 10,
+                    "filename": "src\\stylesheet\\color\\defualtColor.scss"
+                },
+                {
+                    "blank": 6,
+                    "code": 23,
+                    "comment": 7,
+                    "filename": "src\\stylesheet\\color\\getGadientsFromWebgradient.js"
+                },
+                {
+                    "blank": 179,
+                    "code": 1150,
+                    "comment": 0,
+                    "filename": "src\\stylesheet\\color\\gradientColor.css"
+                },
+                {
+                    "blank": 180,
+                    "code": 1330,
+                    "comment": 180,
+                    "filename": "src\\stylesheet\\color\\gradientColor.scss"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "src\\stylesheet\\default.css"
+                },
+                {
+                    "blank": 27,
+                    "code": 109,
+                    "comment": 27,
+                    "filename": "src\\stylesheet\\default.scss"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "src\\stylesheet\\mixin.css"
+                },
+                {
+                    "blank": 23,
+                    "code": 125,
+                    "comment": 1,
+                    "filename": "src\\stylesheet\\mixin.scss"
+                },
+                {
+                    "blank": 27,
+                    "code": 183,
+                    "comment": 23,
+                    "filename": "src\\tips\\bubble\\bubble.tsx"
+                },
+                {
+                    "blank": 11,
+                    "code": 54,
+                    "comment": 1,
+                    "filename": "src\\tips\\bubble\\initPosition.tsx"
+                },
+                {
+                    "blank": 6,
+                    "code": 215,
+                    "comment": 0,
+                    "filename": "src\\tips\\bubble\\style\\bubble.css"
+                },
+                {
+                    "blank": 14,
+                    "code": 145,
+                    "comment": 1,
+                    "filename": "src\\tips\\bubble\\style\\bubble.scss"
+                },
+                {
+                    "blank": 12,
+                    "code": 91,
+                    "comment": 0,
+                    "filename": "src\\tips\\confirm\\confirm.tsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src\\tips\\confirm\\style\\confirm.css"
+                },
+                {
+                    "blank": 1,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "src\\tips\\confirm\\style\\confirm.scss"
+                },
+                {
+                    "blank": 5,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "src\\tips\\message\\message.tsx"
+                },
+                {
+                    "blank": 16,
+                    "code": 125,
+                    "comment": 0,
+                    "filename": "src\\tips\\message\\messageTemplate.tsx"
+                },
+                {
+                    "blank": 10,
+                    "code": 74,
+                    "comment": 1,
+                    "filename": "src\\tips\\message\\msg.tsx"
+                },
+                {
+                    "blank": 186,
+                    "code": 1215,
+                    "comment": 0,
+                    "filename": "src\\tips\\message\\style\\message.css"
+                },
+                {
+                    "blank": 7,
+                    "code": 45,
+                    "comment": 0,
+                    "filename": "src\\tips\\message\\style\\message.scss"
+                },
+                {
+                    "blank": 18,
+                    "code": 113,
+                    "comment": 0,
+                    "filename": "src\\tips\\modal\\modal.tsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 89,
+                    "comment": 0,
+                    "filename": "src\\tips\\modal\\style\\modal.css"
+                },
+                {
+                    "blank": 11,
+                    "code": 74,
+                    "comment": 0,
+                    "filename": "src\\tips\\modal\\style\\modal.scss"
+                },
+                {
+                    "blank": 12,
+                    "code": 65,
+                    "comment": 1,
+                    "filename": "src\\tips\\notification\\notification.tsx"
+                },
+                {
+                    "blank": 14,
+                    "code": 93,
+                    "comment": 0,
+                    "filename": "src\\tips\\red\\red.tsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "src\\tips\\red\\style\\red.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "src\\tips\\red\\style\\red.scss"
+                },
+                {
+                    "blank": 11,
+                    "code": 105,
+                    "comment": 0,
+                    "filename": "src\\tools\\avatar\\avatar.tsx"
+                },
+                {
+                    "blank": 6,
+                    "code": 33,
+                    "comment": 0,
+                    "filename": "src\\tools\\avatar\\style\\avatar.css"
+                },
+                {
+                    "blank": 9,
+                    "code": 38,
+                    "comment": 0,
+                    "filename": "src\\tools\\avatar\\style\\avatar.scss"
+                },
+                {
+                    "blank": 25,
+                    "code": 186,
+                    "comment": 24,
+                    "filename": "src\\tools\\button\\button.tsx"
+                },
+                {
+                    "blank": 32,
+                    "code": 231,
+                    "comment": 0,
+                    "filename": "src\\tools\\button\\style\\button.css"
+                },
+                {
+                    "blank": 20,
+                    "code": 134,
+                    "comment": 0,
+                    "filename": "src\\tools\\button\\style\\button.scss"
+                },
+                {
+                    "blank": 9,
+                    "code": 80,
+                    "comment": 0,
+                    "filename": "src\\tools\\citation\\citation.tsx"
+                },
+                {
+                    "blank": 7,
+                    "code": 50,
+                    "comment": 0,
+                    "filename": "src\\tools\\citation\\citationTypeOne.tsx"
+                },
+                {
+                    "blank": 11,
+                    "code": 85,
+                    "comment": 0,
+                    "filename": "src\\tools\\citation\\citationTypeTwo.tsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 40,
+                    "comment": 0,
+                    "filename": "src\\tools\\citation\\style\\citationTypeOne.css"
+                },
+                {
+                    "blank": 6,
+                    "code": 38,
+                    "comment": 0,
+                    "filename": "src\\tools\\citation\\style\\citationTypeOne.scss"
+                },
+                {
+                    "blank": 1,
+                    "code": 62,
+                    "comment": 0,
+                    "filename": "src\\tools\\citation\\style\\citationTypeTwo.css"
+                },
+                {
+                    "blank": 7,
+                    "code": 61,
+                    "comment": 0,
+                    "filename": "src\\tools\\citation\\style\\citationTypeTwo.scss"
+                },
+                {
+                    "blank": 0,
+                    "code": 16,
+                    "comment": 2,
+                    "filename": "src\\tools\\gradientsBar\\gradientsBar.md"
+                },
+                {
+                    "blank": 13,
+                    "code": 91,
+                    "comment": 0,
+                    "filename": "src\\tools\\gradientsBar\\gradientsBar.tsx"
+                },
+                {
+                    "blank": 189,
+                    "code": 1236,
+                    "comment": 0,
+                    "filename": "src\\tools\\gradientsBar\\style\\gradientsBar.css"
+                },
+                {
+                    "blank": 13,
+                    "code": 57,
+                    "comment": 4,
+                    "filename": "src\\tools\\gradientsBar\\style\\gradientsBar.scss"
+                },
+                {
+                    "blank": 11,
+                    "code": 55,
+                    "comment": 9,
+                    "filename": "src\\tools\\gradientsFont\\gradientsFont.tsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "src\\tools\\gradientsFont\\style\\gradientsFont.css"
+                },
+                {
+                    "blank": 7,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "src\\tools\\gradientsFont\\style\\gradientsFont.scss"
+                },
+                {
+                    "blank": 7,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "src\\tools\\icon\\__tests__\\icon.test.tsx"
+                },
+                {
+                    "blank": 12,
+                    "code": 83,
+                    "comment": 26,
+                    "filename": "src\\tools\\icon\\icon.tsx"
+                },
+                {
+                    "blank": 23,
+                    "code": 198,
+                    "comment": 0,
+                    "filename": "src\\tools\\icon\\style\\icon.css"
+                },
+                {
+                    "blank": 6,
+                    "code": 84,
+                    "comment": 1,
+                    "filename": "src\\tools\\icon\\style\\icon.scss"
+                },
+                {
+                    "blank": 14,
+                    "code": 58,
+                    "comment": 0,
+                    "filename": "src\\tools\\loading\\content.tsx"
+                },
+                {
+                    "blank": 14,
+                    "code": 58,
+                    "comment": 0,
+                    "filename": "src\\tools\\loading\\ellipsis.tsx"
+                },
+                {
+                    "blank": 15,
+                    "code": 62,
+                    "comment": 0,
+                    "filename": "src\\tools\\loading\\font.tsx"
+                },
+                {
+                    "blank": 12,
+                    "code": 58,
+                    "comment": 0,
+                    "filename": "src\\tools\\loading\\hoop.tsx"
+                },
+                {
+                    "blank": 8,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "src\\tools\\loading\\loading.tsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "src\\tools\\loading\\style\\elipsis.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "src\\tools\\loading\\style\\elipsis.scss"
+                },
+                {
+                    "blank": 10,
+                    "code": 54,
+                    "comment": 0,
+                    "filename": "src\\tools\\loading\\style\\hoop.css"
+                },
+                {
+                    "blank": 9,
+                    "code": 48,
+                    "comment": 0,
+                    "filename": "src\\tools\\loading\\style\\hoop.scss"
+                },
+                {
+                    "blank": 4,
+                    "code": 33,
+                    "comment": 0,
+                    "filename": "src\\tools\\loading\\style\\loading.css"
+                },
+                {
+                    "blank": 11,
+                    "code": 43,
+                    "comment": 2,
+                    "filename": "src\\tools\\loading\\style\\loading.scss"
+                },
+                {
+                    "blank": 16,
+                    "code": 85,
+                    "comment": 0,
+                    "filename": "src\\tools\\menu\\contextMenu.tsx"
+                },
+                {
+                    "blank": 13,
+                    "code": 59,
+                    "comment": 0,
+                    "filename": "src\\tools\\menu\\menu.tsx"
+                },
+                {
+                    "blank": 3,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "src\\tools\\rollFilm\\rollFilm.tsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "src\\tools\\rollFilm\\style\\rollFilm.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "src\\tools\\rollFilm\\style\\rollFilm.scss"
+                },
+                {
+                    "blank": 17,
+                    "code": 111,
+                    "comment": 19,
+                    "filename": "src\\tools\\socket\\socket.tsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 47,
+                    "comment": 0,
+                    "filename": "src\\tools\\socket\\style\\socket.css"
+                },
+                {
+                    "blank": 10,
+                    "code": 50,
+                    "comment": 0,
+                    "filename": "src\\tools\\socket\\style\\socket.scss"
+                },
+                {
+                    "blank": 12,
+                    "code": 68,
+                    "comment": 0,
+                    "filename": "src\\tools\\sticky\\sticky.tsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "src\\tools\\sticky\\style\\sticky.css"
+                },
+                {
+                    "blank": 4,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "src\\tools\\sticky\\style\\sticky.scss"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 0,
+                    "filename": "src\\tools\\tree\\leaf.tsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "src\\tools\\tree\\style\\tree.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "src\\tools\\tree\\style\\tree.scss"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 0,
+                    "filename": "src\\tools\\tree\\tree.tsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "src\\utils\\browser-console.tsx"
+                },
+                {
+                    "blank": 5,
+                    "code": 36,
+                    "comment": 4,
+                    "filename": "src\\utils\\flexible.tsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src\\utils\\gradientsArray.tsx"
+                },
+                {
+                    "blank": 6,
+                    "code": 27,
+                    "comment": 10,
+                    "filename": "src\\utils\\handleJSXProps.tsx"
+                },
+                {
+                    "blank": 11,
+                    "code": 22,
+                    "comment": 12,
+                    "filename": "src\\utils\\muguetDash.tsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 32,
+                    "comment": 0,
+                    "filename": "tsconfig.json"
+                },
+                {
+                    "blank": 5,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "webpack.config.js"
+                }
+            ]
+        }
+    ]
+}

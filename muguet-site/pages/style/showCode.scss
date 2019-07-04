@@ -1,0 +1,41 @@
+@import "../../../components/stylesheet/mixin.scss";
+
+.site-block{
+	width:100%;
+	display: inline-block;
+	margin-right: 25px;
+	margin-bottom: 20px;
+	.block{
+		box-sizing: border-box;
+		border: 1px solid rgb(231, 231, 231);
+	}
+	.gui{
+		padding: 20px;
+	}
+
+	.intro{
+		padding: 10px 20px;
+		border:  {
+			top: none;
+			bottom: none;
+		}
+	}
+
+	.displayCode{
+		.codeIcon{
+			display: flex;
+			justify-content: flex-end;
+			padding: 10px;
+			.m-icon-default{
+				opacity: 0.5;
+				&:hover{
+					opacity: 1;
+				}
+			}
+		}
+		.code{
+			// height: 100px;
+		}
+
+	}
+}

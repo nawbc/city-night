@@ -1,0 +1,36 @@
+.scrollSide{
+	.typeWrapper{
+		a{
+				color: rgb(134, 134, 134);
+				text-decoration: none;
+				transition: color	100ms ease;
+				will-change: color;
+				&:hover{
+					color: rgb(16, 212, 114);
+				}
+		}
+		.articleTitle{
+			padding-top: 30px;
+			font-size: 18px;
+			font-weight: 600px;
+		}
+		li{
+			padding-left:10px;
+			line-height: 40px;
+			list-style: none;
+		}
+	}
+}
+@media screen and (max-width: 768px){
+	.scrollSide{
+		background: #fff;
+		transition: transform 500ms linear;
+		position: absolute;
+		z-index: 1;
+		transform: translateX(-800px);
+	}
+	.index_show{
+		transform: translateX(0px);
+	}
+}
+
