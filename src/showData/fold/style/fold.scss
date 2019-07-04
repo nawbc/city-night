@@ -1,0 +1,8 @@
+@import "../../../stylesheet/mixin.scss";
+
+$prefix: m-fold;
+
+.#{$prefix}-default {
+  width: 100%;
+  box-sizing: border-box;
+}

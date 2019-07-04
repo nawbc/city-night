@@ -1,0 +1,147 @@
+@mixin box($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+@mixin minBox($w, $h) {
+  min-width: $w;
+  min-height: $h;
+}
+
+@mixin maxBox($w, $h) {
+  max-width: $w;
+  max-height: $h;
+}
+
+@mixin animation($argv...) {
+  -webkit-animation: $argv;
+  -ms-animation: $argv;
+  -o-animation: $argv;
+  -moz-animation: $argv;
+  animation: $argv;
+}
+
+@mixin transform($argv...) {
+  -webkit-transform: $argv;
+  -ms-transform: $argv;
+  -o-transform: $argv;
+  -moz-transform: $argv;
+  transform: $argv;
+}
+
+@mixin transition($argv...) {
+  -webkit-transition: $argv;
+  -ms-transition: $argv;
+  -o-transition: $argv;
+  -moz-transition: $argv;
+  transition: $argv;
+}
+
+@mixin clearfloat {
+  &:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+}
+
+@mixin text-fill-color($color) {
+  -webkit-text-fill-color: $color;
+  -o-text-fill-color: $color;
+  -ms-text-fill-color: $color;
+  -moz-text-fill-color: $color;
+}
+
+@mixin backgroundClip($argv...) {
+  background-clip: $argv;
+  -webkit-background-clip: $argv;
+  -moz-background-clip: $argv;
+  -o-background-clip: $argv;
+  -ms-background-clip: $argv;
+}
+
+@mixin filter($argv...) {
+  -webkit-filter: $argv;
+  -o-filter: $argv;
+  -moz-filter: $argv;
+  -ms-filter: $argv;
+  filter: $argv;
+}
+
+@mixin opacity($argv...) {
+  -webkit-opacity: $argv;
+  -ms-opacity: $argv;
+  -o-opacity: $argv;
+  -moz-opacity: $argv;
+  opacity: $argv;
+}
+
+@mixin gradient_linear($value...) {
+  background-image: -webkit-linear-gradient($value);
+  background-image: -moz-linear-gradient($value);
+  background-image: -ms-linear-gradient($value);
+  background-image: -o-linear-gradient($value);
+  background-image: linear-gradient($value);
+}
+
+@mixin gradient_radial($value...) {
+  background-image: -webkit-radial-gradient($value);
+  background-image: -moz-radial-gradient($value);
+  background-image: -ms-radial-gradient($value);
+  background-image: -o-radial-gradient($value);
+  background-image: radial-gradient($value);
+}
+
+@mixin position_center($w, $h) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -$h/2;
+  margin-left: -$w/2;
+}
+
+@mixin smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin fullBox {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@mixin flex_default {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+@mixin flex_vertical {
+  @include flex_default;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@mixin flex_average {
+  @include flex_default;
+  align-items: center;
+  justify-content: space-around;
+}
+
+//radius shape
+@mixin shape_circle {
+  border-radius: 10000px;
+}
+
+@mixin shape_fillet {
+  border-radius: 5px;
+}
+
+@mixin borderHoop($inner, $wrapper, $width) {
+  border-top: $width solid $wrapper;
+  border-right: $width solid $wrapper;
+  border-bottom: $width solid $wrapper;
+  border-left: $width solid $inner;
+}

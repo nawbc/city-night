@@ -1,0 +1,36 @@
+.m-input-default {
+  outline: none;
+  box-sizing: border-box;
+  border: 1.5px solid #c5c5c5;
+  margin-right: 5px; }
+
+.m-input-default:focus {
+  border: 1.5px dotted #c5c5c5; }
+
+.m-input-resize {
+  resize: none; }
+
+.m-input-readonly {
+  background-color: #fafafa;
+  color: #b3b3b3;
+  cursor: url("../../../assets/icons/forbid.ico"), auto; }
+
+.m-input-text-default {
+  outline: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  border: 1px dashed #cfcfcf;
+  background: #f0f0f0;
+  padding-left: 5px; }
+
+.m-input-textSize-small {
+  padding: 2px;
+  font-size: 13px; }
+
+.m-input-textSize-normal {
+  padding: 4px;
+  font-size: 16px; }
+
+.m-input-textSize-large {
+  padding: 6px;
+  font-size: 20px; }

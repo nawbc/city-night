@@ -1,0 +1,56 @@
+@import "../../../stylesheet/mixin.scss";
+@import "../../../stylesheet/animations.scss";
+@import "./opinion.scss";
+
+$name: m-loading;
+
+.#{$name}-type-ellipsis {
+  @include flex_average;
+  justify-content: space-between;
+}
+
+.#{$name}-type-ellipsis-normal {
+  @include box(50px, 15px);
+}
+
+.#{$name}-type-ellipsis-inner {
+  border-radius: 3px;
+  box-sizing: border-box;
+  background-size: 750% auto;
+  background-position: 0 100%;
+
+  @include gradient_linear(135deg, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
+  @include animation(m-loading-gradient 2s infinite linear);
+  // @include gradient_linear(to right, rgb(17, 186, 253), rgb(0, 183, 255), rgb(0, 183, 255), rgb(0, 217, 255));
+  // animation-fill-mode: forwards;
+  border: 1px solid rgb(207, 207, 207);
+}
+
+.#{$name}-type-ellipsis-inner-normal {
+  @include box(14px, 14px);
+}
+
+.#{$name}-type-default {
+  @extend .#{$name}-type-ellipsis;
+}
+
+.#{$name}-type-default-normal {
+  @extend .#{$name}-type-ellipsis-normal;
+}
+
+.#{$name}-type-default-inner {
+  @extend .#{$name}-type-ellipsis-inner;
+}
+
+.#{$name}-type-default-inner-normal {
+  @extend .#{$name}-type-ellipsis-inner-normal;
+}
+
+@keyframes m-loading-gradient {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -750% 0;
+  }
+}

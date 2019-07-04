@@ -1,0 +1,68 @@
+@import "../../../stylesheet/mixin.scss";
+@import "./opinion.scss";
+
+$prefix: m-citationTT;
+
+.#{$prefix} {
+  position: relative;
+  width: 100%;
+  margin-bottom: $citation-mb;
+  .#{$prefix}-wrapper {
+    width: 100%;
+    padding: 0;
+    display: inline-flex;
+    .#{$prefix}-square {
+      @include gradient_linear($citation-linear-color);
+      @include minBox($citation-square-box, $citation-square-box);
+      margin-right: $citation-mr;
+      display: inline-block;
+    }
+
+    .#{$prefix}-circle {
+      border-radius: $citation-circle;
+    }
+
+    .#{$prefix}-squareSide {
+      display: inline-flex;
+      justify-content: space-between;
+      flex-direction: column;
+      width: $citation-side-box;
+      div {
+        @include box($citation-sideDiv-box, $citation-sideDiv-box);
+        @include gradient_linear($citation-linear-color);
+        height: $citation-height;
+      }
+    }
+  }
+
+  .#{$prefix}-bw {
+    div {
+      margin-top: $citation-mt;
+      @include gradient_linear($citation-linear-color);
+    }
+
+    @for $var from 1 to 3 {
+      div:nth-child(#{$var}) {
+        width: $citation-sideDiv-box;
+        height: $citation-height;
+      }
+    }
+  }
+  div {
+    position: relative;
+    background-position: $citation-backPos;
+    background-size: $citation-backSize;
+  }
+  .#{$prefix}-animate {
+    @include animation(m-citationTypeTwo 2s linear infinite);
+  }
+}
+
+@keyframes m-citationTypeTwo {
+  from {
+    background-position: 100% 50%;
+  }
+  to {
+    background-position: 0 50%;
+  }
+}

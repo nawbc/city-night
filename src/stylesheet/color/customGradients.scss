@@ -1,0 +1,22 @@
+@import '../mixin.scss';
+
+// DarkGrass
+.m-gradients-DarkGrass{
+    @include gradient_linear(120deg, #155799, #159957);
+}
+//SkyBlue
+.m-gradients-SkyBlue{
+    @include gradient_linear(120deg,#4481eb, #04befe);
+}
+//DarkTempt
+.m-gradients-DarkTempt{
+    @include gradient_linear(135deg, #764ba2 20%, #667eea);
+}
+//HoopBlue
+.m-gradients-HoopBlue{
+	@include gradient_linear(135deg, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%);
+}
+
+.m-gradients-JustMorning{
+	@include gradient_linear(120deg, #f6d365 0%, #ffc746 100%);
+}

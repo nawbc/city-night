@@ -1,0 +1,79 @@
+@import "./opinion.scss";
+@import "../../../stylesheet/mixin.scss";
+@import "../../../stylesheet/color/gradientColor.scss";
+@import "../../../stylesheet/color/customGradients.scss";
+
+$name: m-gradientsBar;
+
+.#{$name}-default {
+  display: inline-block;
+  position: relative;
+}
+
+.#{$name}-alert-default {
+  @include flex_average;
+  @include box($gradientsBar-alert-width, $gradientsBar-alert-height);
+  @include transition(transform 500ms ease);
+  @include transform(translateY(-60px));
+  @include box(100vw, 60px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: $gradientsBar-level;
+}
+
+.#{$name}-alert-vision {
+  @include transform(translateY(0px));
+}
+
+.#{$name}-alert-hidden {
+  @include transform(translateY(-60px));
+}
+
+// danger
+.#{$name}-alert-danger {
+  @extend .m-gradients-StrongBliss;
+}
+
+// warning
+.#{$name}-alert-notice {
+  @extend .m-gradients-SandStrike;
+}
+//success
+
+.#{$name}-alert-success {
+  @extend .m-gradients-HealthyWater;
+}
+
+.#{$name}-alert-warning {
+  @extend .m-gradients-SunnyMorning;
+}
+
+//information
+.#{$name}-alert-info {
+  @extend .m-gradients-CrystalRiver;
+}
+
+.#{$name}-alert-innerContent {
+  @include minBox(85%, 40px);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  color: $font-default-color-white;
+
+  .#{$name}-alert-cancel {
+    @include box(20px, 20px);
+    background-image: url($gradientsBarAlertCancel);
+    background-size: cover;
+    position: absolute;
+    right: 20px;
+  }
+
+  .m-icon-default {
+    margin: 0 20px;
+  }
+  .m-gradientsBar-alert-content {
+    font-size: 20px;
+    word-wrap: break-word;
+  }
+}

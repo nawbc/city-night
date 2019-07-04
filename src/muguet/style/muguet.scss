@@ -1,0 +1,26 @@
+@import "../../stylesheet/default.scss";
+@import "../../stylesheet/color/customGradients.scss";
+
+* {
+  font-family: $fontFamily;
+  @include smoothing;
+  font-feature-settings: "tnum";
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+*:disabled {
+  cursor: url(../../assets/icons/forbid.ico), auto;
+}
+
+div,
+p {
+  font-size: $fontSize;
+}
+
+.m-root {
+  overflow: hidden;
+}

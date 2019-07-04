@@ -1,0 +1,44 @@
+@import "../../../stylesheet/mixin.scss";
+@import "./opinion.scss";
+
+$prefix: m-citationTypeOne;
+
+.#{$prefix} {
+  @include box(100%, 100%);
+  margin-bottom: $citation-mb;
+  position: relative;
+  div {
+    position: relative;
+    background-position: $citation-backPos;
+    margin-top: $citation-mt;
+    background-size: $citation-backSize;
+    @include gradient_linear($citation-linear-color);
+  }
+
+  .#{$prefix}-animate {
+    @include animation(m-citationTypeOne 2s linear infinite);
+  }
+
+  @for $var from 1 to 5 {
+    div:nth-child(#{$var}) {
+      width: $citation-one-width;
+      height: $citation-height;
+      @if ($var == 1) {
+        width: $citation-one-width/2;
+      }
+
+      @if ($var == 2) {
+        margin-top: $citation-oneDiv-mt;
+      }
+    }
+  }
+}
+
+@keyframes m-citationTypeOne {
+  from {
+    background-position: 100% 50%;
+  }
+  to {
+    background-position: 0 50%;
+  }
+}

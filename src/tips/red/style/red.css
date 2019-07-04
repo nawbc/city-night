@@ -1,0 +1,34 @@
+.m-red-container {
+  position: relative;
+  display: inline-block; }
+
+.m-red-container .m-red-red {
+  background: #f71c1c; }
+
+.m-red-container .m-red-normal {
+  min-width: 16px;
+  height: 16px; }
+
+.m-red-container .m-red-default {
+  z-index: 5;
+  color: #fafafa;
+  position: absolute;
+  line-height: 16px;
+  text-align: center;
+  padding: 2px;
+  white-space: nowrap;
+  -webkit-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  transition: all 500ms ease; }
+
+.m-red-container .m-red-mini {
+  width: 4px;
+  height: 4px; }
+
+.m-red-container .m-red-shape-circle {
+  border-radius: 14px; }
+
+.m-red-container .m-red-shape-fillet {
+  border-radius: 5px; }

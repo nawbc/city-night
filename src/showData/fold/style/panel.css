@@ -1,0 +1,67 @@
+.m-panel-default {
+  box-sizing: border-box;
+  cursor: default; }
+
+.m-panel-default .m-panel-headline {
+  display: flex;
+  box-sizing: border-box;
+  word-break: break-all;
+  align-items: center;
+  background-color: #f3f3f3; }
+
+.m-panel-default .m-panel-headline .m-panel-arrow-default {
+  -webkit-transition: transform 400ms ease;
+  -ms-transition: transform 400ms ease;
+  -o-transition: transform 400ms ease;
+  -moz-transition: transform 400ms ease;
+  transition: transform 400ms ease; }
+
+.m-panel-default .m-panel-headline .m-panel-arrow-right {
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg); }
+
+.m-panel-default .m-panel-headline .m-panel-arrow-down {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  transform: rotate(90deg); }
+
+.m-panel-default .m-panel-headline .m-panel-headline-block {
+  display: inline-block;
+  width: 100%;
+  height: 100%; }
+
+.m-panel-default .m-panel-last {
+  border-bottom: 1px solid #cfcfcf; }
+
+.m-panel-default .m-panel-normal {
+  border-left: 1px solid #cfcfcf;
+  border-right: 1px solid #cfcfcf;
+  border-top: 1px solid #cfcfcf;
+  padding: 11px 13px; }
+
+.m-panel-default .m-panel-custom {
+  border-left: 1px solid #cfcfcf;
+  border-right: 1px solid #cfcfcf;
+  border-top: 1px solid #cfcfcf;
+  padding: 11px 13px; }
+
+.m-panel-default .m-panel-content {
+  box-sizing: border-box;
+  line-height: 1.5;
+  overflow: hidden;
+  padding: 5px 15px; }
+
+.m-panel-default .m-panel-fillet {
+  border-radius: 10px; }
+
+.m-panel-default .m-panel-content-last {
+  border-bottom: 1px solid #cfcfcf;
+  border-top: none; }
+
+.m-panel-size-cover {
+  width: 100%; }

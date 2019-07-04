@@ -1,0 +1,18 @@
+@import "../../../stylesheet/mixin.scss";
+
+$prefix: m-scrollBox;
+
+.#{$prefix}-container {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  word-break: break-all;
+  @include box(100%, 100%);
+  .#{$prefix}-wrapper {
+    word-wrap: break-word;
+    @include box(100%, 100%);
+  }
+  .#{$prefix}-scroll {
+    overflow: auto;
+  }
+}

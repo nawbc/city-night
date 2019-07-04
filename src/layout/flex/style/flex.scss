@@ -1,0 +1,28 @@
+@import '../../../stylesheet/mixin.scss';
+.m-flex-layout-default{
+    @include flex_default;
+}
+
+.m-flex-layout-avg{
+    @include flex_average;
+}
+
+.m-flex-layout-vert{
+    @include flex_vertical;
+}
+
+@each $name in vert, arg {
+    .m-flex-layout-#{$name}-inherit{
+        @if($name==vert){
+            @include flex_vertical;
+        }
+        @if($name==vert){
+            @include flex_average;
+        }
+        *{
+            @include flex_vertical;
+        }
+    }
+}
+
+

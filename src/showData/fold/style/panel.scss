@@ -1,0 +1,79 @@
+@import "./opinion.scss";
+@import "../../../stylesheet/mixin.scss";
+
+$prefix: m-panel;
+
+@mixin normalStyle {
+  border: {
+    left: 1px solid #cfcfcf;
+    right: 1px solid #cfcfcf;
+    top: 1px solid #cfcfcf;
+  }
+}
+
+.#{$prefix}-default {
+  box-sizing: border-box;
+  cursor: default;
+
+  .#{$prefix}-headline {
+    display: flex;
+    box-sizing: border-box;
+    word-break: break-all;
+    align-items: center;
+    background-color: #f3f3f3;
+
+    .#{$prefix}-arrow-default {
+      @include transition(transform 400ms ease);
+    }
+
+    .#{$prefix}-arrow-right {
+      @include transform(rotate(0deg));
+    }
+
+    .#{$prefix}-arrow-down {
+      @include transform(rotate(90deg));
+    }
+
+    .#{$prefix}-headline-block {
+      display: inline-block;
+      @include box(100%, 100%);
+    }
+  }
+
+  .#{$prefix}-last {
+    border-bottom: 1px solid #cfcfcf;
+  }
+
+  .#{$prefix}-normal {
+    @include normalStyle;
+    padding: 11px 13px;
+  }
+
+  .#{$prefix}-simple {
+  }
+
+  .#{$prefix}-custom {
+    @include normalStyle;
+    padding: 11px 13px;
+  }
+
+  .#{$prefix}-content {
+    box-sizing: border-box;
+    line-height: 1.5;
+    overflow: hidden;
+    padding: 5px 15px;
+  }
+
+  .#{$prefix}-fillet {
+    border-radius: 10px;
+  }
+
+  .#{$prefix}-content-last {
+    border-bottom: 1px solid #cfcfcf;
+    border-top: none;
+  }
+}
+
+.#{$prefix}-size-cover {
+  width: 100%;
+}

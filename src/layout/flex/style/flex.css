@@ -1,0 +1,41 @@
+.m-flex-layout-default {
+  display: inline-flex;
+  flex-wrap: wrap; }
+
+.m-flex-layout-avg {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around; }
+
+.m-flex-layout-vert {
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center; }
+
+.m-flex-layout-vert-inherit {
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around; }
+
+.m-flex-layout-vert-inherit * {
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center; }
+
+.m-flex-layout-arg-inherit * {
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center; }

@@ -1,0 +1,46 @@
+@import "./options.scss";
+@import "../../../stylesheet/mixin.scss";
+
+$prefix: m-avatar;
+
+.#{$prefix}-default {
+  background: #d4d4d4;
+  color: #fff;
+  display: inline-block;
+  margin: {
+    top: 16px;
+    right: 16px;
+  }
+  @include flex_average;
+}
+
+.#{$prefix}-shape-circle {
+  border-radius: 100%;
+}
+
+.#{$prefix}-shape-fillet {
+  border-radius: 10px;
+}
+
+.#{$prefix}-size-normal {
+  font-size: 18px;
+  @include box(40px, 40px);
+  line-height: 42px;
+}
+
+.#{$prefix}-size-large {
+  font-size: 30px;
+  @include box(64px, 64px);
+  line-height: 66px;
+}
+
+.#{$prefix}-size-small {
+  font-size: 16px;
+  @include box(35px, 35px);
+  line-height: 37px;
+}
+
+.#{$prefix}-size-tiny {
+  @include box(25px, 25px);
+  line-height: 27px;
+}

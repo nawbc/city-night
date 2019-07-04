@@ -1,0 +1,85 @@
+@import "./opinion.scss";
+@import "../../../stylesheet/mixin.scss";
+
+$prefix: m-modal;
+
+.#{$prefix}-container-display {
+  display: none;
+}
+
+.#{$prefix}-container {
+  @include transition(all 200ms);
+  position: absolute;
+  @include fullBox;
+  @include flex_average;
+  z-index: 10;
+  display: flex;
+
+  justify-content: space-around;
+  .#{$prefix}-cover-default {
+    position: absolute;
+    @include fullBox;
+  }
+
+  .#{$prefix}-cover {
+    background-color: #00000021;
+  }
+
+  .#{$prefix}-wrapper-middle {
+    position: fixed;
+  }
+
+  .#{$prefix}-wrapper-top {
+    position: fixed;
+    top: 50px;
+  }
+
+  .#{$prefix}-wrapper {
+    box-sizing: border-box;
+    border: 1px solid #c5c5c5;
+    margin-bottom: 10px;
+    @include transform(translateY(0px));
+    transition-property: transform, opacity;
+    transition-duration: 200ms;
+    transition-timing-function: linear;
+    @include animation(aa 200ms linear);
+    width: 350px;
+    * {
+      box-sizing: border-box;
+    }
+
+    .#{$prefix}-title {
+      font-size: 18px;
+      padding: 5px 17px;
+      font-weight: 500;
+      word-wrap: break-word;
+      color: #000000d9;
+    }
+    .#{$prefix}-content {
+      padding: 15px 17px;
+      font-size: 14px;
+      word-wrap: break-word;
+      color: #3b3b3bc4;
+    }
+
+    .#{$prefix}-buttons {
+      width: 100%;
+      bottom: 0;
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px 17px;
+    }
+  }
+  .#{$prefix}-wrapper-cancel {
+    @include animation(bb 200ms linear);
+  }
+}
+
+@keyframes aa {
+  from {
+    @include transform(translateY(-15px));
+  }
+  to {
+    @include transform(translateY(0px));
+  }
+}

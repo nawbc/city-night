@@ -1,0 +1,47 @@
+.m-citationTypeOne {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 25px;
+  position: relative; }
+
+.m-citationTypeOne div {
+  position: relative;
+  background-position: 0 100%;
+  margin-top: 15px;
+  background-size: 400% 100%;
+  background-image: -webkit-linear-gradient(90deg, #f2f2f2 25%, #e6e6e6 37%, #f2f2f2 63%);
+  background-image: -moz-linear-gradient(90deg, #f2f2f2 25%, #e6e6e6 37%, #f2f2f2 63%);
+  background-image: -ms-linear-gradient(90deg, #f2f2f2 25%, #e6e6e6 37%, #f2f2f2 63%);
+  background-image: -o-linear-gradient(90deg, #f2f2f2 25%, #e6e6e6 37%, #f2f2f2 63%);
+  background-image: linear-gradient(90deg, #f2f2f2 25%, #e6e6e6 37%, #f2f2f2 63%); }
+
+.m-citationTypeOne .m-citationTypeOne-animate {
+  -webkit-animation: m-citationTypeOne 2s linear infinite;
+  -ms-animation: m-citationTypeOne 2s linear infinite;
+  -o-animation: m-citationTypeOne 2s linear infinite;
+  -moz-animation: m-citationTypeOne 2s linear infinite;
+  animation: m-citationTypeOne 2s linear infinite; }
+
+.m-citationTypeOne div:nth-child(1) {
+  width: 100%;
+  height: 20px;
+  width: 50%; }
+
+.m-citationTypeOne div:nth-child(2) {
+  width: 100%;
+  height: 20px;
+  margin-top: 25px; }
+
+.m-citationTypeOne div:nth-child(3) {
+  width: 100%;
+  height: 20px; }
+
+.m-citationTypeOne div:nth-child(4) {
+  width: 100%;
+  height: 20px; }
+
+@keyframes m-citationTypeOne {
+  from {
+    background-position: 100% 50%; }
+  to {
+    background-position: 0 50%; } }

@@ -1,0 +1,123 @@
+@import "./opinion.scss";
+@import "../../../stylesheet/mixin.scss";
+@import "../../../stylesheet/default.scss";
+@import "../../../stylesheet/animations.scss";
+
+$prefix: m-button;
+
+.#{$prefix}-default {
+  border: none;
+  outline: none;
+  user-select: none;
+  font-weight: 400;
+  box-sizing: border-box;
+  z-index: $button-level;
+  .#{$prefix}-temp-div {
+    @include flex_average;
+    position: relative;
+    i {
+      margin-right: 7px;
+    }
+  }
+}
+
+.#{$prefix}-font-color-white {
+  color: $font-default-color-white;
+}
+
+.#{$prefix}-font-color-black {
+  color: $font-default-color-black;
+}
+
+.#{$prefix}-large {
+  height: 40px;
+  padding: 0 13px;
+  * {
+    font-size: $button-large-font-size;
+  }
+}
+
+.#{$prefix}-normal {
+  height: 32px;
+  padding: 0 12px;
+  line-height: 32px;
+  div {
+    font-size: $button-normal-font-size;
+  }
+}
+
+.#{$prefix}-small {
+  padding: 0 8px;
+  height: 24px;
+  * {
+    font-size: $button-small-font-size;
+  }
+}
+
+.#{$prefix}-tiny {
+  height: 18px;
+  padding: 0 6px;
+  * {
+    font-size: $button-small-font-size;
+  }
+}
+
+.#{$prefix}-shape-fillet {
+  @include shape_fillet;
+}
+
+.#{$prefix}-shape-circle {
+  @include shape_circle;
+}
+
+.#{$prefix}-click-focus {
+  &:focus {
+    outline: $button-outline;
+  }
+}
+
+.#{$prefix}-click-static {
+  &:active {
+    outline: $button-outline;
+  }
+}
+
+.#{$prefix}-hover-static {
+  &:hover {
+    outline: $button-outline;
+  }
+}
+
+@each $type in hover, click {
+  @each $var in down, up, left, right, scale {
+    @if ($type == hover) {
+      .#{$prefix}-#{$type}-#{$var} {
+        @if ($var == down) {
+          @include effect_hover_down;
+        } @else if($var == up) {
+          @include effect_hover_up;
+        } @else if($var == left) {
+          @include effect_hover_left;
+        } @else if($var == right) {
+          @include effect_hover_right;
+        } @else if($var == scale) {
+          @include effect_hover_scale;
+        }
+      }
+    } @else if($type == click) {
+      .#{$prefix}-#{$type}-#{$var} {
+        @if ($var == down) {
+          @include effect_active_down;
+        } @else if($var == up) {
+          @include effect_active_up;
+        } @else if($var == left) {
+          @include effect_active_left;
+        } @else if($var == right) {
+          @include effect_active_right;
+        } @else if($var == scale) {
+          @include effect_active_scale;
+        }
+      }
+    }
+  }
+}

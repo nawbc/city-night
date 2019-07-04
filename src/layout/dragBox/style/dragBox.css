@@ -1,0 +1,99 @@
+.m-dragBox-default {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  box-sizing: border-box; }
+
+.m-dragBox-ghost {
+  position: fixed;
+  z-index: 15; }
+
+.m-dragBox-upload {
+  z-index: 0; }
+
+.m-dragBox-split {
+  z-index: 0; }
+
+.m-dragBox-padding {
+  padding: 8px; }
+
+.m-dragBox-fstBox {
+  position: absolute;
+  box-sizing: border-box;
+  word-wrap: break-word; }
+
+.m-dragBox-fstBox > div {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+.m-dragBox-fstBox-vertical {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 50%; }
+
+.m-dragBox-fstBox-horizontal {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 50%; }
+
+.m-dragBox-secBox {
+  word-wrap: break-word;
+  position: absolute;
+  box-sizing: border-box; }
+
+.m-dragBox-secBox > div:nth-child(2) {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+.m-dragBox-secBox-vertical {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 50%; }
+
+.m-dragBox-secBox-horizontal {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50%; }
+
+.m-dragBox-dragLine {
+  position: absolute;
+  box-sizing: border-box;
+  z-index: 16; }
+
+.m-dragBox-dragLine-vertical {
+  width: 8px;
+  left: -4px;
+  top: 0;
+  bottom: 0;
+  cursor: w-resize; }
+
+.m-dragBox-dragLine-horizontal {
+  height: 8px;
+  left: 0;
+  right: 0;
+  top: -4px;
+  cursor: n-resize; }
+
+.m-dragBox-uploadChild {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-around;
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  color: #cfcfcf;
+  border: 2px dotted #cfcfcf;
+  padding: 10px;
+  user-select: none; }
+
+.m-dragBox-uploadChild span {
+  font-size: 16px; }

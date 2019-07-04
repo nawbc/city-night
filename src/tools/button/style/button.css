@@ -1,0 +1,247 @@
+.m-button-default {
+  border: none;
+  outline: none;
+  user-select: none;
+  font-weight: 400;
+  box-sizing: border-box;
+  z-index: 0; }
+
+.m-button-default .m-button-temp-div {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  position: relative; }
+
+.m-button-default .m-button-temp-div i {
+  margin-right: 7px; }
+
+.m-button-font-color-white {
+  color: #fafafa; }
+
+.m-button-font-color-black {
+  color: #242422; }
+
+.m-button-large {
+  height: 40px;
+  padding: 0 13px; }
+
+.m-button-large * {
+  font-size: 20px; }
+
+.m-button-normal {
+  height: 32px;
+  padding: 0 12px;
+  line-height: 32px; }
+
+.m-button-normal div {
+  font-size: 16px; }
+
+.m-button-small {
+  padding: 0 8px;
+  height: 24px; }
+
+.m-button-small * {
+  font-size: 13px; }
+
+.m-button-tiny {
+  height: 18px;
+  padding: 0 6px; }
+
+.m-button-tiny * {
+  font-size: 13px; }
+
+.m-button-shape-fillet {
+  border-radius: 5px; }
+
+.m-button-shape-circle {
+  border-radius: 10000px; }
+
+.m-button-click-focus:focus {
+  outline: #303030e8 dotted 2px; }
+
+.m-button-click-static:active {
+  outline: #303030e8 dotted 2px; }
+
+.m-button-hover-static:hover {
+  outline: #303030e8 dotted 2px; }
+
+.m-button-hover-down:hover {
+  -webkit-transition: transform 200ms ease-out;
+  -ms-transition: transform 200ms ease-out;
+  -o-transition: transform 200ms ease-out;
+  -moz-transition: transform 200ms ease-out;
+  transition: transform 200ms ease-out;
+  -webkit-transform: translate(0, 4px);
+  -ms-transform: translate(0, 4px);
+  -o-transform: translate(0, 4px);
+  -moz-transform: translate(0, 4px);
+  transform: translate(0, 4px); }
+
+.m-button-hover-up:hover {
+  -webkit-transition: transform 200ms ease-out;
+  -ms-transition: transform 200ms ease-out;
+  -o-transition: transform 200ms ease-out;
+  -moz-transition: transform 200ms ease-out;
+  transition: transform 200ms ease-out;
+  -webkit-transform: translate(0, -4px);
+  -ms-transform: translate(0, -4px);
+  -o-transform: translate(0, -4px);
+  -moz-transform: translate(0, -4px);
+  transform: translate(0, -4px); }
+
+.m-button-hover-left:hover {
+  -webkit-transition: transform 200ms ease-out;
+  -ms-transition: transform 200ms ease-out;
+  -o-transition: transform 200ms ease-out;
+  -moz-transition: transform 200ms ease-out;
+  transition: transform 200ms ease-out;
+  -webkit-transform: translate(-4px, 0);
+  -ms-transform: translate(-4px, 0);
+  -o-transform: translate(-4px, 0);
+  -moz-transform: translate(-4px, 0);
+  transform: translate(-4px, 0); }
+
+.m-button-hover-right:hover {
+  -webkit-transition: transform 200ms ease-out;
+  -ms-transition: transform 200ms ease-out;
+  -o-transition: transform 200ms ease-out;
+  -moz-transition: transform 200ms ease-out;
+  transition: transform 200ms ease-out;
+  -webkit-transform: translate(4px, 0);
+  -ms-transform: translate(4px, 0);
+  -o-transform: translate(4px, 0);
+  -moz-transform: translate(4px, 0);
+  transform: translate(4px, 0); }
+
+.m-button-hover-scale:hover {
+  -webkit-transition: transform 200ms ease-out;
+  -ms-transition: transform 200ms ease-out;
+  -o-transition: transform 200ms ease-out;
+  -moz-transition: transform 200ms ease-out;
+  transition: transform 200ms ease-out;
+  -webkit-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  -o-transform: scale(0.7);
+  -moz-transform: scale(0.7);
+  transform: scale(0.7); }
+
+.m-button-click-down:hover {
+  -webkit-transition: transform 200ms ease-out;
+  -ms-transition: transform 200ms ease-out;
+  -o-transition: transform 200ms ease-out;
+  -moz-transition: transform 200ms ease-out;
+  transition: transform 200ms ease-out;
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  transform: translate(0, 0); }
+
+.m-button-click-down:active {
+  -webkit-transition: transform 200ms ease-out;
+  -ms-transition: transform 200ms ease-out;
+  -o-transition: transform 200ms ease-out;
+  -moz-transition: transform 200ms ease-out;
+  transition: transform 200ms ease-out;
+  -webkit-transform: translate(0, 4px);
+  -ms-transform: translate(0, 4px);
+  -o-transform: translate(0, 4px);
+  -moz-transform: translate(0, 4px);
+  transform: translate(0, 4px); }
+
+.m-button-click-up:hover {
+  -webkit-transition: transform 200ms ease-out;
+  -ms-transition: transform 200ms ease-out;
+  -o-transition: transform 200ms ease-out;
+  -moz-transition: transform 200ms ease-out;
+  transition: transform 200ms ease-out;
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  transform: translate(0, 0); }
+
+.m-button-click-up:active {
+  -webkit-transition: transform 200ms ease-out;
+  -ms-transition: transform 200ms ease-out;
+  -o-transition: transform 200ms ease-out;
+  -moz-transition: transform 200ms ease-out;
+  transition: transform 200ms ease-out;
+  -webkit-transform: translate(0, -4px);
+  -ms-transform: translate(0, -4px);
+  -o-transform: translate(0, -4px);
+  -moz-transform: translate(0, -4px);
+  transform: translate(0, -4px); }
+
+.m-button-click-left:hover {
+  -webkit-transition: transform 200ms ease-out;
+  -ms-transition: transform 200ms ease-out;
+  -o-transition: transform 200ms ease-out;
+  -moz-transition: transform 200ms ease-out;
+  transition: transform 200ms ease-out;
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  transform: translate(0, 0); }
+
+.m-button-click-left:active {
+  -webkit-transition: transform 200ms ease-out;
+  -ms-transition: transform 200ms ease-out;
+  -o-transition: transform 200ms ease-out;
+  -moz-transition: transform 200ms ease-out;
+  transition: transform 200ms ease-out;
+  -webkit-transform: translate(-4px, 0);
+  -ms-transform: translate(-4px, 0);
+  -o-transform: translate(-4px, 0);
+  -moz-transform: translate(-4px, 0);
+  transform: translate(-4px, 0); }
+
+.m-button-click-right:hover {
+  -webkit-transition: transform 200ms ease-out;
+  -ms-transition: transform 200ms ease-out;
+  -o-transition: transform 200ms ease-out;
+  -moz-transition: transform 200ms ease-out;
+  transition: transform 200ms ease-out;
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  transform: translate(0, 0); }
+
+.m-button-click-right:active {
+  -webkit-transition: transform 200ms ease-out;
+  -ms-transition: transform 200ms ease-out;
+  -o-transition: transform 200ms ease-out;
+  -moz-transition: transform 200ms ease-out;
+  transition: transform 200ms ease-out;
+  -webkit-transform: translate(4px, 0);
+  -ms-transform: translate(4px, 0);
+  -o-transform: translate(4px, 0);
+  -moz-transform: translate(4px, 0);
+  transform: translate(4px, 0); }
+
+.m-button-click-scale:hover {
+  -webkit-transition: transform 200ms ease-out;
+  -ms-transition: transform 200ms ease-out;
+  -o-transition: transform 200ms ease-out;
+  -moz-transition: transform 200ms ease-out;
+  transition: transform 200ms ease-out;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  -moz-transform: scale(1);
+  transform: scale(1); }
+
+.m-button-click-scale:active {
+  -webkit-transition: transform 200ms ease-out;
+  -ms-transition: transform 200ms ease-out;
+  -o-transition: transform 200ms ease-out;
+  -moz-transition: transform 200ms ease-out;
+  transition: transform 200ms ease-out;
+  -webkit-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  -o-transform: scale(0.7);
+  -moz-transform: scale(0.7);
+  transform: scale(0.7); }

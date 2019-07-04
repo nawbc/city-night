@@ -1,0 +1,55 @@
+@import "../../../stylesheet/mixin.scss";
+@import "../../../stylesheet/animations.scss";
+
+$prefix: m-loading-hoop;
+
+.#{$prefix}-container {
+  border-radius: 100%;
+  box-sizing: border-box;
+  position: relative;
+  margin-right: 6px;
+  @include animation(m-loading-hoop 1.1s infinite linear);
+}
+
+.#{$prefix}-information {
+  @include borderHoop(#00c3ff, #81dbf7, 3px);
+}
+.#{$prefix}-success {
+  @include borderHoop(#00ff0d, #96f5c9, 3px);
+}
+.#{$prefix}-notice {
+  @include borderHoop(#ffe600, #fcfbbf, 3px);
+}
+.#{$prefix}-danger {
+  @include borderHoop(#ff2222, #fcc6bf, 3px);
+}
+.#{$prefix}-normal {
+  @include borderHoop(#b6b6b6, #f7f3f3e1, 3px);
+}
+
+.#{$prefix}-container-normal {
+  @include box(25px, 25px);
+}
+
+.#{$prefix}-container-small {
+  @include box(20px, 20px);
+}
+
+.#{$prefix}-container-large {
+  @include box(35px, 35px);
+}
+
+.#{$prefix}-container-title {
+  @include box(100px, 100px);
+}
+
+@keyframes m-loading-hoop {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

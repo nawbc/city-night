@@ -1,0 +1,89 @@
+@import "../../../stylesheet/mixin.scss";
+@import "./opinion.scss";
+@import "../../../stylesheet/animations.scss";
+
+$prefix: "m-icon";
+
+.#{$prefix}-default {
+  overflow: hidden;
+  display: inline-block;
+  z-index: $icon-level;
+  .#{$prefix}-child-svg {
+    @include box(100%, 100%);
+    background-size: cover;
+    * {
+      @extend .m-icon-child-svg;
+    }
+  }
+  .#{$prefix}-child-image {
+    @include box(100%, 100%);
+    background-size: cover;
+    * {
+      @extend .m-icon-child-svg;
+    }
+  }
+}
+
+.#{$prefix}-size-large {
+  @include box($m-icon-lg, $m-icon-lg);
+}
+.#{$prefix}-size-small {
+  @include box($m-icon-sm, $m-icon-sm);
+}
+.#{$prefix}-size-normal {
+  @include box($m-icon-nor, $m-icon-nor);
+}
+.#{$prefix}-size-tiny {
+  @include box($m-icon-tiny, $m-icon-tiny);
+}
+
+.#{$prefix}-shape-circle {
+  @include shape_circle;
+}
+.#{$prefix}-shape-fillet {
+  @include shape_fillet;
+}
+
+@each $type in hover, click {
+  @each $var in down, up, left, right, scale {
+    @if ($type == hover) {
+      .#{$prefix}-effect-#{$type}-#{$var} {
+        @if ($var == down) {
+          @include effect_hover_down;
+        } @else if($var == up) {
+          @include effect_hover_up;
+        } @else if($var == left) {
+          @include effect_hover_left;
+        } @else if($var == right) {
+          @include effect_hover_right;
+        } @else if($var == scale) {
+          @include effect_hover_scale;
+        }
+      }
+    } @else if($type == click) {
+      .#{$prefix}-effect-#{$type}-#{$var} {
+        @if ($var == down) {
+          @include effect_active_down;
+        } @else if($var == up) {
+          @include effect_active_up;
+        } @else if($var == left) {
+          @include effect_active_left;
+        } @else if($var == right) {
+          @include effect_active_right;
+        } @else if($var == scale) {
+          @include effect_active_scale;
+        }
+      }
+    }
+  }
+}
+
+@each $shape in circle, fillet {
+  .#{$prefix}-shape-#{$shape} {
+    @if ($shape == circle) {
+      border-radius: 200px;
+    } @else if($shape == fillet) {
+      border-radius: 15px;
+    }
+  }
+}

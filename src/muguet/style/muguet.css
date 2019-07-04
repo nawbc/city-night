@@ -1,0 +1,54 @@
+.m-gradients-DarkGrass {
+  background-image: -webkit-linear-gradient(120deg, #155799, #159957);
+  background-image: -moz-linear-gradient(120deg, #155799, #159957);
+  background-image: -ms-linear-gradient(120deg, #155799, #159957);
+  background-image: -o-linear-gradient(120deg, #155799, #159957);
+  background-image: linear-gradient(120deg, #155799, #159957); }
+
+.m-gradients-SkyBlue {
+  background-image: -webkit-linear-gradient(120deg, #4481eb, #04befe);
+  background-image: -moz-linear-gradient(120deg, #4481eb, #04befe);
+  background-image: -ms-linear-gradient(120deg, #4481eb, #04befe);
+  background-image: -o-linear-gradient(120deg, #4481eb, #04befe);
+  background-image: linear-gradient(120deg, #4481eb, #04befe); }
+
+.m-gradients-DarkTempt {
+  background-image: -webkit-linear-gradient(135deg, #764ba2 20%, #667eea);
+  background-image: -moz-linear-gradient(135deg, #764ba2 20%, #667eea);
+  background-image: -ms-linear-gradient(135deg, #764ba2 20%, #667eea);
+  background-image: -o-linear-gradient(135deg, #764ba2 20%, #667eea);
+  background-image: linear-gradient(135deg, #764ba2 20%, #667eea); }
+
+.m-gradients-HoopBlue {
+  background-image: -webkit-linear-gradient(135deg, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
+  background-image: -moz-linear-gradient(135deg, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
+  background-image: -ms-linear-gradient(135deg, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
+  background-image: -o-linear-gradient(135deg, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
+  background-image: linear-gradient(135deg, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%); }
+
+.m-gradients-JustMorning {
+  background-image: -webkit-linear-gradient(120deg, #f6d365 0%, #ffc746 100%);
+  background-image: -moz-linear-gradient(120deg, #f6d365 0%, #ffc746 100%);
+  background-image: -ms-linear-gradient(120deg, #f6d365 0%, #ffc746 100%);
+  background-image: -o-linear-gradient(120deg, #f6d365 0%, #ffc746 100%);
+  background-image: linear-gradient(120deg, #f6d365 0%, #ffc746 100%); }
+
+* {
+  font-family: Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "tnum"; }
+
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+*:disabled {
+  cursor: url(../../assets/icons/forbid.ico), auto; }
+
+div,
+p {
+  font-size: 14px; }
+
+.m-root {
+  overflow: hidden; }

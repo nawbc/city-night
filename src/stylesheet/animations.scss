@@ -1,0 +1,96 @@
+@import './mixin.scss';
+
+// transition
+@mixin direction($direct){
+    @include transition(transform 200ms ease-out);
+    @if($direct == down){
+        @include transform(translate(0, 4px));
+    }@else if($direct == up){
+        @include transform(translate(0, -4px));
+    }@else if($direct == left){
+        @include transform(translate(-4px, 0));
+    }@else if($direct == right) {
+        @include transform(translate(4px, 0));
+    }@else if($direct == scale){
+        @include transform(scale(0.7));
+    }@else if($direct == origin_translate){
+        @include transform(translate(0,0));
+    }@else if($direct == origin_scale){
+        @include transform(scale(1));
+    }
+}
+
+@mixin effect_active_down{
+    &:hover{
+        @include direction(origin_translate);
+    }
+    &:active{
+        @include direction(down);
+    }
+}
+
+@mixin effect_active_up{
+    &:hover{
+        @include direction(origin_translate);
+    }
+    &:active{
+        @include direction(up);
+    }
+}
+
+@mixin effect_active_left{
+    &:hover{
+        @include direction(origin_translate);
+    }
+    &:active{
+        @include direction(left);
+    }
+}
+
+@mixin effect_active_right{
+    &:hover{
+        @include direction(origin_translate);
+    }
+    &:active{
+        @include direction(right);
+    }
+}
+
+@mixin effect_active_scale{
+    &:hover{
+        @include direction(origin_scale);
+    }
+    &:active{
+        @include direction(scale);
+    }
+}
+
+@mixin effect_hover_down{
+    &:hover{
+        @include direction(down);
+    }
+}
+
+@mixin effect_hover_up{
+    &:hover{
+        @include direction(up);
+    }
+}
+
+@mixin effect_hover_left{
+    &:hover{
+        @include direction(left);
+    }
+}
+
+@mixin effect_hover_right{
+    &:hover{
+        @include direction(right);
+    }
+}
+
+@mixin effect_hover_scale{
+    &:hover{
+        @include direction(scale);
+    }
+}

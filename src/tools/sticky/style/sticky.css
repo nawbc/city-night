@@ -1,0 +1,4 @@
+.m-sticky-default {
+  border: 1px solid #000;
+  position: absolute;
+  z-index: 5; }

@@ -1,0 +1,268 @@
+.m-bubble-type-success {
+  border-color: #53cc02;
+  background-color: #53cc02; }
+
+.m-bubble-type-normal {
+  border-color: #505050;
+  background-color: #505050; }
+
+.m-bubble-type-information {
+  border-color: #04befe;
+  background-color: #04befe; }
+
+.m-bubble-type-notice {
+  border-color: #ffc125;
+  background-color: #ffc125; }
+
+.m-bubble-type-danger {
+  border-color: #ee2c2c;
+  background-color: #ee2c2c; }
+
+.m-bubble-container {
+  display: inline-block;
+  position: relative; }
+
+.m-bubble-container .m-bubble-wrapper {
+  white-space: nowrap;
+  z-index: 5;
+  position: absolute;
+  visibility: hidden;
+  will-change: transform;
+  -webkit-transition: transform 200ms ease;
+  -ms-transition: transform 200ms ease;
+  -o-transition: transform 200ms ease;
+  -moz-transition: transform 200ms ease;
+  transition: transform 200ms ease;
+  -webkit-animation: m-bubble-opacity 200ms;
+  -ms-animation: m-bubble-opacity 200ms;
+  -o-animation: m-bubble-opacity 200ms;
+  -moz-animation: m-bubble-opacity 200ms;
+  animation: m-bubble-opacity 200ms; }
+
+.m-bubble-container .m-bubble-wrapper .m-bubble-content {
+  cursor: default;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 8px 15px; }
+
+.m-bubble-container .m-bubble-wrapper .m-bubble-content .m-icon-default {
+  margin-right: 10px; }
+
+.m-bubble-container .m-bubble-wrapper .m-bubble-fontColor-white {
+  color: #fafafa; }
+
+.m-bubble-container .m-bubble-wrapper .m-bubble-fontColor-black {
+  color: #242422; }
+
+.m-bubble-container .m-bubble-wrapper .m-bubble-triangle-default {
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+  position: relative;
+  border-width: 10px;
+  border-style: solid;
+  background-color: transparent; }
+
+.m-bubble-container .m-bubble-place-top .m-bubble-triangle-left {
+  top: -1px; }
+
+.m-bubble-container .m-bubble-place-top .m-bubble-content-top {
+  border-radius: 5px; }
+
+.m-bubble-container .m-bubble-place-top .m-bubble-triangle-left {
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  position: relative;
+  left: 8px; }
+
+.m-bubble-container .m-bubble-place-top .m-bubble-triangle-right {
+  top: -1px; }
+
+.m-bubble-container .m-bubble-place-top .m-bubble-content-top {
+  border-radius: 5px; }
+
+.m-bubble-container .m-bubble-place-top .m-bubble-triangle-right {
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  position: relative;
+  float: right;
+  right: 8px; }
+
+.m-bubble-container .m-bubble-place-top .m-bubble-triangle-right:after:after {
+  content: "";
+  clear: both;
+  display: block; }
+
+.m-bubble-container .m-bubble-place-top .m-bubble-triangle-middle {
+  top: -1px; }
+
+.m-bubble-container .m-bubble-place-top .m-bubble-content-top {
+  border-radius: 5px; }
+
+.m-bubble-container .m-bubble-place-top .m-bubble-triangle-middle {
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  position: relative;
+  margin: 0 auto; }
+
+.m-bubble-container .m-bubble-place-right {
+  display: inline-flex; }
+
+.m-bubble-container .m-bubble-place-right .m-bubble-triangle-left {
+  right: -1px; }
+
+.m-bubble-container .m-bubble-place-right .m-bubble-content-right {
+  border-radius: 0px 5px 5px 5px; }
+
+.m-bubble-container .m-bubble-place-right .m-bubble-triangle-left {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  position: relative;
+  left: 8px; }
+
+.m-bubble-container .m-bubble-place-right .m-bubble-triangle-right {
+  right: -1px; }
+
+.m-bubble-container .m-bubble-place-right .m-bubble-content-right {
+  border-radius: 0px 5px 5px 5px; }
+
+.m-bubble-container .m-bubble-place-right .m-bubble-triangle-right {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  position: relative;
+  float: right;
+  right: 8px; }
+
+.m-bubble-container .m-bubble-place-right .m-bubble-triangle-right:after:after {
+  content: "";
+  clear: both;
+  display: block; }
+
+.m-bubble-container .m-bubble-place-right .m-bubble-triangle-middle {
+  right: -1px; }
+
+.m-bubble-container .m-bubble-place-right .m-bubble-content-right {
+  border-radius: 0px 5px 5px 5px; }
+
+.m-bubble-container .m-bubble-place-right .m-bubble-triangle-middle {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  position: relative;
+  margin: 0 auto; }
+
+.m-bubble-container .m-bubble-place-left {
+  display: inline-flex; }
+
+.m-bubble-container .m-bubble-place-left .m-bubble-triangle-left {
+  left: -1px; }
+
+.m-bubble-container .m-bubble-place-left .m-bubble-content-left {
+  border-radius: 5px 0 5px 5px; }
+
+.m-bubble-container .m-bubble-place-left .m-bubble-triangle-left {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  position: relative;
+  left: 8px; }
+
+.m-bubble-container .m-bubble-place-left .m-bubble-triangle-right {
+  left: -1px; }
+
+.m-bubble-container .m-bubble-place-left .m-bubble-content-left {
+  border-radius: 5px 0 5px 5px; }
+
+.m-bubble-container .m-bubble-place-left .m-bubble-triangle-right {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  position: relative;
+  float: right;
+  right: 8px; }
+
+.m-bubble-container .m-bubble-place-left .m-bubble-triangle-right:after:after {
+  content: "";
+  clear: both;
+  display: block; }
+
+.m-bubble-container .m-bubble-place-left .m-bubble-triangle-middle {
+  left: -1px; }
+
+.m-bubble-container .m-bubble-place-left .m-bubble-content-left {
+  border-radius: 5px 0 5px 5px; }
+
+.m-bubble-container .m-bubble-place-left .m-bubble-triangle-middle {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  position: relative;
+  margin: 0 auto; }
+
+.m-bubble-container .m-bubble-place-bottom .m-bubble-content-bottom {
+  border-radius: 5px; }
+
+.m-bubble-container .m-bubble-place-bottom .m-bubble-triangle-left {
+  bottom: -1px; }
+
+.m-bubble-container .m-bubble-place-bottom .m-bubble-triangle-left {
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  position: relative;
+  left: 8px; }
+
+.m-bubble-container .m-bubble-place-bottom .m-bubble-content-bottom {
+  border-radius: 5px; }
+
+.m-bubble-container .m-bubble-place-bottom .m-bubble-triangle-right {
+  bottom: -1px; }
+
+.m-bubble-container .m-bubble-place-bottom .m-bubble-triangle-right {
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  position: relative;
+  float: right;
+  right: 8px; }
+
+.m-bubble-container .m-bubble-place-bottom .m-bubble-triangle-right:after:after {
+  content: "";
+  clear: both;
+  display: block; }
+
+.m-bubble-container .m-bubble-place-bottom .m-bubble-content-bottom {
+  border-radius: 5px; }
+
+.m-bubble-container .m-bubble-place-bottom .m-bubble-triangle-middle {
+  bottom: -1px; }
+
+.m-bubble-container .m-bubble-place-bottom .m-bubble-triangle-middle {
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  position: relative;
+  margin: 0 auto; }
+
+@keyframes m-bubble-opacity {
+  from {
+    -webkit-opacity: 0.5;
+    -ms-opacity: 0.5;
+    -o-opacity: 0.5;
+    -moz-opacity: 0.5;
+    opacity: 0.5; }
+  to {
+    -webkit-opacity: 1;
+    -ms-opacity: 1;
+    -o-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1; } }

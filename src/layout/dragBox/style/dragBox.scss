@@ -1,0 +1,117 @@
+@import "../../../stylesheet/mixin.scss";
+@import "./opinion.scss";
+
+$name: "m-dragBox";
+
+.#{$name}-default {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.#{$name}-ghost {
+  position: fixed;
+  z-index: $dragBox-ghost;
+}
+
+.#{$name}-upload {
+  z-index: $dragBox-upload;
+}
+
+.#{$name}-split {
+  z-index: $dragBox-split;
+}
+
+.#{$name}-padding {
+  padding: $dragBox-split-padding;
+}
+
+.#{$name}-fstBox {
+  position: absolute;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  & > div {
+    @include box(100%, 100%);
+    overflow: hidden;
+  }
+}
+
+.#{$name}-fstBox-vertical {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 50%;
+}
+
+.#{$name}-fstBox-horizontal {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 50%;
+}
+
+.#{$name}-secBox {
+  word-wrap: break-word;
+  position: absolute;
+  box-sizing: border-box;
+  & > div:nth-child(2) {
+    @include box(100%, 100%);
+    overflow: hidden;
+  }
+}
+
+.#{$name}-secBox-vertical {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+}
+
+.#{$name}-secBox-horizontal {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50%;
+}
+
+.#{$name}-dragLine {
+  position: absolute;
+  box-sizing: border-box;
+  z-index: $dragBox-dragLine-level;
+}
+
+.#{$name}-dragLine-vertical {
+  width: $dragBox-dragLine-width;
+  left: -4px;
+  top: 0;
+  bottom: 0;
+  cursor: w-resize;
+}
+
+.#{$name}-dragLine-horizontal {
+  height: 8px;
+  left: 0;
+  right: 0;
+  top: -4px;
+  cursor: n-resize;
+}
+
+.#{$name}-uploadChild {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-around;
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 0;
+  @include box(100%, 100%);
+  color: $dragBox-upload-color;
+  border: $dragBox-upload-border;
+  padding: 10px;
+
+  user-select: none;
+  span {
+    font-size: 16px;
+  }
+}

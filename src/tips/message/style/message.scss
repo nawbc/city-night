@@ -1,0 +1,40 @@
+@import "./opinion.scss";
+@import "../../../stylesheet/mixin.scss";
+@import "../../../stylesheet/color/gradientColor.scss";
+
+$prefix: m-message;
+
+#m-message-container {
+  position: fixed;
+  z-index: $message-level;
+  position: absolute;
+  @include flex_vertical;
+  pointer-events: none;
+}
+
+.#{$prefix}-default {
+  padding: $message-padding;
+  height: $message-height;
+  margin-bottom: $message-marginBottom;
+  will-change: transform;
+  box-shadow: $message-shadow;
+  @include opacity($message-opacity);
+  @include transform(translateY($message-trans));
+  @include transition(transform 400ms ease);
+  @include flex_vertical;
+  @include animation(messageAppear 500ms ease);
+
+  div {
+    font-size: $message-fontSize;
+    line-height: $message-height;
+  }
+}
+
+@keyframes messageAppear {
+  from {
+    @include transform(translateY(0px));
+  }
+  to {
+    @include transform(translateY($message-trans));
+  }
+}

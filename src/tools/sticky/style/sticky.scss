@@ -1,0 +1,9 @@
+@import "../../../stylesheet/mixin.scss";
+
+$prefix: m-sticky;
+
+.#{$prefix}-default {
+  border: 1px solid #000;
+  position: absolute;
+  z-index: 5;
+}

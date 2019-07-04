@@ -1,0 +1,39 @@
+//Z-index has a total of 20 levels
+
+// default font
+$fontFamily: Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+  "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif !default;
+$fontSize: 14px;
+
+// default padding
+$marginTiny: 6px;
+
+// Media queries breakpoints
+// Extra small screen / phone
+$screen-phone: 480px;
+
+// Small screen / tablet
+$screen-pad: 576px;
+
+// Medium screen / desktop
+$screen-desktop: 768px;
+
+// Large screen / wide desktop
+$screen-w-desktop: 992px;
+
+// Extra large screen / full hd
+$screen-f-desktop: 1200px;
+
+// Extra extra large screen / large desktop
+$screen-l-desktop: 1600px;
+
+// default Icon assets
+//forbid icon path
+// $forbidPath: "../../assets/icons/forbid.ico" !default;
+
+// // font
+$font-default-color-white: #fafafa !default;
+$font-default-color-black: #242422 !default;
+$font-size-small: 13px !default;
+$font-size-normal: 16px !default;
+$font-size-large: 20px !default;

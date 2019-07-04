@@ -1,0 +1,49 @@
+@import "./opinion.scss";
+@import "../../../stylesheet/mixin.scss";
+
+$prefix: "m-input";
+// common setting
+.#{$prefix}-default {
+  outline: none;
+  box-sizing: border-box;
+  border: $input-border;
+  margin-right: 5px;
+  &:focus {
+    border: $input-border-focus;
+  }
+}
+
+.#{$prefix}-resize {
+  resize: none;
+}
+
+.#{$prefix}-readonly {
+  background-color: $input-readonly-color;
+  color: $input-readonly-font-color;
+  cursor: url($input-readonly-forbidIcon), auto;
+}
+
+//input text
+.#{$prefix}-text-default {
+  outline: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  border: 1px dashed #cfcfcf;
+  background: #f0f0f0;
+  padding-left: 5px;
+}
+
+.#{$prefix}-textSize-small {
+  padding: $input-size-small;
+  font-size: $input-font-size-small;
+}
+
+.#{$prefix}-textSize-normal {
+  padding: $input-size-normal;
+  font-size: $input-font-size-normal;
+}
+
+.#{$prefix}-textSize-large {
+  padding: $input-size-large;
+  font-size: $input-font-size-large;
+}
