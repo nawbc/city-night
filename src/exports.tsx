@@ -39,3 +39,4 @@ export { default as GradientsBar } from './tools/gradientsBar/gradientsBar';
 
 //others
 export { default as Internation, Translate } from './others/internation/internation';
+

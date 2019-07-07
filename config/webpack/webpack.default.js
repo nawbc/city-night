@@ -5,6 +5,8 @@ const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const UglifyWebpackPlugin = require("uglifyjs-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const dev = require('devServer');
+
 
 module.exports = function settingWebpackConfig(config = {}) {
 	const devtoolConfig = Object.is(config.mode, "production") ? {} : { devtool: "source-map" };
