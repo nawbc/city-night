@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ArticleIndex from './articleIndex';
 import ArticleContent from './articleContent';
 import Header from './header';
-import { Row, Col, GradientsBar, Icon, Muguet } from '../../components/exports';
+import { Row, Col, GradientsBar, Icon, Muguet } from '../../src/exports';
 import { ZH_CN, EN_US } from '../doc/i18n/index';
 import './style/doc.scss';
 
@@ -13,7 +13,7 @@ export default class Doc extends Component<any>{
 	state = {
 		isMobile: false,
 		indexDisplay: false,
-		language: false
+		language: false,
 	}
 
 	componentDidMount() {
@@ -24,18 +24,18 @@ export default class Doc extends Component<any>{
 	}
 
 	render() {
-		let pc = (
+		const pc = (
 			<Row>
 				<Col xs={2}>
-					<ArticleIndex></ArticleIndex>
+					<ArticleIndex />
 				</Col>
 				<Col xs>
-					<ArticleContent></ArticleContent>
+					<ArticleContent />
 				</Col>
 			</Row>
 		)
 
-		let mobile = (
+		const mobile = (
 			<React.Fragment>
 				<GradientsBar
 					size={[35, 35]}
@@ -55,7 +55,7 @@ export default class Doc extends Component<any>{
 						id='icon-hidden'
 						size={['100%', '100%']}
 						src={this.state.indexDisplay ? require('../../assets/back.svg') : require('../../assets/menu.svg')}
-					></Icon>
+					/>
 				</GradientsBar>
 				<ArticleIndex
 					mobile={this.state.isMobile}
@@ -63,8 +63,8 @@ export default class Doc extends Component<any>{
 					onShow={() => {
 						this.setState({ indexDisplay: !this.state.indexDisplay })
 					}}
-				></ArticleIndex>
-				<ArticleContent></ArticleContent>
+				/>
+				<ArticleContent />
 			</React.Fragment>
 		)
 
@@ -74,16 +74,16 @@ export default class Doc extends Component<any>{
 				locale={this.state.language ? 'en' : 'zh'}
 				i18n={this.state.language ? EN_US : ZH_CN}
 				style={{
-					overflowY: 'hidden'
+					overflowY: 'hidden',
 				}}
 			>
-				<ScreenContext.Provider value={{isMobile: this.state.isMobile}}>
+				<ScreenContext.Provider value={{ isMobile: this.state.isMobile }}>
 					<Header
 						onState={() => {
 							this.setState({
-								language: !this.state.language
+								language: !this.state.language,
 							})
-						}}></Header>
+						}} />
 					{this.state.isMobile ? mobile : pc}
 				</ScreenContext.Provider>
 			</Muguet>

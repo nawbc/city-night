@@ -15,10 +15,10 @@ export default function (props) {
 				<SVG
 					src={props.src}
 					className={`${prefix}-child-svg`}
-				></SVG> :
+				/> :
 				<div
 					className={`${prefix}-child-image`}
 					style={{ backgroundImage: `url(${props.src})` }}
-				></div>
+				/>
 	)
 }

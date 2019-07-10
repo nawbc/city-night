@@ -1,0 +1,32 @@
+{
+	"port": 1031,
+	"paths": {
+		"itemRootPath": ".",
+		"sitePath": "muguet-site",
+		"releaseEs": "release/es",
+		"releaseLib": "release/lib",
+		"tsConfig": "tsconfig.json",
+		"releaseDist": "release/dist",
+		"tsConfigPath": "tsconfig.json",
+		"wpOutputPath": "release/dist",
+		"libEntryPath": "src/exports.tsx",
+		"siteEntryPath": "muguet-site/index.tsx",
+		"sitePublic": "muguet-site/public",
+		"siteIndexJs": "muguet-site/pages",
+		"siteHtmlPath": "muguet-site/public/index.html"
+	},
+	"urls": {
+		"gradients-src": [
+			"https://webgradients.com/",
+			"https://www.grabient.com/"
+		]
+	},
+	"package": {
+		"outputCssFileName": "muguet.css",
+		"filename": "muguet.js",
+		"library": "Muguet",
+		"libraryTarget": "umd",
+		"alias_src": "Muguet",
+		"alias_site": "MuguetSite"
+	}
+}

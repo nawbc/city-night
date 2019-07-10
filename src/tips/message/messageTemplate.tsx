@@ -51,7 +51,7 @@ class MessageTemplate extends React.Component<MsgTemplateProps, any> {
 			this.setMessageContainer(msgContainer, function () {
 				msgContainer.style.right = 'unset';
 				msgContainer.style.bottom = 'unset';
-				msgContainer.style.marginLeft = '25px';;
+				msgContainer.style.marginLeft = '25px';
 			})
 		} else if ('bottom' === options!.place) {
 			this.setMessageContainer(msgContainer, function () {
@@ -77,7 +77,7 @@ class MessageTemplate extends React.Component<MsgTemplateProps, any> {
 		const {
 			size,
 			gradients,
-			className
+			className,
 		} = classProps.options;
 		return classNames({
 			[`${prefix}-default`]: true,
@@ -94,38 +94,38 @@ class MessageTemplate extends React.Component<MsgTemplateProps, any> {
 		if (options.icon) {
 			return <Icon
 				style={commonStyle}
-				src={options.icon}></Icon>;
+				src={options.icon} />;
 		} else {
 			switch (type) {
 				case 'success': return (
 					<Icon
 						style={commonStyle}
-						src={require('../../assets/icons/local/success.svg')}></Icon>
+						src={require('../../assets/icons/local/success.svg')} />
 				);
 				case 'info': return (
 					<Icon
 						style={commonStyle}
-						src={require('../../assets/icons/local/info.svg')}></Icon>
+						src={require('../../assets/icons/local/info.svg')} />
 				);
 				case 'warning': return (
 					<Icon
 						style={commonStyle}
-						src={require('../../assets/icons/local/warning.svg')}></Icon>
+						src={require('../../assets/icons/local/warning.svg')} />
 				);
 				case 'danger': return (
 					<Icon
 						style={commonStyle}
-						src={require('../../assets/icons/local/danger.svg')}></Icon>
+						src={require('../../assets/icons/local/danger.svg')} />
 				);
 				case 'loading': return (
 					<Loading.Hoop
 						size={['25px', '25px']}
-					></Loading.Hoop>
+					/>
 				);
 				default: return (
 					<Icon
 						style={commonStyle}
-						src={require('../../assets/icons/local/info.svg')}></Icon>
+						src={require('../../assets/icons/local/info.svg')} />
 				);
 			}
 		}

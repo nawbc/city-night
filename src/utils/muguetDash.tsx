@@ -1,5 +1,5 @@
 export const equals = (first, second): boolean => {
-    return first === second;
+	return first === second;
 }
 
 /**
@@ -28,14 +28,14 @@ export const typeReplace = (a: Object, b: string, c: any) => isType(a, b) ? a : 
 
 
 export const randomNumber = (min, max) => {
-	return min + Math.floor(Math.random() * (max - min))  + 1;
+	return min + Math.floor(Math.random() * (max - min)) + 1;
 }
 
-export const randomAlphabet = (from: number, to: number)=>{
+export const randomAlphabet = (from: number, to: number) => {
 	return String.fromCharCode(randomNumber(from, to));
 }
 
-export const randomGradients = (arr)=>{
+export const randomGradients = (arr) => {
 	return arr[randomNumber(0, arr.length - 1)];
 }
 

@@ -19,68 +19,67 @@ import Modal from '../components/modal';
 import ScrollBox from '../components/scrollBox';
 import Socket from '../components/socket';
 
-
 export default [
 	{
 		path: '/site/doc/button',
 		component: Button,
 	}, {
 		path: '/site/doc/bubble',
-		component: Bubble
+		component: Bubble,
 	}, {
 		path: '/site/doc/icon',
-		component: Icon
+		component: Icon,
 	}, {
 		path: '/site/doc/grid',
-		component: Grid
+		component: Grid,
 	}, {
 		path: '/site/doc/dragbox',
-		component: DragBox
+		component: DragBox,
 	}, {
 		path: '/site/doc/gradientsbar',
-		component: GradientsBar
+		component: GradientsBar,
 	}, {
 		path: '/site/doc/message',
-		component: Message
+		component: Message,
 	}, {
 		path: '/site/introduce',
-		component: Introduce
+		component: Introduce,
 	}, {
 		path: '/site/doc/flex',
-		component: Flex
+		component: Flex,
 	}, {
 		path: '/site/doc/gradientsFont',
 		component: GradientsFont,
-	},{
+	}, {
 		path: '/site/doc/input',
-		component: Input
-	},{
+		component: Input,
+	}, {
 		path: '/site/doc/avatar',
-		component: Avatar
-	},{
+		component: Avatar,
+	}, {
 		path: '/site/doc/red',
-		component: Red
-	},{
+		component: Red,
+	}, {
 		path: '/site/doc/table',
-		component: Table
-	},{
+		component: Table,
+	}, {
 		path: '/site/doc/notification',
-		component: Notification
-	},{
+		component: Notification,
+	}, {
 		path: '/site/doc/citation',
-		component: Citation
-	},{
+		component: Citation,
+	}, {
 		path: '/site/doc/list',
-		component: List
-	},{
+		component: List,
+	}, {
 		path: '/site/doc/modal',
-		component: Modal
-	},{
+		component: Modal,
+	}, {
 		path: '/site/doc/scrollBox',
-		component: ScrollBox
-	},{
+		component: ScrollBox,
+	}, {
 		path: '/site/doc/socket',
-		component: Socket
+		component: Socket,
 	},
 ]
 

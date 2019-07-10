@@ -1,0 +1,15 @@
+{
+	"dev": "node ./bin/dev.js",
+	"pro-b": "cross-env NODE_ENV=production BABEL_ENV=production  babel src --out-dir release/lib --extensions .tsx",
+	"pro-w": "cross-env NODE_ENV=production BABEL_ENV=production  webpack --config webpack.config.js --progress",
+	"dev-w": "cross-env NODE_ENV=development BABEL_ENV=development  webpack --config webpack.config.js --progress",
+	"dev-b": "cross-env NODE_ENV=development BABEL_ENV=development babel src  --out-dir release/lib --extensions .tsx",
+	"update-color": "node src/stylesheet/color/getGadientsFromWebgradient.js",
+	"dev-scss": "node-sass src -o src",
+	"pro-scss": "node scripts/generate.css.js src release/lib",
+	"release": "npm-run-all pro-*",
+	"test": "jest ",
+	"clean": "node ./scripts/delete.js",
+	"compasss": "node ./scripts/compass.js",
+	"update-browerslist": "npx"
+}

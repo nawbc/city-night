@@ -10,11 +10,10 @@ import {
 import { PositionType, SizeType } from '../../interfaces/customTypes';
 import ReactDOM from 'react-dom';
 
-
 const customContextMenuProps = [
 	'children',
 	'className',
-	'style'
+	'style',
 ]
 
 interface ContextMenuProps extends CommonInterface {
@@ -28,7 +27,7 @@ class ContextMenu extends React.Component<ContextMenuProps, any> {
 	}
 	contextMenuContainer: HTMLDivElement;
 
-	state={
+	state = {
 		contextmenu: false
 	}
 	contextMenuRef: React.RefObject<any>;
@@ -39,19 +38,18 @@ class ContextMenu extends React.Component<ContextMenuProps, any> {
 		this.contextMenuRef = React.createRef();
 	}
 
-	componentDidMount(){
+	componentDidMount() {
 		document.body.appendChild(this.contextMenuContainer);
-		document.oncontextmenu = (e)=>{
+		document.oncontextmenu = (e) => {
 			e.preventDefault();
 			this.setState({
-				contextmenu: !this.state.contextmenu
+				contextmenu: !this.state.contextmenu,
 			})
 		}
 	}
 
-	handlePosition = ()=>{
+	handlePosition = () => {
 		const contextMenuEle = this.contextMenuRef.current as HTMLElement;
-
 	}
 
 	handleExtraProps = (): JSXPropsInterface<ContextMenuProps> => {
@@ -74,7 +72,7 @@ class ContextMenu extends React.Component<ContextMenuProps, any> {
 		});
 	}
 
-	renderContextMenu = ()=>{
+	renderContextMenu = () => {
 		const { nativeProps, customProps } = this.handleExtraProps();
 		const className = this.handleClassName(customProps);
 		const mergeStyle = {
@@ -82,29 +80,17 @@ class ContextMenu extends React.Component<ContextMenuProps, any> {
 			...typeReplace(customProps.style as Object, 'Object', {})
 		}
 
-		var list = [{
-			value: <div>wanghan</div>,
-			icon: require("../../../assets/lock.svg"),
-			event: {
-				onClick(){
-
-				}
-			}
-		},{}]
-
 		return (
-
 			<div
 				{...nativeProps}
 				style={mergeStyle}
 				ref={this.contextMenuRef}
-			>
-			</div>
+			/>
 		)
 	}
 
 	render() {
-		const isShowContextMenu = this.state.contextmenu ? this.renderContextMenu(): null;
+		const isShowContextMenu = this.state.contextmenu ? this.renderContextMenu() : null;
 		return ReactDOM.createPortal(isShowContextMenu, this.contextMenuContainer);
 	}
 }

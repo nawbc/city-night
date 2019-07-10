@@ -5,23 +5,17 @@
 	"main": "release/lib/exports.js",
 	"module": "release/dist/muguet.js",
 	"scripts": {
-		"pro-b": "cross-env NODE_ENV=production BABEL_ENV=production  babel src --out-dir release/lib --extensions .tsx",
-		"pro-w": "cross-env NODE_ENV=production BABEL_ENV=production  webpack --config webpack.config.js --progress",
-		"dev-w": "cross-env NODE_ENV=development BABEL_ENV=development  webpack --config webpack.config.js --progress",
-		"dev-b": "cross-env NODE_ENV=development BABEL_ENV=development babel src  --out-dir release/lib --extensions .tsx",
-		"update-color": "node src/stylesheet/color/getGadientsFromWebgradient.js",
-		"dev-scss": "node-sass src -o src",
-		"pro-scss": "node scripts/generate.css.js src release/lib",
-		"release": "npm-run-all pro-*",
-		"test": "jest ",
-		"clean": "node ./scripts/delete.js",
+		"dev": "node bin/dev.js",
+		"gen:css": "node scripts/generate.css.js src release/lib",
+		"update:color": "node src/stylesheet/color/getGadientsFromWebgradient.js",
+		"delete:release": "node ./scripts/delete.js",
 		"compasss": "node ./scripts/compass.js",
-		"update-browerslist": "npx "
+		"dts": "tsc -d --emitDeclarationOnly --declarationDir ./release/lib"
 	},
 	"keywords": [
 		"react",
 		"ui",
-		"js"
+		"react ui"
 	],
 	"author": "HanWang",
 	"license": "Apache-2.0",
@@ -44,6 +38,7 @@
 		"@babel/cli": "^7.2.3",
 		"@babel/core": "^7.3.4",
 		"@babel/plugin-proposal-class-properties": "^7.4.0",
+		"@babel/plugin-syntax-dynamic-import": "^7.2.0",
 		"@babel/plugin-transform-runtime": "^7.4.4",
 		"@babel/preset-env": "^7.3.4",
 		"@babel/preset-react": "^7.0.0",
@@ -54,6 +49,7 @@
 		"@types/react-dom": "^16.8.2",
 		"@types/react-intl": "^2.3.17",
 		"acorn": "^6.0.0",
+		"babel-eslint": "^10.0.2",
 		"babel-loader": "^8.0.5",
 		"babel-plugin-import": "^1.11.0",
 		"cheerio": "^1.0.0-rc.2",
@@ -66,6 +62,7 @@
 		"express": "^4.16.4",
 		"file-loader": "^3.0.1",
 		"fs-extra": "^7.0.1",
+		"html-webpack-plugin": "^4.0.0-beta.5",
 		"jest": "^24.1.0",
 		"mini-css-extract-plugin": "^0.5.0",
 		"node-sass": "^4.12.0",
@@ -80,11 +77,28 @@
 		"style-loader": "^0.23.1",
 		"ts-jest": "^24.0.2",
 		"ts-loader": "^5.3.3",
+		"tslint": "^5.18.0",
+		"tslint-config-prettier": "^1.18.0",
+		"tslint-eslint-rules": "^5.4.0",
+		"tslint-react": "^4.0.0",
 		"typescript": "^3.3.3333",
 		"uglifyjs-webpack-plugin": "^2.1.2",
 		"url-loader": "^1.1.2",
-		"webpack": "^4.29.6",
+		"webpack": "^4.28.4",
 		"webpack-cli": "^3.2.3",
+		"webpack-dashboard": "^3.0.7",
 		"webpack-dev-server": "^3.2.1"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
 	}
 }

@@ -19,7 +19,7 @@ class ArticleContent extends Component<any>{
 						<Route
 							key={index}
 							{...ele}
-						></Route>
+						/>
 					)
 				})}
 			</div>
