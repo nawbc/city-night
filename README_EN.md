@@ -7,7 +7,7 @@
 
 <div align="center">
 
-![logo](https://raw.githubusercontent.com/sewerganger/Muguet-ui/master/site/assets/logo/muguet256.gif)
+![logo](https://raw.githubusercontent.com/sewerganger/Muguet-ui/master/muguet-site/assets/logo/muguet256.gif)
 
 </div>
 
