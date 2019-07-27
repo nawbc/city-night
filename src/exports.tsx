@@ -16,6 +16,7 @@ export { default as Bubble } from './tips/bubble/bubble';
 export { default as Confirm } from './tips/confirm/confirm';
 export { default as message } from './tips/message/message';
 export { default as Notification } from './tips/notification/notification';
+export { default as alertBar } from './tools/gradientsBar/alertBar';
 
 //showData
 export { default as Fold } from './showData/fold/fold';

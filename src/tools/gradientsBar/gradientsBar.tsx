@@ -18,8 +18,8 @@ const customGradientsBarAttr = [
 	'onCancel',
 	'style',
 	'children',
-	'className'
-]
+	'className',
+];
 
 /**
  * @example
@@ -39,10 +39,10 @@ interface GradientsBarProps extends CommonInterface {
 }
 
 class GradientsBar extends React.Component<GradientsBarProps, any> {
-	private currentTimeout;
 	private static readonly defaultProps = {
 		duration: 3500,
-	}
+	};
+	private currentTimeout;
 
 	handleDefaultGradients = (props: GradientsBarProps) => {
 		if (props.gradients) {
@@ -50,33 +50,38 @@ class GradientsBar extends React.Component<GradientsBarProps, any> {
 		} else {
 			let gradients = '';
 			switch (props.type) {
-				case 'success': gradients = 'HealthyWater';
+				case 'success':
+					gradients = 'HealthyWater';
 					break;
-				case 'info': gradients = 'CrystalRiver';
+				case 'info':
+					gradients = 'CrystalRiver';
 					break;
-				case 'danger': gradients = 'StrongBliss';
+				case 'danger':
+					gradients = 'StrongBliss';
 					break;
-				case 'warning': gradients = 'SunnyMorning';
+				case 'warning':
+					gradients = 'SunnyMorning';
 					break;
-				case 'notice': gradients = 'SandStrike';
+				case 'loading':
+					gradients = 'SandStrike';
 					break;
 				default:
-					gradients = 'CrystalRiver'
+					gradients = 'CrystalRiver';
 					break;
 			}
 			return gradients;
 		}
-	}
+	};
 
 	handleExtraProps = (): JSXPropsInterface<GradientsBarProps> => {
 		const iconProps = JSXProps<GradientsBarProps>(this.props, customGradientsBarAttr);
 		const { customProps } = iconProps;
 		customProps.size = handleSize(customProps.size as SizeType);
 		return iconProps;
-	}
+	};
 
-	handleClassName = (classProps) => {
-		const { gradients, type, display, className } = classProps;
+	handleClassName = classProps => {
+		const { type, display, className } = classProps;
 		return classNames({
 			[`${prefix}-default`]: true,
 			[`${className}`]: className,
@@ -84,46 +89,38 @@ class GradientsBar extends React.Component<GradientsBarProps, any> {
 			[`m-gradients-${this.handleDefaultGradients(classProps)}`]: true,
 			[`${prefix}-alert-${display ? 'vision' : 'hidden'}`]: type,
 		});
-	}
+	};
 
 	EmbedChild = (props): React.ReactNode => {
-		return (
-			props.type ?
-				<div className={`${prefix}-alert-innerContent`}>
-					<Icon src={
-						require(`../../assets/icons/local/${props.type}.svg`)
-					}
-					></Icon>
-					<div
-						className={`${prefix}-alert-content`}
-					>{props.children}</div>
-					<div className={`${prefix}-alert-cancel`}
-						onClick={props.onCancel}
-					></div>
-				</div> : props.children
-		)
-	}
+		return props.type ? (
+			<div className={`${prefix}-alert-innerContent`}>
+				<Icon src={require(`../../assets/icons/local/${props.type}.svg`)} />
+				<div className={`${prefix}-alert-content`}>{props.children}</div>
+				<div className={`${prefix}-alert-cancel`} onClick={props.onCancel} />
+			</div>
+		) : (
+			props.children
+		);
+	};
 
 	render() {
 		const { nativeProps, customProps } = this.handleExtraProps();
 		const className = this.handleClassName(customProps);
 
-		customProps.display && customProps.duration! > 0 ?
-			this.currentTimeout = setTimeout(customProps.onCancel!, customProps.duration) :
-			clearTimeout(this.currentTimeout);
+		customProps.display && customProps.duration! > 0
+			? (this.currentTimeout = setTimeout(customProps.onCancel!, customProps.duration))
+			: clearTimeout(this.currentTimeout);
 
 		const mergeStyle = {
 			...typeReplace(customProps.size as SizeType, 'Object', {}),
-			...typeReplace(customProps.style as Object, 'Object', {})
-		}
+			...typeReplace(customProps.style as Object, 'Object', {}),
+		};
 
 		return (
-			<div
-				{...nativeProps}
-				className={className}
-				style={mergeStyle}
-			>{this.EmbedChild(customProps)}</div>
-		)
+			<div {...nativeProps} className={className} style={mergeStyle}>
+				{this.EmbedChild(customProps)}
+			</div>
+		);
 	}
 }
 

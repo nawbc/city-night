@@ -16,11 +16,9 @@ const customInputAttr = [
 	'resize',
 	'style',
 	'children',
-	'className'
+	'className',
 ];
-const customInputType = [
-	'area'
-]
+const customInputType = ['area'];
 
 interface InputProps extends React.InputHTMLAttributes<any> {
 	inputSize?: SizeType;
@@ -47,12 +45,11 @@ interface InputProps extends React.InputHTMLAttributes<any> {
  */
 
 class Input extends React.Component<InputProps, any> {
-
 	private static readonly defaultProps = {
 		inputSize: 'normal',
 		mode: 'text',
-		resize: false
-	}
+		resize: false,
+	};
 
 	constructor(props) {
 		super(props);
@@ -63,16 +60,10 @@ class Input extends React.Component<InputProps, any> {
 		const { customProps } = InputProps;
 		customProps.inputSize = handleSize(customProps.inputSize!);
 		return InputProps;
-	}
+	};
 
-	handleClassName = (classProps) => {
-		const {
-			type,
-			readOnly,
-			className,
-			inputSize,
-			resize
-		} = classProps;
+	handleClassName = classProps => {
+		const { type, readOnly, className, inputSize, resize } = classProps;
 
 		return classNames({
 			'm-input-default': true,
@@ -82,7 +73,7 @@ class Input extends React.Component<InputProps, any> {
 			[`m-input-${type}`]: customInputType.indexOf(type) > -1,
 			[`m-input-textSize-${inputSize}`]: typeReplace(inputSize, 'String', false),
 		});
-	}
+	};
 	/**
 	 * Renders input area children level higher than value
 	 * @returns
@@ -92,37 +83,30 @@ class Input extends React.Component<InputProps, any> {
 		const className = this.handleClassName({ ...nativeProps, ...customProps });
 		const mergeStyle = {
 			...typeReplace(customProps.inputSize as Object, 'Object', {}),
-			...typeReplace(customProps.style as Object, 'Object', {})
-		}
+			...typeReplace(customProps.style as Object, 'Object', {}),
+		};
 
 		let input: React.ReactNode;
 
-		let commonProps = {
+		const commonProps = {
 			className: className,
 			style: mergeStyle,
-		}
+		};
 
 		switch (customProps.mode) {
 			case 'area':
 				input = (
-					<textarea
-						{...nativeProps}
-						{...commonProps}
-					>{customProps.children || customProps.value}</textarea>
-				); break;
+					<textarea {...nativeProps} {...commonProps}>
+						{customProps.children || customProps.value}
+					</textarea>
+				);
+				break;
 			default:
-				input = (
-					<input
-						{...nativeProps}
-						{...commonProps}
-						type={customProps.mode}
-					/>
-				); break;
+				input = <input {...nativeProps} {...commonProps} type={customProps.mode} />;
+				break;
 		}
 
-		return (
-			<React.Fragment>{input}</React.Fragment>
-		)
+		return <React.Fragment>{input}</React.Fragment>;
 	}
 }
 polyfill(Input);

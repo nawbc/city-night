@@ -1,11 +1,11 @@
 import Message, { MessageProps, MsgParams } from './messageElement';
-import React from 'react'
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 export const prefix = 'm-message';
 export const MSG_ID = `${prefix}-container`;
 
-const createMessage = (function () {
+const createMessage = (function() {
 	const div = document.createElement('div');
 	div.setAttribute('id', MSG_ID);
 	document.body.appendChild(div);
@@ -15,16 +15,15 @@ const createMessage = (function () {
 	return {
 		addMessage(msgProps: MsgParams) {
 			const options = msgProps.options!;
-			if (options)
-				div.setAttribute('class', `m-message-${(options.place ? options.place : 'top')}`);
+			if (options) div.setAttribute('class', `m-message-${options.place ? options.place : 'top'}`);
 			return msgRef.current.handleMessage(msgProps);
-		}
-	}
-})()
+		},
+	};
+})();
 
 const message = (type, content, duration = 3500, options: MessageProps = {}) => {
 	return createMessage.addMessage({ type, content, duration, options });
-}
+};
 
 export default {
 	info(content?: string | React.ReactElement, duration?: number, options?: MessageProps) {
@@ -42,7 +41,4 @@ export default {
 	loading(content?: string | React.ReactElement, duration?: number, options?: MessageProps) {
 		return message('loading', content, duration, options);
 	},
-}
-
-
-
+};

@@ -71,28 +71,28 @@ class Avatar extends React.Component<AvatarProps, any> {
 			[`${prefix}-shape-${shape}`]: shape,
 			[`${classNames(className)}`]: className,
 			[`${prefix}-size-${size}`]: typeReplace(size!, 'String', false),
-			[`m-gradients-${randomColor ? randomGradients(gradientsArray) : gradients}`]: true,
+			[`m-gradients-${randomColor? randomGradients(gradientsArray): gradients}`]: true,
 		});
 	}
 
-	EmbedChild = (props) => {
+	EmbedChild = (props)=>{
 		return props.icon ? (
 			React.isValidElement(props.icon) ?
-				props.icon :
-				<Icon
-					style={ { marginRight: '0' } }
-					size={ ['100%', '100%'] }
-					src={ props.icon }
-				></Icon>
+			props.icon:
+			<Icon
+				style={{marginRight: '0'}}
+				size={['100%','100%']}
+				src={props.icon}
+			></Icon>
 		) : (
-				<React.Fragment>
-					{
-						props.random ?
-							this.state.randomAlphabet :
-							props.children
-					}
-				</React.Fragment>
-			)
+			<React.Fragment>
+				{
+					props.random?
+					this.state.randomAlphabet:
+					props.children
+				}
+			</React.Fragment>
+		)
 	}
 
 	render() {
@@ -104,11 +104,11 @@ class Avatar extends React.Component<AvatarProps, any> {
 		}
 		return (
 			<div
-				ref={ this.avatarEle }
-				{ ...nativeProps }
-				className={ className }
-				style={ mergeStyle }
-			>{ this.EmbedChild(customProps) }</div>
+				ref={this.avatarEle}
+				{...nativeProps}
+				className={className}
+				style={mergeStyle}
+			>{this.EmbedChild(customProps)}</div>
 		)
 	}
 }

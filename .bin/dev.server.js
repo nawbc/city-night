@@ -1,16 +1,14 @@
 const webpack = require('webpack');
-const DevServer = require('webpack-dev-server');
+const WebpackDevServer = require('webpack-dev-server');
 const clearConsole = require('react-dev-utils/clearConsole');
 const chalk = require('react-dev-utils/chalk');
 const checkRequiredFiles = require('react-dev-utils/checkRequiredFiles');
 const { checkBrowsers } = require('react-dev-utils/browsersHelper');
 const openBrowser = require('react-dev-utils/openBrowser');
-const webpackSetting = require('../config/webpack/webpack.config');
-const { stats } = require('../config/webpack/webpackStdout');
+const webpackConfig = require('../.config/webpack/webpack.config');
 const resolvePath = require('../scripts/resolvePath');
 const { port, paths } = require('../muguet.json');
 const { name } = require('../package.json');
-
 const fs = require('fs');
 const os = require('os');
 const {
@@ -19,28 +17,21 @@ const {
 	prepareUrls,
 } = require('react-dev-utils/WebpackDevServerUtils');
 
+const PORT = port;
+
 const rPath = resolvePath(paths);
 
-(function checkExistFile() {
-	if (!checkRequiredFiles([rPath.siteHtmlPath, rPath.siteIndexJs])) {
-		console.log(chalk.red('Error: No index html or index js file in public dir'));
-		process.exit(1);
-	}
-})()
-
-const DEFAULT_PORT = port;
-
-function handleHost() {
+const handleHost = () => {
 	let HOST;
 	switch (os.platform()) {
 		case 'win32':
-			HOST = os.networkInterfaces()['WLAN'] ? os.networkInterfaces()['WLAN'][1]['address'] : '0.0.0.0'
+			HOST = os.networkInterfaces()['WLAN'] ? os.networkInterfaces()['WLAN'][1]['address'] : '0.0.0.0';
 			break;
 		case 'linux':
-			HOST = os.networkInterfaces()['eth0'] ? os.networkInterfaces()['eth0'][1]['address'] : '0.0.0.0'
+			HOST = os.networkInterfaces()['eth0'] ? os.networkInterfaces()['eth0'][1]['address'] : '0.0.0.0';
 			break;
 		default:
-			HOST = '0.0.0.0'
+			HOST = '0.0.0.0';
 			break;
 	}
 	return HOST;
@@ -48,16 +39,20 @@ function handleHost() {
 
 const HOST = handleHost();
 
+
+
 checkBrowsers(rPath.itemRootPath, process.stdout.isTTY)
-	.then(() => choosePort(HOST, DEFAULT_PORT))
+	.then(() => choosePort(HOST, PORT))
 	.then(port => {
 		if (port == null) {
 			return;
 		}
-		const config = webpackSetting('development');
+
+		const config = webpackConfig('development', 'devServer');
+
 		const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
 
-		const useTypeScript = fs.existsSync(rPath.appTsConfig);
+		const useTypeScript = fs.existsSync(rPath.tsConfigPath);
 		const urls = prepareUrls(protocol, HOST, port);
 		const devSocket = {
 			warnings: warnings =>
@@ -75,11 +70,12 @@ checkBrowsers(rPath.itemRootPath, process.stdout.isTTY)
 			webpack,
 		});
 
-		console.log(compiler)
+
 		const devSrvConfig = {
 			compress: true,
 			stats: stats,
-			contentBase: rPath.sitePublic,
+			contentBase: rPath.sitePublicPath,
+			watchContentBase: true,
 			publicPath: '/',
 			hot: true,
 			host: HOST,
@@ -89,16 +85,15 @@ checkBrowsers(rPath.itemRootPath, process.stdout.isTTY)
 		}
 
 		const devServer = new DevServer(compiler, devSrvConfig);
-
 		devServer.listen(port, handleHost(), err => {
 			if (err) {
 				return console.log(err);
 			}
-			// if (process.stdout.isTTY) {
-			// 	clearConsole();
-			// }
-			// console.info(chalk.green(`Muguet development server runing on ${HOST}:${DEFAULT_PORT} ...\n`));
-			// openBrowser(urls.localUrlForBrowser);
+			if (process.stdout.isTTY) {
+				clearConsole();
+			}
+			console.log(chalk.green(`Muguet development server runing on ${HOST}:${port} ...\n`));
+			openBrowser(urls.localUrlForBrowser);
 		});
 
 		['SIGINT', 'SIGTERM'].forEach(function (sig) {

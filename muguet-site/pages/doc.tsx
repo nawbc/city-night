@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ArticleIndex from './articleIndex';
 import ArticleContent from './articleContent';
 import Header from './header';
+import CoverPage from './coverPage';
 import { Row, Col, GradientsBar, Icon, Muguet } from '../../src/exports';
 import { ZH_CN, EN_US } from '../doc/i18n/index';
 import './style/doc.scss';
@@ -14,6 +15,7 @@ export default class Doc extends Component<any>{
 		isMobile: false,
 		indexDisplay: false,
 		language: false,
+		showPage: true,
 	}
 
 	componentDidMount() {
@@ -24,6 +26,7 @@ export default class Doc extends Component<any>{
 	}
 
 	render() {
+
 		const pc = (
 			<Row>
 				<Col xs={2}>
@@ -48,13 +51,14 @@ export default class Doc extends Component<any>{
 						setTimeout(() => {
 							a.style.opacity = "1";
 							this.setState({ indexDisplay: !this.state.indexDisplay })
-						}, 200)
+						})
 					}}
 				>
 					<Icon
+						effect={`click-${this.state.indexDisplay ? 'down' : 'up'}`}
 						id='icon-hidden'
 						size={['100%', '100%']}
-						src={this.state.indexDisplay ? require('../../assets/back.svg') : require('../../assets/menu.svg')}
+						src={this.state.indexDisplay ? require('../assets/back.svg') : require('../assets/menu.svg')}
 					/>
 				</GradientsBar>
 				<ArticleIndex
@@ -78,6 +82,14 @@ export default class Doc extends Component<any>{
 				}}
 			>
 				<ScreenContext.Provider value={{ isMobile: this.state.isMobile }}>
+					{/* {
+						this.state.showPage ? <CoverPage
+							onShow={() => {
+								this.setState({ showPage: false })
+							}}
+							screen={this.state.isMobile}
+						/> : null
+					} */}
 					<Header
 						onState={() => {
 							this.setState({
@@ -90,4 +102,3 @@ export default class Doc extends Component<any>{
 		)
 	}
 }
-

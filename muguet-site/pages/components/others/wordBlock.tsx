@@ -30,7 +30,7 @@ export class WordBlock extends React.Component<any>{
 						this.props.words!.map((word, index) => (
 							<li
 								key={index}
-								style={{marginBottom: '7px'}}
+								style={{ marginBottom: '7px' }}
 							>{word}</li>
 						))
 					}

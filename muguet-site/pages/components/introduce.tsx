@@ -1,46 +1,49 @@
-import React, { Component } from 'react';
-import { ScrollBox, Citation, Loading, Avatar, Icon, Red, Bubble, Button, Flex, Menu, Fold } from '../../../components/exports';
-import '../style/introduce.scss';
+import React, { Component, useState, useEffect } from 'react';
+import { ScrollBox, Button, message, Translate, Input, Icon, Fold, GradientsBar, Bubble, Flex } from '../../../src/exports';
+import GitHubStars from './plugins/githubStars';
+const { Panel } = Fold;
 
-const headlines = ['list1', 'list2', 'list3'];
 
-export default class Introduce extends Component<any>{
-	attach: React.RefObject<any>;
-	constructor(props) {
-		super(props);
-		this.attach = React.createRef()
-	}
+
+
+
+export default class Message extends Component<any>{
 
 	state = {
-		contextmenu: false
+		title: true,
+		value: 'fuckcuada',
 	}
 
 	render() {
-
 		return (
-			<div>
-				<div
-					style={{
-						backgroundSize: 'cover',
-						backgroundImage: `url(${require('../../../assets/mails.svg')})`,
-						width: '25px',
-						height: '25px'
-					}}
-				></div>
-
-				{/* <Fold
-					size={['100%']}
+			<React.Fragment>
+				<Fold
 				>
-					<Fold.Panel
-						defaultIcon={require('../../assets/logo/muguet.svg')}
+					<Panel
+						headline="wanghan"
+						mode='custom'
+						icon={require('../../assets/github.svg')}
+					>
+						wangha
+						</Panel>
+					<Panel
+						headline="wanghan"
+					>
+						wangha
+						</Panel>
+					<Panel
+						headline="wanghan"
+					>
+						wangha
+						</Panel>
+					<Panel
 						headline="wanghan"
 						last
 					>
-						wanghan
-					</Fold.Panel>
-				</Fold> */}
-				{/* <Menu.context></Menu.context> */}
-			</div>
+						wangha
+						</Panel>
+				</Fold>
+			</React.Fragment >
 		)
 	}
 }

@@ -22,11 +22,9 @@ export interface MsgParams {
 }
 
 class Message extends React.Component<MessageProps, any> {
-
 	state = {
-		messages: [] as any
-	}
-
+		messages: [] as any,
+	};
 
 	handleMessage = (msg: MsgParams) => {
 		msg.token = generateToken();
@@ -35,26 +33,24 @@ class Message extends React.Component<MessageProps, any> {
 		if ('loading' === msg.type && msg.options!.loadingClose) {
 			msg.options!.loadingClose(this, msg);
 		}
-		if (msg.duration! > 0)
-			setTimeout(this.unSubscribe, msg.duration, msg, msg.options);
-	}
+		if (msg.duration! > 0) setTimeout(this.unSubscribe, msg.duration, msg, msg.options);
+	};
 
-	subscribe = (who) => {
-		if (this.state.messages.every((ele) => ele.token !== who.token)) {
+	subscribe = who => {
+		if (this.state.messages.every(ele => ele.token !== who.token)) {
 			this.state.messages.push(who);
 			this.setState({
-				messages: this.state.messages
-			})
+				messages: this.state.messages,
+			});
 		}
-	}
-
+	};
 
 	// ☠
-	unSubscribe = (who) => {
+	unSubscribe = who => {
 		// only execute one time
 		let lock = true;
 		this.setState({
-			messages: this.state.messages.filter((ele) => {
+			messages: this.state.messages.filter(ele => {
 				if (who.options) {
 					if (who.options.onClose && lock) {
 						lock = false;
@@ -62,28 +58,22 @@ class Message extends React.Component<MessageProps, any> {
 					}
 				}
 				return ele.token !== who.token;
-			})
-		})
-	}
+			}),
+		});
+	};
 
 	render() {
 		const { messages } = this.state;
 
 		return (
 			<React.Fragment>
-				{
-					messages.map((avg, index) =>
-						<MessageTemplate
-							ref={avg.token}
-							key={index}
-							container={this.props.container}
-							{...avg} />
-					)
-				}
+				{messages.map((avg, index) => (
+					<MessageTemplate ref={avg.token} key={index} container={this.props.container} {...avg} />
+				))}
 			</React.Fragment>
-		)
+		);
 	}
 }
-polyfill(Message)
+polyfill(Message);
 
 export default Message;

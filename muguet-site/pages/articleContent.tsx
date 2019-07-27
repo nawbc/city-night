@@ -4,7 +4,8 @@ import { Route } from 'react-router-dom';
 
 class ArticleContent extends Component<any>{
 	componentDidMount() {
-		var aContent = this.refs['articleContent'] as HTMLElement;
+		// tslint:disable-next-line: prefer-const
+		let aContent = this.refs['articleContent'] as HTMLElement;
 		aContent.style.height = window.innerHeight - 60 + 'px';
 	}
 
@@ -18,7 +19,7 @@ class ArticleContent extends Component<any>{
 					return (
 						<Route
 							key={index}
-							{...ele}
+							{...ele as any}
 						/>
 					)
 				})}

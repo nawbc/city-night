@@ -4,7 +4,6 @@ import Icon from '../components/icon';
 import Grid from '../components/grid';
 import DragBox from '../components/dragBox';
 import GradientsBar from '../components/gradientsBar';
-import GradientsFont from '../components/gradientsFont';
 import Message from '../components/message';
 import Introduce from '../components/introduce';
 import Flex from '../components/flex';
@@ -21,65 +20,61 @@ import Socket from '../components/socket';
 
 export default [
 	{
-		path: '/site/doc/button',
+		path: '/muguet-site/doc/button',
 		component: Button,
 	}, {
-		path: '/site/doc/bubble',
+		path: '/muguet-site/doc/bubble',
 		component: Bubble,
 	}, {
-		path: '/site/doc/icon',
+		path: '/muguet-site/doc/icon',
 		component: Icon,
 	}, {
-		path: '/site/doc/grid',
+		path: '/muguet-site/doc/grid',
 		component: Grid,
 	}, {
-		path: '/site/doc/dragbox',
+		path: '/muguet-site/doc/dragbox',
 		component: DragBox,
 	}, {
-		path: '/site/doc/gradientsbar',
+		path: '/muguet-site/doc/gradientsbar',
 		component: GradientsBar,
 	}, {
-		path: '/site/doc/message',
+		path: '/muguet-site/doc/message',
 		component: Message,
 	}, {
-		path: '/site/introduce',
+		path: '/muguet-site/introduce',
 		component: Introduce,
 	}, {
-		path: '/site/doc/flex',
+		path: '/muguet-site/doc/flex',
 		component: Flex,
 	}, {
-		path: '/site/doc/gradientsFont',
-		component: GradientsFont,
-	}, {
-		path: '/site/doc/input',
+		path: '/muguet-site/doc/input',
 		component: Input,
 	}, {
-		path: '/site/doc/avatar',
+		path: '/muguet-site/doc/avatar',
 		component: Avatar,
 	}, {
-		path: '/site/doc/red',
+		path: '/muguet-site/doc/red',
 		component: Red,
 	}, {
-		path: '/site/doc/table',
+		path: '/muguet-site/doc/table',
 		component: Table,
 	}, {
-		path: '/site/doc/notification',
+		path: '/muguet-site/doc/notification',
 		component: Notification,
 	}, {
-		path: '/site/doc/citation',
+		path: '/muguet-site/doc/citation',
 		component: Citation,
 	}, {
-		path: '/site/doc/list',
+		path: '/muguet-site/doc/list',
 		component: List,
 	}, {
-		path: '/site/doc/modal',
+		path: '/muguet-site/doc/modal',
 		component: Modal,
 	}, {
-		path: '/site/doc/scrollBox',
+		path: '/muguet-site/doc/scrollBox',
 		component: ScrollBox,
 	}, {
-		path: '/site/doc/socket',
+		path: '/muguet-site/doc/socket',
 		component: Socket,
 	},
 ]
-

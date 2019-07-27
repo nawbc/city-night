@@ -1,15 +1,13 @@
-import React,{ Component } from 'react';
+import React, { Component } from 'react';
 import '../../style/title.scss';
-
 
 export default class Title extends Component<any>{
 	static defaultProps = {
 		level: 1
 	}
-	render(){
+	render() {
 		let whichSizeTitle;
-		console.log(this.props.content)
-		switch(this.props.level){
+		switch (this.props.level) {
 			case 1: whichSizeTitle = (
 				<div
 					id={this.props.href}
@@ -20,7 +18,7 @@ export default class Title extends Component<any>{
 					<span>{this.props.content[1]}</span>
 					<a href={"#" + this.props.href}>#</a>
 				</div>
-			);break;
+			); break;
 			case 2: whichSizeTitle = (
 				<div
 					id={this.props.href}
@@ -31,7 +29,7 @@ export default class Title extends Component<any>{
 					<span>{this.props.content[1]}</span>
 					<a href={"#" + this.props.href}>#</a>
 				</div>
-			);break;
+			); break;
 			case 3: whichSizeTitle = (
 				<div
 					id={this.props.href}
@@ -42,7 +40,7 @@ export default class Title extends Component<any>{
 					<span>{this.props.content[1]}</span>
 					<a href={"#" + this.props.href}>#</a>
 				</div>
-			);break;
+			); break;
 			case 4: whichSizeTitle = (
 				<div
 					id={this.props.href}
@@ -53,7 +51,7 @@ export default class Title extends Component<any>{
 					<span>{this.props.content[1]}</span>
 					<a href={"#" + this.props.href}>#</a>
 				</div>
-			);break;
+			); break;
 			case 5: whichSizeTitle = (
 				<div
 					id={this.props.href}
@@ -64,11 +62,12 @@ export default class Title extends Component<any>{
 					<span>{this.props.content[1]}</span>
 					<a href={"#" + this.props.href}>#</a>
 				</div>
-			);break;
+			); break;
 		}
 
 		return (
 			<div
+				style={this.props.style}
 				className='titleWrapper'
 			>
 				{whichSizeTitle}

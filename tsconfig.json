@@ -27,7 +27,7 @@
 			]
 		},
 		"target": "es6",
-		"outDir": "release/lib",
+		"outDir": "release/es",
 		"rootDirs": [
 			"src",
 			"muguet-site"

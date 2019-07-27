@@ -10,18 +10,17 @@ interface MuguetAutoHeightInterface extends React.Attributes {
 }
 
 class MuguetAutoHeight extends Component<MuguetAutoHeightInterface, any> {
-
-	container: React.RefObject<any>
+	container: React.RefObject<any>;
 	wrapper: React.RefObject<any>;
 
 	private static defaultProps = {
 		duration: 300,
-		timeFunction: 'ease'
-	}
+		timeFunction: 'ease',
+	};
 
 	state = {
-		height: this.props.height
-	}
+		height: this.props.height,
+	};
 
 	constructor(props) {
 		super(props);
@@ -41,12 +40,14 @@ class MuguetAutoHeight extends Component<MuguetAutoHeightInterface, any> {
 		} else {
 			this.container.current.style.height = computedStyle(this.wrapper.current, 'height');
 			// 处理收起
-			setTimeout(() => { this.setState({ height: this.props.height }) }, 16.7);
+			setTimeout(() => {
+				this.setState({ height: this.props.height });
+			}, 16.7);
 		}
 		// 刷新一帧使用 16.7
 		if (Math.abs(new Date() as any) - timeStamp < 16.7)
 			requestAnimationFramePolyfill(this.handleAfterRender);
-	}
+	};
 
 	render() {
 		return (
@@ -58,15 +59,12 @@ class MuguetAutoHeight extends Component<MuguetAutoHeightInterface, any> {
 						overflow: 'hidden',
 						transitionDuration: this.props.transitionDuration + 'ms',
 						transitionTimingFunction: this.props.transitionFunc,
-						height: this.state.height
+						height: this.state.height,
 					},
-					...this.props.style
+					...this.props.style,
 				}}
 			>
-				<div
-					ref={this.wrapper}
-					style={{ height: 'auto' }}
-				>
+				<div ref={this.wrapper} style={{ height: 'auto' }}>
 					{this.props.children}
 				</div>
 			</div>

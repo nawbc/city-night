@@ -1,16 +1,5 @@
 'use strict'
 
-exports.stats = {
-	all: false,
-	modules: false,
-	maxModules: 0,
-	errors: true,
-	warnings: true,
-	moduleTrace: false,
-	errorDetails: false
-};
-
-
 exports.progress = function () {
 
 

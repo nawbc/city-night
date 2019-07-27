@@ -1,19 +1,20 @@
 {
-	"port": 1031,
+	"port": 3000,
 	"paths": {
 		"itemRootPath": ".",
 		"sitePath": "muguet-site",
+		"libPath": "src",
 		"releaseEs": "release/es",
 		"releaseLib": "release/lib",
-		"tsConfig": "tsconfig.json",
 		"releaseDist": "release/dist",
 		"tsConfigPath": "tsconfig.json",
-		"wpOutputPath": "release/dist",
+		"libOutputPath": "release/dist",
 		"libEntryPath": "src/exports.tsx",
-		"siteEntryPath": "muguet-site/index.tsx",
-		"sitePublic": "muguet-site/public",
-		"siteIndexJs": "muguet-site/pages",
-		"siteHtmlPath": "muguet-site/public/index.html"
+		"siteEntryPath": "muguet-site/site.tsx",
+		"siteOutputPath": "release-muguet-site",
+		"sitePublicPath": "muguet-site/public",
+		"siteHtmlPath": "muguet-site/public/index.html",
+		"appNodeModules": "node_modules"
 	},
 	"urls": {
 		"gradients-src": [

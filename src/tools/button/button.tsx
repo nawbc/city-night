@@ -43,8 +43,9 @@ const customButtonAttrs = [
 	'children',
 	'className',
 	'onClick',
-	'style',
+	'style'
 ];
+
 
 /**
  * @example
@@ -78,7 +79,7 @@ class Button extends React.Component<ButtonProps, any>{
 		fontColor: "white",
 		effect: "click-static",
 		gradients: "NewLife",
-		margin: true,
+		margin: true
 	}
 
 	constructor(props) {
@@ -86,7 +87,7 @@ class Button extends React.Component<ButtonProps, any>{
 	}
 
 	handleHref = (href) => {
-		const defaultLink = { target: "_self", url: href };
+		let defaultLink = { target: "_self", url: href };
 		if (href) {
 			if (isType(href, 'Object')) {
 				href.target = '_' + href.target;
@@ -142,7 +143,7 @@ class Button extends React.Component<ButtonProps, any>{
 		const {
 			icon,
 			size,
-			children,
+			children
 		} = props;
 		let iconEle: React.ReactElement;
 
@@ -158,7 +159,6 @@ class Button extends React.Component<ButtonProps, any>{
 			}
 			iconEle = (
 				<div className={`${prefix}-temp-div`}>
-					// tslint:disable-next-line: jsx-self-close
 					<Icon
 						style={typeReplace(iconMargin, 'Object', {})}
 						size={iconSize as SizeType}
@@ -181,7 +181,7 @@ class Button extends React.Component<ButtonProps, any>{
 			func,
 			href,
 			readOnly,
-			download,
+			download
 		} = customProps;
 
 		const mergeStyle = {

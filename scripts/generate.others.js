@@ -27,24 +27,24 @@ function copyToRelease(val) {
 		function copyIt(filePath, targetFilePath) {
 			fs.readdir(filePath, (err, files) => {
 				if (err) {
-					console.warn(err)
+					console.warn(err);
 				} else {
 					files.forEach((filename) => {
-						var filedir = path.join(filePath, filename);
-						var targetdir = path.join(targetFilePath, filename);
-						fs.stat(filedir, (error, stats) => {
+						var fileDir = path.join(filePath, filename);
+						var targetDir = path.join(targetFilePath, filename);
+						fs.stat(fileDir, (error, stats) => {
 							if (error) {
 								console.warn('获取文件stats失败');
 							} else {
 								if (filePath.indexOf('stylesheet') < 0) {
 									if (stats.isFile() && suffix.test(filename)) {
-										fs.copy(filedir, targetdir, (err) => {
+										fs.copy(fileDir, targetDir, (err) => {
 											if (err) console.log(err);
 										});
 									}
 								}
 								if (stats.isDirectory()) {
-									copyIt(filedir, targetdir);
+									copyIt(fileDir, targetDir);
 								}
 							}
 						})

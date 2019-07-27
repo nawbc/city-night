@@ -10,10 +10,11 @@ import {
 import { PositionType, SizeType } from '../../interfaces/customTypes';
 import ReactDOM from 'react-dom';
 
+
 const customContextMenuProps = [
 	'children',
 	'className',
-	'style',
+	'style'
 ]
 
 interface ContextMenuProps extends CommonInterface {
@@ -43,13 +44,14 @@ class ContextMenu extends React.Component<ContextMenuProps, any> {
 		document.oncontextmenu = (e) => {
 			e.preventDefault();
 			this.setState({
-				contextmenu: !this.state.contextmenu,
+				contextmenu: !this.state.contextmenu
 			})
 		}
 	}
 
 	handlePosition = () => {
 		const contextMenuEle = this.contextMenuRef.current as HTMLElement;
+
 	}
 
 	handleExtraProps = (): JSXPropsInterface<ContextMenuProps> => {
@@ -81,11 +83,13 @@ class ContextMenu extends React.Component<ContextMenuProps, any> {
 		}
 
 		return (
+
 			<div
 				{...nativeProps}
 				style={mergeStyle}
 				ref={this.contextMenuRef}
-			/>
+			>
+			</div>
 		)
 	}
 

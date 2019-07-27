@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './style/articleIndex.scss';
 import * as ArticleList from './articleList.json';
-import { ScrollBox } from '../../components/exports';
+import { ScrollBox } from '../../src/exports';
 import { NavLink } from 'react-router-dom';
 
 
@@ -12,7 +12,6 @@ export default class ArticleIndex extends Component<any>{
 		super(props);
 		this.listContent = Object.entries(Object.values(ArticleList)[0])
 	}
-
 
 	componentDidMount() {
 		if (!this.props.mobile) {
@@ -34,8 +33,8 @@ export default class ArticleIndex extends Component<any>{
 							>
 								{
 									index === 0 || index === 1 || index === 2 ?
-										<NavLink to={'/site/' + ele[0].split(/\s/g)[0].toLowerCase()} >
-											<div className='articleTitle' style={{ paddingTop: '10px', fontSize: '17px'}}>{ele[0]}</div>
+										<NavLink to={'/muguet-site/' + ele[0].split(/\s/g)[0].toLowerCase()} >
+											<div className='articleTitle' style={{ paddingTop: '10px', fontSize: '17px' }}>{ele[0]}</div>
 										</NavLink> :
 										<div className='articleTitle'>{ele[0]}</div>
 								}
@@ -45,7 +44,7 @@ export default class ArticleIndex extends Component<any>{
 											key={i}
 										>
 											<NavLink
-												to={'/site/doc/' + el.split(/\s/g)[0].toLowerCase()}
+												to={'/muguet-site/doc/' + el.split(/\s/g)[0].toLowerCase()}
 											>
 												{el}
 											</NavLink>

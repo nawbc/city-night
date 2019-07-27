@@ -1,48 +1,56 @@
 import React, { Component } from 'react';
-import { GradientsBar, GradientsFont, Icon, Button, Translate } from '../../components/exports';
+import { GradientsBar, Icon, Button, Translate } from '../../src/exports';
 import { ScreenContext } from './doc';
 import './style/header.scss';
-
 
 export default class Home extends Component<any>{
 
 	state = {
-		language: false
+		language: false,
 	}
 
 	render() {
 		return (
 			<ScreenContext.Consumer>
-				{(value: {isMobile: boolean}) => {
+				{(value: { isMobile: boolean }) => {
 
 					return <GradientsBar
 						size={['100%', '60px']}
 						gradients='NewLife'
+						style={{ position: 'relative' }}
 					>
-						<a href="/site/introduce">
-							<div className='logo'></div>
-							<GradientsFont
-								style={{ position: 'relative', top: '-10px', left: '-17px', userSelect: 'none' }}
-								gradients='GrownEarly'
-								size='large'
-							>Muguet</GradientsFont>
+						<a href="/muguet-site/introduce">
+							<div className='logo' />
+							<Icon.SVG
+								style={{ userSelect: 'none', position: 'absolute', top: '36px', left: '86px' }}
+								src={require('../assets/logo/muguet-font.svg')}
+								size={[73, 20]}
+							/>
 						</a>
 						<div style={{ position: 'absolute', bottom: '3px', right: '20px' }}>
 							{
 								value.isMobile ? null :
-								<Button
-									size='tiny'
-									className='labelButton'
-									style={{ background: 'transparent' }}
-								><Translate id="sc_h1" /></Button>
+									<Button
+										size='tiny'
+										className='labelButton'
+										style={{ background: 'transparent' }}
+									><Translate id="sc_h2" /></Button>
+							}
+							{
+								value.isMobile ? null :
+									<Button
+										size='tiny'
+										className='labelButton'
+										style={{ background: 'transparent' }}
+									><Translate id="sc_h1" /></Button>
 							}
 							<Button
 								size='tiny'
 								className='labelButton'
 								style={{ background: 'transparent' }}
 								href={{
-									url: '/site/gradients.htm',
-									target: 'blank'
+									url: '/muguet-site/gradients.htm',
+									target: 'blank',
 								}}
 							>Gradients Card</Button>
 							<Button
@@ -51,7 +59,7 @@ export default class Home extends Component<any>{
 								onClick={() => {
 									this.props.onState();
 									this.setState({
-										language: !this.state.language
+										language: !this.state.language,
 									})
 								}}
 							>{this.state.language ? '中文' : 'English'}</Button>

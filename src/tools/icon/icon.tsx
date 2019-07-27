@@ -31,7 +31,7 @@ const customIconAttrs = [
 	'effect',
 	'shape',
 	'size',
-	'style',
+	'style'
 ];
 
 /**
@@ -59,12 +59,13 @@ const customIconAttrs = [
 
 class Icon extends React.Component<IconProps, any> {
 
-	static SVG: typeof SVG = SVG;
 	private static readonly defaultProps = {
 		size: 'normal',
 	}
 
 	tempSaver: IconProps;
+
+	static SVG: typeof SVG = SVG;
 
 	handleExtraProps = (): JSXPropsInterface<IconProps> => {
 		const iconProps = JSXProps<IconProps>(this.props, customIconAttrs);
@@ -119,7 +120,7 @@ class Icon extends React.Component<IconProps, any> {
 
 	componentDidMount() {
 		if (isFunction(this.tempSaver.onContainer!))
-			this.tempSaver.onContainer!(this.refs.icon_ref as HTMLElement);
+			this.tempSaver.onContainer!(this.refs['icon_ref'] as HTMLElement);
 	}
 }
 

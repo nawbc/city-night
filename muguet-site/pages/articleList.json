@@ -1,43 +1,47 @@
 {
 	"Introduce 介绍": [],
-	"GetStart 快速上手":[],
-	"Gradients 渐变色":[],
+	"GetStart 快速上手": [],
+	"Gradients 渐变色": [],
 	"Muguet": [
 		"Muguet 全局"
 	],
 	"Layout": [
-		"Grid 格栅布局",
-		"Flex 弹性布局",
-		"DragBox 拖拽盒子",
-		"ScrollBox 滚动盒子"
-	] ,
+		"Grid 格栅布局 ✔",
+		"Flex 弹性布局 ✔",
+		"DragBox 拖拽盒子 ✔",
+		"ScrollBox 滚动盒子 ✔"
+	],
 	"InputData": [
-		"Input  输入"
+		"Input  输入",
+		"Checkout 多选框",
+		"Radio 单选框",
+		"Calendar 日历",
+		"autoComplete 自动补全"
 	],
 	"ShowData": [
 		"List 列表",
-		"Table 表格"
+		"Table 表格",
+		"Fold 折叠板 ✔"
 	],
 	"Tips": [
 		"Modal 弹出框",
-		"Bubble 气球",
+		"Bubble 气球 ✔",
 		"Confirm 确定",
-		"message 消息",
+		"message 消息 ✔",
 		"Notification 提示",
-		"Red 红点"
+		"Red 红点 ✔"
 	],
 	"Tools": [
-		"Icon 图标",
-		"Button 按钮",
-		"Avatar 头像",
-		"Loading 加载效果",
+		"Icon 图标 ✔",
+		"Button 按钮 ✔",
+		"Avatar 头像 ✔",
+		"Loading 加载效果 ✔",
 		"Sticky 贴纸",
-		"Socket 开关",
+		"Socket 开关 ✔",
 		"Menu 菜单",
-		"Citation  引文",
-		"ShortCuts 快捷键",
-		"GradientsBar 渐变台",
-		"GradientsFont 渐变文字"
+		"Citation  引文 ✔",
+		"ShortCuts 快捷键 ✔",
+		"GradientsBar 渐变台 ✔"
 	],
 	"Others": [
 		"Internation 国际化"

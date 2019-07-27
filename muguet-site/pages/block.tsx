@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import { Row, Col } from '../../components/exports';
+import { Row, Col } from '../../src/exports';
 
 export default class Block extends Component<any>{
 

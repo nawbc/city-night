@@ -8,10 +8,7 @@ import { SizeType } from '../../interfaces/customTypes';
 import { handleSize, JSXProps } from '../../utils/handleJSXProps';
 import MuguetAutoHeight from '../../shared/muguet-auto-height';
 import { FoldProps } from './fold';
-import {
-	CommonInterface,
-	JSXPropsInterface
-} from '../../interfaces/common.interface';
+import { CommonInterface, JSXPropsInterface } from '../../interfaces/common.interface';
 import './style/panel.css';
 
 type PanelIconType = string | React.ReactElement;
@@ -31,8 +28,8 @@ const customFoldPanelProps = [
 	'mode',
 	'style',
 	'onClick',
-	'fillet'
-]
+	'fillet',
+];
 
 export interface FoldPanelProps extends CommonInterface, FoldProps {
 	icon?: PanelIconType;
@@ -66,45 +63,35 @@ export interface FoldPanelProps extends CommonInterface, FoldProps {
  */
 
 class FoldPanel extends React.Component<FoldPanelProps, any> {
-
 	state = {
-		isFold: true
-	}
+		isFold: true,
+	};
 
-	EmbedDefaultIcon = (props) => {
-		return (
-			React.isValidElement(props.icon) ?
-				props.icon :
-				<Icon
-					size='tiny'
-					style={{ marginRight: '6px' }}
-					className={classNames({
-						[`${prefix}-arrow-default`]: true,
-						[`${prefix}-arrow-${this.state.isFold ? 'right' : 'down'}`]: !props.icon
-					})}
-					src={
-						props.icon ? props.icon :
-							require('../../assets/icons/local/arrow-right.svg')
-					}
-				/>
-		)
-	}
+	EmbedDefaultIcon = props => {
+		return React.isValidElement(props.icon) ? (
+			props.icon
+		) : (
+			<Icon
+				size="tiny"
+				style={{ marginRight: '6px' }}
+				className={classNames({
+					[`${prefix}-arrow-default`]: true,
+					[`${prefix}-arrow-${this.state.isFold ? 'right' : 'down'}`]: !props.icon,
+				})}
+				src={props.icon ? props.icon : require('../../assets/icons/local/arrow-right.svg')}
+			/>
+		);
+	};
 
 	handleExtraProps = (): JSXPropsInterface<FoldPanelProps> => {
 		const foldPanelProps = JSXProps<FoldPanelProps>(this.props, customFoldPanelProps);
 		const { customProps } = foldPanelProps;
 		customProps.size = handleSize(customProps.size as SizeType);
 		return foldPanelProps;
-	}
+	};
 
-	handleClassName = (classProps) => {
-		const {
-			last,
-			size,
-			fillet,
-			className,
-			mode
-		} = classProps;
+	handleClassName = classProps => {
+		const { last, size, fillet, className, mode } = classProps;
 
 		return {
 			containerName: classNames({
@@ -122,69 +109,63 @@ class FoldPanel extends React.Component<FoldPanelProps, any> {
 				[`${prefix}-content`]: true,
 				[`${prefix}-${mode}`]: mode,
 				[`${prefix}-content-last`]: last,
-				[`${prefix}-fillet`]: fillet
-			})
-		}
-	}
+				[`${prefix}-fillet`]: fillet,
+			}),
+		};
+	};
 
 	handleCustomClick = (e, customProps) => {
-		if (customProps.onClick) { customProps.onClick(e) };
+		if (customProps.onClick) {
+			customProps.onClick(e);
+		}
 
 		// if ('custom' !== customProps.mode)
 		this.setState({ isFold: !this.state.isFold });
-
-	}
+	};
 
 	render() {
 		const { nativeProps, customProps } = this.handleExtraProps();
 		const mergeStyle = {
 			...typeReplace(customProps.size as Object, 'Object', {}),
-			...typeReplace(customProps.style as Object, 'Object', {})
-		}
+			...typeReplace(customProps.style as Object, 'Object', {}),
+		};
 		const { children, headline } = customProps;
 
 		return (
 			<FoldContext.Consumer>
-				{
-					(value: FoldPanelProps) => {
-						if (customProps.mode) value.mode = customProps.mode;
-						if (!customProps.foldDuration) customProps.foldDuration = value.foldDuration;
-						const className = this.handleClassName({ ...customProps, ...value });
-						const { containerName, headlineName, contentName } = className;
-						return (
+				{(value: FoldPanelProps) => {
+					if (customProps.mode) value.mode = customProps.mode;
+					if (!customProps.foldDuration) customProps.foldDuration = value.foldDuration;
+					const className = this.handleClassName({ ...customProps, ...value });
+					const { containerName, headlineName, contentName } = className;
+					return (
+						<div {...nativeProps} className={containerName}>
 							<div
-								{...nativeProps}
-								className={containerName}
+								className={headlineName}
+								style={mergeStyle}
+								onClick={e => {
+									this.handleCustomClick(e, customProps);
+								}}
 							>
-								<div
-									className={headlineName}
-									style={mergeStyle}
-									onClick={(e) => { this.handleCustomClick(e, customProps) }}
-								>
-									{
-										'custom' === customProps.mode ? null :
-											this.EmbedDefaultIcon(customProps)
-									}
-									<div
-										className={`${prefix}-headline-block`}
-									>{headline}</div>
-								</div>
-								<MuguetAutoHeight
-									transitionDuration={customProps.foldDuration}
-									transitionFunc={'ease'}
-									height={'custom' === customProps.mode ? customProps.fold : (this.state.isFold ? 0 : 'auto')}
-								>
-									<div
-										className={contentName}
-										style={mergeStyle}
-									>{children}</div>
-								</MuguetAutoHeight>
+								{'custom' === customProps.mode ? null : this.EmbedDefaultIcon(customProps)}
+								<div className={`${prefix}-headline-block`}>{headline}</div>
 							</div>
-						)
-					}
-				}
+							<MuguetAutoHeight
+								transitionDuration={customProps.foldDuration}
+								transitionFunc={'ease'}
+								height={
+									'custom' === customProps.mode ? customProps.fold : this.state.isFold ? 0 : 'auto'
+								}
+							>
+								<div className={contentName} style={mergeStyle}>
+									{children}
+								</div>
+							</MuguetAutoHeight>
+						</div>
+					);
+				}}
 			</FoldContext.Consumer>
-		)
+		);
 	}
 }
 

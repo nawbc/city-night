@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import { Button, DragBox, Row, Col, ScrollBox, Select, Icon, Citation } from '../../../components/exports';
+import { Button, DragBox, Row, Col, ScrollBox, Select, Icon, Citation } from '../../../src/exports';
 import View from './example/pdfView';
 
 export default class ButtonPage extends Component<any>{
