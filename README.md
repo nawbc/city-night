@@ -24,6 +24,8 @@
 
 ### 一. 简介
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/42b72682e02143d1a17c87cbe2cd48de)](https://app.codacy.com/app/wanghan9423/muguet-ui?utm_source=github.com&utm_medium=referral&utm_content=sewerganger/muguet-ui&utm_campaign=Badge_Grade_Settings)
+
 - 设计
 
 Muguet 是一款主打渐变色的 React ui 组件库
