@@ -6,11 +6,11 @@
 
 <div align="center">
 
-![logo](https://raw.githubusercontent.com/sewerganger/Muguet-ui/master/muguet-site/assets/logo/muguet256.gif)
+![logo](./muguet-site/assets/logo/muguet256.gif)
 
 </div>
 
-[English](https://github.com/sewerganger/Muguet-ui/blob/dev_main/README_EN.md)
+[English](./README_EN.md)
 
 😭 进度： <font color="red">大规模改动中 ! ! ! ! !</font>
 
@@ -32,10 +32,10 @@ Muguet 是一款主打渐变色的 React ui 组件库
 <br>
 <br>
 <br>
-![split](https://raw.githubusercontent.com/sewerganger/Muguet-ui/master/doc/images/gradients.gif)
+![split](./doc/images/gradients.gif)
 Muguet 使用了直角设计，当然也提供了圆角接口，通过合理的搭配，组件将美到 Cry😭
 <br>
-![split](https://raw.githubusercontent.com/sewerganger/Muguet-ui/master/doc/images/button.jpg)
+![split](./doc/images/button.jpg)
 
 - 性能
 
@@ -60,7 +60,7 @@ Muguet 使用了直角设计，当然也提供了圆角接口，通过合理的�
 
 `<DragBox></DragBox>`
 
-![split](https://raw.githubusercontent.com/sewerganger/Muguet-ui/master/doc/images/drag-ghost.gif)
+![split](./doc/images/drag-ghost.gif)
 
 - ghost
 
@@ -81,8 +81,8 @@ Muguet 使用了直角设计，当然也提供了圆角接口，通过合理的�
 </ScrollBox>
 ```
 
-![split](https://raw.githubusercontent.com/sewerganger/Muguet-ui/master/doc/images/drag-split1.gif)
-![split](https://raw.githubusercontent.com/sewerganger/Muguet-ui/master/doc/images/drag-split.gif)
+![split](./doc/images/drag-split1.gif)
+![split](./doc/images/drag-split.gif)
 
 - split
 
@@ -112,7 +112,7 @@ Muguet 使用了直角设计，当然也提供了圆角接口，通过合理的�
 </DragBox>
 ```
 
-![split](https://raw.githubusercontent.com/sewerganger/Muguet-ui/master/doc/images/drag-upload.gif)
+![split](doc/images/drag-upload.gif)
 
 ```
 <DragBox
@@ -136,7 +136,7 @@ Muguet 使用了直角设计，当然也提供了圆角接口，通过合理的�
 
 `<Bubble></Bubble>`
 
-![split](https://raw.githubusercontent.com/sewerganger/Muguet-ui/master/doc/images/bubble.gif)
+![split](./doc/images/bubble.gif)
 
 ```
 <Flex.avg size={[500, 500]}>
@@ -168,7 +168,7 @@ Muguet 使用了直角设计，当然也提供了圆角接口，通过合理的�
 
 `全局 message`
 
-![split](https://raw.githubusercontent.com/sewerganger/Muguet-ui/master/doc/images/message.gif)
+![split](./doc/images/message.gif)
 
 ```
 <React.Fragment>
