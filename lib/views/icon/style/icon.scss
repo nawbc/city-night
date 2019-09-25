@@ -1,0 +1,18 @@
+@import "./option";
+@import "../../../stylesheet/preset/index";
+@import "compass/css3";
+
+$prefix: s-icon;
+
+.#{$prefix} {
+  display: inline-block;
+  @include defaultMargin;
+  @include flex-average(inline-flex);
+
+  svg {
+    @include squareBox(100%);
+  }
+}
+
+@include defaultAnimation($prefix);
+@include setSize($prefix, $icon_tn, $icon_sm, $icon_nor, $icon_large, $icon_largest);

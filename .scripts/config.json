@@ -1,0 +1,26 @@
+{
+	"port": 3000,
+	"rootPath": "./",
+	"publicExtUrl": "/",
+	"constPaths": {
+		"tsConfig": "./tsconfig.json",
+		"packageJson": "./package.json",
+		"nodeModules": "./node_modules",
+		"appSrc": "./app",
+		"appHtml": "./app/public/index.htm",
+		"appPublic": "./app/public",
+		"appEntryTsx": "./app/index.tsx",
+		"appOutput": "./release/app",
+		"libSrc": "./lib",
+		"libEntryTsx": "./lib/index.tsx",
+		"libOutput": "./release/dist"
+	},
+	"names": {
+		"packJsName": "silent-concept.js",
+		"packCssName": "silent-concept.css",
+		"library": "silent-concept"
+	},
+	"interpolateHtml": {
+		"themeColor": "#FFFFFF"
+	}
+}

@@ -1,0 +1,135 @@
+@import "compass/css3";
+
+@mixin box($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+@mixin squareBox($val) {
+  width: $val;
+  height: $val;
+}
+
+@mixin position-center($w, $h) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -$h/2;
+  margin-left: -$w/2;
+}
+
+@mixin defaultMargin {
+  margin-right: 5px;
+  margin-top: 3px;
+}
+
+/**=================================================================================================
+ *			AUTHOR --- Han Wang
+ *			LASTMODIFY --- 2019-08-28T06:20:40.872Z
+ *			DESCRIPTION --- flex 1.vertical 在盒子中 竖直排列 2.average 在盒子中均匀排列
+ *																		$mode flex inline-flex
+ *=================================================================================================*/
+@mixin flex-default($mode) {
+  @include display-flex($mode);
+  @include flex-wrap(wrap);
+}
+
+@mixin flex-vertical($mode) {
+  @include flex-default($mode);
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@mixin flex-average($mode) {
+  @include flex-default($mode);
+  @include align-items(center);
+  @include justify-content(space-around);
+}
+
+@mixin defaultAnimation($prefix, $translate: 4px, $grow: 1.1, $shrink: 0.8) {
+  .#{$prefix}-click-up {
+    @include click_translate(0, -$translate);
+  }
+
+  .#{$prefix}-click-down {
+    @include click_translate(0, $translate);
+  }
+
+  .#{$prefix}-click-left {
+    @include click_translate(-$translate, 0);
+  }
+
+  .#{$prefix}-click-right {
+    @include click_translate($translate, 0);
+  }
+
+  .#{$prefix}-click-grow {
+    @include click_scale($grow);
+  }
+
+  .#{$prefix}-click-shrink {
+    @include click_scale($shrink);
+  }
+
+  .#{$prefix}-hover-up {
+    @include hover_translate(0px, -$translate);
+  }
+
+  .#{$prefix}-hover-down {
+    @include hover_translate(0px, $translate);
+  }
+
+  .#{$prefix}-hover-left {
+    @include hover_translate(-$translate, 0px);
+  }
+
+  .#{$prefix}-hover-right {
+    @include hover_translate($translate, 0px);
+  }
+
+  .#{$prefix}-hover-grow {
+    @include hover_scale($grow);
+  }
+
+  .#{$prefix}-hover-shrink {
+    @include hover_scale($shrink);
+  }
+}
+
+@mixin setSize($prefix, $tn, $sm, $nor, $lg, $lgest) {
+
+  @each $type,
+  $size in (tiny, $tn),
+  (small, $sm),
+  (normal, $nor),
+  (large, $lg),
+  (largest, $lgest) {
+    .#{$prefix}-#{$type} {
+      @include squareBox($size);
+    }
+  }
+}
+
+/**=================================================================================================
+ *			兼容性极差 可以看到元素背后内容
+ *=================================================================================================*/
+
+@mixin backdrop-filter($effect) {
+  backdrop-filter: $effect;
+  -webkit-backdrop-filter: $effect;
+}
+
+@mixin fillPseudoFull {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  content: '';
+}
+
+@mixin noWhiteBorderBlur($radius) {
+  margin: -$radius;
+  @include filter(blur($radius));
+}

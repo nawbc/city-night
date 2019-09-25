@@ -1,0 +1,9 @@
+@import "../../../stylesheet/preset/mixin";
+@import "./option";
+
+$prefix: s-picture;
+
+.#{$prefix} {
+  display: inline-block;
+  margin: $marginWidth;
+}

@@ -1,0 +1,23 @@
+@import "../../../stylesheet/preset/mixin";
+@import "compass/css3";
+
+.mask {
+  width: 400px;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+  // @include position-center(400px, 250px);
+
+  &::after {
+    z-index: -1;
+    @include noWhiteBorderBlur(10px);
+    @include fillPseudoFull;
+    // background-image: url(../../../../temp/demo.jpg);
+    background: #E3E3E3;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.9;
+  }
+}

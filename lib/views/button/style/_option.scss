@@ -1,0 +1,31 @@
+@import "../../../stylesheet/index";
+
+$button-tn: 18px;
+$button-sm: 24px;
+$button-nor: 32px;
+$button-lg: 40px;
+$button-lgest: 46px;
+
+$button-green: $green-e;
+$button-grey: $grey-a;
+$button-blue: $blue-d;
+$button-magenta: $magenta-d;
+$button-gold: $gold-d;
+$button-purple: $purple-f;
+$button-cyan: $cyan-e;
+$button-brown: $brown-d;
+$button-yellow: $yellow-h;
+$button-red: $red-f;
+
+$button-circle: 50%;
+$button-fillet: 8px;
+$button-react: 0px;
+
+$button-font-weight: 400;
+
+@mixin buttonDefaultMargin {
+  margin: {
+    left: 3px;
+    right: 3px;
+  }
+}

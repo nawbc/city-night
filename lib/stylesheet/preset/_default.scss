@@ -1,0 +1,58 @@
+$font-family: "Helvetica Neue",
+Helvetica,
+"Hiragino Sans GB",
+"Microsoft YaHei",
+"微软雅黑",
+SimSun,
+sans-serif !default;
+/**=================================================================================================
+ *			LASTMODIFY --- 2019-09-13T14:22:04.293Z
+ *			DESCRIPTION --- pre code 默认字体
+ *=================================================================================================*/
+$code-family: "PT Mono",
+Menlo,
+"Courier New",
+monospace !default;
+
+/**=================================================================================================
+*			LASTMODIFY --- 2019-09-13T14:18:34.549Z
+*			DESCRIPTION --- pc默认字体
+*=================================================================================================*/
+$font-family-pc: Monospaced Number,
+-apple-system,
+'Segoe UI',
+'PingFang SC',
+'Hiragino Sans GB',
+'Microsoft YaHei',
+'Helvetica Neue',
+'Apple Color Emoji',
+'Segoe UI Emoji',
+'Segoe UI Symbol',
+Chinese Quote,
+-apple-system,
+BlinkMacSystemFont,
+Segoe UI,
+Roboto,
+PingFang SC,
+Hiragino Sans GB,
+Microsoft YaHei,
+Helvetica Neue,
+Helvetica,
+Arial,
+sans-serif;
+
+/**=================================================================================================
+ *			LASTMODIFY --- 2019-09-13T14:18:49.397Z
+ *			DESCRIPTION --- 屏幕规格
+ *=================================================================================================*/
+$phone-width: 480px !default;
+
+$pad-width: 576px !default;
+
+$desktop-width: 768px !default;
+
+$desktop-x-width: 992px !default;
+
+$desktop-xx-width: 1200px !default;
+
+$desktop-xxx-width: 1600px !default;

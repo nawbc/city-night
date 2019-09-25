@@ -1,0 +1,43 @@
+@import "./mixin";
+@import "compass/css3";
+
+@mixin click_translate($distanceX:0, $distanceY:0, $transitionVal: 200ms ease-out) {
+  @include transition(transform $transitionVal);
+  will-change: transform;
+
+  &:hover {
+    @include transform(translate(0, 0));
+  }
+
+  &:active {
+    @include transform(translate($distanceX, $distanceY));
+  }
+}
+
+@mixin click_scale($scaleVal, $transitionVal: 200ms ease-out) {
+  @include transition(transform $transitionVal);
+
+  &:hover {
+    @include transform(scale(1));
+  }
+
+  &:active {
+    @include transform(scale($scaleVal));
+  }
+}
+
+@mixin hover_translate($distanceX:0, $distanceY:0, $transitionVal: 200ms ease-out) {
+  @include transition(transform $transitionVal);
+
+  &:hover {
+    @include transform(translate($distanceX, $distanceY));
+  }
+}
+
+@mixin hover_scale($scaleVal, $transitionVal: 200ms ease-out) {
+  @include transition(transform $transitionVal);
+
+  &:hover {
+    @include transform(scale($scaleVal));
+  }
+}

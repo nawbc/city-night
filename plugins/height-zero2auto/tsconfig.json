@@ -1,0 +1,35 @@
+{
+	"compilerOptions": {
+		"jsx": "react",
+		"strictNullChecks": true,
+		"esModuleInterop": true,
+		"removeComments": true,
+		"noImplicitThis": true,
+		"noEmitOnError": true,
+		"noUnusedParameters": false,
+		"noUnusedLocals": false,
+		"skipLibCheck": true,
+		"experimentalDecorators": true,
+		"allowSyntheticDefaultImports": true,
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"target": "es5",
+		"sourceMap": true,
+		"declaration": true,
+		"lib": [
+			"dom",
+			"es7",
+			"es6",
+			"es5",
+			"dom",
+			"dom.iterable"
+		]
+	},
+	"exclude": [
+		"node_modules"
+	],
+	"files": [
+		"index.tsx"
+	]
+}

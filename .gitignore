@@ -1,0 +1,17 @@
+logs
+coverage
+.npm
+.eslintcache
+.cache
+.serverless
+node_modules
+.sass-cache
+release
+*.log*
+.idea
+*.iml
+*.swp
+*.swo
+*.ai
+temp
+silent-concept.rar

@@ -1,0 +1,37 @@
+@import "./option";
+@import "../../../stylesheet/preset/mixin";
+@import "compass/css3";
+
+$prefix: s-loading-font;
+
+.#{$prefix} {
+  @include defaultMargin;
+  @include user-select(none);
+}
+
+@each $type,
+$size in (tiny, $loading-font-tn),
+(small, $loading-font-sm),
+(normal, $loading-font-nor),
+(large, $loading-font-lg),
+(largest, $loading-font-lgest) {
+  .#{$prefix}-#{$type} {
+    font-size: $size;
+  }
+}
+
+@each $color,
+$a in (green, $loading-i-green),
+(grey, $loading-i-grey),
+(blue, $loading-i-blue),
+(magenta, $loading-i-magenta),
+(gold, $loading-i-gold),
+(purple, $loading-i-purple),
+(cyan, $loading-i-cyan),
+(brown, $loading-i-brown),
+(yellow, $loading-i-yellow),
+(red, $loading-i-red) {
+  .#{$prefix}-#{$color} {
+    color: $a;
+  }
+}

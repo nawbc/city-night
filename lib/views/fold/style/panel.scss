@@ -1,0 +1,64 @@
+@import "./option";
+@import "../../../stylesheet/preset/index";
+@import "compass/css3";
+
+$prefix: s-panel;
+
+@mixin normalStyle {
+  border: {
+    left: 1px solid #cfcfcf;
+    right: 1px solid #cfcfcf;
+    top: 1px solid #cfcfcf;
+  }
+}
+
+.#{$prefix} {
+  cursor: default;
+
+  .#{$prefix}-headline {
+    background-color: $panel-headline-bgColor;
+    display: flex;
+    align-items: center;
+    @include normalStyle;
+
+    .#{$prefix}-headline-content {
+      padding: 10px 5px;
+    }
+
+    .#{$prefix}-icon {
+      @include transition(transform 500ms linear);
+      @include transform-origin(40%, 50%);
+      will-change: transform;
+    }
+
+    .#{$prefix}-icon-fold {
+      @include transform(rotate(0deg));
+    }
+
+    .#{$prefix}-icon-unFold {
+      @include transform(rotate(90deg));
+    }
+  }
+
+  .#{$prefix}-headline-fillet {
+    border-radius: 0px 0px $panel-fillet-radius $panel-fillet-radius;
+  }
+
+
+  .#{$prefix}-inner {
+    padding: 10px 15px;
+    @include normalStyle;
+  }
+
+  .#{$prefix}-inner-fillet {
+    border-radius: $panel-fillet-radius;
+  }
+}
+
+.#{$prefix}-last {
+  border-bottom: 1px solid #cfcfcf;
+}
+
+.#{$prefix}-last-fillet {
+  border-radius: $panel-fillet-radius;
+}

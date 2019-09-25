@@ -1,0 +1,100 @@
+{
+	"env": {
+		"es6": true,
+		"node": true,
+		"browser": true,
+		"jest": true
+	},
+	"extends": [
+		"plugin:@typescript-eslint/recommended",
+		"plugin:react/recommended"
+	],
+	"globals": {
+		"Atomics": "readonly",
+		"SharedArrayBuffer": "readonly",
+		"page": true,
+		"browser": true,
+		"context": true,
+		"jestPuppeteer": true //https://github.com/smooth-code/jest-puppeteer
+	},
+	"settings": {
+		"react": {
+			"createClass": "createReactClass",
+			"pragma": "React",
+			"version": "detect"
+		}
+	},
+	"plugins": [
+		"react",
+		"react-hooks"
+	],
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"sourceType": "module",
+		"experimentalObjectRestSpread": true,
+		"jsx": true,
+		"ecmaVersion": 2018,
+		"project": "./tsconfig.json",
+		"useJSXTextNode": true
+	},
+	"parser": "@typescript-eslint/parser",
+	"rules": {
+		"no-undef": "error",
+		"semi": "warn",
+		"no-multi-spaces": [
+			"error",
+			{
+				"ignoreEOLComments": true
+			}
+		],
+		"no-unused-vars": "warn",
+		"comma-dangle": [
+			"warn",
+			{
+				"arrays": "never",
+				"objects": "never",
+				"imports": "never",
+				"exports": "never",
+				"functions": "never"
+			}
+		],
+		"no-console": [
+			"error",
+			{
+				"allow": [
+					"warn",
+					"log",
+					"time",
+					"timeEnd",
+					"info",
+					"table",
+					"error"
+				]
+			}
+		],
+		"react/prop-types": 0,
+		"@typescript-eslint/no-var-requires": 0,
+		"@typescript-eslint/no-non-null-assertion": 0,
+		"@typescript-eslint/no-explicit-any": 0,
+		"@typescript-eslint/no-empty-interface": 0,
+		"@typescript-eslint/explicit-function-return-type": 0,
+		"@typescript-eslint/no-object-literal-type-assertion": 0,
+		"@typescript-eslint/explicit-member-accessibility": 0,
+		"react/self-closing-comp": 1,
+		// 修复interface unused 的问题
+		"@typescript-eslint/no-unused-vars": [
+			1,
+			{
+				"args": "none"
+			}
+		],
+		"@typescript-eslint/indent": [
+			"warn",
+			"tab"
+		],
+		"react-hooks/rules-of-hooks": "warn",
+		"react-hooks/exhaustive-deps": "warn"
+	}
+}

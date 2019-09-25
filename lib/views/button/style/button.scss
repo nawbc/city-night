@@ -1,0 +1,98 @@
+@import "./option";
+@import "compass/css3";
+@import "../../../stylesheet/index";
+
+$prefix: s-button;
+
+.#{$prefix} {
+  line-height: 1;
+  color: $black;
+  font-weight: $button-font-weight;
+  position: relative;
+  @include display-flex(inline-flex);
+  @include flex-wrap(nowrap);
+  @include align-items(center);
+  @include buttonDefaultMargin;
+
+  &:active {
+    outline: 2px dotted #000;
+  }
+
+  &:disabled {
+    &:active {
+      outline: none;
+    }
+  }
+}
+
+.#{$prefix}-link {
+  color: $black;
+  font-weight: 600;
+  font-size: 14px;
+
+  &:active {
+    outline: none;
+    text-decoration: underline;
+  }
+}
+
+.#{$prefix}-readOnly {
+  cursor: not-allowed;
+}
+
+.#{$prefix}-tiny {
+  min-height: $button-tn;
+  padding: 0 6px;
+}
+
+.#{$prefix}-small {
+  padding: 0 8px;
+  min-height: $button-sm;
+}
+
+.#{$prefix}-fill {
+  @include justify-content(center);
+}
+
+.#{$prefix}-normal {
+  min-height: $button-nor;
+  padding: 0 12px;
+}
+
+.#{$prefix}-large {
+  min-height: $button-lg;
+  padding: 0 13px
+}
+
+.#{$prefix}-largest {
+  min-height: $button-lgest;
+  padding: 0 16px;
+}
+
+.#{$prefix}-circle {
+  @include border-radius($button-circle);
+}
+
+.#{$prefix}-react {
+  @include border-radius($button-react);
+}
+
+.#{$prefix}-fillet {
+  @include border-radius($button-fillet);
+}
+
+@each $color,
+$colorVal in (green, $button-green),
+(grey, $button-grey),
+(blue, $button-blue),
+(magenta, $button-magenta),
+(gold, $button-gold),
+(purple, $button-purple),
+(cyan, $button-cyan),
+(brown, $button-brown),
+(yellow, $button-yellow),
+(red, $button-red) {
+  .#{$prefix}-#{$color} {
+    background-color: $colorVal;
+  }
+}

@@ -1,0 +1,19 @@
+{
+	"name": "height-zero2auto",
+	"version": "1.0.1",
+	"description": "resolve height 0 to auto can't use transition ",
+	"main": "index.js",
+	"scripts": {
+		"build": "tsc"
+	},
+	"peerDependencies": {
+		"prop-types": "^15.6.0",
+		"react": ">=16.8.0",
+		"react-dom": ">=16.8.0"
+	},
+	"dependencies": {
+		"computed-style": "^0.3.0"
+	},
+	"author": "HanWang",
+	"license": "MIT"
+}

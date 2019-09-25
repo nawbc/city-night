@@ -1,0 +1,19 @@
+language: node_js
+
+node_js:
+  - '10'
+  - '9'
+  - '8'
+
+cache:
+  directories:
+    - node_modules
+
+install:
+  - npm install
+
+script:
+  - npm test
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -t 019eb49e-8711-4953-aa41-90c572bbcdb1

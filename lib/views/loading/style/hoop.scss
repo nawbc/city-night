@@ -1,0 +1,79 @@
+@import "./option";
+@import "../../../stylesheet/preset/mixin";
+@import "compass/css3";
+@import "compass/css3/animation";
+
+$prefix: s-loading-hoop;
+$name-c: loading-hoop-container;
+$hc-animation: $name-c 500ms linear infinite;
+
+@mixin borderHoop($color, $innerColor) {
+  border-style: solid;
+  border-top-color: $color;
+  border-right-color: $color;
+  border-bottom-color: $color;
+  border-left-color: $innerColor;
+}
+
+.#{$prefix} {
+  display: inline-block;
+  @include defaultMargin;
+}
+
+.#{$prefix}-inner {
+  border-radius: 100%;
+  box-sizing: border-box;
+  @include animation($hc-animation);
+  @include squareBox(100%);
+}
+
+@include setSize($prefix, $loading-hoop-tn, $loading-hoop-sm, $loading-hoop-nor, $loading-hoop-lg, $loading-hoop-lgest);
+
+.#{$prefix}-inner-tiny {
+  border-width: $loading-hoop-border-tn;
+}
+
+.#{$prefix}-inner-small {
+  border-width: $loading-hoop-border-sm;
+}
+
+.#{$prefix}-inner-normal {
+  border-width: $loading-hoop-border-nor;
+}
+
+.#{$prefix}-inner-large {
+  border-width: $loading-hoop-border-lg;
+}
+
+.#{$prefix}-inner-largest {
+  border-width: $loading-hoop-border-lgest;
+}
+
+
+@each $color,
+$a,
+$b in (green, $loading-c-green, $loading-i-green),
+(grey, $loading-c-grey, $loading-i-grey),
+(blue, $loading-c-blue, $loading-i-blue),
+(magenta, $loading-c-magenta, $loading-i-magenta),
+(gold, $loading-c-gold, $loading-i-gold),
+(purple, $loading-c-purple, $loading-i-purple),
+(cyan, $loading-c-cyan, $loading-i-cyan),
+(brown, $loading-c-brown, $loading-i-brown),
+(yellow, $loading-c-yellow, $loading-i-yellow),
+(red, $loading-c-red, $loading-i-red),
+(white, $loading-c-white, $loading-i-white) {
+  .#{$prefix}-#{$color} {
+    @include borderHoop($a, $b);
+  }
+}
+
+@include keyframes($name-c) {
+  from {
+    @include transform(rotate(0deg));
+  }
+
+  to {
+    @include transform(rotate(360deg));
+  }
+}
