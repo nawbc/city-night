@@ -15,6 +15,9 @@ export const is = {
 	},
 	null(obj: unknown): obj is null {
 		return this.type(obj, 'Null');
+	},
+	undefined(obj: unknown): obj is undefined {
+		return this.type(obj, 'Undefined');
 	}
 };
 

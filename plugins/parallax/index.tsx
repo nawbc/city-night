@@ -1,47 +1,3 @@
-Structure
-
-```
-├── app
-│   ├── assets
-│   ├── pages
-│   └── public
-├── assets // default icons
-├── auto
-│   ├── gradientsMaker.js  			//get gradients from  https://webgradients.com/ and generate react pages
-│   ├── langTypesMaker.js 			// generate lang types
-│   └── svgModuleMaker.js 			// svg  -> React Component
-├── for_contributors.md
-├── include.json
-├── jest.config.js
-├── jest.e2e.js
-├── jest-puppeteer.config.js
-├── lib
-│   ├── assets
-│   │   └── svg
-│   ├── helper
-│   ├── index.tsx
-│   ├── interfaces
-│   ├── layout   // layout components
-│   ├── silent   // root component
-│   ├── stylesheet
-│   ├── tips     //	tip components
-│   ├── utils
-│   └── views   // normal Component
-├── LICENSE
-├── package.json
-├── package-lock.json
-├── plugins     // other plugins for silent
-│   └── height-zero2auto
-├── README.md
-├── README-zh.md
-├── silent-concept.rar
-├── tests
-├── todo-list.md
-├── tsconfig.json
-```
-
-program Template
-```typescript
 /**=================================================================================================
  *			LICENSE --- Apache-2.0
  *			LASTMODIFY --- 2019-09-09T13:51:34.709Z
@@ -54,8 +10,6 @@ import {
 	splitJsxProps,
 	handleSize,
 } from '../../lib/helper';
-
-
 
 const ParallaxAttrs = [
 	'size',
@@ -104,7 +58,7 @@ const Parallax: FC<ParallaxProps> = function (props) {
 			style={containerStyle}
 			className={className}
 		>
-			{children}
+			parallax
 		</span>
 	);
 };
@@ -112,5 +66,3 @@ const Parallax: FC<ParallaxProps> = function (props) {
 Parallax.defaultProps = {};
 
 export default React.memo(Parallax);
-
-```

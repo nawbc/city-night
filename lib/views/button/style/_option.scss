@@ -24,8 +24,5 @@ $button-react: 0px;
 $button-font-weight: 400;
 
 @mixin buttonDefaultMargin {
-  margin: {
-    left: 3px;
-    right: 3px;
-  }
+  margin: 3px;
 }

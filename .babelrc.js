@@ -19,7 +19,7 @@ const presets = [
 			},
 			"loose": true,
 			"useBuiltIns": "usage",
-			"corejs": "2",
+			"corejs": "3",
 		}
 	],
 	[
@@ -50,7 +50,7 @@ const plugins = [
 	[
 		"import",
 		{
-			"libraryName": "silent",
+			"libraryName": "Silent",
 		}
 	],
 	!isWebpack && transformRenameImport

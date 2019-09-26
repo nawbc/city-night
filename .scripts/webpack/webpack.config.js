@@ -17,7 +17,7 @@ const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const { names, rootPath, constPaths, publicExtUrl, interpolateHtml } = configJson;
+const { output, rootPath, constPaths, publicExtUrl, interpolateHtml } = configJson;
 const WebpackProgressBar = require('webpack-progress-bar')
 // 暴露 compass-importer
 const compassImporter = require('../utils/compass');
@@ -60,6 +60,8 @@ module.exports = function (env, action) {
 	const isProduction = env === 'production';
 	const isApp = action === 'app';
 	const isLib = action === 'lib';
+	const isPlugins = action === 'plugins';
+
 	// 发布包
 	const isReleaseLib = isLib && isProduction;
 	const publicPath = isProduction ? getServedPath(rPath.packageJson) : isDevelopment && '/';
@@ -88,7 +90,7 @@ module.exports = function (env, action) {
 		isProduction && new MiniCssExtractPlugin(
 			Object.assign(
 				{
-					filename: isLib ? names.packCssName : 'static/css/[name].css',
+					filename: isLib ? output.packCssName : 'static/css/[name].css',
 				},
 				isLib ?
 					{} : {
@@ -262,7 +264,7 @@ module.exports = function (env, action) {
 
 					{
 						test: /\.(js|jsx|ts|tsx)$/,
-						include: [rPath.appSrc, rPath.libSrc],
+						include: [rPath.appSrc, rPath.libSrc, rPath.pluginsSrc],
 						use: [
 							{
 								loader: 'babel-loader',
@@ -350,20 +352,21 @@ module.exports = function (env, action) {
 	};
 
 	//========================================================
-	const output = Object.assign(
+	const outputConfig = Object.assign(
 		{
 			path: enPath.output,
 			filename: isReleaseLib ?
-				names.library : (
+				output.packJsName : (
 					isProduction && isApp ?
 						'static/js/[name].[contenthash:8].js' :
 						'static/js/bundle.js'
 				),
 			pathinfo: isDevelopment,
+			libraryTarget: output.target
 		},
 		isReleaseLib ?
 			{
-				library: names.library,
+				library: output.library,
 			} : {
 				chunkFilename: isProduction ?
 					'static/js/[name].[contenthash:8].chunk.js' :
@@ -378,7 +381,7 @@ module.exports = function (env, action) {
 				require.resolve('react-dev-utils/webpackHotDevClient'),
 				enPath.entry
 			].filter(Boolean),
-		output: output,
+		output: outputConfig,
 		mode: env && 'development',
 		devtool: isProduction ? 'source-map' : 'cheap-module-source-map',
 		optimization: optimization,
@@ -386,7 +389,7 @@ module.exports = function (env, action) {
 		resolve: {
 			extensions: [".js", ".json", ".jsx", ".tsx", ".ts", ".json", ".css", ".scss", ".sass"]
 		},
-		plugins: (isLib && isProduction) ? libPlugin : appPlugin,
+		plugins: ((isLib || isPlugins) && isProduction) ? libPlugin : appPlugin,
 		node: {
 			module: 'empty',
 			dgram: 'empty',

@@ -13,12 +13,14 @@
 		"appOutput": "./release/app",
 		"libSrc": "./lib",
 		"libEntryTsx": "./lib/index.tsx",
-		"libOutput": "./release/dist"
+		"libOutput": "./release/dist",
+		"pluginsSrc": "./plugins"
 	},
-	"names": {
+	"output": {
 		"packJsName": "silent-concept.js",
 		"packCssName": "silent-concept.css",
-		"library": "silent-concept"
+		"library": "Silent",
+		"libraryTarget": "umd"
 	},
 	"interpolateHtml": {
 		"themeColor": "#FFFFFF"

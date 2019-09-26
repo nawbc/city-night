@@ -5,7 +5,7 @@
  *			REPOSITORY --- https://github.com/sewerganger/silent-concept
  *=================================================================================================*/
 
-import React, { ButtonHTMLAttributes, AnchorHTMLAttributes, FC, CSSProperties, ReactElement, useEffect, useRef } from 'react';
+import React, { ButtonHTMLAttributes, AnchorHTMLAttributes, FC, CSSProperties, ReactElement, useRef } from 'react';
 import { SilentCommonAttr, SizeType, ClassValue, EffectType, DefaultColor } from '../../interfaces';
 import Icon from '../icon/';
 import classNames from 'classnames';

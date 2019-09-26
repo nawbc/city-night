@@ -3,7 +3,9 @@ import { Loading, Silent, Picture, Icon, Button, EffectMask, Fold, Panel } from 
 import React, { useState, useEffect, useContext, useMemo, useCallback, useRef, forwardRef, useImperativeHandle, useLayoutEffect, Component, PureComponent, HTMLAttributes } from 'react';
 import { BrowserRouter, NavLink, Switch, Route } from 'react-router-dom';
 import { AutoHeight } from 'height-zero2auto';
-// import './index.scss';
+import Parallax from '../plugins/parallax';
+
+import './index.scss';
 
 function TestIcon() {
 	return (
@@ -72,23 +74,47 @@ class A extends Component<any>{
 
 function App() {
 
+	const [state, setState] = useState(true);
+	const [tmp, setTmp] = useState(true);
+
+
 	const data: Record<string, string> = {
 		'fuck': 'fuck me',
 		'fuck you': 'ok come on',
 		'fuck he': 'ok come fuck'
-	}
+	};
 
 	return (
 		<>
-			<Button>汪涵</Button>
 			<div
 				style={{
 					width: '500px',
 					height: '600px'
 				}}
 			>
-				<Fold
-					fillet
+				<Button
+					onClick={() => {
+						setState(!state)
+					}}
+				>
+					open
+				</Button>
+				<Panel
+
+					headline='fuck'
+
+				>
+					<Panel
+						headline='fuckdsadsadsa'
+
+					>fuck</Panel>
+					<Panel
+						headline='fuck'
+					>fuck</Panel>
+				</Panel>
+
+				{/* <Fold
+					isFold={state}
 				>
 					{Object.keys(data).map((ele, index) => {
 						return <Panel headline={ele} key={index}>{data[ele]}</Panel>;
@@ -99,9 +125,13 @@ function App() {
 					})}
 					<Panel
 						headline='fuck'
+						onDelete={() => {
+							return true;
+						}}
 					>
 						<Panel
 							headline='fuck'
+							onFold={tmp}
 						>fuck</Panel>
 						<Panel
 							headline='fuck'
@@ -114,6 +144,19 @@ function App() {
 						>fuck</Panel>
 					</Panel>
 				</Fold>
+				<br />
+				<Panel
+					headline='fuck'
+				>fuck</Panel>
+				<Panel
+					headline='fuck'
+				>fuck</Panel>
+				<Panel
+					headline='fuck'
+				>fuck</Panel>
+				<Panel
+					headline='fuck'
+					>fuck</Panel> */}
 			</div>
 		</>
 	);
