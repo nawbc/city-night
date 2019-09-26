@@ -12,6 +12,7 @@ $prefix: s-panel;
   }
 }
 
+
 .#{$prefix} {
   cursor: default;
 
@@ -19,6 +20,11 @@ $prefix: s-panel;
     background-color: $panel-headline-bgColor;
     display: flex;
     align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .#{$prefix}-headline-normal {
     @include normalStyle;
 
     .#{$prefix}-headline-content {
@@ -40,14 +46,40 @@ $prefix: s-panel;
     }
   }
 
-  .#{$prefix}-headline-fillet {
-    border-radius: 0px 0px $panel-fillet-radius $panel-fillet-radius;
+  .#{$prefix}-headline-simple {
+    margin-top: 10px;
+
+    .#{$prefix}-headline-content {
+      padding: 10px 5px;
+    }
   }
 
 
-  .#{$prefix}-inner {
+  .#{$prefix}-first-fillet {
+    border-radius: $panel-fillet-radius $panel-fillet-radius 0 0;
+  }
+
+  .#{$prefix}-headline-normal-fillet {
+    border-radius: 0px 0px $panel-fillet-radius $panel-fillet-radius;
+  }
+
+  .#{$prefix}-headline-simple-fillet {
+    border-radius: $panel-fillet-radius;
+    margin-bottom: 10px;
+  }
+
+  .#{$prefix}-inner-normal {
     padding: 10px 15px;
     @include normalStyle;
+  }
+
+  .#{$prefix}-inner-simple {
+    padding: 10px 15px;
+    background-color: $panel-headline-bgColor;
+  }
+
+  .#{$prefix}-inner-simple-fillet {
+    border-radius: $panel-fillet-radius;
   }
 
   .#{$prefix}-inner-fillet {

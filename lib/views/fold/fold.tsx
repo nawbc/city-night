@@ -4,7 +4,7 @@
  *			LASTMODIFY --- 2019-09-13T14:32:46.915Z
  *			REPOSITORY --- https://github.com/sewerganger/silent-concept
  *=================================================================================================*/
-import React, { HTMLAttributes, FC, useContext } from 'react';
+import React, { HTMLAttributes, FC, useContext, useEffect } from 'react';
 import classNames from 'classnames';
 import { SilentCommonAttr, ClassValue } from '../../interfaces';
 import {
@@ -21,7 +21,6 @@ const prefix = 's-fold';
 const FoldAttrs = [
 	'size',
 	'style',
-	'pigment',
 	'className',
 	'mode',
 	'duration',
@@ -34,7 +33,7 @@ export const FoldContext = React.createContext({});
 
 export interface FoldTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	pigment?: string;
-	duration?: string;
+	duration?: number;
 	className?: any;
 	mode?: modeType;
 	fillet?: boolean;
@@ -81,10 +80,6 @@ const Fold: FC<FoldProps> = function (props) {
 };
 
 Fold.defaultProps = {
-	mode: 'normal',
-	fillet: false,
-	duration: '400ms',
 	isFold: true
 };
-
 export default Fold;

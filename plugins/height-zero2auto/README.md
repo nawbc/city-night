@@ -1,6 +1,4 @@
-height:  `mutation` | `0px` |  `auto`
-
-**adding `mutation` is to make `AutoHeight` can dynamic resize**
+height:   `0px` |  `auto`
 
 transitionDuration: number
 
@@ -14,27 +12,10 @@ function Demo(){
 	const [isFold, setIsFold] = useState(true);
 	return (
 		<>
-			<button
-				onClick={(e) => {
-					e.stopPropagation();
-					clearTimeout(foldTimer);
-
-					if (isFold) {
-						setFold('mutation');
-						foldTimer = setTimeout(() => { setFold('auto'); }, 500);
-					} else {
-						if (fold === 'auto') {
-							setFold('mutation');
-							foldTimer = setTimeout(() => { setFold('0px'); }, 17);
-						}
-					}
-				}
-			></button>
-
 			<AutoHeight
-				transitionDuration={duration as any}
+				transitionDuration={2000}
 				transitionFunc={'ease'}
-				height={fold}
+				height={isFold ? '0px', 'auto'}
 				ref={autoHeightDivRef}
 			>
 				{children}
