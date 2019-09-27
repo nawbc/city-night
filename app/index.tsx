@@ -92,29 +92,66 @@ function App() {
 					height: '600px'
 				}}
 			>
-				<Button
-					onClick={() => {
-						setState(!state)
-					}}
+				<Fold
+					mode='simple'
+				// isFold={false}
 				>
-					open
-				</Button>
-				<Panel
-
-					headline='fuck'
-
-				>
-					<Panel
-						headline='fuckdsadsadsa'
-
-					>fuck</Panel>
 					<Panel
 						headline='fuck'
-					>fuck</Panel>
-				</Panel>
+					>han</Panel>
+					<Panel
+						headline='fuck'
+						readOnly
+					>
+						<Panel
+							headline='fuck'
+						>aaaa</Panel>
+						<Panel
+							headline='fuck'
+						>aaa</Panel>
+						<Panel
+							headline='fuck'
+						>aaa</Panel>
+						<Panel
+							headline='fuck'
+						>aaaa</Panel>
+						<Panel
+							headline='fuck'
+						>aaa</Panel>
+						<Panel
+							headline='fuck'
+						>aaa</Panel>
+						<Panel
+							headline='fuck'
+						>aaaa</Panel>
+						<Panel
+							headline='fuck'
+						>aaa</Panel>
+						<Panel
+							headline='fuck'
+						>aaa</Panel>
+						<Panel
+							headline='fuck'
+						>aaaa</Panel>
+						<Panel
+							headline='fuck'
+						>aaa</Panel>
+						<Panel
+							headline='fuck'
+						>aaa</Panel>
+					</Panel>
+					<Panel
+						headline='fuck'
+					>
+						<Button>Fuck </Button>
+					</Panel>
+				</Fold>
+				<br />
+				<Panel
+					headline='dadsad'
+				>aaa</Panel>
 
 				{/* <Fold
-					isFold={state}
 				>
 					{Object.keys(data).map((ele, index) => {
 						return <Panel headline={ele} key={index}>{data[ele]}</Panel>;

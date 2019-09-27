@@ -7,14 +7,16 @@
 
 import classNames from 'classnames';
 import { AutoHeight } from 'height-zero2auto';
-import React, { HTMLAttributes, FC, ReactNode, ReactElement, useContext, useRef, useLayoutEffect, CSSProperties, useCallback, useMemo, useState } from 'react';
+import React, { HTMLAttributes, FC, ReactNode, ReactElement, useContext, useRef, useLayoutEffect, CSSProperties, useState } from 'react';
 import { SilentCommonAttr, ClassValue, SizeType } from '../../interfaces';
 import { FoldContext, FoldProps } from './fold';
+import computedStyle from 'computed-style';
 import {
 	accordType,
 	splitJsxProps,
 	handleSize,
-	is
+	is,
+	makeColorDarker
 } from '../../helper';
 import './style/panel.scss';
 import Icon from '../icon';
@@ -54,7 +56,7 @@ interface PanelTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	size?: SizeType;
 	mode?: ModeType;
 	fillet?: boolean;
-	timingFunction?: boolean;
+	timingFunction?: string;
 	headline?: ReactNode;
 	icon?: ReactElement | string;
 	isFold?: boolean | string;
@@ -76,18 +78,23 @@ const presetProps = function (props: PanelProps) {
 };
 
 interface ClassNameEx { containerCN: string; headlineCN: string; innerCN: string; iconCN: string };
-const presetClassName = function (cProps: PanelProps, isFold: any, mode: ModeType, fillet: boolean): ClassNameEx {
+const presetClassName = function (
+	cProps: PanelProps,
+	useFold: any,
+	mode: ModeType,
+	fillet: boolean,
+	readOnly: boolean
+): ClassNameEx {
 	const { className } = cProps;
 	const isSimpleFillet = (mode === 'simple') && fillet;
 
 	return {
-		containerCN: classNames(prefix, className, {
-
-		}),
+		containerCN: classNames(prefix, className),
 		headlineCN: classNames({
 			[`${prefix}-headline`]: true,
 			[`${prefix}-headline-${mode}`]: true,
-			[`${prefix}-headline-simple-fillet`]: isSimpleFillet
+			[`${prefix}-headline-simple-fillet`]: isSimpleFillet,
+			[`${prefix}-headline-readonly`]: readOnly
 		}),
 		innerCN: classNames({
 			[`${prefix}-inner-${mode}`]: true,
@@ -95,7 +102,7 @@ const presetClassName = function (cProps: PanelProps, isFold: any, mode: ModeTyp
 		}),
 		iconCN: classNames({
 			[`${prefix}-icon`]: true,
-			[`${prefix}-icon-${isFold === '0px' ? 'fold' : 'unFold'}`]: true
+			[`${prefix}-icon-${useFold ? 'fold' : 'unFold'}`]: true
 		})
 	};
 };
@@ -108,10 +115,12 @@ const presetClassName = function (cProps: PanelProps, isFold: any, mode: ModeTyp
  *				--- size [SizeType]
  *  =================================================================================================*/
 
-
 const Panel: FC<PanelProps> = function (props) {
 	const { nativeProps, customProps } = presetProps(props);
-	const { headline, children, icon, onClick, onDelete, headlineStyle, innerStyle } = customProps;
+	const { headline, children, icon, onClick,
+		onDelete, headlineStyle, innerStyle,
+		timingFunction, readOnly
+	} = customProps;
 
 	const context: FoldProps = useContext(FoldContext);
 	const mode = context.mode || customProps.mode as ModeType;
@@ -124,21 +133,30 @@ const Panel: FC<PanelProps> = function (props) {
 
 	const [selfFold, setSelfFold] = useState(!!!isFold);
 
-	console.log(selfFold);
+	/**=================================================================================================
+	 *		如果panel 有isFold就用  isFold  否则就使用 panel 内置的
+	 *=================================================================================================*/
+	const useFold = (is.undefined(isFold) ? selfFold : isFold);
 
-	const finalHeight = (is.undefined(isFold) ? selfFold : isFold) ? '0px' : 'auto';
+	console.log(useFold, selfFold)
 
-	const { headlineCN, containerCN, innerCN, iconCN } = presetClassName(customProps, isFold, mode, fillet);
+	const {
+		headlineCN,
+		containerCN,
+		innerCN,
+		iconCN
+	} = presetClassName(customProps, useFold, mode, fillet, !!readOnly);
 
 	const panelRef = useRef(null);
 	const autoHeightDivRef = useRef(null);
 	const headlineRef = useRef(null);
 	const innerRef = useRef(null);
-
+	//
 	const containerStyle = {
 		...accordType(customProps.size, 'Object', {}),
 		...customProps.style
 	};
+
 
 	useLayoutEffect(() => {
 		const ref = panelRef.current as unknown as HTMLElement;
@@ -147,9 +165,8 @@ const Panel: FC<PanelProps> = function (props) {
 		const nextEle = ref.nextSibling as HTMLElement;
 		const preEle = ref.previousSibling as HTMLElement;
 		/**=================================================================================================
-		 *			只相对于normal 模式下有效
+		 *	 处理圆角	只相对于normal 模式下有效
 		 *=================================================================================================*/
-
 		const setLastPanelCN = function () {
 			const lastPanelCN = classNames(ref.className, {
 				[`${prefix}-last`]: true,
@@ -192,7 +209,15 @@ const Panel: FC<PanelProps> = function (props) {
 				setLastPanelCN();
 			}
 		}
-	}, [fillet, mode]);
+		/**=================================================================================================
+		 *	处理readOnly下的颜色
+		 *=================================================================================================*/
+		if (readOnly) {
+			const bgColor = computedStyle(headline, 'background-color');
+			headline.style.backgroundColor = makeColorDarker(bgColor!, 0.9);
+		}
+
+	}, [fillet, mode, readOnly]);
 
 	return (
 		<div
@@ -206,9 +231,11 @@ const Panel: FC<PanelProps> = function (props) {
 				style={headlineStyle}
 				ref={headlineRef}
 				onClick={(e) => {
-					e.stopPropagation();
-					setSelfFold(!selfFold);
-					is.function(onClick) && onClick(e);
+					if (!readOnly) {
+						e.stopPropagation();
+						setSelfFold(!selfFold);
+						is.function(onClick) && onClick(e);
+					}
 				}}
 			>
 				<span
@@ -242,8 +269,8 @@ const Panel: FC<PanelProps> = function (props) {
 			</div>
 			<AutoHeight
 				transitionDuration={duration as any}
-				transitionFunc={'ease'}
-				height={finalHeight}
+				transitionFunc={timingFunction as any}
+				height={useFold ? '0px' : 'auto'}
 				ref={autoHeightDivRef}
 			>
 				<div
@@ -262,7 +289,8 @@ Panel.defaultProps = {
 	mode: 'normal',
 	fillet: false,
 	duration: 400,
-	readOnly: false
+	readOnly: false,
+	timingFunction: 'ease'
 };
 
 export default Panel;

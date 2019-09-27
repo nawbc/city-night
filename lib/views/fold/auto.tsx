@@ -14,7 +14,7 @@ interface AutoHeightProps extends Props<any>, HTMLAttributes<any> {
  *			@property {number} transitionDuration
  *			@property {string} transitionFunc
  * =================================================================================================*/
-let changeAutoTimer;
+
 const TempAutoHeight: FC<AutoHeightProps> = function (props, ref) {
 	const {
 		transitionDuration, transitionFunc,
@@ -23,21 +23,22 @@ const TempAutoHeight: FC<AutoHeightProps> = function (props, ref) {
 
 	const innerRef = useRef(null);
 	const [dyHeight, setDyHeight] = useState(height);
+	const timer = null;
 
-	const autoSetHeight = function (ele: HTMLElement, h: string, d: number) {
+	const autoSetHeight = function (ele: HTMLElement, h: string, d: number, timer) {
+		clearTimeout(timer);
 		setDyHeight(computedStyle(ele, 'height'));
-		changeAutoTimer = setTimeout(() => {
+		timer = setTimeout(() => {
 			setDyHeight(h);
 		}, d);
 	};
 
 	useLayoutEffect(() => {
-		clearTimeout(changeAutoTimer);
 		const innerEle = innerRef.current as unknown as HTMLElement;
 		height === 'auto' ?
-			autoSetHeight(innerEle, 'auto', transitionDuration) :
-			autoSetHeight(innerEle, height, 0);
-	}, [height, transitionDuration]);
+			autoSetHeight(innerEle, 'auto', transitionDuration, timer) :
+			autoSetHeight(innerEle, height, 0, timer);
+	}, [height, transitionDuration, timer]);
 
 	return (
 		<div

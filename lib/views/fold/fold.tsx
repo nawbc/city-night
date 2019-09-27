@@ -79,7 +79,4 @@ const Fold: FC<FoldProps> = function (props) {
 	);
 };
 
-Fold.defaultProps = {
-	isFold: true
-};
 export default Fold;

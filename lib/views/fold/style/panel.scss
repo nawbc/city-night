@@ -12,7 +12,6 @@ $prefix: s-panel;
   }
 }
 
-
 .#{$prefix} {
   cursor: default;
 
@@ -22,14 +21,6 @@ $prefix: s-panel;
     align-items: center;
     position: relative;
     overflow: hidden;
-  }
-
-  .#{$prefix}-headline-normal {
-    @include normalStyle;
-
-    .#{$prefix}-headline-content {
-      padding: 10px 5px;
-    }
 
     .#{$prefix}-icon {
       @include transition(transform 500ms linear);
@@ -43,6 +34,14 @@ $prefix: s-panel;
 
     .#{$prefix}-icon-unFold {
       @include transform(rotate(90deg));
+    }
+  }
+
+  .#{$prefix}-headline-normal {
+    @include normalStyle;
+
+    .#{$prefix}-headline-content {
+      padding: 10px 5px;
     }
   }
 
@@ -66,6 +65,10 @@ $prefix: s-panel;
   .#{$prefix}-headline-simple-fillet {
     border-radius: $panel-fillet-radius;
     margin-bottom: 10px;
+  }
+
+  .#{$prefix}-headline-readonly {
+    cursor: not-allowed;
   }
 
   .#{$prefix}-inner-normal {
