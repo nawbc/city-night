@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![silent-concept-logo](./app/assets/logo/silent-concept-logo@256.gif)
+![silent-concept-logo](./app/assets/logo/silent-logo@256.gif)
 
 </div>
 
