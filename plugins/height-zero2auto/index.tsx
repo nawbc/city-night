@@ -7,15 +7,16 @@ interface AutoHeightProps extends Props<any>, HTMLAttributes<any> {
 }
 
 /**=================================================================================================
- *			@author --- Han Wang
- *			@LASTMODIFY --- 2019-09-21T14:27:16.142Z
- *			@DESCRIPTION --- 解决height 0 -> auto 没有transition的问题
- *			@property {string} height
- *			@property {number} transitionDuration
- *			@property {string} transitionFunc
+ *			author --- Han Wang
+ *			LASTMODIFY --- 2019-09-30T09:01:53.715Z
+ *			DESCRIPTION --- 解决height 0 -> auto 没有transition的问题
+ *			property {string} height
+ *			property {number} transitionDuration
+ *			property {string} transitionFunc
  * =================================================================================================*/
 
-const TempAutoHeight: FC<AutoHeightProps> = function (props, ref) {
+/*eslint react/display-name: 0*/
+const HeightZeroToAuto: FC<AutoHeightProps> = React.memo(function (props) {
 	const {
 		transitionDuration, transitionFunc,
 		height, style, children, className
@@ -23,12 +24,12 @@ const TempAutoHeight: FC<AutoHeightProps> = function (props, ref) {
 
 	const innerRef = useRef(null);
 	const [dyHeight, setDyHeight] = useState(height);
-	const timer = null;
+	const [state, setState] = useState(0);
 
-	const autoSetHeight = function (ele: HTMLElement, h: string, d: number, timer) {
-		clearTimeout(timer);
-		setDyHeight(computedStyle(ele, 'height'));
-		timer = setTimeout(() => {
+	const autoSetHeight = function (ele: HTMLElement, h: string, d: number, state) {
+		(state !== 0) && setDyHeight(computedStyle(ele, 'height'));
+		setTimeout(() => {
+			(state === 0) && setState(state + 1);
 			setDyHeight(h);
 		}, d);
 	};
@@ -36,13 +37,12 @@ const TempAutoHeight: FC<AutoHeightProps> = function (props, ref) {
 	useLayoutEffect(() => {
 		const innerEle = innerRef.current as unknown as HTMLElement;
 		height === 'auto' ?
-			autoSetHeight(innerEle, 'auto', transitionDuration, timer) :
-			autoSetHeight(innerEle, height, 0, timer);
-	}, [height, transitionDuration, timer]);
+			autoSetHeight(innerEle, 'auto', transitionDuration, state) :
+			autoSetHeight(innerEle, height, 0, state);
+	}, [height, transitionDuration, state]);
 
 	return (
 		<div
-			ref={ref}
 			className={className}
 			style={{
 				...{
@@ -65,6 +65,6 @@ const TempAutoHeight: FC<AutoHeightProps> = function (props, ref) {
 			</div>
 		</div>
 	);
-};
+});
 
-export const AutoHeight = React.forwardRef(TempAutoHeight);
+export { HeightZeroToAuto }

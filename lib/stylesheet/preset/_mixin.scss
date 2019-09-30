@@ -47,6 +47,11 @@
   @include justify-content(space-around);
 }
 
+@mixin flex-align-items-center($mode) {
+  @include flex-default($mode);
+  @include align-items(center);
+}
+
 @mixin defaultAnimation($prefix, $translate: 4px, $grow: 1.1, $shrink: 0.8) {
   .#{$prefix}-click-up {
     @include click_translate(0, -$translate);

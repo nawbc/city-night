@@ -4,6 +4,8 @@ transitionDuration: number
 
 transitionTimingFunction: 'linear' ....
 
+1.0.6: fix init render will auto spread
+
 ```javascript
 
 let foldTimer;

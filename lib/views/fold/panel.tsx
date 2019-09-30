@@ -5,9 +5,10 @@
  *			REPOSITORY --- https://github.com/sewerganger/silent-concept
  *=================================================================================================*/
 
+
 import classNames from 'classnames';
-import { AutoHeight } from 'height-zero2auto';
-import React, { HTMLAttributes, FC, ReactNode, ReactElement, useContext, useRef, useLayoutEffect, CSSProperties, useState } from 'react';
+import { HeightZeroToAuto } from 'height-zero2auto';
+import React, { HTMLAttributes, FC, ReactNode, ReactElement, useContext, useRef, useLayoutEffect, CSSProperties, useState, useReducer } from 'react';
 import { SilentCommonAttr, ClassValue, SizeType } from '../../interfaces';
 import { FoldContext, FoldProps } from './fold';
 import computedStyle from 'computed-style';
@@ -16,7 +17,8 @@ import {
 	splitJsxProps,
 	handleSize,
 	is,
-	makeColorDarker
+	makeColorDarker,
+	makeColorLighter
 } from '../../helper';
 import './style/panel.scss';
 import Icon from '../icon';
@@ -34,16 +36,13 @@ const PanelAttrs = [
 	'fillet',
 	'children',
 	'isFold',
-	'onFold',
 	'onClick',
 	'icon',
 	'timingFunction',
 	'duration',
 	'headline',
-	'containerStyle',
 	'headlineStyle',
 	'innerStyle',
-	'onClick',
 	'onDelete',
 	'readOnly'
 ];
@@ -64,7 +63,6 @@ interface PanelTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	readOnly?: boolean;
 	headlineStyle?: CSSProperties;
 	innerStyle?: CSSProperties;
-	onFold?: any;
 }
 
 export interface PanelProps extends PanelTempProps {
@@ -77,6 +75,9 @@ const presetProps = function (props: PanelProps) {
 	return sProps;
 };
 
+/**=================================================================================================
+ *  预处理className
+ *=================================================================================================*/
 interface ClassNameEx { containerCN: string; headlineCN: string; innerCN: string; iconCN: string };
 const presetClassName = function (
 	cProps: PanelProps,
@@ -110,10 +111,22 @@ const presetClassName = function (
 /**=================================================================================================
  *			LASTMODIFY --- 2019-09-21T14:12:30.132Z
  *			DESCRIPTION --- fold 折叠面板的container 可以设置全局 属性 传递到Panel
+ *			DEFECT 连续点待优化
  *			PROPS
  *				--- size [SizeType]
- *				--- size [SizeType]
- *  =================================================================================================*/
+ *				--- style [CSSProperties]  包裹整个Panel 的style 可用来调整位置等
+ *				--- headlineStyle [CSSProperties]  Panel 的标题style 可用来调整 text 位置颜色， 添加背景图片等
+ *				--- innerStyle [CSSProperties]  Panel 折叠内容的style
+ *				--- isFold [boolean]  包裹整个Panel 的style 可用来调整位置
+ *				--- onClick [MouseEvent]  包裹整个Panel 的style 可用来调整位置
+ *				--- icon [ReactElement|string]  icon={require('./demo.png')} or icon={<Icon />}
+ *				--- timingFunction [string]  设置panel的展开速率
+ *				--- duration [number]  设置panel的展开时间
+ *				--- readOnly [boolean]  只读
+ *				--- onDelete [()=>boolean]  删除 并触发 删除事件
+ *				--- fillet [boolean]  启用圆角 normal 和 simple 模式不相同
+ *				--- mode ['normal'|'simple']  启用圆角
+ *   =================================================================================================*/
 
 const Panel: FC<PanelProps> = function (props) {
 	const { nativeProps, customProps } = presetProps(props);
@@ -133,12 +146,21 @@ const Panel: FC<PanelProps> = function (props) {
 
 	const [selfFold, setSelfFold] = useState(!!!isFold);
 
+	function reducer(state: { count: number }, action: { type: string }) {
+		switch (action.type) {
+			case 'add': return { count: state.count + 1 };
+			case 'minus': return { state: state.count - 1 };
+		}
+	};
+
+
+	const initialState = { count: 0 };
+
+	const [state, setCount] = useReducer(reducer, initialState);
 	/**=================================================================================================
 	 *		如果panel 有isFold就用  isFold  否则就使用 panel 内置的
 	 *=================================================================================================*/
 	const useFold = (is.undefined(isFold) ? selfFold : isFold);
-
-	console.log(useFold, selfFold)
 
 	const {
 		headlineCN,
@@ -148,10 +170,8 @@ const Panel: FC<PanelProps> = function (props) {
 	} = presetClassName(customProps, useFold, mode, fillet, !!readOnly);
 
 	const panelRef = useRef(null);
-	const autoHeightDivRef = useRef(null);
 	const headlineRef = useRef(null);
 	const innerRef = useRef(null);
-	//
 	const containerStyle = {
 		...accordType(customProps.size, 'Object', {}),
 		...customProps.style
@@ -164,6 +184,7 @@ const Panel: FC<PanelProps> = function (props) {
 		const inner = innerRef.current as unknown as HTMLElement;
 		const nextEle = ref.nextSibling as HTMLElement;
 		const preEle = ref.previousSibling as HTMLElement;
+		// console.log(useless)
 		/**=================================================================================================
 		 *	 处理圆角	只相对于normal 模式下有效
 		 *=================================================================================================*/
@@ -214,10 +235,15 @@ const Panel: FC<PanelProps> = function (props) {
 		 *=================================================================================================*/
 		if (readOnly) {
 			const bgColor = computedStyle(headline, 'background-color');
-			headline.style.backgroundColor = makeColorDarker(bgColor!, 0.9);
+			if (state!.count === 0) {
+				state!.count !== 0 && setCount({ type: 'add' });
+				headline.style.backgroundColor = makeColorDarker(bgColor!, 0.9);
+			} else {
+				state!.count === 0 && setCount({ type: 'minus' });
+				headline.style.backgroundColor = makeColorLighter(bgColor!, 0.9);
+			}
 		}
-
-	}, [fillet, mode, readOnly]);
+	}, [fillet, mode, readOnly, state]);
 
 	return (
 		<div
@@ -262,16 +288,31 @@ const Panel: FC<PanelProps> = function (props) {
 					className={`${prefix}-headline-content`}
 				>{headline}</div>
 				{
-					!!onDelete ?
-						<Icon /> :
+					is.function(onDelete) ?
+						<Icon
+							type="Cross"
+							className={`${prefix}-cancel`}
+							style={{
+								marginTop: '0px',
+								marginRight: '15px',
+								padding: '3px'
+							}}
+							onClick={(e) => {
+								e.stopPropagation();
+								if (onDelete()) {
+									const panelEle = panelRef.current as unknown as HTMLDivElement;
+									const parentNode = panelEle.parentNode as HTMLElement;
+									parentNode.removeChild(panelEle);
+								}
+							}}
+						/> :
 						null
 				}
 			</div>
-			<AutoHeight
+			<HeightZeroToAuto
 				transitionDuration={duration as any}
 				transitionFunc={timingFunction as any}
 				height={useFold ? '0px' : 'auto'}
-				ref={autoHeightDivRef}
 			>
 				<div
 					className={innerCN}
@@ -280,7 +321,7 @@ const Panel: FC<PanelProps> = function (props) {
 				>
 					{children}
 				</div>
-			</AutoHeight>
+			</HeightZeroToAuto>
 		</div >
 	);
 };

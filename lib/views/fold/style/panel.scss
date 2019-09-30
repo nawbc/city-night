@@ -4,11 +4,12 @@
 
 $prefix: s-panel;
 
-@mixin normalStyle {
-  border: {
-    left: 1px solid #cfcfcf;
-    right: 1px solid #cfcfcf;
-    top: 1px solid #cfcfcf;
+
+@mixin headline-content {
+  .#{$prefix}-headline-content {
+    @include flex-align-items-center(inline-flex);
+    width: 100%;
+    @include content-padding;
   }
 }
 
@@ -23,8 +24,8 @@ $prefix: s-panel;
     overflow: hidden;
 
     .#{$prefix}-icon {
-      @include transition(transform 500ms linear);
-      @include transform-origin(40%, 50%);
+      @include transition($panel-icon-rotate-transition);
+      @include transform-origin($panel-icon-transform-origin);
       will-change: transform;
     }
 
@@ -35,22 +36,25 @@ $prefix: s-panel;
     .#{$prefix}-icon-unFold {
       @include transform(rotate(90deg));
     }
+
+    .#{$prefix}-cancel {
+
+      @include border-radius($panel-cancel-radius);
+
+      &:hover {
+        background-color: $panel-cancel-hoverColor;
+      }
+    }
   }
 
   .#{$prefix}-headline-normal {
     @include normalStyle;
-
-    .#{$prefix}-headline-content {
-      padding: 10px 5px;
-    }
+    @include headline-content;
   }
 
   .#{$prefix}-headline-simple {
-    margin-top: 10px;
-
-    .#{$prefix}-headline-content {
-      padding: 10px 5px;
-    }
+    margin-top: $panel-headline-simple-marginTop;
+    @include headline-content;
   }
 
 
@@ -64,7 +68,7 @@ $prefix: s-panel;
 
   .#{$prefix}-headline-simple-fillet {
     border-radius: $panel-fillet-radius;
-    margin-bottom: 10px;
+    margin-bottom: $panel-headline-simple-marginBottom;
   }
 
   .#{$prefix}-headline-readonly {
@@ -72,12 +76,12 @@ $prefix: s-panel;
   }
 
   .#{$prefix}-inner-normal {
-    padding: 10px 15px;
+    padding: $panel-inner-padding;
     @include normalStyle;
   }
 
   .#{$prefix}-inner-simple {
-    padding: 10px 15px;
+    padding: $panel-inner-padding;
     background-color: $panel-headline-bgColor;
   }
 
@@ -91,9 +95,10 @@ $prefix: s-panel;
 }
 
 .#{$prefix}-last {
-  border-bottom: 1px solid #cfcfcf;
+  border-bottom: $panel-border-color;
 }
 
 .#{$prefix}-last-fillet {
+
   border-radius: $panel-fillet-radius;
 }

@@ -23,25 +23,25 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 var computed_style_1 = __importDefault(require("computed-style"));
-var TempAutoHeight = function (props, ref) {
+var HeightZeroToAuto = react_1.default.memo(function (props) {
     var transitionDuration = props.transitionDuration, transitionFunc = props.transitionFunc, height = props.height, style = props.style, children = props.children, className = props.className;
     var innerRef = react_1.useRef(null);
     var _a = react_1.useState(height), dyHeight = _a[0], setDyHeight = _a[1];
-    var timer = null;
-    var autoSetHeight = function (ele, h, d, timer) {
-        clearTimeout(timer);
-        setDyHeight(computed_style_1.default(ele, 'height'));
-        timer = setTimeout(function () {
+    var _b = react_1.useState(0), state = _b[0], setState = _b[1];
+    var autoSetHeight = function (ele, h, d, state) {
+        (state !== 0) && setDyHeight(computed_style_1.default(ele, 'height'));
+        setTimeout(function () {
+            (state === 0) && setState(state + 1);
             setDyHeight(h);
         }, d);
     };
     react_1.useLayoutEffect(function () {
         var innerEle = innerRef.current;
         height === 'auto' ?
-            autoSetHeight(innerEle, 'auto', transitionDuration, timer) :
-            autoSetHeight(innerEle, height, 0, timer);
-    }, [height, transitionDuration, timer]);
-    return (react_1.default.createElement("div", { ref: ref, className: className, style: __assign({
+            autoSetHeight(innerEle, 'auto', transitionDuration, state) :
+            autoSetHeight(innerEle, height, 0, state);
+    }, [height, transitionDuration, state]);
+    return (react_1.default.createElement("div", { className: className, style: __assign({
             transitionProperty: 'height',
             overflow: 'hidden',
             transitionDuration: transitionDuration + 'ms',
@@ -51,6 +51,6 @@ var TempAutoHeight = function (props, ref) {
             transform: 'translateZ(0px)'
         }, style) },
         react_1.default.createElement("div", { ref: innerRef, style: { height: 'auto' } }, children)));
-};
-exports.AutoHeight = react_1.default.forwardRef(TempAutoHeight);
+});
+exports.HeightZeroToAuto = HeightZeroToAuto;
 //# sourceMappingURL=index.js.map

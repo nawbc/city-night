@@ -1,8 +1,7 @@
 import ReactDOM from 'react-dom';
 import { Loading, Silent, Picture, Icon, Button, EffectMask, Fold, Panel } from '../lib/index';
-import React, { useState, useEffect, useContext, useMemo, useCallback, useRef, forwardRef, useImperativeHandle, useLayoutEffect, Component, PureComponent, HTMLAttributes } from 'react';
+import React, { useState, useEffect, useContext, useMemo, useCallback, useRef, forwardRef, useImperativeHandle, useLayoutEffect, Component, PureComponent, HTMLAttributes, useReducer } from 'react';
 import { BrowserRouter, NavLink, Switch, Route } from 'react-router-dom';
-import { AutoHeight } from 'height-zero2auto';
 import Parallax from '../plugins/parallax';
 
 import './index.scss';
@@ -71,18 +70,25 @@ class A extends Component<any>{
 }
 
 
+function reducer(state, action) {
+	switch (action.type) {
+		case 'increment':
+			return { count: state.count + 1 };
+		case 'decrement':
+			return { count: state.count - 1 };
+		default:
+			throw new Error();
+	}
+}
+const initialState = { count: 0 };
 
 function App() {
 
-	const [state, setState] = useState(true);
-	const [tmp, setTmp] = useState(true);
+	// const [state, setState] = useState(true);
+	const [tmp, setTmp] = useState(false);
+	const [state, dispatch] = useReducer(reducer, initialState as never);
 
-
-	const data: Record<string, string> = {
-		'fuck': 'fuck me',
-		'fuck you': 'ok come on',
-		'fuck he': 'ok come fuck'
-	};
+	let s = state as typeof initialState;
 
 	return (
 		<>
@@ -92,25 +98,47 @@ function App() {
 					height: '600px'
 				}}
 			>
-				<Fold
-					mode='simple'
-				// isFold={false}
-				>
+				<button
+					onClick={() => {
+						setTmp(!tmp);
+					}}
+				>Click</button>
+				<Fold>
 					<Panel
-						headline='fuck'
+						headline={
+							<>
+								<span>fuck</span>
+								<Icon type='Cross' />
+							</>
+						}
+						onDelete={() => {
+							return true;
+						}}
 					>han</Panel>
 					<Panel
 						headline='fuck'
-						readOnly
+						readOnly={tmp}
+						onDelete={() => {
+							return true;
+						}}
 					>
 						<Panel
 							headline='fuck'
+							onDelete={() => {
+								return true;
+							}}
 						>aaaa</Panel>
 						<Panel
 							headline='fuck'
+							onDelete={() => {
+								return true;
+							}}
 						>aaa</Panel>
 						<Panel
 							headline='fuck'
+							onDelete={() => {
+								return true;
+							}}
 						>aaa</Panel>
 						<Panel
 							headline='fuck'
@@ -141,6 +169,9 @@ function App() {
 						>aaa</Panel>
 					</Panel>
 					<Panel
+						onDelete={() => {
+							return true;
+						}}
 						headline='fuck'
 					>
 						<Button>Fuck </Button>
