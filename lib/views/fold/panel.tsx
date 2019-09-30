@@ -17,7 +17,8 @@ import {
 	splitJsxProps,
 	handleSize,
 	is,
-	makeColorDarker
+	makeColorDarker,
+	makeColorLighter
 } from '../../helper';
 import './style/panel.scss';
 import Icon from '../icon';
@@ -145,6 +146,17 @@ const Panel: FC<PanelProps> = function (props) {
 
 	const [selfFold, setSelfFold] = useState(!!!isFold);
 
+	function reducer(state: { count: number }, action: { type: string }) {
+		switch (action.type) {
+			case 'add': return { count: state.count + 1 };
+			case 'minus': return { state: state.count - 1 };
+		}
+	};
+
+
+	const initialState = { count: 0 };
+
+	const [state, setCount] = useReducer(reducer, initialState);
 	/**=================================================================================================
 	 *		如果panel 有isFold就用  isFold  否则就使用 panel 内置的
 	 *=================================================================================================*/
