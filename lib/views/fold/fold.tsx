@@ -12,7 +12,6 @@ import {
 	splitJsxProps,
 	handleSize
 } from '../../helper';
-import './style/fold.scss';
 
 export type modeType = 'simple' | 'normal';
 

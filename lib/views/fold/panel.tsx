@@ -17,8 +17,7 @@ import {
 	splitJsxProps,
 	handleSize,
 	is,
-	makeColorDarker,
-	makeColorLighter
+	makeColorDarker
 } from '../../helper';
 import './style/panel.scss';
 import Icon from '../icon';
@@ -146,17 +145,6 @@ const Panel: FC<PanelProps> = function (props) {
 
 	const [selfFold, setSelfFold] = useState(!!!isFold);
 
-	function reducer(state: { count: number }, action: { type: string }) {
-		switch (action.type) {
-			case 'add': return { count: state.count + 1 };
-			case 'minus': return { state: state.count - 1 };
-		}
-	};
-
-
-	const initialState = { count: 0 };
-
-	const [state, setCount] = useReducer(reducer, initialState);
 	/**=================================================================================================
 	 *		如果panel 有isFold就用  isFold  否则就使用 panel 内置的
 	 *=================================================================================================*/
@@ -176,7 +164,6 @@ const Panel: FC<PanelProps> = function (props) {
 		...accordType(customProps.size, 'Object', {}),
 		...customProps.style
 	};
-
 
 	useLayoutEffect(() => {
 		const ref = panelRef.current as unknown as HTMLElement;
@@ -222,28 +209,16 @@ const Panel: FC<PanelProps> = function (props) {
 			}
 		}
 
-		if (mode === 'normal') {
-			if (!!nextEle) {
-				const className = nextEle.getAttribute('class');
-				(className !== prefix) && setLastPanelCN();
-			} else if (nextEle === null) {
-				setLastPanelCN();
-			}
-		}
+		if (mode === 'normal')
+			(nextEle === null) && setLastPanelCN();
 		/**=================================================================================================
 		 *	处理readOnly下的颜色
 		 *=================================================================================================*/
+		const bgColor = computedStyle(headline, 'background-color');
 		if (readOnly) {
-			const bgColor = computedStyle(headline, 'background-color');
-			if (state!.count === 0) {
-				state!.count !== 0 && setCount({ type: 'add' });
-				headline.style.backgroundColor = makeColorDarker(bgColor!, 0.9);
-			} else {
-				state!.count === 0 && setCount({ type: 'minus' });
-				headline.style.backgroundColor = makeColorLighter(bgColor!, 0.9);
-			}
+			headline.style.backgroundColor = makeColorDarker(bgColor!, 0.95);
 		}
-	}, [fillet, mode, readOnly, state]);
+	}, [fillet, mode, readOnly]);
 
 	return (
 		<div
@@ -259,7 +234,7 @@ const Panel: FC<PanelProps> = function (props) {
 				onClick={(e) => {
 					if (!readOnly) {
 						e.stopPropagation();
-						setSelfFold(!selfFold);
+						!is.function(onClick) && setSelfFold(!selfFold);
 						is.function(onClick) && onClick(e);
 					}
 				}}
@@ -335,3 +310,10 @@ Panel.defaultProps = {
 };
 
 export default Panel;
+
+
+var a = 11;
+
+const b = function () {
+	console.log(a)
+}
