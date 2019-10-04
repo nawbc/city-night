@@ -112,8 +112,7 @@ const Icon: FC<IconProps> = function (props) {
 
 Icon.defaultProps = {
 	size: 'normal',
-	lazy: false,
-	beforeLoad: <Loading.Font />
+	lazy: false
 };
 
 export default React.memo(Icon);

@@ -20,7 +20,7 @@ import { accordType } from './helper';
 export const handleSize = (size: SizeType): SizeType =>
 	Array.isArray(size)
 		? 1 === size.length
-			? { width: accordType(size[0], 'String', size![0] + 'px'), height: 'auto' }
+			? { width: accordType(size[0], 'String', size![0] + 'px') }
 			: {
 				width: accordType(size[0], 'String', size[0] + 'px'),
 				height: accordType(size[1], 'String', size[1] + 'px')

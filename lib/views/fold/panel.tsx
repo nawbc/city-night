@@ -5,7 +5,6 @@
  *			REPOSITORY --- https://github.com/sewerganger/silent-concept
  *=================================================================================================*/
 
-
 import classNames from 'classnames';
 import { HeightZeroToAuto } from 'height-zero2auto';
 import React, { HTMLAttributes, FC, ReactNode, ReactElement, useContext, useRef, useLayoutEffect, CSSProperties, useState, useReducer } from 'react';
@@ -153,7 +152,6 @@ const Panel: FC<PanelProps> = function (props) {
 		}
 	};
 
-
 	const initialState = { count: 0 };
 
 	const [state, setCount] = useReducer(reducer, initialState);
@@ -172,6 +170,7 @@ const Panel: FC<PanelProps> = function (props) {
 	const panelRef = useRef(null);
 	const headlineRef = useRef(null);
 	const innerRef = useRef(null);
+	const cancelRef = useRef(null);
 	const containerStyle = {
 		...accordType(customProps.size, 'Object', {}),
 		...customProps.style
@@ -181,6 +180,7 @@ const Panel: FC<PanelProps> = function (props) {
 		const ref = panelRef.current as unknown as HTMLElement;
 		const headline = headlineRef.current as unknown as HTMLElement;
 		const inner = innerRef.current as unknown as HTMLElement;
+		const cancel = cancelRef.current as unknown as HTMLElement;
 		const nextEle = ref.nextSibling as HTMLElement;
 		const preEle = ref.previousSibling as HTMLElement;
 		// console.log(useless)
@@ -230,6 +230,9 @@ const Panel: FC<PanelProps> = function (props) {
 		if (readOnly) {
 			headline.style.backgroundColor = makeColorDarker(bgColor!, 0.95);
 		}
+		// return () => {
+		// 	cancel.removeEventListener('click', () => { });
+		// };
 	}, [fillet, mode, readOnly]);
 
 	return (
@@ -278,6 +281,7 @@ const Panel: FC<PanelProps> = function (props) {
 					is.function(onDelete) ?
 						<Icon
 							type="Cross"
+							// ref={cancelRef}
 							className={`${prefix}-cancel`}
 							style={{
 								marginTop: '0px',

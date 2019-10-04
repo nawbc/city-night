@@ -5,6 +5,7 @@ import { BrowserRouter, NavLink, Switch, Route } from 'react-router-dom';
 import Parallax from '../plugins/parallax';
 
 import './index.scss';
+import { HeightZeroToAuto } from 'height-zero2auto';
 
 function TestIcon() {
 	return (
@@ -82,6 +83,24 @@ function reducer(state, action) {
 }
 const initialState = { count: 0 };
 
+
+function PicTemplate({ lazy }) {
+	return (
+		<>
+			<Picture
+				src={require('../temp/demo.jpg')}
+				size={[200, 113]}
+				style={{
+					width: '200px',
+					height: '113px',
+					marginBottom: '20px'
+				}}
+				lazy={lazy}
+			/>
+		</>
+	);
+}
+
 function App() {
 
 	// const [state, setState] = useState(true);
@@ -89,143 +108,20 @@ function App() {
 	const [state, dispatch] = useReducer(reducer, initialState as never);
 
 	let s = state as typeof initialState;
+	const [isFold, setIsFold] = useState(true);
+	const [pos, setPos] = useState({ y: window.scrollY, x: window.screenX });
+	// useMemo(() => window.innerHeight)
+
+	useLayoutEffect(() => {
+		window.onscroll = function () {
+			const { y } = pos;
+			setPos({ y: window.scrollY, x: window.screenX });
+		}
+	}, [pos]);
 
 	return (
 		<>
-			<div
-				style={{
-					width: '500px',
-					height: '600px'
-				}}
-			>
-				<button
-					onClick={() => {
-						setTmp(!tmp);
-					}}
-				>Click</button>
-				<Fold>
-					<Panel
-						headline={
-							<>
-								<span>fuck</span>
-								<Icon type='Cross' />
-							</>
-						}
-						onDelete={() => {
-							return true;
-						}}
-					>han</Panel>
-					<Panel
-						headline='fuck'
-						readOnly={tmp}
-						onDelete={() => {
-							return true;
-						}}
-					>
-						<Panel
-							headline='fuck'
-							onDelete={() => {
-								return true;
-							}}
-						>aaaa</Panel>
-						<Panel
-							headline='fuck'
-							onDelete={() => {
-								return true;
-							}}
-						>aaa</Panel>
-						<Panel
-							headline='fuck'
-							onDelete={() => {
-								return true;
-							}}
-						>aaa</Panel>
-						<Panel
-							headline='fuck'
-						>aaaa</Panel>
-						<Panel
-							headline='fuck'
-						>aaa</Panel>
-						<Panel
-							headline='fuck'
-						>aaa</Panel>
-						<Panel
-							headline='fuck'
-						>aaaa</Panel>
-						<Panel
-							headline='fuck'
-						>aaa</Panel>
-						<Panel
-							headline='fuck'
-						>aaa</Panel>
-						<Panel
-							headline='fuck'
-						>aaaa</Panel>
-						<Panel
-							headline='fuck'
-						>aaa</Panel>
-						<Panel
-							headline='fuck'
-						>aaa</Panel>
-					</Panel>
-					<Panel
-						onDelete={() => {
-							return true;
-						}}
-						headline='fuck'
-					>
-						<Button>Fuck </Button>
-					</Panel>
-				</Fold>
-				<br />
-				<Panel
-					headline='dadsad'
-				>aaa</Panel>
 
-				{/* <Fold
-				>
-					{Object.keys(data).map((ele, index) => {
-						return <Panel headline={ele} key={index}>{data[ele]}</Panel>;
-					})}
-					<br />
-					{Object.keys(data).map((ele, index) => {
-						return <Panel headline={ele} key={index}>{data[ele]}</Panel>;
-					})}
-					<Panel
-						headline='fuck'
-						onDelete={() => {
-							return true;
-						}}
-					>
-						<Panel
-							headline='fuck'
-							onFold={tmp}
-						>fuck</Panel>
-						<Panel
-							headline='fuck'
-						>fuck</Panel>
-						<Panel
-							headline='fuck'
-						>fuck</Panel>
-						<Panel
-							headline='fuck'
-						>fuck</Panel>
-					</Panel>
-				</Fold>
-				<br />
-				<Panel
-					headline='fuck'
-				>fuck</Panel>
-				<Panel
-					headline='fuck'
-				>fuck</Panel>
-				<Panel
-					headline='fuck'
-				>fuck</Panel>
-				<Panel
-					headline='fuck'
-					>fuck</Panel> */}
-			</div>
 		</>
 	);
 }

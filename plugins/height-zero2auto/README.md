@@ -8,20 +8,36 @@ transitionTimingFunction: 'linear' ....
 
 ```javascript
 
-let foldTimer;
+const { HeightZeroToAuto } = 'height-zero2auto';
 
 function Demo(){
 	const [isFold, setIsFold] = useState(true);
 	return (
 		<>
-			<AutoHeight
-				transitionDuration={2000}
-				transitionFunc={'ease'}
-				height={isFold ? '0px', 'auto'}
-				ref={autoHeightDivRef}
+			<button
+				onClick={()=>{
+					setIsFold(!isFold);
+				}}
+			>FOLD</button>
+			<div
+			 style={{
+				 border: '1px solid #000'
+			 }}
 			>
-				{children}
-			</AutoHeight>
+				<HeightZeroToAuto
+					transitionDuration={400}
+					transitionFunc={'ease'}
+					height={isFold ? '0px': 'auto'}
+				>
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+				</HeightZeroToAuto>
+			</div>
 		</>
 	)
 }

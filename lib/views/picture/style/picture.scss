@@ -7,3 +7,8 @@ $prefix: s-picture;
   display: inline-block;
   margin: $marginWidth;
 }
+
+.#{$prefix}-lazy {
+  @include flex-align-items-center(inline-flex);
+  @include justify-content(center);
+}

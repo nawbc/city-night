@@ -26,15 +26,14 @@ const HeightZeroToAuto: FC<AutoHeightProps> = React.memo(function (props) {
 	const [dyHeight, setDyHeight] = useState(height);
 	const [state, setState] = useState(0);
 
-	const autoSetHeight = function (ele: HTMLElement, h: string, d: number, state) {
-		(state !== 0) && setDyHeight(computedStyle(ele, 'height'));
-		setTimeout(() => {
-			(state === 0) && setState(state + 1);
-			setDyHeight(h);
-		}, d);
-	};
-
 	useLayoutEffect(() => {
+		const autoSetHeight = function (ele: HTMLElement, h: string, d: number, state) {
+			(state !== 0) && setDyHeight(computedStyle(ele, 'height'));
+			setTimeout(() => {
+				(state === 0) && setState(state + 1);
+				setDyHeight(h);
+			}, d);
+		};
 		const innerEle = innerRef.current as unknown as HTMLElement;
 		height === 'auto' ?
 			autoSetHeight(innerEle, 'auto', transitionDuration, state) :

@@ -18,6 +18,7 @@ export { default as Loading } from './views/loading';
 export { default as Button } from './views/button';
 export { default as EffectMask } from './views/effectMask';
 export { Fold, Panel } from './views/fold';
+export { default as ArticleOccupy } from './views/articleOccupy';
 
 
 
