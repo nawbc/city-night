@@ -1,92 +1,32 @@
 import ReactDOM from 'react-dom';
 import { Loading, Silent, Picture, Icon, Button, EffectMask, Fold, Panel } from '../lib/index';
-import React, { useState, useEffect, useContext, useMemo, useCallback, useRef, forwardRef, useImperativeHandle, useLayoutEffect, Component, PureComponent, HTMLAttributes, useReducer } from 'react';
+import React, { useState, useEffect, useContext, useMemo, useCallback, useRef, forwardRef, useImperativeHandle, useLayoutEffect, PureComponent, HTMLAttributes, useReducer } from 'react';
 import { BrowserRouter, NavLink, Switch, Route } from 'react-router-dom';
 import Parallax from '../plugins/parallax';
-
 import './index.scss';
-import { HeightZeroToAuto } from 'height-zero2auto';
-
-function TestIcon() {
-	return (
-		<div
-			style={{
-				display: 'inline-block',
-				width: '15px',
-				height: '15px',
-				background: `url(${require('./assets/svg/people.svg')})`,
-				backgroundSize: 'cover',
-				marginRight: '2px'
-			}}
-		/>
-	);
-}
-
-class C extends PureComponent<any>{
-	render() {
-		return (
-			<div>
-				{this.props.font}
-				{this.props.children}
-			</div>
-		)
-	}
-}
-
-class B extends PureComponent<any>{
-	// componentWillReceiveProps(nextProps, preState) {
-	// 	console.log(nextProps);
-	// }
-
-	render() {
-		return (
-			<div>
-				{this.props.font}
-				{this.props.children}
-			</div>
-		)
-	}
-}
-
-class A extends Component<any>{
-	state = {
-		font: 'arial'
-	}
-
-	render() {
-		return (
-			<div>
-				<button
-					onClick={() => {
-						this.setState({
-							font: this.state.font + 1
-						})
-					}}
-				>
-					<B font={this.state.font} />
-				</button>
-			</div>
-		);
-	}
-}
-
-
-function reducer(state, action) {
-	switch (action.type) {
-		case 'increment':
-			return { count: state.count + 1 };
-		case 'decrement':
-			return { count: state.count - 1 };
-		default:
-			throw new Error();
-	}
-}
-const initialState = { count: 0 };
-
-
+import { is } from '../lib/helper';
 function PicTemplate({ lazy }) {
 	return (
 		<>
+			<Component
+				componentStyle={{
+					'.component': {
+						border1: '100px',
+						color: 'red',
+						'.a': {
+							border2: '100px solid #000',
+							'.aa': {
+								border3: '10000px solid'
+							}
+						},
+						'user-select': 'none',
+						'.b': {
+							border2: '100px solid #fff'
+						},
+						'.c': {}
+					}
+				}}
+			/>
 			<Picture
 				src={require('../temp/demo.jpg')}
 				size={[200, 113]}
@@ -101,31 +41,73 @@ function PicTemplate({ lazy }) {
 	);
 }
 
-function App() {
+const componentStyleRules = function (styleObject) {
+	let count = 0;
+	let nameStack = [];
 
-	// const [state, setState] = useState(true);
-	const [tmp, setTmp] = useState(false);
-	const [state, dispatch] = useReducer(reducer, initialState as never);
-
-	let s = state as typeof initialState;
-	const [isFold, setIsFold] = useState(true);
-	const [pos, setPos] = useState({ y: window.scrollY, x: window.screenX });
-	// useMemo(() => window.innerHeight)
-
-	useLayoutEffect(() => {
-		window.onscroll = function () {
-			const { y } = pos;
-			setPos({ y: window.scrollY, x: window.screenX });
+	const recursion = function (styles) {
+		count++;
+		let content = '';
+		let objStack = [];
+		console.log(nameStack, count);
+		for (let selector in styles) {
+			const propVal = styles[selector] as never;
+			const currentProp = selector.trim() as never;
+			if (is.object(propVal)) {
+				objStack.push(propVal);
+				nameStack.push(currentProp);
+				recursion(propVal);
+			} else {
+				content += currentProp + ':' + propVal + ';';
+			}
 		}
-	}, [pos]);
+		console.log(nameStack, content);
+	};
+	recursion(styleObject);
+}
+
+const addStyle = function (styles) {
+	const style = document.createElement('style');
+	document.getElementsByTagName('head')[0].appendChild(style);
+	style.appendChild(document.createTextNode(''));
+	var s = document.styleSheets[document.styleSheets.length - 1] as CSSStyleSheet;
+
+	for (const prop in styles) {
+		let content = '';
+		const propVal = styles[prop];
+		const currentProp = prop.trim();
+		for (const key in propVal) {
+			content += key + ':' + propVal[key] + ';';
+		}
+		const insertValue = '.component' + ' ' + currentProp + '{' + content + '}';
+		s.insertRule(insertValue)
+	}
+};
+
+function Component(props) {
+	addStyle(props.componentStyle);
 
 	return (
 		<>
+			<div className='component'>
+				<div
+					className='b'
+				>
+					<div className='c'>sa</div>
+					<div className='d'>dada</div>
+				</div>
+			</div>
+		</>
+	);
+}
 
+function App() {
+	return (
+		<>
+		
 		</>
 	);
 }
 /*eslint-env browser*/
 ReactDOM.render(<App />, document.getElementById('root'));
-
 

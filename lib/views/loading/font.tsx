@@ -10,8 +10,7 @@ import classNames from 'classnames';
 import {
 	accordType,
 	splitJsxProps,
-	handleSize,
-	useDefaultProps
+	handleSize
 } from '../../helper';
 import './style/font.scss';
 

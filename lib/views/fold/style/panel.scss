@@ -4,42 +4,49 @@
 
 $prefix: s-panel;
 
-
 @mixin headline-content {
-  .#{$prefix}-headline-content {
-    @include flex-align-items-center(inline-flex);
+  .headline-content {
     width: 100%;
-    @include content-padding;
+    position: relative;
+    padding: $panel-content-padding;
+    @include word-break(break-all);
+
+    * {
+      display: inline-flex;
+    }
   }
 }
 
 .#{$prefix} {
   cursor: default;
 
-  .#{$prefix}-headline {
+  .headline {
     background-color: $panel-headline-bgColor;
-    display: flex;
-    align-items: center;
+    @include flex-align-items-center(flex);
     position: relative;
     overflow: hidden;
+    font-size: $panel-font-size;
 
-    .#{$prefix}-icon {
+    .icon {
       @include transition($panel-icon-rotate-transition);
       @include transform-origin($panel-icon-transform-origin);
+      margin-left: $panel-icon-margin-left;
       will-change: transform;
+      display: inherit;
     }
 
-    .#{$prefix}-icon-fold {
+    .icon-fold {
       @include transform(rotate(0deg));
     }
 
-    .#{$prefix}-icon-unFold {
+    .icon-unFold {
       @include transform(rotate(90deg));
     }
 
-    .#{$prefix}-cancel {
-
+    .cancel {
       @include border-radius($panel-cancel-radius);
+      margin-right: $panel-cancel-margin-right;
+      padding: $panel-cancel-padding;
 
       &:hover {
         background-color: $panel-cancel-hoverColor;
@@ -47,49 +54,51 @@ $prefix: s-panel;
     }
   }
 
-  .#{$prefix}-headline-normal {
+  .headline-normal {
     @include normalStyle;
     @include headline-content;
   }
 
-  .#{$prefix}-headline-simple {
+  .headline-simple {
     margin-top: $panel-headline-simple-marginTop;
     @include headline-content;
   }
 
-
-  .#{$prefix}-first-fillet {
+  .first-fillet {
     border-radius: $panel-fillet-radius $panel-fillet-radius 0 0;
   }
 
-  .#{$prefix}-headline-normal-fillet {
+  .headline-normal-fillet {
     border-radius: 0px 0px $panel-fillet-radius $panel-fillet-radius;
   }
 
-  .#{$prefix}-headline-simple-fillet {
+  .headline-simple-fillet {
     border-radius: $panel-fillet-radius;
     margin-bottom: $panel-headline-simple-marginBottom;
   }
 
-  .#{$prefix}-headline-readonly {
+  .headline-readonly {
     cursor: not-allowed;
   }
 
-  .#{$prefix}-inner-normal {
+  .inner {
     padding: $panel-inner-padding;
+    font-size: $panel-font-size;
+  }
+
+  .inner-normal {
     @include normalStyle;
   }
 
-  .#{$prefix}-inner-simple {
-    padding: $panel-inner-padding;
+  .inner-simple {
     background-color: $panel-headline-bgColor;
   }
 
-  .#{$prefix}-inner-simple-fillet {
+  .inner-simple-fillet {
     border-radius: $panel-fillet-radius;
   }
 
-  .#{$prefix}-inner-fillet {
+  .inner-fillet {
     border-radius: $panel-fillet-radius;
   }
 }
@@ -99,6 +108,5 @@ $prefix: s-panel;
 }
 
 .#{$prefix}-last-fillet {
-
   border-radius: $panel-fillet-radius;
 }

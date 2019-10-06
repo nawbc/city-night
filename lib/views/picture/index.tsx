@@ -4,14 +4,13 @@
  *			LASTMODIFY --- 2019-09-13T14:32:49.491Z
  *			REPOSITORY --- https://github.com/sewerganger/silent-concept
  *=================================================================================================*/
-import React, { ReactElement, HTMLAttributes } from 'react';
+import React, { ReactElement, HTMLAttributes, FC } from 'react';
 import classNames from 'classnames';
 import { SilentCommonAttr, SizeType, ClassValue } from '../../interfaces';
 import {
 	accordType,
 	splitJsxProps,
-	handleSize,
-	useDefaultProps
+	handleSize
 } from '../../helper';
 import Loading from '../../views/loading';
 import './style/picture.scss';
@@ -28,11 +27,6 @@ const PictureAttrs = [
 	'beforeLoad',
 	'className'
 ];
-
-const defaultProps = {
-	beforeLoad: <Loading.Breath style={{ margin: '0px' }} />,
-	lazy: false
-};
 
 interface PictureTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	src?: string;
@@ -72,13 +66,9 @@ const presetProps = function (props: PictureProps) {
  *				--- src [boolean]
  *
  *   =================================================================================================*/
-export interface PictureFunction {
-	(props: PictureProps): ReactElement;
-}
 
-const Picture: PictureFunction = function (props) {
-	const initProps = useDefaultProps<PictureProps>(props, defaultProps);
-	const { nativeProps, customProps } = presetProps(initProps);
+const Picture: FC<PictureProps> = function (props) {
+	const { nativeProps, customProps } = presetProps(props);
 	const className = presetClassName(customProps);
 	const { src, lazy, size, style } = customProps;
 
@@ -109,6 +99,11 @@ const Picture: PictureFunction = function (props) {
 		);
 	}
 	return finalElement;
+};
+
+Picture.defaultProps = {
+	beforeLoad: <Loading.Breath style={{ margin: '0px' }} />,
+	lazy: false
 };
 
 export default Picture;

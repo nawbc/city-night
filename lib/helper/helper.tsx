@@ -52,22 +52,5 @@ export const randomGradients = (arr: string[]): string =>
 export const generateToken = () =>
 	(Math.round(Math.random() * 0x1000000000) + new Date().getTime()).toString(36);
 
-/**=================================================================================================
- *			LASTMODIFY --- 2019-09-12T01:14:06.376Z
- *			DESCRIPTION --- 设置defaultProps hooks
- *=================================================================================================*/
 
-interface DefaultProps {
-	<T>(props: T, inputProps: T): T;
-}
 
-export const useDefaultProps: DefaultProps = function (props, inputProps) {
-	return useMemo(() => {
-		let middleProps = {} as any;
-		Object.assign(middleProps, inputProps);
-		for (let prop in props) {
-			middleProps[prop] = props[prop];
-		}
-		return middleProps;
-	}, [props, inputProps]);
-};

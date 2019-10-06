@@ -5,12 +5,12 @@
 $prefix: s-icon;
 
 .#{$prefix} {
-  display: inline-block;
-  @include defaultMargin;
-  @include flex-average(inline-flex);
+  display: block;
+  position: relative;
 
   svg {
     @include squareBox(100%);
+    @include fillPseudoFull;
   }
 }
 

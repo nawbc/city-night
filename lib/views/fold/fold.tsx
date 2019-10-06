@@ -4,13 +4,14 @@
  *			LASTMODIFY --- 2019-09-13T14:32:46.915Z
  *			REPOSITORY --- https://github.com/sewerganger/silent-concept
  *=================================================================================================*/
-import React, { HTMLAttributes, FC, useContext } from 'react';
+import React, { HTMLAttributes, FC, useContext, useEffect } from 'react';
 import classNames from 'classnames';
 import { SilentCommonAttr, ClassValue } from '../../interfaces';
 import {
 	accordType,
 	splitJsxProps,
-	handleSize
+	handleSize,
+	completeStyle
 } from '../../helper';
 
 export type modeType = 'simple' | 'normal';
@@ -25,12 +26,14 @@ const FoldAttrs = [
 	'duration',
 	'fillet',
 	'children',
-	'isFold'
+	'isFold',
+	'addStyle'
 ];
 
 export const FoldContext = React.createContext({});
 
 export interface FoldTempProps extends SilentCommonAttr, HTMLAttributes<any> {
+	addStyle?: Record<string, object>;
 	duration?: number;
 	className?: any;
 	mode?: modeType;
@@ -58,10 +61,12 @@ const presetProps = function (props: FoldProps) {
  *				--- isFold [boolean]  包裹整个Panel 的style 可用来调整位置
  *				--- fillet [boolean]  启用圆角 normal 和 simple 模式不相同
  *				--- duration [number]  设置panel的展开时间
+ *				--- addStyle [Record<string,object>]  批量添加 style 一旦设置改页面所有子元素全 style都改变
  *  =================================================================================================*/
 
 const Fold: FC<FoldProps> = function (props) {
 	const { nativeProps, customProps } = presetProps(props);
+	const { addStyle } = customProps;
 	const foldContext = useContext(FoldContext);
 	const containerStyle = {
 		...accordType(customProps.size, 'Object', {}),
@@ -70,6 +75,13 @@ const Fold: FC<FoldProps> = function (props) {
 
 	for (const prop in customProps)
 		foldContext[prop] = customProps[prop];
+
+	useEffect(() => {
+		/**=================================================================================================
+ * 改变组件内部 style
+ *=================================================================================================*/
+		!!addStyle && completeStyle(prefix, addStyle);
+	}, [addStyle]);
 
 	return (
 		<div

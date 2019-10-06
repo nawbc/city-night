@@ -13,6 +13,7 @@
     z-index: -1;
     @include noWhiteBorderBlur(10px);
     @include fillPseudoFull;
+    content: "";
     // background-image: url(../../../../temp/demo.jpg);
     background: #E3E3E3;
     background-size: cover;

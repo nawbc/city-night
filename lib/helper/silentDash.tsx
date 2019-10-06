@@ -7,7 +7,7 @@
  *=================================================================================================*/
 
 import { SplitJsxPropsInterface, SizeType } from '../interfaces';
-import { accordType } from './helper';
+import { accordType, is } from './helper';
 
 
 /**=================================================================================================
@@ -26,12 +26,7 @@ export const handleSize = (size: SizeType): SizeType =>
 				height: accordType(size[1], 'String', size[1] + 'px')
 			}
 		: size;
-/*====================================================================================  --- END =====*/
 
-/**=================================================================================================
- *			LASTMODIFY --- 2019-09-16T14:31:19.118Z
- *			DESCRIPTION ---
- *=================================================================================================*/
 
 /**=================================================================================================
  *			LASTMODIFY --- 2019-08-23T07:45:13.469Z
@@ -57,4 +52,37 @@ export const splitJsxProps: JsxPropsParam = function <Type>(receiveProps, usePro
 		customProps: customTempProps
 	};
 };
-/*===================================================================================  --- END =====*/
+
+/**=================================================================================================
+ *			补充组件内部要改写的 style 通过生成token 来 确定唯一的class
+ *=================================================================================================*/
+
+const generateStyleContent = function (prefix: string, styles: object, ssList: CSSStyleSheet) {
+	for (const prop in styles) {
+		let content = '';
+		const propVal = styles[prop];
+		const currentProp = prop.trim();
+		for (const key in propVal) {
+			const styleVal = propVal[key]
+			if (is.string(styleVal)) {
+				content += key + ':' + styleVal + ';';
+			}
+		}
+		const insertValue = '.' + prefix + ' ' + currentProp + '{' + content + '}';
+		ssList.insertRule(insertValue);
+	}
+};
+
+export const completeStyle = function (prefix: string, complete: Record<string, object>) {
+	var list = document.styleSheets[document.styleSheets.length - 1] as CSSStyleSheet;
+	if (!!list) {
+		generateStyleContent(prefix, complete, list);
+	} else {
+		console.warn('Warning: document does not contain StyleSheetList, so auto add the style element');
+		const style = document.createElement('style');
+		document.getElementsByTagName('head')[0].appendChild(style);
+		style.appendChild(document.createTextNode(''));
+		const ssList = document.styleSheets[document.styleSheets.length - 1] as CSSStyleSheet;
+		generateStyleContent(prefix, complete, ssList);
+	}
+}

@@ -5,7 +5,6 @@
 $prefix: s-loading-font;
 
 .#{$prefix} {
-  @include defaultMargin;
   @include user-select(none);
 }
 

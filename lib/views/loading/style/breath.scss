@@ -17,7 +17,6 @@ $loading-c-black: #10161ab7;
   @include border-radius(100%);
   @include animation($lc-animation);
   @include flex-average(inline-flex);
-  @include defaultMargin;
 }
 
 .#{$prefix}-inner {

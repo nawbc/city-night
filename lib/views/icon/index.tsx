@@ -86,7 +86,6 @@ const Icon: FC<IconProps> = function (props) {
 			firstEle.style.fill = `${pigment}`;
 		}
 	});
-
 	return (
 		<i
 			{...nativeProps}
@@ -100,7 +99,6 @@ const Icon: FC<IconProps> = function (props) {
 					!!props.children ? props.children :
 						<Picture
 							size={['100%', '100%']}
-							style={{ margin: 0 }}
 							src={src}
 							lazy={lazy}
 							beforeLoad={beforeLoad}

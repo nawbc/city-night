@@ -17,7 +17,8 @@ import {
 	handleSize,
 	is,
 	makeColorDarker,
-	makeColorLighter
+	makeColorLighter,
+	completeStyle
 } from '../../helper';
 import './style/panel.scss';
 import Icon from '../icon';
@@ -56,7 +57,7 @@ interface PanelTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	fillet?: boolean;
 	timingFunction?: string;
 	headline?: ReactNode;
-	icon?: ReactElement | string;
+	icon?: ReactElement | string | 'unset';
 	isFold?: boolean | string;
 	onDelete?: () => boolean;
 	readOnly?: boolean;
@@ -91,18 +92,19 @@ const presetClassName = function (
 	return {
 		containerCN: classNames(prefix, className),
 		headlineCN: classNames({
-			[`${prefix}-headline`]: true,
-			[`${prefix}-headline-${mode}`]: true,
-			[`${prefix}-headline-simple-fillet`]: isSimpleFillet,
-			[`${prefix}-headline-readonly`]: readOnly
+			'headline': true,
+			[`headline-${mode}`]: true,
+			'headline-simple-fillet': isSimpleFillet,
+			'headline-readonly': readOnly
 		}),
 		innerCN: classNames({
-			[`${prefix}-inner-${mode}`]: true,
-			[`${prefix}-inner-simple-fillet`]: isSimpleFillet
+			'inner': true,
+			[`inner-${mode}`]: true,
+			[`inner-simple-fillet`]: isSimpleFillet
 		}),
 		iconCN: classNames({
-			[`${prefix}-icon`]: true,
-			[`${prefix}-icon-${useFold ? 'fold' : 'unFold'}`]: true
+			'icon': true,
+			[`icon-${useFold ? 'fold' : 'unFold'}`]: true
 		})
 	};
 };
@@ -138,6 +140,7 @@ const Panel: FC<PanelProps> = function (props) {
 	const mode = context.mode || customProps.mode as ModeType;
 	const fillet = context.fillet || customProps.fillet as boolean;
 	const duration = context.duration || customProps.duration;
+	const iconEle = React.isValidElement(icon) && React.cloneElement(icon, { size: 'small' });
 
 	const isFold = is.undefined(context.isFold) ?
 		(is.undefined(customProps.isFold) ? undefined : customProps.isFold)
@@ -190,14 +193,14 @@ const Panel: FC<PanelProps> = function (props) {
 		const setLastPanelCN = function () {
 			const lastPanelCN = classNames(ref.className, {
 				[`${prefix}-last`]: true,
-				[` ${prefix}-last-fillet`]: fillet
+				[`${prefix}-last-fillet`]: fillet
 			});
 			const lastHeadlineCN = classNames(headline.className, {
-				[`${prefix}-headline-normal-fillet`]: fillet
+				'headline-normal-fillet': fillet
 			});
 
 			const innerCN = classNames(inner.className, {
-				[`${prefix}-inner-fillet`]: fillet
+				'inner-fillet': fillet
 			});
 
 			ref.setAttribute('class', lastPanelCN);
@@ -207,7 +210,7 @@ const Panel: FC<PanelProps> = function (props) {
 
 		const setFirstPanelCN = function () {
 			const firstPanelCN = classNames(headline.className, {
-				[` ${prefix}-first-fillet`]: true
+				'first-fillet': true
 			});
 			headline.setAttribute('class', firstPanelCN);
 		};
@@ -233,7 +236,9 @@ const Panel: FC<PanelProps> = function (props) {
 		// return () => {
 		// 	cancel.removeEventListener('click', () => { });
 		// };
+
 	}, [fillet, mode, readOnly]);
+
 
 	return (
 		<div
@@ -254,49 +259,52 @@ const Panel: FC<PanelProps> = function (props) {
 					}
 				}}
 			>
-				<span
-					className={iconCN}
-					style={{ margin: '0 0 0 10px' }}
-				>
-					{
-						!!icon ?
-							(
-								is.string(icon) ?
-									<Icon
-										src={icon as string}
-										size='small'
-									/> :
-									icon
-							) :
-							<Icon
-								type='TinyArrowRight'
-								size='small'
-							/>
-					}
-				</span>
+				{
+					icon === 'unset' ?
+						null :
+						(
+							<div
+								className={iconCN}
+							>
+								{
+									!!icon ?
+										(
+											is.string(icon) ?
+												<Icon
+													src={icon as string}
+													size='small'
+												/> :
+												iconEle
+										) :
+										<Icon
+											type='TinyArrowRight'
+											size='small'
+										/>
+								}
+							</div>
+						)
+				}
 				<div
-					className={`${prefix}-headline-content`}
+					className='headline-content'
 				>{headline}</div>
 				{
 					is.function(onDelete) ?
-						<Icon
-							type="Cross"
-							// ref={cancelRef}
-							className={`${prefix}-cancel`}
-							style={{
-								marginTop: '0px',
-								marginRight: '15px',
-								padding: '3px'
-							}}
-							onClick={(e) => {
-								e.stopPropagation();
-								if (onDelete()) {
-									const panelEle = panelRef.current as unknown as HTMLDivElement;
-									const parentNode = panelEle.parentNode as HTMLElement;
-									parentNode.removeChild(panelEle);
-								}
-							}}
-						/> :
+						<div
+							className='cancel'
+						>
+							<Icon
+								type="Cross"
+								size={[12, 12]}
+								onClick={(e) => {
+									e.stopPropagation();
+									if (onDelete()) {
+										const panelEle = panelRef.current as unknown as HTMLDivElement;
+										const parentNode = panelEle.parentNode as HTMLElement;
+										parentNode.removeChild(panelEle);
+									}
+								}}
+							/>
+						</div> :
 						null
 				}
 			</div>
@@ -326,10 +334,3 @@ Panel.defaultProps = {
 };
 
 export default Panel;
-
-
-var a = 11;
-
-const b = function () {
-	console.log(a)
-}

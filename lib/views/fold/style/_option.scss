@@ -2,8 +2,6 @@
 
 $panel-headline-bgColor: $grey-a;
 
-$panel-margin: 0 3px;
-
 $panel-fillet-radius: 10px;
 
 $panel-icon-transform-origin: 40%,
@@ -17,7 +15,7 @@ $panel-cancel-hoverColor: $grey-b;
 
 $panel-headline-simple-marginTop: 10px;
 
-$panel-headline-simple-marginBottom: 10px;
+$panel-headline-simple-marginBottom: 5px;
 
 $panel-inner-padding: 10px 15px;
 
@@ -25,14 +23,15 @@ $panel-last-borderBottom: 1px solid #cfcfcf;
 
 $panel-border-color: 1px solid #cfcfcf;
 
-@mixin content-padding {
-  padding: {
-    left: 5px;
-    top: 10px;
-    bottom: 10px;
-    right: 15px
-  }
-}
+$panel-font-size: 14px;
+
+$panel-cancel-margin-right: 16px;
+
+$panel-cancel-padding: 2px;
+
+$panel-content-padding: 14px 15px;
+
+$panel-icon-margin-left: 16px;
 
 @mixin normalStyle {
   border: {

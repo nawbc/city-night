@@ -17,7 +17,6 @@ $hc-animation: $name-c 500ms linear infinite;
 
 .#{$prefix} {
   display: inline-block;
-  @include defaultMargin;
 }
 
 .#{$prefix}-inner {

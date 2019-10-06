@@ -18,37 +18,28 @@
   margin-left: -$w/2;
 }
 
-@mixin defaultMargin {
-  margin-right: 5px;
-  margin-top: 3px;
-}
-
 /**=================================================================================================
  *			AUTHOR --- Han Wang
  *			LASTMODIFY --- 2019-08-28T06:20:40.872Z
  *			DESCRIPTION --- flex 1.vertical 在盒子中 竖直排列 2.average 在盒子中均匀排列
  *																		$mode flex inline-flex
  *=================================================================================================*/
-@mixin flex-default($mode) {
-  @include display-flex($mode);
-  @include flex-wrap(wrap);
-}
 
 @mixin flex-vertical($mode) {
-  @include flex-default($mode);
+  @include display-flex($mode);
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
 
 @mixin flex-average($mode) {
-  @include flex-default($mode);
+  @include display-flex($mode);
   @include align-items(center);
   @include justify-content(space-around);
 }
 
 @mixin flex-align-items-center($mode) {
-  @include flex-default($mode);
+  @include display-flex($mode);
   @include align-items(center);
 }
 
@@ -131,10 +122,17 @@
   right: 0;
   left: 0;
   bottom: 0;
-  content: '';
 }
 
 @mixin noWhiteBorderBlur($radius) {
   margin: -$radius;
   @include filter(blur($radius));
+}
+
+
+
+@mixin clearFloat {
+  clear: both;
+  display: block;
+  content: "";
 }
