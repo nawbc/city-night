@@ -1,8 +1,7 @@
 import ReactDOM from 'react-dom';
-import { Loading, Silent, Picture, Icon, Button, EffectMask, Fold, Panel } from '../lib/index';
+import { Loading, Silent, Picture, Icon, Button, Fold, Panel, Row, Col, Flex, Map, Center } from '../lib/index';
 import React, { useState, useEffect, useContext, useMemo, useCallback, useRef, forwardRef, useImperativeHandle, useLayoutEffect, PureComponent, HTMLAttributes, useReducer } from 'react';
 import { BrowserRouter, NavLink, Switch, Route } from 'react-router-dom';
-import Parallax from '../plugins/parallax';
 import './index.scss';
 import { is } from '../lib/helper';
 function PicTemplate({ lazy }) {
@@ -104,7 +103,27 @@ function Component(props) {
 function App() {
 	return (
 		<>
-		
+			<div
+				style={{
+					width: '500px',
+					height: '500px',
+					position: 'relative'
+				}}
+			>
+				<Center
+					onClick={() => {
+						console.log('fuck');
+					}}
+				>
+					<div
+						style={{
+							width: '100px',
+							height: '100px',
+							background: 'red'
+						}}
+					>Fuck</div>
+				</Center>
+			</div>
 		</>
 	);
 }

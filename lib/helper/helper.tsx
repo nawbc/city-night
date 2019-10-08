@@ -1,5 +1,3 @@
-import { useMemo } from 'react';
-
 export const is = {
 	type(obj: unknown, str: string): boolean {
 		return Object.prototype.toString.call(obj) === `[object ${str}]`;
@@ -18,7 +16,10 @@ export const is = {
 	},
 	undefined(obj: unknown): obj is undefined {
 		return this.type(obj, 'Undefined');
-	}
+	},
+	number(obj: unknown): obj is number {
+		return this.type(obj, 'Number');
+	},
 };
 
 /**=================================================================================================

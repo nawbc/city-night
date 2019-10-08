@@ -43,6 +43,10 @@
 	"rules": {
 		"no-undef": "error",
 		"semi": "warn",
+		"quotes": [
+			1,
+			"single"
+		],
 		"no-multi-spaces": [
 			"error",
 			{

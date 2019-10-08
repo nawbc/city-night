@@ -24,14 +24,15 @@ const compassImporter = require('../utils/compass');
 const os = require('os');
 
 const rPath = resolveJsonPath(rootPath, constPaths);
-const isTs = fs.existsSync(rPath.tsConfig);
 const workers = os.cpus().length;
+
 const workerLoader = {
 	loader: "thread-loader",
 	options: {
-		workers: workers,
+		workers: workers
 	}
 }
+
 
 //======================================================================
 // come from create-react-app to get the public path
@@ -98,7 +99,7 @@ module.exports = function (env, action) {
 					}
 			)
 		),
-		isTs && new ForkTsCheckerWebpackPlugin({
+		new ForkTsCheckerWebpackPlugin({
 			typescript: resolve.sync('typescript', {
 				basedir: rPath.nodeModules,
 			}),
@@ -401,3 +402,6 @@ module.exports = function (env, action) {
 		},
 	};
 }
+
+
+// console.log(compilerOptions.paths)

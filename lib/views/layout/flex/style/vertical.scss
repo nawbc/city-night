@@ -1,0 +1,34 @@
+@import "../../../../stylesheet/preset/mixin";
+@import "compass/css3";
+
+$prefix: s-flex-vertical;
+
+.#{$prefix} {
+  @include display-flex(inline-flex);
+  @include flex-direction(column);
+  @include flex-wrap(wrap);
+}
+
+.#{$prefix}-no-inline {
+  @include display-flex(flex);
+}
+
+.#{$prefix}-no-wrap {
+  @include flex-wrap(nowrap);
+}
+
+.#{$prefix}-center {
+  @include align-items(center);
+}
+
+.#{$prefix}-end {
+  @include align-items(flex-end);
+}
+
+.#{$prefix}-start {
+  @include align-items(flex-start);
+}
+
+.#{$prefix}-reverse {
+  @include flex-direction(reverse);
+}

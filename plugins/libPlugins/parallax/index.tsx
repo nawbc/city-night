@@ -4,12 +4,12 @@
  *			REPOSITORY --- https://github.com/sewerganger/silent-concept
  *=================================================================================================*/
 import React, { HTMLAttributes, FC } from 'react';
-import { SilentCommonAttr, ClassValue } from '../../lib/interfaces';
+import { SilentCommonAttr, ClassValue } from '../../../lib/interfaces';
 import {
 	accordType,
 	splitJsxProps,
 	handleSize,
-} from '../../lib/helper';
+} from '../../../lib/helper';
 
 const ParallaxAttrs = [
 	'size',

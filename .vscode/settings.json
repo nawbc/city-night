@@ -1,6 +1,12 @@
 {
 	"editor.tabSize": 2,
 	"eslint.autoFixOnSave": true,
+	"[typescript]": {
+		"editor.defaultFormatter": "vscode.typescript-language-features"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "vscode.typescript-language-features"
+	},
 	"eslint.validate": [
 		"javascript",
 		"javascriptreact",

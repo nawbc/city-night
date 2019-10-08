@@ -1,0 +1,17 @@
+@import "../../../../stylesheet/preset/mixin";
+@import "compass/css3";
+
+$prefix: s-flex-average;
+
+.#{$prefix} {
+  @include flex-average(inline-flex);
+  @include flex-wrap(wrap);
+}
+
+.#{$prefix}-no-inline {
+  @include flex-average(flex);
+}
+
+.#{$prefix}-no-wrap {
+  @include flex-wrap(nowrap);
+}

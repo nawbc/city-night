@@ -22,12 +22,14 @@
 			"es7",
 			"es6",
 			"es5",
-			"dom",
 			"dom.iterable"
 		]
 	},
 	"exclude": [
 		"node_modules",
 		"lib/assets"
+	],
+	"include": [
+		"."
 	]
 }

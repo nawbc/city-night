@@ -129,8 +129,6 @@
   @include filter(blur($radius));
 }
 
-
-
 @mixin clearFloat {
   clear: both;
   display: block;

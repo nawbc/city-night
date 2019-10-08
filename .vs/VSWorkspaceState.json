@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\app",
+    "\\lib",
+    "\\lib\\interfaces",
+    "\\lib\\silent",
+    "\\lib\\stylesheet",
+    "\\lib\\views",
+    "\\lib\\views\\flex"
+  ],
+  "SelectedNode": "\\lib\\views\\flex\\center.tsx",
+  "PreviewInSolutionExplorer": false
+}
