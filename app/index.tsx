@@ -1,9 +1,23 @@
 import ReactDOM from 'react-dom';
 import { Loading, Silent, Picture, Icon, Button, Fold, Panel, Row, Col, Flex, Map, Center } from '../lib/index';
-import React, { useState, useEffect, useContext, useMemo, useCallback, useRef, forwardRef, useImperativeHandle, useLayoutEffect, PureComponent, HTMLAttributes, useReducer } from 'react';
+import React, {
+	useState,
+	useEffect,
+	useContext,
+	useMemo,
+	useCallback,
+	useRef,
+	forwardRef,
+	useImperativeHandle,
+	useLayoutEffect,
+	PureComponent,
+	HTMLAttributes,
+	useReducer
+} from 'react';
 import { BrowserRouter, NavLink, Switch, Route } from 'react-router-dom';
 import './index.scss';
 import { is } from '../lib/helper';
+
 function PicTemplate({ lazy }) {
 	return (
 		<>
@@ -40,11 +54,11 @@ function PicTemplate({ lazy }) {
 	);
 }
 
-const componentStyleRules = function (styleObject) {
+const componentStyleRules = function(styleObject) {
 	let count = 0;
 	let nameStack = [];
 
-	const recursion = function (styles) {
+	const recursion = function(styles) {
 		count++;
 		let content = '';
 		let objStack = [];
@@ -63,9 +77,9 @@ const componentStyleRules = function (styleObject) {
 		console.log(nameStack, content);
 	};
 	recursion(styleObject);
-}
+};
 
-const addStyle = function (styles) {
+const addStyle = function(styles) {
 	const style = document.createElement('style');
 	document.getElementsByTagName('head')[0].appendChild(style);
 	style.appendChild(document.createTextNode(''));
@@ -79,7 +93,7 @@ const addStyle = function (styles) {
 			content += key + ':' + propVal[key] + ';';
 		}
 		const insertValue = '.component' + ' ' + currentProp + '{' + content + '}';
-		s.insertRule(insertValue)
+		s.insertRule(insertValue);
 	}
 };
 
@@ -88,12 +102,10 @@ function Component(props) {
 
 	return (
 		<>
-			<div className='component'>
-				<div
-					className='b'
-				>
-					<div className='c'>sa</div>
-					<div className='d'>dada</div>
+			<div className="component">
+				<div className="b">
+					<div className="c">sa</div>
+					<div className="d">dada</div>
 				</div>
 			</div>
 		</>
@@ -121,7 +133,9 @@ function App() {
 							height: '100px',
 							background: 'red'
 						}}
-					>Fuck</div>
+					>
+						Fuck
+					</div>
 				</Center>
 			</div>
 		</>
@@ -129,4 +143,3 @@ function App() {
 }
 /*eslint-env browser*/
 ReactDOM.render(<App />, document.getElementById('root'));
-

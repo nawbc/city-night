@@ -9,6 +9,12 @@
 		"plugin:@typescript-eslint/recommended",
 		"plugin:react/recommended"
 	],
+	"plugins": [
+		"react",
+		"react-hooks",
+		// "prettier",
+		"@typescript-eslint"
+	],
 	"globals": {
 		"Atomics": "readonly",
 		"SharedArrayBuffer": "readonly",
@@ -24,10 +30,6 @@
 			"version": "detect"
 		}
 	},
-	"plugins": [
-		"react",
-		"react-hooks"
-	],
 	"parserOptions": {
 		"ecmaFeatures": {
 			"jsx": true
@@ -41,6 +43,12 @@
 	},
 	"parser": "@typescript-eslint/parser",
 	"rules": {
+		"no-multiple-empty-lines": [
+			"error",
+			{
+				"max": 1
+			}
+		],
 		"no-undef": "error",
 		"semi": "warn",
 		"quotes": [

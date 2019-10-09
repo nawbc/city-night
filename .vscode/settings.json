@@ -1,12 +1,14 @@
 {
+	// "eslint.enable": false,
 	"editor.tabSize": 2,
 	"eslint.autoFixOnSave": true,
-	"[typescript]": {
-		"editor.defaultFormatter": "vscode.typescript-language-features"
-	},
-	"[typescriptreact]": {
-		"editor.defaultFormatter": "vscode.typescript-language-features"
-	},
+	// "[typescript]": {
+	// 	"editor.defaultFormatter": "vscode.typescript-language-features"
+	// },
+	// "[typescriptreact]": {
+	// 	"editor.defaultFormatter": "vscode.typescript-language-features"
+	// },
+	// "prettier-eslint.eslintIntegration": true,
 	"eslint.validate": [
 		"javascript",
 		"javascriptreact",

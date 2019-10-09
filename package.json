@@ -32,6 +32,7 @@
 		"auto:svg": "node ./auto/svgModuleMaker.js",
 		"auto": "npm-run-all auto:*",
 		"eslint": "eslint ./ --ext .ts,.tsx,.js,.jsx --fix",
+		"eslint:test": "eslint ./app/index.tsx --fix",
 		"cz:init": "commitizen init cz-conventional-changelog --save --save-exact",
 		"changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
 	},
@@ -40,6 +41,7 @@
 		"node": ">=10.13.0"
 	},
 	"dependencies": {
+		"classnames": "^2.2.6",
 		"core-js": "^3.2.1",
 		"height-zero2auto": "^1.0.8",
 		"react": "^16.8.6",
@@ -74,7 +76,6 @@
 		"babel-preset-react-app": "^9.0.0",
 		"case-sensitive-paths-webpack-plugin": "2.2.0",
 		"cheerio": "^1.0.0-rc.3",
-		"classnames": "^2.2.6",
 		"commitizen": "^4.0.3",
 		"compass-importer": "^0.4.1",
 		"computed-style": "^0.3.0",
@@ -97,7 +98,6 @@
 		"mini-css-extract-plugin": "0.5.0",
 		"node-sass": "^4.12.0",
 		"optimize-css-assets-webpack-plugin": "5.0.1",
-		"prettier-eslint": "^9.0.0",
 		"react-app-polyfill": "^1.0.1",
 		"react-dev-utils": "^9.0.1",
 		"react-flexbox-grid": "^2.1.2",
