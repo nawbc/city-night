@@ -8,23 +8,12 @@
 import React, { CSSProperties, HTMLAttributes, FC } from 'react';
 import classNames from 'classnames';
 import { SilentCommonAttr, SizeType, ClassValue } from '../../interfaces';
-import {
-	accordType,
-	splitJsxProps,
-	handleSize
-} from '../../helper';
+import { accordType, splitJsxProps, handleSize } from '../../helper';
 import './style/hoop.scss';
 
 const prefix = 's-loading-hoop';
 
-const HoopAttrs = [
-	'size',
-	'style',
-	'speed',
-	'pigment',
-	'innerStyle',
-	'className'
-];
+const HoopAttrs = ['size', 'style', 'speed', 'pigment', 'innerStyle', 'className'];
 
 interface LoadingHoopTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	pigment?: string;
@@ -37,8 +26,11 @@ export interface LoadingHoopProps extends LoadingHoopTempProps {
 	className?: ClassValue;
 }
 
-interface ClassNameEx { containerCN: string; innerCN: string };
-const presetClassName = function (cProps: LoadingHoopProps): ClassNameEx {
+interface ClassNameEx {
+	containerCN: string;
+	innerCN: string;
+}
+const presetClassName = function(cProps: LoadingHoopProps): ClassNameEx {
 	let { size, pigment } = cProps;
 	return {
 		containerCN: classNames(prefix, {
@@ -52,7 +44,7 @@ const presetClassName = function (cProps: LoadingHoopProps): ClassNameEx {
 	};
 };
 
-const presetProps = function (props: LoadingHoopProps) {
+const presetProps = function(props: LoadingHoopProps) {
 	const sProps = splitJsxProps<LoadingHoopProps>(props, HoopAttrs);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
@@ -67,7 +59,7 @@ const presetProps = function (props: LoadingHoopProps) {
  *				--- speed [string]
  *  =================================================================================================*/
 
-const Hoop: FC<LoadingHoopProps> = function (props) {
+const Hoop: FC<LoadingHoopProps> = function(props) {
 	const { nativeProps, customProps } = presetProps(props);
 	const { containerCN, innerCN } = presetClassName(customProps);
 	const containerStyle = {
@@ -76,11 +68,7 @@ const Hoop: FC<LoadingHoopProps> = function (props) {
 	};
 
 	return (
-		<div
-			{...nativeProps}
-			className={containerCN}
-			style={containerStyle}
-		>
+		<div {...nativeProps} className={containerCN} style={containerStyle}>
 			<div
 				className={innerCN}
 				style={{

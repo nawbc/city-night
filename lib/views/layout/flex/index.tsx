@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import Average, { AverageProps } from './average';
-import Vertical from './vertical';
+import Average, { AverageProps } from './Average';
+import Vertical from './Vertical';
 
 /**=================================================================================================
  *			LASTMODIFY --- 2019-08-28T02:50:09.450Z
@@ -10,16 +10,12 @@ import Vertical from './vertical';
  * 					--- Average [function] 元素均匀分布
  *    =================================================================================================*/
 
-export default class Flex extends React.Component<AverageProps, any>{
+export default class Flex extends React.Component<AverageProps, any> {
 	static Average: typeof Average = Average;
 	static Vertical: typeof Vertical = Vertical;
 	// static Font: typeof Font = Font;
 
 	public render() {
-		return (
-			<Average {...this.props}>
-				{this.props.children}
-			</Average>
-		);
+		return <Average {...this.props}>{this.props.children}</Average>;
 	}
 }

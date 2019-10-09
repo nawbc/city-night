@@ -1,20 +1,24 @@
 {
-	"env": {
-		"es6": true,
-		"node": true,
-		"browser": true,
-		"jest": true
-	},
+	"parser": "@typescript-eslint/parser",
 	"extends": [
-		"plugin:@typescript-eslint/recommended",
-		"plugin:react/recommended"
+		"plugin:react/recommended",
+		"plugin:@typescript-eslint/recommended"
 	],
 	"plugins": [
 		"react",
 		"react-hooks",
-		// "prettier",
 		"@typescript-eslint"
 	],
+	"env": {
+		"browser": true,
+		"node": true
+	},
+	"settings": {
+		"react": {
+			"pragma": "React",
+			"version": "detect"
+		}
+	},
 	"globals": {
 		"Atomics": "readonly",
 		"SharedArrayBuffer": "readonly",
@@ -23,25 +27,13 @@
 		"context": true,
 		"jestPuppeteer": true //https://github.com/smooth-code/jest-puppeteer
 	},
-	"settings": {
-		"react": {
-			"createClass": "createReactClass",
-			"pragma": "React",
-			"version": "detect"
-		}
-	},
 	"parserOptions": {
+		"ecmaVersion": 2019,
+		"sourceType": "module",
 		"ecmaFeatures": {
 			"jsx": true
-		},
-		"sourceType": "module",
-		"experimentalObjectRestSpread": true,
-		"jsx": true,
-		"ecmaVersion": 2018,
-		"project": "./tsconfig.json",
-		"useJSXTextNode": true
+		}
 	},
-	"parser": "@typescript-eslint/parser",
 	"rules": {
 		"no-multiple-empty-lines": [
 			"error",
@@ -98,7 +90,7 @@
 		"react/display-name": 0,
 		// 修复interface unused 的问题
 		"@typescript-eslint/no-unused-vars": [
-			1,
+			"error",
 			{
 				"args": "none"
 			}

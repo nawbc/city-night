@@ -7,26 +7,14 @@
 import React, { ReactElement, HTMLAttributes, FC } from 'react';
 import classNames from 'classnames';
 import { SilentCommonAttr, SizeType, ClassValue } from '../../interfaces';
-import {
-	accordType,
-	splitJsxProps,
-	handleSize
-} from '../../helper';
-import Loading from '../../views/loading';
+import { accordType, splitJsxProps, handleSize } from '../../helper';
+import Loading from '../../views/Loading';
 import './style/picture.scss';
-import LazyPicture from './lazyPicture';
+import LazyPicture from './LazyPicture';
 
 const prefix = 's-picture';
 
-const PictureAttrs = [
-	'src',
-	'size',
-	'lazy',
-	'style',
-	'autSize',
-	'beforeLoad',
-	'className'
-];
+const PictureAttrs = ['src', 'size', 'lazy', 'style', 'autSize', 'beforeLoad', 'className'];
 
 interface PictureTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	src?: string;
@@ -40,14 +28,14 @@ export interface PictureProps extends PictureTempProps {
 	className?: ClassValue;
 }
 
-const presetClassName = function (cProps: PictureProps): string {
+const presetClassName = function(cProps: PictureProps): string {
 	let { size } = cProps;
 	return classNames(prefix, {
 		[`${prefix}-${size}`]: accordType(size, 'String', false)
 	});
 };
 
-const presetProps = function (props: PictureProps) {
+const presetProps = function(props: PictureProps) {
 	const sProps = splitJsxProps<PictureProps>(props, PictureAttrs);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
@@ -67,7 +55,7 @@ const presetProps = function (props: PictureProps) {
  *
  *   =================================================================================================*/
 
-const Picture: FC<PictureProps> = function (props) {
+const Picture: FC<PictureProps> = function(props) {
 	const { nativeProps, customProps } = presetProps(props);
 	const className = presetClassName(customProps);
 	const { src, lazy, size, style } = customProps;
@@ -75,13 +63,7 @@ const Picture: FC<PictureProps> = function (props) {
 	let finalElement: ReactElement;
 
 	if (lazy) {
-
-		finalElement = (
-			<LazyPicture
-				nativeProps={nativeProps}
-				customProps={customProps}
-			/>
-		);
+		finalElement = <LazyPicture nativeProps={nativeProps} customProps={customProps} />;
 	} else {
 		let customStyle = {
 			backgroundSize: 'cover',
@@ -90,13 +72,7 @@ const Picture: FC<PictureProps> = function (props) {
 			...accordType(size, 'Object', {}),
 			...style
 		};
-		finalElement = (
-			<div
-				{...nativeProps}
-				style={customStyle}
-				className={className}
-			/>
-		);
+		finalElement = <div {...nativeProps} style={customStyle} className={className} />;
 	}
 	return finalElement;
 };

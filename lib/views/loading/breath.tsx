@@ -7,21 +7,12 @@
 import React, { HTMLAttributes, FC } from 'react';
 import { SilentCommonAttr, SizeType, ClassValue } from '../../interfaces';
 import classNames from 'classnames';
-import {
-	accordType,
-	splitJsxProps,
-	handleSize
-} from '../../helper';
+import { accordType, splitJsxProps, handleSize } from '../../helper';
 import './style/breath.scss';
 
 const prefix = 's-loading-breath';
 
-const BreathAttrs = [
-	'size',
-	'style',
-	'pigment',
-	'className'
-];
+const BreathAttrs = ['size', 'style', 'pigment', 'className'];
 
 interface LoadingBreathTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	pigment?: string;
@@ -32,8 +23,11 @@ export interface LoadingBreathProps extends LoadingBreathTempProps {
 	className?: ClassValue;
 }
 
-interface ClassNameEx { containerCN: string; innerCN: string }
-const presetClassName = function (cProps: LoadingBreathProps): ClassNameEx {
+interface ClassNameEx {
+	containerCN: string;
+	innerCN: string;
+}
+const presetClassName = function(cProps: LoadingBreathProps): ClassNameEx {
 	let { size, pigment } = cProps;
 	return {
 		containerCN: classNames(prefix, {
@@ -46,7 +40,7 @@ const presetClassName = function (cProps: LoadingBreathProps): ClassNameEx {
 	};
 };
 
-const presetProps = function (props: LoadingBreathProps) {
+const presetProps = function(props: LoadingBreathProps) {
 	const sProps = splitJsxProps<LoadingBreathProps>(props, BreathAttrs);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
@@ -60,7 +54,7 @@ const presetProps = function (props: LoadingBreathProps) {
  *				--- pigment [string]
  *  =================================================================================================*/
 
-const Breath: FC<LoadingBreathProps> = function (props) {
+const Breath: FC<LoadingBreathProps> = function(props) {
 	const { nativeProps, customProps } = presetProps(props);
 	const { containerCN, innerCN } = presetClassName(customProps);
 	const containerStyle = {
@@ -69,14 +63,8 @@ const Breath: FC<LoadingBreathProps> = function (props) {
 	};
 
 	return (
-		<div
-			{...nativeProps}
-			style={containerStyle}
-			className={containerCN}
-		>
-			<div
-				className={innerCN}
-			/>
+		<div {...nativeProps} style={containerStyle} className={containerCN}>
+			<div className={innerCN} />
 		</div>
 	);
 };

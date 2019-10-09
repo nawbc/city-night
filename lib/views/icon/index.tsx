@@ -9,14 +9,9 @@ import React, { ReactElement, useRef, useLayoutEffect, HTMLAttributes, FC } from
 import classNames from 'classnames';
 import { SilentCommonAttr, EffectType, SizeType, ClassValue, DefaultColor } from '../../interfaces';
 import * as DefaultSvg from '../../assets/svg';
-import Loading from '../loading/';
-import {
-	accordType,
-	splitJsxProps,
-	handleSize
-} from '../../helper';
+import { accordType, splitJsxProps, handleSize } from '../../helper';
 import './style/icon.scss';
-import Picture from '../../views/picture';
+import Picture from '../../views/Picture';
 
 const prefix = 's-icon';
 
@@ -50,7 +45,7 @@ export interface IconProps extends IconTempProps {
 	className?: ClassValue;
 }
 
-const presetClassName = function (cProps: IconProps): string {
+const presetClassName = function(cProps: IconProps): string {
 	let { size, effect, className } = cProps;
 	return classNames(prefix, className, {
 		[`${prefix}-${size}`]: accordType(size, 'String', false),
@@ -58,7 +53,7 @@ const presetClassName = function (cProps: IconProps): string {
 	});
 };
 
-const presetProps = function (props: IconProps) {
+const presetProps = function(props: IconProps) {
 	const sProps = splitJsxProps<IconProps>(props, IconAttrs);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
@@ -68,7 +63,7 @@ export interface IconFunction {
 	(props: IconProps): ReactElement;
 }
 
-const Icon: FC<IconProps> = function (props) {
+const Icon: FC<IconProps> = function(props) {
 	const { nativeProps, customProps } = presetProps(props);
 	const className = presetClassName(customProps);
 	const { src, lazy, beforeLoad, type, pigment, size, style } = customProps;
@@ -80,30 +75,21 @@ const Icon: FC<IconProps> = function (props) {
 	};
 
 	useLayoutEffect(() => {
-		const container = refEle.current as unknown as HTMLElement;
+		const container = (refEle.current as unknown) as HTMLElement;
 		const firstEle = container.firstChild as SVGAnimateElement;
 		if (firstEle && firstEle.tagName === 'svg') {
 			firstEle.style.fill = `${pigment}`;
 		}
 	});
 	return (
-		<i
-			{...nativeProps}
-			className={className}
-			style={customStyle}
-			ref={refEle}
-		>
-			{
-				(!!type) ?
-					<DefaultIcon /> :
-					!!props.children ? props.children :
-						<Picture
-							size={['100%', '100%']}
-							src={src}
-							lazy={lazy}
-							beforeLoad={beforeLoad}
-						/>
-			}
+		<i {...nativeProps} className={className} style={customStyle} ref={refEle}>
+			{!!type ? (
+				<DefaultIcon />
+			) : !!props.children ? (
+				props.children
+			) : (
+				<Picture size={['100%', '100%']} src={src} lazy={lazy} beforeLoad={beforeLoad} />
+			)}
 		</i>
 	);
 };

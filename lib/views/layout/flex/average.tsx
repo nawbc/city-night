@@ -5,24 +5,13 @@
  *=================================================================================================*/
 import React, { HTMLAttributes, FC } from 'react';
 import { SilentCommonAttr, ClassValue } from '../../../interfaces';
-import {
-	accordType,
-	splitJsxProps,
-	handleSize
-} from '../../../helper';
+import { accordType, splitJsxProps, handleSize } from '../../../helper';
 import classNames from 'classnames';
 import './style/average.scss';
 
 const prefix = 's-flex-average';
 
-const AverageAttrs = [
-	'size',
-	'className',
-	'style',
-	'wrap',
-	'inline',
-	'children'
-];
+const AverageAttrs = ['size', 'className', 'style', 'wrap', 'inline', 'children'];
 
 interface AverageTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	className?: any;
@@ -34,7 +23,7 @@ export interface AverageProps extends AverageTempProps {
 	className?: ClassValue;
 }
 
-const presetProps = function (props: AverageProps) {
+const presetProps = function(props: AverageProps) {
 	const sProps = splitJsxProps<AverageProps>(props, AverageAttrs);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
@@ -47,7 +36,7 @@ const presetProps = function (props: AverageProps) {
  *				--- size [SizeType]
  *   =================================================================================================*/
 
-const Average: FC<AverageProps> = function (props) {
+const Average: FC<AverageProps> = function(props) {
 	const { nativeProps, customProps } = presetProps(props);
 	const { size, style, children, className, wrap, inline } = customProps;
 	const containerStyle = {
@@ -59,12 +48,10 @@ const Average: FC<AverageProps> = function (props) {
 		<div
 			{...nativeProps}
 			style={containerStyle}
-			className={
-				classNames(prefix, className, {
-					[`${prefix}-no-wrap`]: !wrap,
-					[`${prefix}-no-inline`]: !inline
-				})
-			}
+			className={classNames(prefix, className, {
+				[`${prefix}-no-wrap`]: !wrap,
+				[`${prefix}-no-inline`]: !inline
+			})}
 		>
 			{children}
 		</div>
