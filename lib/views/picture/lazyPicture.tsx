@@ -7,9 +7,9 @@ const prefix = 's-picture-lazy';
 /**=================================================================================================
  *		函数去抖动
  *=================================================================================================*/
-const deShake = function (callback: Function, time: number) {
+const deShake = function(callback: Function, time: number) {
 	let timer = null as any;
-	return function (e: Event) {
+	return function(e: Event) {
 		clearTimeout(timer);
 		timer = setTimeout(() => {
 			callback(e);
@@ -17,9 +17,7 @@ const deShake = function (callback: Function, time: number) {
 	};
 };
 
-const LazyPicture = function (
-	{ nativeProps, customProps }
-): React.ReactElement {
+const LazyPicture = function({ nativeProps, customProps }): React.ReactElement {
 	const { className, size, src, style, beforeLoad } = customProps as PictureProps;
 	const lazyPicContainerRef = useRef(null);
 	const [beforeLoadElement, setBeforeLoadElement] = useState(true);
@@ -27,13 +25,13 @@ const LazyPicture = function (
 
 	useLayoutEffect(() => {
 		// window.onscroll = function () {
-		const imgContainer = lazyPicContainerRef.current as unknown as HTMLElement;
+		const imgContainer = (lazyPicContainerRef.current as unknown) as HTMLElement;
 		if (imgContainer.offsetTop < window.innerHeight) {
 			const img = new Image();
 			img.src = src as string;
-			img.onload = function () {
-				(!!beforeLoad) && setBeforeLoadElement(false);
-				console.log(beforeLoad)
+			img.onload = function() {
+				!!beforeLoad && setBeforeLoadElement(false);
+				console.log(beforeLoad);
 				let finalWidth, finalHeight;
 				const { width, height } = img;
 				if (!!size) {
@@ -54,19 +52,14 @@ const LazyPicture = function (
 				imgContainer.appendChild(img);
 				return () => {
 					imgContainer.removeChild(img);
-				}
-			}
+				};
+			};
 		}
 		// };
 	}, [size, src, beforeLoad]);
 
 	return (
-		<div
-			ref={lazyPicContainerRef}
-			style={style}
-			{...nativeProps}
-			cla ssName={classNames(className, prefix)}
-		>
+		<div ref={lazyPicContainerRef} style={style} {...nativeProps} cla ssName={classNames(className, prefix)}>
 			{beforeLoadElement && beforeLoad}
 		</div>
 	);

@@ -9,14 +9,8 @@ import React, { ButtonHTMLAttributes, AnchorHTMLAttributes, FC, CSSProperties, R
 import { SilentCommonAttr, SizeType, ClassValue, EffectType, DefaultColor } from '../../interfaces';
 import Icon from '../icon/';
 import classNames from 'classnames';
-import {
-	accordType,
-	splitJsxProps,
-	handleSize,
-	is
-} from '../../helper';
+import { accordType, splitJsxProps, handleSize, is } from '../../helper';
 import './style/button.scss';
-
 
 type ButtonModeType = 'reset' | 'submit' | 'button' | 'link' | 'reload';
 type TargetType = 'blank' | 'self' | 'parent' | 'top' | string;
@@ -49,16 +43,13 @@ const ButtonAttrs = [
  *			constantly variables
  *=================================================================================================*/
 
-const buttonIconDefaultStyle = function (shape) {
+const buttonIconDefaultStyle = function(shape) {
 	return {
 		marginRight: shape === 'circle' ? 0 : '10px',
 		marginTop: 0
 	};
-}
-interface ButtonTempProps<T> extends
-	SilentCommonAttr,
-	ButtonHTMLAttributes<T>,
-	AnchorHTMLAttributes<T> {
+};
+interface ButtonTempProps<T> extends SilentCommonAttr, ButtonHTMLAttributes<T>, AnchorHTMLAttributes<T> {
 	pigment?: DefaultColor;
 	mode?: ButtonModeType;
 	target?: TargetType;
@@ -78,59 +69,49 @@ export interface ButtonProps extends ButtonTempProps<any> {
 	icon?: ReactElement | string;
 }
 
-
-const setHoverStyle = function (hoverStyle, onMouseLeave, onMouseEnter) {
+const setHoverStyle = function(hoverStyle, onMouseLeave, onMouseEnter) {
 	return {
-		onMouseEnter: (e) => {
+		onMouseEnter: e => {
 			const targetElement = e.target as HTMLElement;
 			for (let prop in hoverStyle) {
 				targetElement.style[prop] = hoverStyle[prop];
 			}
-			(is.function(onMouseEnter)) && onMouseEnter(e);
+			is.function(onMouseEnter) && onMouseEnter(e);
 		},
-		onMouseLeave: (e) => {
+		onMouseLeave: e => {
 			const targetElement = e.target as HTMLElement;
 			for (let prop in hoverStyle) {
 				targetElement.style[prop] = 'unset';
 			}
-			(is.function(onMouseLeave)) && onMouseLeave(e);
+			is.function(onMouseLeave) && onMouseLeave(e);
 		}
-	}
+	};
 };
 
 /**=================================================================================================
  *			处理reload模式
  *=================================================================================================*/
-const handleReloadMode = function (event, onClick, mode) {
-	let e = event || window.event as MouseEvent;
-	('reload' === mode) && window.location.reload();
-	(is.function(onClick)) && onClick(e);
+const handleReloadMode = function(event, onClick, mode) {
+	let e = event || (window.event as MouseEvent);
+	'reload' === mode && window.location.reload();
+	is.function(onClick) && onClick(e);
 };
 
 /**=================================================================================================
  *			带有链接的Button
  *=================================================================================================*/
 
-const ButtonWithLink = function ({
-	nativeProps,
-	mode,
-	children,
-	target,
-	readOnly
-}) {
-	return (
-		(mode === 'link' && !readOnly) ?
-			<a
-				{...nativeProps}
-				target={target}
-			>
-				{children}
-			</a> : children
+const ButtonWithLink = function({ nativeProps, mode, children, target, readOnly }) {
+	return mode === 'link' && !readOnly ? (
+		<a {...nativeProps} target={target}>
+			{children}
+		</a>
+	) : (
+		children
 	);
 };
 
-
-const presetClassName = function (cProps: ButtonProps) {
+const presetClassName = function(cProps: ButtonProps) {
 	const { mode, readOnly, size, effect, pigment, shape, className } = cProps;
 
 	return classNames(prefix, className, {
@@ -144,7 +125,7 @@ const presetClassName = function (cProps: ButtonProps) {
 	});
 };
 
-const presetProps = function (props: ButtonProps) {
+const presetProps = function(props: ButtonProps) {
 	const sProps = splitJsxProps<ButtonProps>(props, ButtonAttrs);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	sProps.customProps.target = '_' + sProps.customProps.target;
@@ -162,13 +143,24 @@ const presetProps = function (props: ButtonProps) {
  *				--- iconStyle [string] 对应icon style
  *  =================================================================================================*/
 
-const Button: FC<ButtonProps> = function (props) {
+const Button: FC<ButtonProps> = function(props) {
 	const { nativeProps, customProps } = presetProps(props);
 	const {
-		style, size, children, mode,
-		target, readOnly, hoverStyle,
-		icon, onClick, contentStyle, iconStyle,
-		value, onMouseEnter, onMouseLeave, shape
+		style,
+		size,
+		children,
+		mode,
+		target,
+		readOnly,
+		hoverStyle,
+		icon,
+		onClick,
+		contentStyle,
+		iconStyle,
+		value,
+		onMouseEnter,
+		onMouseLeave,
+		shape
 	} = customProps;
 	const ref = useRef(null);
 	const classNames = presetClassName(customProps);
@@ -190,12 +182,7 @@ const Button: FC<ButtonProps> = function (props) {
 	// }, []);
 
 	return (
-		<ButtonWithLink
-			nativeProps={nativeProps}
-			mode={mode}
-			target={target}
-			readOnly={readOnly}
-		>
+		<ButtonWithLink nativeProps={nativeProps} mode={mode} target={target} readOnly={readOnly}>
 			<button
 				ref={ref}
 				id={prefix}
@@ -204,26 +191,26 @@ const Button: FC<ButtonProps> = function (props) {
 				style={containerStyle}
 				disabled={readOnly}
 				className={classNames}
-				onClick={(e) => { handleReloadMode(e, onClick, mode); }}
+				onClick={e => {
+					handleReloadMode(e, onClick, mode);
+				}}
 			>
-				{
-					icon && (
-						React.isValidElement(icon) ?
-							React.cloneElement(icon, { style: setIconStyle }) :
-							<Icon
-								style={setIconStyle}
-								src={icon}
-							/>
-					)
-				}
+				{icon &&
+					(React.isValidElement(icon) ? (
+						React.cloneElement(icon, { style: setIconStyle })
+					) : (
+						<Icon style={setIconStyle} src={icon} />
+					))}
 				<span
 					style={{
 						position: 'relative',
 						...contentStyle
 					}}
-				>{children || value}</span>
+				>
+					{children || value}
+				</span>
 			</button>
-		</ButtonWithLink >
+		</ButtonWithLink>
 	);
 };
 

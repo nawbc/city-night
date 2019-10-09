@@ -1,14 +1,14 @@
-'use strict'
+'use strict';
 
 const fs = require('fs-extra');
-const webpack = require("webpack");
+const webpack = require('webpack');
 const resolve = require('resolve');
 const banner = require('../utils/banner');
 const resolveJsonPath = require('../utils/resolveJsonPaths');
 const configJson = require('../config.json');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
@@ -18,7 +18,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const { output, rootPath, constPaths, publicExtUrl, interpolateHtml } = configJson;
-const WebpackProgressBar = require('webpack-progress-bar')
+const WebpackProgressBar = require('webpack-progress-bar');
 // 暴露 compass-importer
 const compassImporter = require('../utils/compass');
 const os = require('os');
@@ -27,12 +27,11 @@ const rPath = resolveJsonPath(rootPath, constPaths);
 const workers = os.cpus().length;
 
 const workerLoader = {
-	loader: "thread-loader",
+	loader: 'thread-loader',
 	options: {
 		workers: workers
 	}
-}
-
+};
 
 //======================================================================
 // come from create-react-app to get the public path
@@ -50,13 +49,13 @@ function ensureSlash(inputPath, needsSlash) {
 
 const getPublicUrl = json => process.env.PUBLIC_URL || require(json).homepage;
 
-const getServedPath = (json) => {
+const getServedPath = json => {
 	const publicUrl = getPublicUrl(json);
 	const servedUrl = process.env.PUBLIC_URL || (publicUrl ? url.parse(publicUrl).pathname : publicExtUrl);
 	return ensureSlash(servedUrl, true);
-}
+};
 
-module.exports = function (env, action) {
+module.exports = function(env, action) {
 	const isDevelopment = env === 'development';
 	const isProduction = env === 'production';
 	const isApp = action === 'app';
@@ -73,12 +72,12 @@ module.exports = function (env, action) {
 		enPath = {
 			entry: rPath.appEntryTsx,
 			output: rPath.appOutput
-		}
+		};
 	} else if (isProduction && isLib) {
 		enPath = {
 			entry: rPath.libEntryTsx,
 			output: rPath.libOutput
-		}
+		};
 	}
 
 	//======================================================================
@@ -88,34 +87,31 @@ module.exports = function (env, action) {
 	const libPlugin = [
 		isProduction && new webpack.BannerPlugin(banner),
 		isDevelopment && new WatchMissingNodeModulesPlugin(rPath.nodeModules),
-		isProduction && new MiniCssExtractPlugin(
-			Object.assign(
-				{
-					filename: isLib ? output.packCssName : 'static/css/[name].css',
-				},
-				isLib ?
-					{} : {
-						chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
-					}
-			)
-		),
+		isProduction &&
+			new MiniCssExtractPlugin(
+				Object.assign(
+					{
+						filename: isLib ? output.packCssName : 'static/css/[name].css'
+					},
+					isLib
+						? {}
+						: {
+								chunkFilename: 'static/css/[name].[contenthash:8].chunk.css'
+						  }
+				)
+			),
 		new ForkTsCheckerWebpackPlugin({
 			typescript: resolve.sync('typescript', {
-				basedir: rPath.nodeModules,
+				basedir: rPath.nodeModules
 			}),
 			async: isDevelopment,
 			useTypescriptIncrementalApi: true,
 			checkSyntacticErrors: true,
 			tsconfig: rPath.tsConfig,
-			reportFiles: [
-				'**',
-				'!**/*.json',
-				'!**/__tests__/**',
-				'!**/?(*.)(spec|test).*',
-			],
+			reportFiles: ['**', '!**/*.json', '!**/__tests__/**', '!**/?(*.)(spec|test).*'],
 			watch: rPath.appSrc,
 			silent: true,
-			formatter: isProduction ? typescriptFormatter : undefined,
+			formatter: isProduction ? typescriptFormatter : undefined
 		}),
 		new WebpackProgressBar({
 			incomplete: {
@@ -138,23 +134,23 @@ module.exports = function (env, action) {
 		new HtmlWebpackPlugin(
 			{
 				inject: true,
-				template: rPath.appHtml,
+				template: rPath.appHtml
 			},
 			isProduction
 				? {
-					minify: {
-						removeComments: true,
-						collapseWhitespace: true,
-						removeRedundantAttributes: true,
-						useShortDoctype: true,
-						removeEmptyAttributes: true,
-						removeStyleLinkTypeAttributes: true,
-						keepClosingSlash: true,
-						minifyJS: true,
-						minifyCSS: true,
-						minifyURLs: true,
-					},
-				}
+						minify: {
+							removeComments: true,
+							collapseWhitespace: true,
+							removeRedundantAttributes: true,
+							useShortDoctype: true,
+							removeEmptyAttributes: true,
+							removeStyleLinkTypeAttributes: true,
+							keepClosingSlash: true,
+							minifyJS: true,
+							minifyCSS: true,
+							minifyURLs: true
+						}
+				  }
 				: undefined
 		),
 		new InterpolateHtmlPlugin(HtmlWebpackPlugin, {
@@ -166,21 +162,20 @@ module.exports = function (env, action) {
 		isDevelopment && new CaseSensitivePathsPlugin(),
 		new ManifestPlugin({
 			fileName: 'manifest.json',
-			publicPath: rPath.appPublic,
+			publicPath: rPath.appPublic
 		}),
 		new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
 		isProduction &&
-		new WorkboxWebpackPlugin.GenerateSW({
-			clientsClaim: true,
-			exclude: [/\.map$/, /manifest\.json$/],
-			importWorkboxFrom: 'cdn',
-			navigateFallback: rPath.appHtml,
-			navigateFallbackBlacklist: [
-				new RegExp('^/_'),
-				new RegExp('/[^/]+\\.[^/]+$'),
-			],
-		})
-	].concat(libPlugin).filter(Boolean);
+			new WorkboxWebpackPlugin.GenerateSW({
+				clientsClaim: true,
+				exclude: [/\.map$/, /manifest\.json$/],
+				importWorkboxFrom: 'cdn',
+				navigateFallback: rPath.appHtml,
+				navigateFallbackBlacklist: [new RegExp('^/_'), new RegExp('/[^/]+\\.[^/]+$')]
+			})
+	]
+		.concat(libPlugin)
+		.filter(Boolean);
 
 	//======================================================================
 
@@ -191,48 +186,50 @@ module.exports = function (env, action) {
 				new TerserPlugin({
 					terserOptions: {
 						parse: {
-							ecma: 8,
+							ecma: 8
 						},
 						compress: {
 							ecma: 5,
 							warnings: false,
 
 							comparisons: false,
-							inline: 2,
+							inline: 2
 						},
 						mangle: {
-							safari10: true,
+							safari10: true
 						},
 						output: {
 							ecma: 5,
 							comments: false,
-							ascii_only: true,
-						},
+							ascii_only: true
+						}
 					},
 					parallel: true,
 					cache: true,
-					sourceMap: isProduction,
+					sourceMap: isProduction
 				}),
 				new OptimizeCSSAssetsPlugin({
 					cssProcessorOptions: {
 						map: isProduction
 							? {
-								inline: false,
-								annotation: true,
-							} :
-							false
-					},
-				}),
-			],
+									inline: false,
+									annotation: true
+							  }
+							: false
+					}
+				})
+			]
 		},
-		isReleaseLib ? {} : {
-			splitChunks: {
-				chunks: 'all',
-				name: false,
-			},
-			runtimeChunk: true,
-		}
-	)
+		isReleaseLib
+			? {}
+			: {
+					splitChunks: {
+						chunks: 'all',
+						name: false
+					},
+					runtimeChunk: true
+			  }
+	);
 
 	//======================================================================
 	const modules = {
@@ -245,12 +242,12 @@ module.exports = function (env, action) {
 					{
 						options: {
 							formatter: require.resolve('react-dev-utils/eslintFormatter'),
-							eslintPath: require.resolve('eslint'),
+							eslintPath: require.resolve('eslint')
 						},
-						loader: require.resolve('eslint-loader'),
-					},
+						loader: require.resolve('eslint-loader')
+					}
 				],
-				include: rPath.appSrc,
+				include: rPath.appSrc
 			},
 			{
 				oneOf: [
@@ -259,8 +256,8 @@ module.exports = function (env, action) {
 						loader: require.resolve('url-loader'),
 						options: {
 							limit: 10000,
-							name: 'static/source/[name].[hash:8].[ext]',
-						},
+							name: 'static/source/[name].[hash:8].[ext]'
+						}
 					},
 
 					{
@@ -270,25 +267,23 @@ module.exports = function (env, action) {
 							{
 								loader: 'babel-loader',
 								options: {
-									customize: require.resolve(
-										'babel-preset-react-app/webpack-overrides'
-									),
+									customize: require.resolve('babel-preset-react-app/webpack-overrides'),
 									plugins: [
 										[
 											require.resolve('babel-plugin-named-asset-import'),
 											{
 												loaderMap: {
 													svg: {
-														ReactComponent: '@svgr/webpack?-svgo,+ref![path]',
-													},
-												},
-											},
-										],
+														ReactComponent: '@svgr/webpack?-svgo,+ref![path]'
+													}
+												}
+											}
+										]
 									],
 									cacheDirectory: true,
 									cacheCompression: isProduction,
-									compact: isProduction,
-								},
+									compact: isProduction
+								}
 							},
 							workerLoader
 						]
@@ -300,21 +295,16 @@ module.exports = function (env, action) {
 						options: {
 							configFile: false,
 							compact: false,
-							presets: [
-								[
-									require.resolve('babel-preset-react-app/dependencies'),
-									{ helpers: true },
-								],
-							],
+							presets: [[require.resolve('babel-preset-react-app/dependencies'), { helpers: true }]],
 							cacheDirectory: true,
 							cacheCompression: isProduction,
-							sourceMaps: isProduction,
-						},
+							sourceMaps: isProduction
+						}
 					},
 					{
 						test: /\.(sa|sc|c)ss$/,
 						use: [
-							isDevelopment && "style-loader",
+							isDevelopment && 'style-loader',
 							isProduction && {
 								loader: MiniCssExtractPlugin.loader,
 								options: {
@@ -322,19 +312,19 @@ module.exports = function (env, action) {
 								}
 							},
 							{
-								loader: "css-loader",
+								loader: 'css-loader',
 								options: {
 									sourceMap: isProduction,
 									importLoaders: 1
 								}
 							},
 							{
-								loader: "sass-loader",
+								loader: 'sass-loader',
 								options: {
 									importer: compassImporter,
 									sourceMap: isProduction,
 									sourceComments: isDevelopment,
-									importLoaders: 2,
+									importLoaders: 2
 								}
 							},
 							workerLoader
@@ -344,53 +334,48 @@ module.exports = function (env, action) {
 						loader: require.resolve('file-loader'),
 						exclude: [/\.(js|jsx|ts|tsx)$/, /\.htm?(.|l)$/, /\.json$/],
 						options: {
-							name: 'static/source/[name].[ext]',
-						},
-					},
+							name: 'static/source/[name].[ext]'
+						}
+					}
 				]
 			}
-		],
+		]
 	};
 
 	//========================================================
 	const outputConfig = Object.assign(
 		{
 			path: enPath.output,
-			filename: isReleaseLib ?
-				output.packJsName : (
-					isProduction && isApp ?
-						'static/js/[name].[contenthash:8].js' :
-						'static/js/bundle.js'
-				),
+			filename: isReleaseLib
+				? output.packJsName
+				: isProduction && isApp
+				? 'static/js/[name].[contenthash:8].js'
+				: 'static/js/bundle.js',
 			pathinfo: isDevelopment,
 			libraryTarget: output.target
 		},
-		isReleaseLib ?
-			{
-				library: output.library,
-			} : {
-				chunkFilename: isProduction ?
-					'static/js/[name].[contenthash:8].chunk.js' :
-					'static/js/[name].chunk.js',
-			}
-	)
+		isReleaseLib
+			? {
+					library: output.library
+			  }
+			: {
+					chunkFilename: isProduction ? 'static/js/[name].[contenthash:8].chunk.js' : 'static/js/[name].chunk.js'
+			  }
+	);
 
 	return {
-		entry: isReleaseLib ? enPath.entry :
-			[
-				isDevelopment &&
-				require.resolve('react-dev-utils/webpackHotDevClient'),
-				enPath.entry
-			].filter(Boolean),
+		entry: isReleaseLib
+			? enPath.entry
+			: [isDevelopment && require.resolve('react-dev-utils/webpackHotDevClient'), enPath.entry].filter(Boolean),
 		output: outputConfig,
 		mode: env && 'development',
 		devtool: isProduction ? 'source-map' : 'cheap-module-source-map',
 		optimization: optimization,
 		module: modules,
 		resolve: {
-			extensions: [".js", ".json", ".jsx", ".tsx", ".ts", ".json", ".css", ".scss", ".sass"]
+			extensions: ['.js', '.json', '.jsx', '.tsx', '.ts', '.json', '.css', '.scss', '.sass']
 		},
-		plugins: ((isLib || isPlugins) && isProduction) ? libPlugin : appPlugin,
+		plugins: (isLib || isPlugins) && isProduction ? libPlugin : appPlugin,
 		node: {
 			module: 'empty',
 			dgram: 'empty',
@@ -398,10 +383,9 @@ module.exports = function (env, action) {
 			fs: 'empty',
 			net: 'empty',
 			tls: 'empty',
-			child_process: 'empty',
-		},
+			child_process: 'empty'
+		}
 	};
-}
-
+};
 
 // console.log(compilerOptions.paths)

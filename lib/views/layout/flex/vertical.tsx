@@ -3,30 +3,15 @@
  *			LASTMODIFY --- 2019-10-08T11:39:29.559Z
  *			REPOSITORY --- https://github.com/sewerganger/silent-concept
  *=================================================================================================*/
-import React, { HTMLAttributes, FC } from 'react';
-import { SilentCommonAttr, ClassValue } from '../../../interfaces';
-import {
-	accordType,
-	splitJsxProps,
-	handleSize
-} from '../../../helper';
-import classNames from 'classnames';
-import './style/vertical.scss';
+import React, { HTMLAttributes, FC } from "react";
+import { SilentCommonAttr, ClassValue } from "../../../interfaces";
+import { accordType, splitJsxProps, handleSize } from "../../../helper";
+import classNames from "classnames";
+import "./style/vertical.scss";
 
-const prefix = 's-flex-vertical';
+const prefix = "s-flex-vertical";
 
-const VerticalAttrs = [
-	'size',
-	'className',
-	'style',
-	'wrap',
-	'inline',
-	'center',
-	'start',
-	'end',
-	'reserve',
-	'children'
-];
+const VerticalAttrs = ["size", "className", "style", "wrap", "inline", "center", "start", "end", "reserve", "children"];
 
 interface VerticalTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	className?: any;
@@ -42,7 +27,7 @@ export interface VerticalProps extends VerticalTempProps {
 	className?: ClassValue;
 }
 
-const presetProps = function (props: VerticalProps) {
+const presetProps = function(props: VerticalProps) {
 	const sProps = splitJsxProps<VerticalProps>(props, VerticalAttrs);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
@@ -55,11 +40,11 @@ const presetProps = function (props: VerticalProps) {
  *				--- size [SizeType]
  *   =================================================================================================*/
 
-const Vertical: FC<VerticalProps> = function (props) {
+const Vertical: FC<VerticalProps> = function(props) {
 	const { nativeProps, customProps } = presetProps(props);
 	const { size, style, children, className, wrap, inline, center, start, end, reserve } = customProps;
 	const containerStyle = {
-		...accordType(size, 'Object', {}),
+		...accordType(size, "Object", {}),
 		...style
 	};
 
@@ -67,19 +52,17 @@ const Vertical: FC<VerticalProps> = function (props) {
 		<div
 			{...nativeProps}
 			style={containerStyle}
-			className={
-				classNames(prefix, className, {
-					[`${prefix}-no-wrap`]: !wrap,
-					[`${prefix}-no-inline`]: !inline,
-					[`${prefix}-center`]: center,
-					[`${prefix}-start`]: start,
-					[`${prefix}-end`]: end,
-					[`${prefix}-reserve`]: reserve
-				})
-			}
+			className={classNames(prefix, className, {
+				[`${prefix}-no-wrap`]: !wrap,
+				[`${prefix}-no-inline`]: !inline,
+				[`${prefix}-center`]: center,
+				[`${prefix}-start`]: start,
+				[`${prefix}-end`]: end,
+				[`${prefix}-reserve`]: reserve
+			})}
 		>
 			{children}
-		</div >
+		</div>
 	);
 };
 
