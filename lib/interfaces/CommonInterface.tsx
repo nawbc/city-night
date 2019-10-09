@@ -26,10 +26,7 @@ export interface SilentAttributes {
  *			DESCRIPTION --- 通常使用的属性包含silent 全局属性
  *=================================================================================================*/
 
-export interface SilentCommonAttr extends
-	SilentAttributes,
-	React.Props<any> { }
-
+export interface SilentCommonAttr extends SilentAttributes, React.Props<any> {}
 
 /**=================================================================================================
  *			LASTMODIFY --- 2019-08-24T15:05:48.379Z
@@ -56,5 +53,5 @@ export interface PublicTemplate<T> {
  *			DESCRIPTION --- className 的 接口使用classnames
  *=================================================================================================*/
 
-interface ClassArray extends Array<ClassValue> { }
+interface ClassArray extends Array<ClassValue> {}
 export type ClassValue = string | number | Record<string, any> | ClassArray | undefined | null | boolean;

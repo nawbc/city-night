@@ -69,4 +69,16 @@ export type InputType =
 
 export type PlatFormType = 'phone' | 'pad' | 'desktop' | 'desktopA' | 'desktopB' | 'desktopC';
 
-export type DefaultColor = 'green' | 'blue' | 'red' | 'grey' | 'magenta' | 'cyan' | 'brown' | 'gold' | 'yellow' | 'white' | 'black' | string;
+export type DefaultColor =
+	| 'green'
+	| 'blue'
+	| 'red'
+	| 'grey'
+	| 'magenta'
+	| 'cyan'
+	| 'brown'
+	| 'gold'
+	| 'yellow'
+	| 'white'
+	| 'black'
+	| string;

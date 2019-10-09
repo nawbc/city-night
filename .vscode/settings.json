@@ -7,6 +7,7 @@
 		"at",
 		"auto",
 		"babel",
+		"camelcase",
 		"check",
 		"compat",
 		"component",

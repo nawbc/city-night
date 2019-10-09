@@ -16,20 +16,16 @@
 		"resolveJsonModule": true,
 		"target": "es5",
 		"sourceMap": true,
-		"outDir": "release/es",
+		// "outDir": "release/es",
+		"rootDir": ".",
 		"lib": [
 			"dom",
-			"es7",
-			"es6",
-			"es5",
-			"dom.iterable"
+			"dom.iterable",
+			"esnext"
 		]
 	},
 	"exclude": [
 		"node_modules",
 		"lib/assets"
-	],
-	"include": [
-		"."
 	]
 }
