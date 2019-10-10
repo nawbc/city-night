@@ -16,8 +16,6 @@
 		"resolveJsonModule": true,
 		"target": "es5",
 		"sourceMap": true,
-		// "outDir": "release/es",
-		"rootDir": ".",
 		"lib": [
 			"dom",
 			"dom.iterable",

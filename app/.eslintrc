@@ -1,16 +1,12 @@
 {
-	"parser": "@typescript-eslint/parser",
 	"extends": [
 		"plugin:react/recommended",
-		"plugin:@typescript-eslint/recommended",
-		"prettier/@typescript-eslint",
 		"prettier/react",
 		"prettier"
 	],
 	"plugins": [
 		"react",
-		"react-hooks",
-		"@typescript-eslint"
+		"react-hooks"
 	],
 	"env": {
 		"browser": true,
@@ -82,26 +78,8 @@
 			}
 		],
 		"react/prop-types": 0,
-		"@typescript-eslint/no-var-requires": 0,
-		"@typescript-eslint/no-non-null-assertion": 0,
-		"@typescript-eslint/no-explicit-any": 0,
-		"@typescript-eslint/no-empty-interface": 0,
-		"@typescript-eslint/explicit-function-return-type": 0,
-		"@typescript-eslint/no-object-literal-type-assertion": 0,
-		"@typescript-eslint/explicit-member-accessibility": 0,
 		"react/self-closing-comp": 1,
 		"react/display-name": 0,
-		// 修复interface unused 的问题
-		"@typescript-eslint/no-unused-vars": [
-			"error",
-			{
-				"args": "none"
-			}
-		],
-		"@typescript-eslint/indent": [
-			"warn",
-			"tab"
-		],
 		"react-hooks/rules-of-hooks": "warn",
 		"react-hooks/exhaustive-deps": "warn"
 	}

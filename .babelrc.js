@@ -1,56 +1,48 @@
-const isWebpack = (process.env.SILENT_ENV === 'webpack') ? true : false;
+const isWebpack = process.env.SILENT_ENV === 'webpack' ? true : false;
 
 const transformRenameImport = [
-	"transform-rename-import",
+	'transform-rename-import',
 	{
-		"original": "^(.+?)\\.scss$",
-		"replacement": "$1.css"
+		original: '^(.+?)\\.scss$',
+		replacement: '$1.css'
 	}
-]
+];
 
 const presets = [
 	[
-		"@babel/preset-env",
+		'@babel/preset-env',
 		{
-			"targets": {
-				"browsers": [
-					"ie >= 8"
-				]
+			targets: {
+				browsers: ['ie >= 8']
 			},
-			"loose": true,
-			"useBuiltIns": "usage",
-			"corejs": "3",
+			loose: true,
+			useBuiltIns: 'usage',
+			corejs: '3'
 		}
 	],
+	['@babel/preset-react'],
 	[
-		"@babel/preset-react"
-	],
-	[
-		"@babel/preset-typescript",
+		'@babel/preset-typescript',
 		{
-			"isTSX": true,
-			"allExtensions": true,
+			isTSX: true,
+			allExtensions: true
 		}
 	]
 ];
 
 const plugins = [
 	[
-		"@babel/plugin-proposal-class-properties",
+		'@babel/plugin-proposal-class-properties',
 		{
-			"loose": true
+			loose: true
 		}
 	],
+	['@babel/plugin-syntax-dynamic-import'],
+	['@babel/plugin-transform-runtime'],
 	[
-		"@babel/plugin-syntax-dynamic-import"
-	],
-	[
-		"@babel/plugin-transform-runtime"
-	],
-	[
-		"import",
+		'import',
 		{
-			"libraryName": "Silent",
+			libraryName: 'Silent'
 		}
 	],
 	!isWebpack && transformRenameImport
@@ -58,6 +50,6 @@ const plugins = [
 
 const otherOptions = {
 	comments: false
-}
+};
 
 module.exports = { presets, plugins, ...otherOptions };

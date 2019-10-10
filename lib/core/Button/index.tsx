@@ -5,8 +5,21 @@
  *			REPOSITORY --- https://github.com/sewerganger/silent-concept
  *=================================================================================================*/
 
-import React, { ButtonHTMLAttributes, AnchorHTMLAttributes, FC, CSSProperties, ReactElement, useRef } from 'react';
-import { SilentCommonAttr, SizeType, ClassValue, EffectType, DefaultColor } from '../../interfaces';
+import React, {
+	ButtonHTMLAttributes,
+	AnchorHTMLAttributes,
+	FC,
+	CSSProperties,
+	ReactElement,
+	useRef
+} from 'react';
+import {
+	SilentCommonAttr,
+	SizeType,
+	ClassValue,
+	EffectType,
+	DefaultColor
+} from '../../interfaces';
 import Icon from '../Icon/';
 import classNames from 'classnames';
 import { accordType, splitJsxProps, handleSize, is } from '../../helper';
@@ -49,7 +62,10 @@ const buttonIconDefaultStyle = function(shape) {
 		marginTop: 0
 	};
 };
-interface ButtonTempProps<T> extends SilentCommonAttr, ButtonHTMLAttributes<T>, AnchorHTMLAttributes<T> {
+interface ButtonTempProps<T>
+	extends SilentCommonAttr,
+		ButtonHTMLAttributes<T>,
+		AnchorHTMLAttributes<T> {
 	pigment?: DefaultColor;
 	mode?: ButtonModeType;
 	target?: TargetType;
@@ -101,7 +117,13 @@ const handleReloadMode = function(event, onClick, mode) {
  *			带有链接的Button
  *=================================================================================================*/
 
-const ButtonWithLink = function({ nativeProps, mode, children, target, readOnly }) {
+const ButtonWithLink = function({
+	nativeProps,
+	mode,
+	children,
+	target,
+	readOnly
+}) {
 	return mode === 'link' && !readOnly ? (
 		<a {...nativeProps} target={target}>
 			{children}
@@ -182,7 +204,12 @@ const Button: FC<ButtonProps> = function(props) {
 	// }, []);
 
 	return (
-		<ButtonWithLink nativeProps={nativeProps} mode={mode} target={target} readOnly={readOnly}>
+		<ButtonWithLink
+			nativeProps={nativeProps}
+			mode={mode}
+			target={target}
+			readOnly={readOnly}
+		>
 			<button
 				ref={ref}
 				id={prefix}
