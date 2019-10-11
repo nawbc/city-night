@@ -7,29 +7,16 @@
 import React, { ReactElement, useState, useLayoutEffect, useRef, HTMLAttributes, FC } from 'react';
 import { SilentCommonAttr, SizeType, ClassValue } from '../../interfaces';
 import classNames from 'classnames';
-import {
-	accordType,
-	splitJsxProps,
-	handleSize
-} from '../../helper';
+import { accordType, splitJsxProps, handleSize } from '../../helper';
 import './style/font.scss';
 
 const prefix = 's-loading-font';
 
-const FontAttrs = [
-	'size',
-	'style',
-	'pigment',
-	'className',
-	'children',
-	'endWith',
-	'duration',
-	'max'
-];
+const FontAttrs = ['size', 'style', 'pigment', 'className', 'children', 'endWith', 'duration', 'max'];
 
 interface LoadingFontTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	pigment?: string;
-	endWith?: React.ReactElement<any> | string;
+	endWith?: ReactElement<any> | string;
 	duration?: number;
 	max?: number;
 	className?: any;
@@ -39,7 +26,7 @@ interface LoadingFontProps extends LoadingFontTempProps {
 	className?: ClassValue;
 }
 
-const presetClassName = function (cProps: LoadingFontProps): string {
+const presetClassName = function(cProps: LoadingFontProps): string {
 	const { size, pigment } = cProps;
 	return classNames(prefix, {
 		[`${prefix}-${size}`]: accordType(size, 'String', false),
@@ -47,7 +34,7 @@ const presetClassName = function (cProps: LoadingFontProps): string {
 	});
 };
 
-const presetProps = function (props: LoadingFontProps) {
+const presetProps = function(props: LoadingFontProps) {
 	const sProps = splitJsxProps<LoadingFontProps>(props, FontAttrs);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
@@ -64,10 +51,10 @@ const MultiEndWith = (props: LoadingFontProps) => {
 	const [endWithSym, setEndWithSym] = useState({ key: 0, elements: [] });
 
 	useLayoutEffect(() => {
-		let timeSaver = setInterval(() => {
+		const timeSaver = setInterval(() => {
 			const eleKey = endWithSym.key;
 			clearInterval(timeSaver);
-			let endEle = isEndWithEle ? React.cloneElement(endWith, { key: eleKey }) : endWith;
+			const endEle = isEndWithEle ? React.cloneElement(endWith as any, { key: eleKey }) : endWith;
 			if (endWithSym.elements.length === max) {
 				setEndWithSym({
 					key: 0,
@@ -81,11 +68,7 @@ const MultiEndWith = (props: LoadingFontProps) => {
 			}
 		}, duration);
 	}, [endWithSym, endWith, duration, isEndWithEle, max]);
-	return (
-		<span
-			ref={ref}
-		>{endWithSym.elements}</span>
-	);
+	return <span ref={ref}>{endWithSym.elements}</span>;
 };
 
 /**=================================================================================================
@@ -99,7 +82,7 @@ const MultiEndWith = (props: LoadingFontProps) => {
  *				--- children [ReactNode]  讲children 设置为[true]不显示
  *   =================================================================================================*/
 
-const Font: FC<LoadingFontProps> = function (props) {
+const Font: FC<LoadingFontProps> = function(props) {
 	const { nativeProps, customProps } = presetProps(props);
 	const className = presetClassName(customProps);
 	const { size, style, children } = customProps;
@@ -109,11 +92,7 @@ const Font: FC<LoadingFontProps> = function (props) {
 	};
 
 	return (
-		<span
-			{...nativeProps}
-			style={containerStyle}
-			className={className}
-		>
+		<span {...nativeProps} style={containerStyle} className={className}>
 			{children}
 			<MultiEndWith {...customProps} />
 		</span>

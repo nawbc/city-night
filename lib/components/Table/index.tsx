@@ -7,11 +7,21 @@ import React, { HTMLAttributes, FC } from 'react';
 import { SilentCommonAttr, ClassValue } from '../../interfaces';
 import { accordType, splitJsxProps, handleSize } from '../../helper';
 import classNames from 'classnames';
-import './style/vertical.scss';
 
 const prefix = 's-flex-vertical';
 
-const TableAttrs = ['size', 'className', 'style', 'wrap', 'inline', 'center', 'start', 'end', 'reserve', 'children'];
+const TableAttrs = [
+	'size',
+	'className',
+	'style',
+	'wrap',
+	'inline',
+	'center',
+	'start',
+	'end',
+	'reserve',
+	'children'
+];
 
 interface TableTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	className?: any;
@@ -42,7 +52,18 @@ const presetProps = function(props: TableProps) {
 
 const Table: FC<TableProps> = function(props) {
 	const { nativeProps, customProps } = presetProps(props);
-	const { size, style, children, className, wrap, inline, center, start, end, reserve } = customProps;
+	const {
+		size,
+		style,
+		children,
+		className,
+		wrap,
+		inline,
+		center,
+		start,
+		end,
+		reserve
+	} = customProps;
 	const containerStyle = {
 		...accordType(size, 'Object', {}),
 		...style

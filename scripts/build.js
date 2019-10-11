@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const setConfig = require('../webpack.config');
 const buildTarget = require('./buildTarget.json');
+const formatMessages = require('webpack-format-messages');
 const chalk = require('chalk');
 const isDevelopment = process.env.NODE_ENV === 'development';
 const path = require('path');
@@ -17,16 +18,32 @@ const startBuild = async function() {
 		const handledCssName = isDevelopment ? handleDevName(cssName) : cssName;
 		config['cssName'] = handledCssName;
 		const webpackConfig = setConfig(handledJsName, config);
-		const complier = webpack(webpackConfig);
-		complier.run((err, stats) => {
+		const compiler = webpack(webpackConfig);
+		compiler.run(err => {
 			if (err) throw err;
-			console.log(
-				stats.toString({
-					chunks: false, // 使构建过程更静默无输出
-					colors: true // 在控制台展示颜色
-				})
-			);
-			console.log(chalk.green('👌pack done ! ! have func'));
+		});
+
+		compiler.hooks.invalid.tap('invalid', function() {
+			console.log(chalk.blue('Compiling...'));
+		});
+
+		compiler.hooks.done.tap('done', stats => {
+			const messages = formatMessages(stats);
+
+			if (!messages.errors.length && !messages.warnings.length) {
+				console.log(chalk.green('Compiled successfully!'));
+			}
+
+			if (messages.errors.length) {
+				console.log(chalk.red('Failed to compile.'));
+				messages.errors.forEach(e => console.log(e));
+				return;
+			}
+
+			if (messages.warnings.length) {
+				console.log(chalk.yellow('Compiled with warnings.'));
+				messages.warnings.forEach(w => console.log(w));
+			}
 		});
 	}
 };

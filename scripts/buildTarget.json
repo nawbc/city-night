@@ -14,14 +14,14 @@
 		"libraryTarget": "umd"
 	},
 	"table.common.js": {
-		"entry": "./lib/component/Table/index.tsx",
+		"entry": "./lib/components/Table/index.tsx",
 		"output": "./release/components/table",
 		"cssName": "table.css",
 		"library": "Table",
 		"libraryTarget": "commonjs2"
 	},
 	"table.umd.js": {
-		"entry": "./lib/component/Table/index.tsx",
+		"entry": "./lib/components/Table/index.tsx",
 		"output": "./release/components/table",
 		"cssName": "table.css",
 		"library": "Table",

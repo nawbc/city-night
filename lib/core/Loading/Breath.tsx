@@ -28,7 +28,7 @@ interface ClassNameEx {
 	innerCN: string;
 }
 const presetClassName = function(cProps: LoadingBreathProps): ClassNameEx {
-	let { size, pigment } = cProps;
+	const { size, pigment } = cProps;
 	return {
 		containerCN: classNames(prefix, {
 			[`${prefix}-${size}`]: accordType(size, 'String', false),

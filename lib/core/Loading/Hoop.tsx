@@ -31,15 +31,15 @@ interface ClassNameEx {
 	innerCN: string;
 }
 const presetClassName = function(cProps: LoadingHoopProps): ClassNameEx {
-	let { size, pigment } = cProps;
+	const { size, pigment } = cProps;
 	return {
 		containerCN: classNames(prefix, {
 			[`${prefix}-${size}`]: accordType(size, 'String', false)
 		}),
 		innerCN: classNames({
-			[`${prefix}-inner`]: true,
-			[`${prefix}-inner-${size}`]: accordType(size, 'String', false),
-			[`${prefix}-${pigment}`]: accordType(pigment, 'String', false)
+			inner: true,
+			[`inner-${size}`]: accordType(size, 'String', false),
+			[`${pigment}`]: accordType(pigment, 'String', false)
 		})
 	};
 };
@@ -55,8 +55,10 @@ const presetProps = function(props: LoadingHoopProps) {
  *			DESCRIPTION --- hoop 环形加载效果
  *			PROPS
  *				--- size [SizeType]
- *				--- pigment [string|CSSProperties]
+ *				--- pigment [string]
  *				--- speed [string]
+ *				--- style [CSSProperties] 修改容器的的style 修改例如 position margin等属性
+ *				--- innerStyle [CSSProperties] 内部的 style 	innerStyle={{borderLeftColor: 'transparent'}}
  *  =================================================================================================*/
 
 const Hoop: FC<LoadingHoopProps> = function(props) {

@@ -1,4 +1,4 @@
-const isWebpack = process.env.SILENT_ENV === 'webpack' ? true : false;
+const isScssRename = process.env.SILENT_ENV === 'SCSS_RENAME';
 
 const transformRenameImport = [
 	'transform-rename-import',
@@ -45,7 +45,7 @@ const plugins = [
 			libraryName: 'Silent'
 		}
 	],
-	!isWebpack && transformRenameImport
+	isScssRename && transformRenameImport
 ].filter(Boolean);
 
 const otherOptions = {

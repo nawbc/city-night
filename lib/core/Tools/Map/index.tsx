@@ -10,11 +10,11 @@ interface MapProps {
 const Map: FC<MapProps> = function(props) {
 	const { children, repeatCount, data } = props;
 	let mapElement = null as any;
-	let mapEleArray = [];
+	const mapEleArray = [];
 
 	if (is.number(repeatCount) && data === void 0) {
 		for (let i = 0; i < repeatCount; i++) {
-			mapEleArray.push(React.cloneElement(children, { key: i }) as never);
+			mapEleArray.push(React.cloneElement(children as any, { key: i }) as never);
 			mapElement = mapEleArray;
 		}
 	} else if (repeatCount === void 0 && is.function(children)) {

@@ -40,7 +40,7 @@ $size in (tiny, $loading-breath-tn),
       }
 
       @else {
-        @include squareBox($size - 8);
+        @include squareBox($size - 6);
       }
     }
   }

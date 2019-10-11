@@ -45,7 +45,7 @@ export interface FoldProps extends FoldTempProps {
 	className?: ClassValue;
 }
 
-const presetProps = function(props: FoldProps) {
+const presetProps = function (props: FoldProps) {
 	const sProps = splitJsxProps<FoldProps>(props, FoldAttrs);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
@@ -64,7 +64,7 @@ const presetProps = function(props: FoldProps) {
  *				--- addStyle [Record<string,object>]  批量添加 style 一旦设置改页面所有子元素全 style都改变
  *  =================================================================================================*/
 
-const Fold: FC<FoldProps> = function(props) {
+const Fold: FC<FoldProps> = function (props) {
 	const { nativeProps, customProps } = presetProps(props);
 	const { addStyle } = customProps;
 	const foldContext = useContext(FoldContext);
@@ -73,12 +73,13 @@ const Fold: FC<FoldProps> = function(props) {
 		...customProps.style
 	};
 
-	for (const prop in customProps) foldContext[prop] = customProps[prop];
+	for (const prop in customProps)
+		foldContext[prop] = customProps[prop];
 
 	useEffect(() => {
 		/**=================================================================================================
-		 * 改变组件内部 style
-		 *=================================================================================================*/
+ * 改变组件内部 style
+ *=================================================================================================*/
 		!!addStyle && completeStyle(prefix, addStyle);
 	}, [addStyle]);
 

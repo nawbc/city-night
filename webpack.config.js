@@ -1,6 +1,5 @@
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const ProgressPlugin = require('webpack-progress-bar');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Terser = require('terser-webpack-plugin');
 const bannerText = require('./scripts/utils/banner');
@@ -13,7 +12,7 @@ const os = require('os');
 /**=================================================================================================
  * 设置为 webpack 在babelrc里改为 scss 改名为css
  *=================================================================================================*/
-process.env.SILENT_ENV = 'webpack';
+process.env.SILENT_ENV = 'SCSS_UN_RENAME';
 
 const env = process.env.NODE_ENV;
 const isProduction = env === 'production';
@@ -32,7 +31,7 @@ const setConfig = function(entryName, packageConfig) {
 	const absOutputPath = getAbsolutePath(output);
 
 	config
-		.entry('silent-concept')
+		.entry('silent')
 		.add(absEntryPath)
 		.end();
 
@@ -42,9 +41,9 @@ const setConfig = function(entryName, packageConfig) {
 		.library(library)
 		.libraryTarget(libraryTarget);
 
-	config
-		.mode(env)
-		.devtool(isProduction ? 'source-map' : 'cheap-module-source-map');
+	config.mode(env);
+
+	config.devtool(isProduction ? 'source-map' : 'cheap-module-source-map');
 
 	config.optimization.minimize(isProduction);
 
@@ -172,23 +171,6 @@ const setConfig = function(entryName, packageConfig) {
 	]);
 
 	isDevelopment || config.plugin('banner').use(BannerPlugin, [bannerText]);
-
-	isDevelopment ||
-		config.plugin('progress').use(ProgressPlugin, [
-			{
-				incomplete: {
-					bg: 'white',
-					content: ' '
-				},
-				complete: {
-					bg: 'black',
-					content: ' '
-				},
-				width: 25,
-				clear: true,
-				total: 100
-			}
-		]);
 
 	config.resolve.extensions
 		.add('.js')

@@ -1,6 +1,7 @@
 lib/assets/svg
 app/assets
 app/public
+app/src/silent
 .vscode
 .travis.yml
 lib/**/__tests__/*.(test|spec).js

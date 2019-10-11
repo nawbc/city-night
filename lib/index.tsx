@@ -18,5 +18,5 @@ export { default as Loading } from './core/Loading';
 export { default as Button } from './core/Button';
 export { Fold, Panel } from './core/Fold';
 export { default as ArticleOccupy } from './core/ArticleOccupy';
-export { Flex, Center, Col, Row, Grid } from './core/Layout';
+export * from './core/Layout';
 export { Map } from './core/Tools';

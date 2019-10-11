@@ -14,5 +14,24 @@ $prefix: s-icon;
   }
 }
 
+.#{$prefix}-tiny {
+  @include squareBox($icon-tn);
+}
+
+.#{$prefix}-small {
+  @include squareBox($icon-sm);
+}
+
+.#{$prefix}-normal {
+  @include squareBox($icon-nor);
+}
+
+.#{$prefix}-large {
+  @include squareBox($icon-lg);
+}
+
+.#{$prefix}-largest {
+  @include squareBox($icon-lgest);
+}
+
 @include defaultAnimation($prefix);
-@include setSize($prefix, $icon_tn, $icon_sm, $icon_nor, $icon_large, $icon_largest);
