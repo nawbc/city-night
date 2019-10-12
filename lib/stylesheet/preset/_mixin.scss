@@ -93,19 +93,6 @@
   }
 }
 
-@mixin setSize($prefix, $tn, $sm, $nor, $lg, $lgest) {
-
-  @each $type,
-  $size in (tiny, $tn),
-  (small, $sm),
-  (normal, $nor),
-  (large, $lg),
-  (largest, $lgest) {
-    .#{$prefix}-#{$type} {
-      @include squareBox($size);
-    }
-  }
-}
 
 /**=================================================================================================
  *			兼容性极差 可以看到元素背后内容

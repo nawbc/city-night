@@ -1,0 +1,102 @@
+@import "./option";
+@import "../../../stylesheet/preset/mixin";
+@import "compass/css3";
+@import "compass/css3/animation";
+
+$prefix: s-loading-breath;
+$name-c: loading-container;
+$name-i: loading-inner;
+$lc-animation: $name-c 2s linear infinite;
+$li-animation: $name-i 2s linear infinite;
+$loading-c-white: #ffffff96;
+$loading-c-black: #10161ab7;
+
+.#{$prefix} {
+  position: relative;
+  will-change: transform;
+  @include border-radius(100%);
+  @include animation($lc-animation);
+  @include flex-average(inline-flex);
+}
+
+.#{$prefix}-inner {
+  @include border-radius(100%);
+  @include animation($li-animation);
+  will-change: transform;
+}
+
+@each $type,
+$size in (tiny, $loading-breath-tn),
+(small, $loading-breath-sm),
+(normal, $loading-breath-nor),
+(large, $loading-breath-lg),
+(largest, $loading-breath-lgest) {
+  .#{$prefix}-#{$type} {
+    @include squareBox($size);
+
+    .#{$prefix}-inner {
+      @if $type==largest or $type==large {
+        @include squareBox($size - 10);
+      }
+
+      @else {
+        @include squareBox($size - 6);
+      }
+    }
+  }
+}
+
+/**=================================================================================================
+ *	breath loading colors
+ *=================================================================================================*/
+
+@each $color,
+$a,
+$b in (green, $loading-c-green, $loading-i-green),
+(grey, $loading-c-grey, $loading-i-grey),
+(blue, $loading-c-blue, $loading-i-blue),
+(magenta, $loading-c-magenta, $loading-i-magenta),
+(gold, $loading-c-gold, $loading-i-gold),
+(purple, $loading-c-purple, $loading-i-purple),
+(cyan, $loading-c-cyan, $loading-i-cyan),
+(brown, $loading-c-brown, $loading-i-brown),
+(yellow, $loading-c-yellow, $loading-i-yellow),
+(red, $loading-c-red, $loading-i-red),
+(white, $loading-c-white, $loading-i-white),
+(black, $loading-c-black, $loading-i-black) {
+  .#{$prefix}-#{$color} {
+    background-color: $a;
+
+    .#{$prefix}-inner-#{$color} {
+      background-color: $b;
+    }
+  }
+}
+
+@include keyframes($name-c) {
+  0% {
+    @include transform(scale(1));
+  }
+
+  50% {
+    @include transform(scale(1.1));
+  }
+
+  100% {
+    @include transform(scale(1));
+  }
+}
+
+@include keyframes($name-i) {
+  0% {
+    @include transform(scale(1));
+  }
+
+  50% {
+    @include transform(scale(0.8));
+  }
+
+  100% {
+    @include transform(scale(1));
+  }
+}

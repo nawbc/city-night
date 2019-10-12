@@ -1,0 +1,37 @@
+@import "./option";
+@import "../../../stylesheet/preset/index";
+@import "compass/css3";
+
+$prefix: s-icon;
+
+.#{$prefix} {
+  display: block;
+  position: relative;
+
+  svg {
+    @include squareBox(100%);
+    @include fillPseudoFull;
+  }
+}
+
+.#{$prefix}-tiny {
+  @include squareBox($icon-tn);
+}
+
+.#{$prefix}-small {
+  @include squareBox($icon-sm);
+}
+
+.#{$prefix}-normal {
+  @include squareBox($icon-nor);
+}
+
+.#{$prefix}-large {
+  @include squareBox($icon-lg);
+}
+
+.#{$prefix}-largest {
+  @include squareBox($icon-lgest);
+}
+
+@include defaultAnimation($prefix);

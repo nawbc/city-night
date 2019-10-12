@@ -1,0 +1,109 @@
+@import "./option";
+@import "../../../stylesheet/preset/mixin";
+@import "compass/css3";
+@import "compass/css3/animation";
+
+$prefix: s-loading-hoop;
+$name-c: loading-hoop-container;
+$hc-animation: $name-c 500ms linear infinite;
+
+@mixin borderHoop($color, $innerColor) {
+  border-style: solid;
+  border-top-color: $color;
+  border-right-color: $color;
+  border-bottom-color: $color;
+  border-left-color: $innerColor;
+}
+
+.#{$prefix} {
+  display: inline-block;
+
+  .inner {
+    border-radius: 100%;
+    box-sizing: border-box;
+    @include animation($hc-animation);
+    @include squareBox(100%);
+  }
+
+  .inner-tiny {
+    border-width: $loading-hoop-border-tn;
+    @include squareBox($loading-hoop-tn);
+  }
+
+  .inner-small {
+    border-width: $loading-hoop-border-sm;
+    @include squareBox($loading-hoop-sm);
+  }
+
+  .inner-normal {
+    border-width: $loading-hoop-border-nor;
+    @include squareBox($loading-hoop-nor);
+  }
+
+  .inner-large {
+    border-width: $loading-hoop-border-lg;
+    @include squareBox($loading-hoop-lg);
+  }
+
+  .inner-largest {
+    border-width: $loading-hoop-border-lgest;
+    @include squareBox($loading-hoop-lgest);
+  }
+
+  .green {
+    @include borderHoop($loading-c-green, $loading-i-green);
+  }
+
+  .grey {
+    @include borderHoop($loading-c-grey, $loading-i-grey);
+  }
+
+  .blue {
+    @include borderHoop($loading-c-blue, $loading-i-blue);
+  }
+
+  .magenta {
+    @include borderHoop($loading-c-magenta, $loading-i-magenta);
+  }
+
+  .gold {
+    @include borderHoop($loading-c-gold, $loading-i-gold);
+  }
+
+  .purple {
+    @include borderHoop($loading-c-purple, $loading-i-purple);
+  }
+
+  .cyan {
+    @include borderHoop($loading-c-cyan, $loading-i-cyan);
+  }
+
+  .brown {
+    @include borderHoop($loading-c-brown, $loading-i-brown);
+  }
+
+  .yellow {
+    @include borderHoop($loading-c-yellow, $loading-i-yellow);
+  }
+
+  .red {
+    @include borderHoop($loading-c-red, $loading-i-red);
+  }
+
+  .white {
+    @include borderHoop($loading-c-white, $loading-i-white);
+  }
+
+}
+
+
+
+@include keyframes($name-c) {
+  from {
+    @include transform(rotate(0deg));
+  }
+
+  to {
+    @include transform(rotate(360deg));
+  }
+}

@@ -9,7 +9,6 @@
 import { SplitJsxPropsInterface, SizeType } from '../interfaces';
 import { accordType, is } from './helper';
 
-
 /**=================================================================================================
  *			LASTMODIFY --- 2019-08-23T07:35:50.430Z
  *			DESCRIPTION --- 处理size 属性大小 把数组转化成 CSSProperties 默认单位为px
@@ -21,12 +20,8 @@ export const handleSize = (size: SizeType): SizeType =>
 	Array.isArray(size)
 		? 1 === size.length
 			? { width: accordType(size[0], 'String', size![0] + 'px') }
-			: {
-				width: accordType(size[0], 'String', size[0] + 'px'),
-				height: accordType(size[1], 'String', size[1] + 'px')
-			}
+			: { width: accordType(size[0], 'String', size[0] + 'px'), height: accordType(size[1], 'String', size[1] + 'px') }
 		: size;
-
 
 /**=================================================================================================
  *			LASTMODIFY --- 2019-08-23T07:45:13.469Z
@@ -37,14 +32,14 @@ interface JsxPropsParam {
 	<Type>(receiveProps: React.Props<any>, useProps: string[]): SplitJsxPropsInterface<Type>;
 }
 
-export const splitJsxProps: JsxPropsParam = function <Type>(receiveProps, useProps: string[]) {
-	let nativeTempProps: React.HTMLProps<any> = {};
-	let customTempProps: Type = {} as Type;
+export const splitJsxProps: JsxPropsParam = function<Type>(receiveProps, useProps: string[]) {
+	const nativeTempProps: React.HTMLProps<any> = {};
+	const customTempProps: Type = {} as Type;
 
-	for (let prop in receiveProps) {
-		useProps.indexOf(prop) >= 0 ?
-			customTempProps[prop] = receiveProps[prop] :
-			nativeTempProps[prop] = receiveProps[prop];
+	for (const prop in receiveProps) {
+		useProps.indexOf(prop) >= 0
+			? (customTempProps[prop] = receiveProps[prop])
+			: (nativeTempProps[prop] = receiveProps[prop]);
 	}
 
 	return {
@@ -57,13 +52,13 @@ export const splitJsxProps: JsxPropsParam = function <Type>(receiveProps, usePro
  *			补充组件内部要改写的 style 通过生成token 来 确定唯一的class
  *=================================================================================================*/
 
-const generateStyleContent = function (prefix: string, styles: object, ssList: CSSStyleSheet) {
+const generateStyleContent = function(prefix: string, styles: object, ssList: CSSStyleSheet) {
 	for (const prop in styles) {
 		let content = '';
 		const propVal = styles[prop];
 		const currentProp = prop.trim();
 		for (const key in propVal) {
-			const styleVal = propVal[key]
+			const styleVal = propVal[key];
 			if (is.string(styleVal)) {
 				content += key + ':' + styleVal + ';';
 			}
@@ -73,8 +68,8 @@ const generateStyleContent = function (prefix: string, styles: object, ssList: C
 	}
 };
 
-export const completeStyle = function (prefix: string, complete: Record<string, object>) {
-	var list = document.styleSheets[document.styleSheets.length - 1] as CSSStyleSheet;
+export const completeStyle = function(prefix: string, complete: Record<string, object>) {
+	const list = document.styleSheets[document.styleSheets.length - 1] as CSSStyleSheet;
 	if (!!list) {
 		generateStyleContent(prefix, complete, list);
 	} else {
@@ -85,4 +80,4 @@ export const completeStyle = function (prefix: string, complete: Record<string, 
 		const ssList = document.styleSheets[document.styleSheets.length - 1] as CSSStyleSheet;
 		generateStyleContent(prefix, complete, ssList);
 	}
-}
+};

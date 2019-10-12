@@ -12,11 +12,11 @@ export { default as Silent } from './Silent';
  *			DESCRIPTION --- VIEWS
  *=================================================================================================*/
 
-export { default as Picture } from './views/Picture';
-export { default as Icon } from './views/Icon';
-export { default as Loading } from './views/Loading';
-export { default as Button } from './views/Button';
-export { Fold, Panel } from './views/Fold';
-export { default as ArticleOccupy } from './views/ArticleOccupy';
-export { Flex, Center, Col, Row, Grid } from './views/Layout';
-export { Map } from './views/Tools';
+export { default as Picture } from './core/Picture';
+export { default as Icon } from './core/Icon';
+export { default as Loading } from './core/Loading';
+export { default as Button } from './core/Button';
+export { Fold, Panel } from './core/Fold';
+export { default as ArticleOccupy } from './core/ArticleOccupy';
+export * from './core/Layout';
+export { Map } from './core/Tools';

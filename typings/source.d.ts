@@ -1,3 +1,4 @@
+/* eslint @typescript-eslint/triple-slash-reference: 0 */
 /// <reference types="react" />
 /// <reference types="react-dom" />
 
@@ -54,5 +55,3 @@ declare module '*.scss' {
 	const classes: { [index: string]: string };
 	export default classes;
 }
-
-

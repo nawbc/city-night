@@ -1,0 +1,30 @@
+{
+	"silent.common.js": {
+		"entry": "./lib/index.tsx",
+		"output": "./release/dist",
+		"cssName": "silent.css",
+		"library": "Silent",
+		"libraryTarget": "commonjs2"
+	},
+	"silent.umd.js": {
+		"entry": "./lib/index.tsx",
+		"output": "./release/dist",
+		"cssName": "silent.css",
+		"library": "Silent",
+		"libraryTarget": "umd"
+	},
+	"table.common.js": {
+		"entry": "./lib/components/Table/index.tsx",
+		"output": "./release/components/table",
+		"cssName": "table.css",
+		"library": "Table",
+		"libraryTarget": "commonjs2"
+	},
+	"table.umd.js": {
+		"entry": "./lib/components/Table/index.tsx",
+		"output": "./release/components/table",
+		"cssName": "table.css",
+		"library": "Table",
+		"libraryTarget": "umd"
+	}
+}
