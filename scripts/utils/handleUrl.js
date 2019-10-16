@@ -20,4 +20,3 @@ const handleHost = () => {
 const LAUNCH_HOST = config.host || handleHost();
 const LAUNCH_PORT = parseInt(process.env.PORT) || config.port;
 module.exports = { LAUNCH_HOST, LAUNCH_PORT };
-

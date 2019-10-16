@@ -20,7 +20,10 @@ export const handleSize = (size: SizeType): SizeType =>
 	Array.isArray(size)
 		? 1 === size.length
 			? { width: accordType(size[0], 'String', size![0] + 'px') }
-			: { width: accordType(size[0], 'String', size[0] + 'px'), height: accordType(size[1], 'String', size[1] + 'px') }
+			: {
+					width: accordType(size[0], 'String', size[0] + 'px'),
+					height: accordType(size[1], 'String', size[1] + 'px')
+			  }
 		: size;
 
 /**=================================================================================================
@@ -73,7 +76,9 @@ export const completeStyle = function(prefix: string, complete: Record<string, o
 	if (!!list) {
 		generateStyleContent(prefix, complete, list);
 	} else {
-		console.warn('Warning: document does not contain StyleSheetList, so auto add the style element');
+		console.warn(
+			'Warning: document does not contain StyleSheetList, so auto add the style element'
+		);
 		const style = document.createElement('style');
 		document.getElementsByTagName('head')[0].appendChild(style);
 		style.appendChild(document.createTextNode(''));

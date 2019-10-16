@@ -10,30 +10,30 @@ import classNames from 'classnames';
 
 const prefix = 's-articleOccupy-sliver';
 
-const SliverAttrs = ['style', 'className', 'size'];
+const MusicAttrs = ['style', 'className', 'size'];
 
-interface SliverTempProps extends SilentCommonAttr, HTMLAttributes<HTMLDivElement> {
+interface MusicTempProps extends SilentCommonAttr, HTMLAttributes<HTMLDivElement> {
 	className?: any;
 }
 
-interface SliverProps extends SliverTempProps {
+interface MusicProps extends MusicTempProps {
 	className?: ClassValue;
 }
 
-const presetProps = function (props: SliverProps) {
-	const sProps = splitJsxProps<SliverProps>(props, SliverAttrs);
+const presetProps = function(props: MusicProps) {
+	const sProps = splitJsxProps<MusicProps>(props, MusicAttrs);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };
 
 /**=================================================================================================
  *			LASTMODIFY --- 2019-10-09T13:59:33.841Z
- *			DESCRIPTION --- Sliver
+ *			DESCRIPTION --- Music
  *			PROPS
  *				--- size [SizeType]
  *   =================================================================================================*/
 
-const Sliver: FC<SliverProps> = function (props) {
+const Music: FC<MusicProps> = function(props) {
 	const { nativeProps, customProps } = presetProps(props);
 
 	const { size, style, className } = customProps;
@@ -45,6 +45,6 @@ const Sliver: FC<SliverProps> = function (props) {
 	return <div {...nativeProps} className={classNames(prefix, className)} style={containerStyle} />;
 };
 
-Sliver.defaultProps = {};
+Music.defaultProps = {};
 
-export default React.memo(Sliver);
+export default React.memo(Music);

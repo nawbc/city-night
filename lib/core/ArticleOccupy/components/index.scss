@@ -1,0 +1,33 @@
+@import "../../../stylesheet/index";
+@import "compass/css3/animation";
+
+$prefix: s-occupy-component;
+
+$backgroundColor: $grey-a;
+
+$backgroundLinear: 90deg,
+$grey-a 25%,
+$grey-b 37%,
+$grey-a 63%;
+
+.#{$prefix} {
+  position: relative;
+  background: $backgroundColor;
+}
+
+.#{$prefix}-effect {
+  background-position: 0% 100%;
+  background-size: 400% 100%;
+  @include animation(positionMove 2s linear infinite);
+  @include background-image(linear-gradient($backgroundLinear));
+}
+
+@include keyframes (positionMove) {
+  from {
+    background-position: 100% 50%;
+  }
+
+  to {
+    background-position: 0 50%;
+  }
+}

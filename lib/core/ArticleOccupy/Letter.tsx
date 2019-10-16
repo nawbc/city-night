@@ -8,9 +8,8 @@ import { SilentCommonAttr, ClassValue } from '../../interfaces';
 import { accordType, splitJsxProps, handleSize } from '../../helper';
 
 import classNames from 'classnames';
-import './style/letter.scss';
 
-const prefix = 's-articleOccupy-letter';
+const prefix = 'letter';
 
 const LetterAttrs = ['style', 'className', 'size', 'flash'];
 

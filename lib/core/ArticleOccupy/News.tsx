@@ -6,6 +6,7 @@
 import React, { HTMLAttributes, FC } from 'react';
 import { SilentCommonAttr, ClassValue } from '../../interfaces';
 import { accordType, splitJsxProps, handleSize } from '../../helper';
+import { Col, Row } from '../Layout';
 import classNames from 'classnames';
 
 const prefix = 's-articleOccupy-news';
@@ -42,7 +43,18 @@ const News: FC<NewsProps> = function(props) {
 		...style
 	};
 
-	return <div {...nativeProps} className={classNames(prefix, className)} style={containerStyle} />;
+	return (
+		<div {...nativeProps} className={classNames(prefix, className)} style={containerStyle}>
+			<Row>
+				<Col></Col>
+			</Row>
+			<Row>
+				<Col></Col>
+				<Col></Col>
+				<Col></Col>
+			</Row>
+		</div>
+	);
 };
 
 News.defaultProps = {};

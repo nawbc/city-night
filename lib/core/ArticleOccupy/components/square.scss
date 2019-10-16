@@ -1,0 +1,8 @@
+@import "../../../stylesheet/index.scss";
+
+$prefix: square;
+
+
+.#{$prefix} {
+  @include squareBox(100px);
+}

@@ -38,10 +38,11 @@ EffectView
 11 .把自己的模块注册进来
 data dataset
 
-12 滚动同步模块
-
+12 滚动同步模块z
 
 备用字体 Greve
 
-
 视差滚动 parallax
+
+nav  百叶窗功能 类似简书
+

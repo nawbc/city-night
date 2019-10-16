@@ -5,13 +5,20 @@ const WebpackDevServer = require('webpack-dev-server');
 const { LAUNCH_HOST, LAUNCH_PORT } = require('../scripts/utils/handleUrl');
 const { appPublicPath } = require('../scripts/utils/helper');
 const appConfig = require('../scripts/webpack/webpack.app');
+const openChrome = require('open');
 const chalk = require('chalk');
+const url = require('url');
 
 const protocol = process.env.PROTOCOL === 'https' ? 'https' : 'http';
+const openAddr = url.format({
+	protocol: protocol,
+	hostname: LAUNCH_HOST,
+	port: LAUNCH_PORT
+});
 
 const devAppBuildTarget = {
 	entry: './app/index.tsx',
-	output: './release/app/',
+	output: './app/public',
 	cssName: 'app.css',
 	libraryTarget: 'umd'
 };
@@ -24,6 +31,7 @@ const serverConfig = {
 	contentBase: appPublicPath,
 	watchContentBase: true,
 	hot: true,
+	quiet: true,
 	publicPath: '/',
 	https: protocol === 'https',
 	host: LAUNCH_HOST,
@@ -38,7 +46,6 @@ const compile = () =>
 		try {
 			const config = appConfig(devAppTargetName, devAppBuildTarget);
 			const compiler = webpack(config);
-			console.log(appConfig);
 			resolve(compiler);
 		} catch (err) {
 			reject(err);
@@ -48,19 +55,22 @@ const compile = () =>
 const runServer = compiled =>
 	new Promise(() => {
 		const devServer = new WebpackDevServer(compiled, serverConfig);
-
 		devServer.listen(LAUNCH_PORT, LAUNCH_HOST, err => {
 			err && console.log(chalk.red(err));
-			// process.stdout.isTTY &&
-			console.log(chalk.green(`Silent development server running on ${LAUNCH_HOST}:${LAUNCH_PORT} ...\n`));
-			process.stdout.write(process.platform === 'win32' ? '\x1B[2J\x1B[0f' : '\x1B[2J\x1B[3J\x1B[H');
-			// openBrowser(urls.localUrlForBrowser);
+			process.stdout.write(
+				process.platform === 'win32' ? '\x1B[2J\x1B[0f' : '\x1B[2J\x1B[3J\x1B[H'
+			);
+			console.log(chalk.green('Silent development server running on ...\n'));
+			console.log(chalk.yellow(`[❤ ❤ ❤ ❤ ❤]address: ${openAddr}`));
+			console.log();
+			console.log(chalk.blue('\t Good luck to myself 😜'));
+			openChrome(openAddr, { app: ['chrome'] });
 		});
 	});
 
 (async function() {
 	const result = await compile()
 		.then(val => val)
-		.catch(err => console.error(chalk.red('webpack compile error')));
+		.catch(err => console.trace(chalk.red('webpack compile error', err)));
 	await runServer(result);
 })();

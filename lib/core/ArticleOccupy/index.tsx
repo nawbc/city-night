@@ -1,16 +1,22 @@
 import React, { HTMLAttributes } from 'react';
-import classNames from 'classnames';
 import Letter from './Letter';
-// import moduleName from './circle';
+import News from './News';
+import { Circle, Sliver, Square, Rectangle } from './components';
+import './style/articleOccupy.scss';
 
-const prefix = 's-articleOccupy';
+export const prefix = 's-occupy-article';
+
+export const commonPrefix = 's-occupy-component';
 
 export default class ArticleOccupy extends React.PureComponent<HTMLAttributes<HTMLDivElement>> {
 	static Letter: typeof Letter = Letter;
-	// static Sliver: typeof Sliver = Sliver;
-	// static Sliver: typeof Sliver = Sliver;
+	static News: typeof News = News;
+	static Circle: typeof Circle = Circle;
+	static Sliver: typeof Sliver = Sliver;
+	static Square: typeof Square = Square;
+	static Rectangle: typeof Rectangle = Rectangle;
 
 	render() {
-		return <div className={classNames(prefix, this.props.className)}>{this.props.children}</div>;
+		return <News {...this.props} />;
 	}
 }

@@ -178,7 +178,13 @@ const Panel: FC<PanelProps> = function(props) {
 	 *=================================================================================================*/
 	const useFold = is.undefined(isFold) ? selfFold : isFold;
 
-	const { headlineCN, containerCN, innerCN, iconCN } = presetClassName(customProps, useFold, mode, fillet, !!readOnly);
+	const { headlineCN, containerCN, innerCN, iconCN } = presetClassName(
+		customProps,
+		useFold,
+		mode,
+		fillet,
+		!!readOnly
+	);
 
 	const panelRef = useRef(null);
 	const headlineRef = useRef(null);
@@ -190,21 +196,22 @@ const Panel: FC<PanelProps> = function(props) {
 	};
 
 	useLayoutEffect(() => {
-		const ref = (panelRef.current as unknown) as HTMLElement;
+		const panel = (panelRef.current as unknown) as HTMLElement;
 		const headline = (headlineRef.current as unknown) as HTMLElement;
 		const inner = (innerRef.current as unknown) as HTMLElement;
 		// const cancel = (cancelRef.current as unknown) as HTMLElement;
-		const nextEle = ref.nextSibling as HTMLElement;
-		const preEle = ref.previousSibling as HTMLElement;
+		const nextEle = panel.nextSibling as HTMLElement;
+		const preEle = panel.previousSibling as HTMLElement;
 		// console.log(useless)
 		/**=================================================================================================
 		 *	 处理圆角	只相对于normal 模式下有效
 		 *=================================================================================================*/
 		const setLastPanelCN = function() {
-			const lastPanelCN = classNames(ref.className, {
+			const lastPanelCN = classNames(panel.className, {
 				[`${prefix}-last`]: true,
 				[`${prefix}-last-fillet`]: fillet
 			});
+
 			const lastHeadlineCN = classNames(headline.className, {
 				'headline-normal-fillet': fillet
 			});
@@ -213,28 +220,32 @@ const Panel: FC<PanelProps> = function(props) {
 				'inner-fillet': fillet
 			});
 
-			ref.setAttribute('class', lastPanelCN);
+			panel.setAttribute('class', lastPanelCN);
 			headline.setAttribute('class', lastHeadlineCN);
 			inner.setAttribute('class', innerCN);
 		};
 
 		const setFirstPanelCN = function() {
 			const firstPanelCN = classNames(headline.className, {
-				'first-fillet': true
+				'first-fillet': fillet
 			});
 			headline.setAttribute('class', firstPanelCN);
 		};
 
-		if (!!fillet && mode === 'normal') {
-			if (!!preEle) {
-				const className = preEle.getAttribute('class');
-				className !== prefix && setFirstPanelCN();
-			} else if (preEle === null) {
-				setFirstPanelCN();
+		const setPanelCN = function(ele: HTMLElement, callback: Function) {
+			if (mode === 'normal') {
+				if (!!ele) {
+					const className = ele.getAttribute('class');
+					className !== prefix && callback();
+				} else if (ele === null) {
+					callback();
+				}
 			}
-		}
+		};
 
-		if (mode === 'normal') nextEle === null && setLastPanelCN();
+		setPanelCN(preEle, setFirstPanelCN);
+		setPanelCN(nextEle, setLastPanelCN);
+
 		/**=================================================================================================
 		 *	处理readOnly下的颜色
 		 *=================================================================================================*/

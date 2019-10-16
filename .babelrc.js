@@ -1,7 +1,5 @@
 const isScssRename = process.env.SILENT_ACTION === 'SCSS_RENAME';
 
-console.log(isScssRename);
-
 const transformRenameImport = [
 	'transform-rename-import',
 	{

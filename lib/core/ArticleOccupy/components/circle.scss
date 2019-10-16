@@ -1,0 +1,27 @@
+@import "../../../stylesheet/index.scss";
+
+$sm: 40px;
+$nor: 60px;
+$lg: 80px;
+$lgest: 100px;
+$prefix: circle;
+
+.#{$prefix}-small {
+  @include squareBox($sm);
+  @include border-radius($sm);
+}
+
+.#{$prefix}-normal {
+  @include squareBox($nor);
+  @include border-radius($nor);
+}
+
+.#{$prefix}-large {
+  @include squareBox($lg);
+  @include border-radius($lg);
+}
+
+.#{$prefix}-largest {
+  @include squareBox($lgest);
+  @include border-radius($lgest);
+}

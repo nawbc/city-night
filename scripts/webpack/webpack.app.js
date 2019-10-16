@@ -22,12 +22,16 @@ module.exports = function(devTargetName, devBuildTarget) {
 			isProduction && { cssChunkName: 'static/css/[name].[contenthash:8].chunk.css' }
 		)
 	);
+
 	const appConfig = libConfig;
 
 	appConfig.optimization.splitChunks = {
 		chunks: 'all',
 		name: false
 	};
+
+	isDevelopment &&
+		appConfig.entry.unshift(require.resolve('webpack-hot-dev-clients/webpackHotDevClient'));
 
 	appConfig.optimization.runtimeChunk = true;
 
@@ -57,7 +61,8 @@ module.exports = function(devTargetName, devBuildTarget) {
 		new ManifestPlugin({
 			fileName: 'manifest.json',
 			publicPath: appPublicPath
-		})
+		}),
+		new webpack.NamedModulesPlugin()
 	);
 
 	isDevelopment && appConfig.plugins.push(new webpack.HotModuleReplacementPlugin());

@@ -74,6 +74,7 @@
 				"allow": [
 					"warn",
 					"log",
+					"trace",
 					"time",
 					"timeEnd",
 					"info",

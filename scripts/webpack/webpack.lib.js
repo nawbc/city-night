@@ -182,7 +182,7 @@ const setLibConfig = function(entryName, packageConfig, ruleInject = {}) {
 				checkSyntacticErrors: true,
 				tsconfig: tsConfigPath,
 				reportFiles: ['**', '!**/*.json', '!**/__tests__/**', '!**/?(*.)(spec|test).*'],
-				watch: [libPath, pluginsPath],
+				watch: [libPath, pluginsPath, !!ruleInject.useAppPath && appPath],
 				silent: true,
 				eslint: true
 			}),
