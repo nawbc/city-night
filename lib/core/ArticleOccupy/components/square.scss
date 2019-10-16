@@ -3,6 +3,18 @@
 $prefix: square;
 
 
-.#{$prefix} {
+.#{$prefix}-small {
+  @include squareBox(70px);
+}
+
+.#{$prefix}-normal {
   @include squareBox(100px);
+}
+
+.#{$prefix}-large {
+  @include squareBox(120px);
+}
+
+.#{$prefix}-largest {
+  @include squareBox(140px);
 }

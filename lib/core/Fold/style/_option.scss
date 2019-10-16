@@ -1,8 +1,8 @@
-@import "../../../stylesheet/colors/defaultColors";
+@import "../../../stylesheet/index";
 
 $panel-headline-bgColor: $grey-a;
 
-$panel-fillet-radius: 10px;
+$panel-fillet-radius: $global-border-radius;
 
 $panel-icon-transform-origin: 40%,
 50%;

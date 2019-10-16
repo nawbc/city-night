@@ -4,7 +4,7 @@ import React from 'react';
 import './index.scss';
 
 function App() {
-	const { Sliver, Circle } = ArticleOccupy;
+	const { Sliver, Circle, Rectangle, Square } = ArticleOccupy;
 
 	return (
 		<div>
@@ -13,8 +13,10 @@ function App() {
 			<Panel headline="hange">Fuck</Panel>
 			<Panel headline="hange">Fuck</Panel>
 			<Panel headline="hange">Fuck</Panel>
-			<Sliver />
+			<Sliver fillet />
 			<Circle effect />
+			<Rectangle fillet />
+			<Square />
 		</div>
 	);
 }

@@ -65,15 +65,15 @@ $prefix: s-panel;
   }
 
   .first-fillet {
-    border-radius: $panel-fillet-radius $panel-fillet-radius 0 0;
+    @include border-radius($panel-fillet-radius $panel-fillet-radius 0 0);
   }
 
   .headline-normal-fillet {
-    border-radius: 0px 0px $panel-fillet-radius $panel-fillet-radius;
+    @include border-radius(0px 0px $panel-fillet-radius $panel-fillet-radius);
   }
 
   .headline-simple-fillet {
-    border-radius: $panel-fillet-radius;
+    @include border-radius($panel-fillet-radius);
     margin-bottom: $panel-headline-simple-marginBottom;
   }
 
@@ -95,11 +95,11 @@ $prefix: s-panel;
   }
 
   .inner-simple-fillet {
-    border-radius: $panel-fillet-radius;
+    @include border-radius($panel-fillet-radius);
   }
 
   .inner-fillet {
-    border-radius: $panel-fillet-radius;
+    @include border-radius($panel-fillet-radius);
   }
 }
 
@@ -108,5 +108,5 @@ $prefix: s-panel;
 }
 
 .#{$prefix}-last-fillet {
-  border-radius: $panel-fillet-radius;
+  @include border-radius($panel-fillet-radius);
 }

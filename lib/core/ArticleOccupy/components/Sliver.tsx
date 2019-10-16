@@ -14,10 +14,11 @@ import './sliver.scss';
 
 const subPrefix = 'sliver';
 
-const SliverAttrs = ['size', 'style', 'className', 'effect'];
+const SliverAttrs = ['size', 'style', 'className', 'effect', 'fillet'];
 
 interface OSliverTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	className?: any;
+	fillet?: boolean;
 }
 
 interface OSliverProps extends OSliverTempProps {
@@ -41,7 +42,7 @@ const presetProps = function(props: OSliverProps) {
 
 const OSliver: FC<OSliverProps> = function(props) {
 	const { nativeProps, customProps } = presetProps(props);
-	const { className, size, style, effect } = customProps;
+	const { className, size, style, effect, fillet } = customProps;
 	const containerStyle = {
 		...accordType(size, 'Object', {}),
 		...style
@@ -52,14 +53,16 @@ const OSliver: FC<OSliverProps> = function(props) {
 			{...nativeProps}
 			style={containerStyle}
 			className={classNames(commonPrefix, subPrefix, className, {
-				[`${commonPrefix}-effect`]: effect
+				[`${commonPrefix}-effect`]: effect,
+				[`${subPrefix}-fillet`]: fillet
 			})}
 		/>
 	);
 };
 
 OSliver.defaultProps = {
-	effect: false
+	effect: false,
+	fillet: false
 };
 
 export default OSliver;

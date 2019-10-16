@@ -8,22 +8,24 @@
 import React, { HTMLAttributes, FC } from 'react';
 import { accordType, splitJsxProps, handleSize } from '../../../helper';
 import { SilentCommonAttr, ClassValue } from '../../../interfaces';
-import './rectangle.scss';
 import classNames from 'classnames';
+import { commonPrefix } from '../';
+import './rectangle.scss';
 
-const prefix = 's-articleOccupy-ORectangle';
+const subPrefix = 'rectangle';
 
-const ORectangleAttrs = ['size', 'style', 'className', 'children'];
+const RectangleAttrs = ['size', 'style', 'className', 'children', 'fillet'];
 
-interface ORectangleTempProps extends SilentCommonAttr, HTMLAttributes<any> {
+interface RectangleTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	className?: any;
+	fillet?: boolean;
 }
-interface ORectangleProps extends ORectangleTempProps {
+interface RectangleProps extends RectangleTempProps {
 	className?: ClassValue;
 }
 
-const presetProps = function(props: ORectangleProps) {
-	const sProps = splitJsxProps<ORectangleProps>(props, ORectangleAttrs);
+const presetProps = function(props: RectangleProps) {
+	const sProps = splitJsxProps<RectangleProps>(props, RectangleAttrs);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };
@@ -37,19 +39,30 @@ const presetProps = function(props: ORectangleProps) {
  *				--- className [ClassValue]
  * =================================================================================================*/
 
-const ORectangle: FC<ORectangleProps> = function(props) {
+const Rectangle: FC<RectangleProps> = function(props) {
 	const { nativeProps, customProps } = presetProps(props);
-	const { className, size, style, children } = customProps;
+	const { className, size, style, children, fillet } = customProps;
 	const containerStyle = {
 		...accordType(size, 'Object', {}),
 		...style
 	};
 
 	return (
-		<div {...nativeProps} style={containerStyle} className={classNames(prefix, className)}>
+		<div
+			{...nativeProps}
+			style={containerStyle}
+			className={classNames(commonPrefix, className, {
+				[`${subPrefix}-${size}`]: accordType(size, 'String', false),
+				[`${subPrefix}-fillet`]: fillet
+			})}
+		>
 			{children}
 		</div>
 	);
 };
 
-export default ORectangle;
+Rectangle.defaultProps = {
+	size: 'normal'
+};
+
+export default Rectangle;

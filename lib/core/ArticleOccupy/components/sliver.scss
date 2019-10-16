@@ -1,6 +1,13 @@
+@import "../../../stylesheet/index";
+@import "compass/css3";
+
 $height: 20px;
 $prefix: sliver;
 
 .#{$prefix} {
   height: $height;
+}
+
+.#{$prefix}-fillet {
+  @include border-radius($global-border-radius);
 }

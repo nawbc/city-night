@@ -14,10 +14,11 @@ import './square.scss';
 
 const subPrefix = 'square';
 
-const SquareAttrs = ['size', 'style', 'className', 'children'];
+const SquareAttrs = ['size', 'style', 'className', 'children', 'fillet'];
 
 interface SquareTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	className?: any;
+	fillet?: boolean;
 }
 interface SquareProps extends SquareTempProps {
 	className?: ClassValue;
@@ -40,7 +41,7 @@ const presetProps = function(props: SquareProps) {
 
 const Square: FC<SquareProps> = function(props) {
 	const { nativeProps, customProps } = presetProps(props);
-	const { className, size, style, children } = customProps;
+	const { className, size, style, children, fillet } = customProps;
 	const containerStyle = {
 		...accordType(size, 'Object', {}),
 		...style
@@ -50,11 +51,18 @@ const Square: FC<SquareProps> = function(props) {
 		<div
 			{...nativeProps}
 			style={containerStyle}
-			className={classNames(commonPrefix, subPrefix, className)}
+			className={classNames(commonPrefix, className, {
+				[`${subPrefix}-${size}`]: accordType(size, 'String', false),
+				[`${subPrefix}-fillet`]: fillet
+			})}
 		>
 			{children}
 		</div>
 	);
+};
+
+Square.defaultProps = {
+	size: 'normal'
 };
 
 export default Square;

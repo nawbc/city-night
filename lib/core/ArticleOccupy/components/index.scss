@@ -12,6 +12,7 @@ $grey-a 63%;
 
 .#{$prefix} {
   position: relative;
+  display: inline-block;
   background: $backgroundColor;
 }
 
