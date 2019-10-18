@@ -17,15 +17,11 @@ const pkg = require('../package.json');
  *			SEE --- https://webgradients.com/
  * =================================================================================================*/
 
-const writeGradientArr = (data) =>
-	writeFile(gradientArrPath, data);
+const writeGradientArr = data => writeFile(gradientArrPath, data);
 
-const writeGradientTypes = (data) =>
-	writeFile(gradientTypesPath, data);
+const writeGradientTypes = data => writeFile(gradientTypesPath, data);
 
-const writeGradientToScss = (gradients) =>
-	writeFile(scssPath, gradients);
-
+const writeGradientToScss = gradients => writeFile(scssPath, gradients);
 
 /* 从gradients抓取颜色 */
 const getGradientColors = url =>
@@ -36,16 +32,16 @@ const getGradientColors = url =>
 			let gradientScss = '';
 			let gradientArrContent = '';
 			let gradientTypesContent = '';
-			let styleNames = [];
+			const styleNames = [];
 			const collections = $('.gradient__background');
 			collections.each((index, ele) => {
-				let name = $('.gradient__title ')
+				const name = $('.gradient__title ')
 					.eq(index)
 					.text()
 					.replace(/\s|\d+|\'/gi, '');
-				let color = ele.attribs['data-css-code'];
+				const color = ele.attribs['data-css-code'];
 				styleNames.push(name);
-				let template = `
+				const template = `
 			      //${name}
 			      .m-gradient-${name}{
 			          ${color.replace(/linear|radial|to\s/gi, val => ('to ' === val ? '' : '-webkit-' + val))}
@@ -55,8 +51,11 @@ const getGradientColors = url =>
 			          ${color}
 			      }\n`;
 				gradientScss += template;
-				gradientArrContent += "'" + name + (collections.length - 1 === index ? "'" : "',");
-				gradientTypesContent += index === 0 ? '\n' : '\t| ' + "'" + (name + "'" + (index === collections.length - 1 ? ';' : '')) + '\n';
+				gradientArrContent += '\'' + name + (collections.length - 1 === index ? '\'' : '\',');
+				gradientTypesContent +=
+					index === 0
+						? '\n'
+						: '\t| ' + '\'' + (name + '\'' + (index === collections.length - 1 ? ';' : '')) + '\n';
 			});
 			const typesArr = 'export const gradientsArray = [' + gradientArrContent + '];';
 			const gradientTypes = 'export type GradientTypes =' + gradientTypesContent;
@@ -73,7 +72,8 @@ const getGradientColors = url =>
 // 									<div style="width: 100%;height: 10%;text-align: center;">${ele}</div>
 // 							</div>`;
 // 	});
-{/* <div style={{
+{
+	/* <div style={{
 	display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', overflowX: 'hidden'
 }}>
 	<div
@@ -86,7 +86,8 @@ const getGradientColors = url =>
 		<div className='m-gradients-SpringWarmth' style={{ width: '100%', height: '80%' }}></div>
 		<div style={{ width: '100%', height: '20%', textAlign: 'center', backgroundColor: '#999', lineHeight: '44px' }}>SpringWarmth</div>
 	</div>
-</div> */}
+</div> */
+}
 
 // 	writeFile(htmlPath, html, { encoding: 'utf8' }, error => {
 // 		if (error) reject(error);

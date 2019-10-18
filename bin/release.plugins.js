@@ -29,7 +29,7 @@ const generateDts = () =>
 
 const compileScss = () =>
 	new Promise(resolve => {
-		console.log('start compile scss' + which + ' .....');
+		console.log('start compile scss .....');
 		exec('npm run scss:plugins', (err, stdout, stderr) => {
 			resolve(err ? stderr : 'Scss has been compiled successfully');
 		});

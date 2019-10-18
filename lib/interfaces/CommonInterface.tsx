@@ -6,7 +6,7 @@
  *			REPOSITORY --- https://github.com/sewerganger/silent-concept
  *=================================================================================================*/
 import * as React from 'react';
-import { SizeType, ShapeType } from './customTypes';
+import { SizeType, ShapeType } from './CustomTypes';
 
 /**=================================================================================================
  *			AUTHOR --- Han Wang
@@ -54,4 +54,11 @@ export interface PublicTemplate<T> {
  *=================================================================================================*/
 
 interface ClassArray extends Array<ClassValue> {}
-export type ClassValue = string | number | Record<string, any> | ClassArray | undefined | null | boolean;
+export type ClassValue =
+	| string
+	| number
+	| Record<string, any>
+	| ClassArray
+	| undefined
+	| null
+	| boolean;

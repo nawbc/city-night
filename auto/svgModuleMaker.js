@@ -50,30 +50,33 @@ const svgo = new Svgo({
 	]
 });
 
-const optimizeSvg = (content) => svgo.optimize(content);
+const optimizeSvg = content => svgo.optimize(content);
 
-const convertComponent = (val) => new Promise((resolve) => {
-	const template =
-		`import * as React from 'react';
+const convertComponent = val =>
+	new Promise(resolve => {
+		const template = `import * as React from 'react';
 			export default ${svgToReact.convert(val).toString()}`;
-	resolve(template);
-});
+		resolve(template);
+	});
 
-const writeTarget = (tsx, targetPath) => new Promise((resolve, reject) => {
-	fs.writeFile(targetPath, tsx, { encoding: 'utf8' }, (err) => err ? reject(err) : resolve());
-});
+const writeTarget = (tsx, targetPath) =>
+	new Promise((resolve, reject) => {
+		fs.writeFile(targetPath, tsx, { encoding: 'utf8' }, err => (err ? reject(err) : resolve()));
+	});
 
-const appendToIndexTsx = (name) => {
+const appendToIndexTsx = name => {
 	const upperCaseName = name.replace(/^(.)/, c => c.toUpperCase());
 	const template = `export { default as ${upperCaseName}} from './${name}';\n`;
-	fs.appendFile(indexTsxPath, template, err => { err && console.log(err); });
+	fs.appendFile(indexTsxPath, template, err => {
+		err && console.log(err);
+	});
 };
 
 (() => {
 	fs.readdir(srcDir, (err, files) => {
 		if (err) console.log(err);
 		fs.emptyDirSync(targetDir);
-		files.forEach((file) => {
+		files.forEach(file => {
 			const filePath = path.resolve(srcDir, file);
 			const name = path.parse(file).name;
 			const targetFilePath = path.resolve(targetDir, name + '.tsx');

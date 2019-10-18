@@ -1,0 +1,11 @@
+@import "compass/css3";
+
+$prefix: s-flex;
+
+.#{$prefix} {
+  @include display-flex(flex);
+}
+
+.#{$prefix}-inline {
+  @include display-flex(inline-flex);
+}

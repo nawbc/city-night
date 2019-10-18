@@ -11,7 +11,20 @@ import './style/vertical.scss';
 
 const prefix = 's-flex-vertical';
 
-const VerticalAttrs = ['size', 'className', 'style', 'wrap', 'inline', 'center', 'start', 'end', 'reserve', 'children'];
+const VerticalAttrs = [
+	'size',
+	'className',
+	'style',
+	'wrap',
+	'inline',
+	'center',
+	'start',
+	'end',
+	'reserve',
+	'children',
+	'between',
+	'around'
+];
 
 interface VerticalTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	className?: any;
@@ -21,6 +34,8 @@ interface VerticalTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	start?: boolean;
 	end?: boolean;
 	reserve?: boolean;
+	between?: boolean;
+	around?: boolean;
 }
 
 export interface VerticalProps extends VerticalTempProps {
@@ -36,13 +51,27 @@ const presetProps = function(props: VerticalProps) {
 /**=================================================================================================
  *			LASTMODIFY --- 2019-10-08T11:39:33.311Z
  *			DESCRIPTION --- Vertical
+ * 			USING IN --- ArticleOccupy.News
  *			PROPS
  *				--- size [SizeType]
  *   =================================================================================================*/
 
 const Vertical: FC<VerticalProps> = function(props) {
 	const { nativeProps, customProps } = presetProps(props);
-	const { size, style, children, className, wrap, inline, center, start, end, reserve } = customProps;
+	const {
+		size,
+		style,
+		children,
+		className,
+		wrap,
+		inline,
+		center,
+		start,
+		end,
+		reserve,
+		around,
+		between
+	} = customProps;
 	const containerStyle = {
 		...accordType(size, 'Object', {}),
 		...style
@@ -58,7 +87,9 @@ const Vertical: FC<VerticalProps> = function(props) {
 				[`${prefix}-center`]: center,
 				[`${prefix}-start`]: start,
 				[`${prefix}-end`]: end,
-				[`${prefix}-reserve`]: reserve
+				[`${prefix}-reserve`]: reserve,
+				[`${prefix}-around`]: around,
+				[`${prefix}-between`]: between
 			})}
 		>
 			{children}
@@ -69,7 +100,9 @@ const Vertical: FC<VerticalProps> = function(props) {
 Vertical.defaultProps = {
 	wrap: false,
 	inline: true,
-	center: true
+	center: true,
+	between: false,
+	around: false
 };
 
 export default React.memo(Vertical);

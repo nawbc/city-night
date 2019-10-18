@@ -3,39 +3,40 @@
  *			LASTMODIFY --- 2019-10-09T13:59:54.538Z
  *			REPOSITORY --- https://github.com/sewerganger/silent-concept
  *=================================================================================================*/
+
 import React, { HTMLAttributes, FC } from 'react';
 import { SilentCommonAttr, ClassValue } from '../../interfaces';
 import { accordType, splitJsxProps, handleSize } from '../../helper';
 
 import classNames from 'classnames';
 
-const prefix = 'letter';
+const prefix = 's-occupy-card';
 
-const LetterAttrs = ['style', 'className', 'size', 'flash'];
+const CardAttrs = ['style', 'className', 'size', 'effect'];
 
-interface LetterTempProps extends SilentCommonAttr, HTMLAttributes<HTMLDivElement> {
+interface CardTempProps extends SilentCommonAttr, HTMLAttributes<HTMLDivElement> {
 	className?: any;
 }
 
-interface LetterProps extends LetterTempProps {
+interface CardProps extends CardTempProps {
 	className?: ClassValue;
 	flash?: boolean;
 }
 
-const presetProps = function(props: LetterProps) {
-	const sProps = splitJsxProps<LetterProps>(props, LetterAttrs);
+const presetProps = function(props: CardProps) {
+	const sProps = splitJsxProps<CardProps>(props, CardAttrs);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };
 
 /**=================================================================================================
  *			LASTMODIFY --- 2019-10-09T13:59:33.841Z
- *			DESCRIPTION --- Letter
+ *			DESCRIPTION --- Card
  *			PROPS
  *				--- size [SizeType]
  *   =================================================================================================*/
 
-const Letter: FC<LetterProps> = function(props) {
+const Card: FC<CardProps> = function(props) {
 	const { nativeProps, customProps } = presetProps(props);
 
 	const { size, style, className, flash } = customProps;
@@ -55,8 +56,8 @@ const Letter: FC<LetterProps> = function(props) {
 	);
 };
 
-Letter.defaultProps = {
+Card.defaultProps = {
 	flash: false
 };
 
-export default React.memo(Letter);
+export default React.memo(Card);

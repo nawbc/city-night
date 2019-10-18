@@ -2,15 +2,16 @@
 
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
-const { LAUNCH_HOST, LAUNCH_PORT } = require('../scripts/utils/handleUrl');
+const { LAUNCH_HOST, LAUNCH_PORT } = require('../scripts/utils/preHandleDev');
+const openBrowser = require('../scripts/utils/openBrowser');
 const { appPublicPath } = require('../scripts/utils/helper');
 const appConfig = require('../scripts/webpack/webpack.app');
-const openChrome = require('open');
 const chalk = require('chalk');
 const url = require('url');
 
 const protocol = process.env.PROTOCOL === 'https' ? 'https' : 'http';
-const openAddr = url.format({
+
+const targetAddress = url.format({
 	protocol: protocol,
 	hostname: LAUNCH_HOST,
 	port: LAUNCH_PORT
@@ -61,10 +62,10 @@ const runServer = compiled =>
 				process.platform === 'win32' ? '\x1B[2J\x1B[0f' : '\x1B[2J\x1B[3J\x1B[H'
 			);
 			console.log(chalk.green('Silent development server running on ...\n'));
-			console.log(chalk.yellow(`[❤ ❤ ❤ ❤ ❤]address: ${openAddr}`));
+			console.log(chalk.yellow(`[❤ ❤ ❤ ❤ ❤]address: ${targetAddress}`));
 			console.log();
 			console.log(chalk.blue('\t Good luck to myself 😜'));
-			openChrome(openAddr, { app: ['chrome'] });
+			openBrowser(targetAddress);
 		});
 	});
 

@@ -1,12 +1,14 @@
 @import "../../../stylesheet/index.scss";
 
-$sm: 40px;
-$nor: 60px;
-$lg: 80px;
-$lgest: 100px;
+$sm: 60px;
+$nor: 80px;
+$lg: 100px;
+$lgest: 120px;
+
 $prefix: circle;
 
 .#{$prefix}-small {
+  position: relative;
   @include squareBox($sm);
   @include border-radius($sm);
 }

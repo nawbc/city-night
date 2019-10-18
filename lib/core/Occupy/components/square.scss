@@ -1,0 +1,36 @@
+@import "../../../stylesheet/index.scss";
+
+$sm: 60px;
+$nor: 80px;
+$lg: 100px;
+$lgest: 120px;
+
+$prefix: square;
+
+.#{$prefix}-small {
+  position: relative;
+  min-width: $sm;
+  min-height: $sm;
+}
+
+.#{$prefix}-normal {
+  position: relative;
+  min-width: $nor;
+  min-height: $nor;
+}
+
+.#{$prefix}-large {
+  position: relative;
+  min-width: $lg;
+  min-height: $lg;
+}
+
+.#{$prefix}-largest {
+  position: relative;
+  min-width: $lgest;
+  min-height: $lgest;
+}
+
+.#{$prefix}-fillet {
+  @include border-radius($global-border-radius);
+}

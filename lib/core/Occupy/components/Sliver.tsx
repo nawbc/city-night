@@ -16,17 +16,17 @@ const subPrefix = 'sliver';
 
 const SliverAttrs = ['size', 'style', 'className', 'effect', 'fillet'];
 
-interface OSliverTempProps extends SilentCommonAttr, HTMLAttributes<any> {
+interface SliverTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	className?: any;
 	fillet?: boolean;
 }
 
-interface OSliverProps extends OSliverTempProps {
+interface SliverProps extends SliverTempProps {
 	className?: ClassValue;
 }
 
-const presetProps = function(props: OSliverProps) {
-	const sProps = splitJsxProps<OSliverProps>(props, SliverAttrs);
+const presetProps = function(props: SliverProps) {
+	const sProps = splitJsxProps<SliverProps>(props, SliverAttrs);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };
@@ -40,7 +40,7 @@ const presetProps = function(props: OSliverProps) {
  *				--- className [ClassValue]
  * =================================================================================================*/
 
-const OSliver: FC<OSliverProps> = function(props) {
+const Sliver: FC<SliverProps> = function(props) {
 	const { nativeProps, customProps } = presetProps(props);
 	const { className, size, style, effect, fillet } = customProps;
 	const containerStyle = {
@@ -60,9 +60,9 @@ const OSliver: FC<OSliverProps> = function(props) {
 	);
 };
 
-OSliver.defaultProps = {
+Sliver.defaultProps = {
 	effect: false,
 	fillet: false
 };
 
-export default OSliver;
+export default Sliver;

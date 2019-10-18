@@ -17,7 +17,6 @@ export { default as Icon } from './core/Icon';
 export { default as Loading } from './core/Loading';
 export { default as Button } from './core/Button';
 export { Fold, Panel } from './core/Fold';
-export { default as ArticleOccupy } from './core/ArticleOccupy';
+export { default as Occupy } from './core/Occupy';
 export * from './core/Layout';
 export { Map } from './core/Tools';
-

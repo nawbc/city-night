@@ -32,3 +32,11 @@ $prefix: s-flex-vertical;
 .#{$prefix}-reverse {
   @include flex-direction(reverse);
 }
+
+.#{$prefix}-around {
+  @include justify-content(space-around);
+}
+
+.#{$prefix}-between {
+  @include justify-content(space-between);
+}

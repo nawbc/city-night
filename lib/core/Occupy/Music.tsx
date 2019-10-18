@@ -8,7 +8,7 @@ import { SilentCommonAttr, ClassValue } from '../../interfaces';
 import { accordType, splitJsxProps, handleSize } from '../../helper';
 import classNames from 'classnames';
 
-const prefix = 's-articleOccupy-sliver';
+const prefix = 's-occupy-music';
 
 const MusicAttrs = ['style', 'className', 'size'];
 

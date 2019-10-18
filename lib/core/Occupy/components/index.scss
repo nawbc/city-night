@@ -19,6 +19,7 @@ $grey-a 63%;
 .#{$prefix}-effect {
   background-position: 0% 100%;
   background-size: 400% 100%;
+  will-change: background-position;
   @include animation(positionMove 2s linear infinite);
   @include background-image(linear-gradient($backgroundLinear));
 }
