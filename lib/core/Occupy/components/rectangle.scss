@@ -4,23 +4,26 @@ $prefix: rectangle;
 $radius: 10px;
 
 $prefix: rectangle;
+$commonPrefix: s-occupy-component;
 
-.#{$prefix}-fillet {
+
+
+.#{$commonPrefix}.#{$prefix}-fillet {
   @include border-radius($global-border-radius);
 }
 
-.#{$prefix}-small {
+.#{$commonPrefix}.#{$prefix}-small {
   @include box(50px, 30px);
 }
 
-.#{$prefix}-normal {
+.#{$commonPrefix}.#{$prefix}-normal {
   @include box(80px, 50px);
 }
 
-.#{$prefix}-large {
+.#{$commonPrefix}.#{$prefix}-large {
   @include box(170px, 100px);
 }
 
-.#{$prefix}-largest {
-  @include box(250px, 180px);
+.#{$commonPrefix}.#{$prefix}-largest {
+  @include box(220px, 130px);
 }

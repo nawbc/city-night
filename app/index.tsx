@@ -2,14 +2,15 @@ import ReactDOM from 'react-dom';
 import { Occupy } from '../lib';
 import React from 'react';
 import './index.scss';
-const { News, Letter, Admin } = Occupy;
+const { News, Letter, Admin, Card } = Occupy;
 
 function App() {
 	return (
 		<div style={{ height: '100%' }}>
-			<News fillet />
-			<Letter fillet />
-			<Admin fillet />
+			<News capital={<div>AA</div>} />
+			<Letter />
+			<Admin />
+			<Card capital={<div>AA</div>} />
 		</div>
 	);
 }

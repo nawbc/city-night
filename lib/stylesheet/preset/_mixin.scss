@@ -10,6 +10,13 @@
   height: $val;
 }
 
+@mixin exactSquareBox($val) {
+  min-width: $val;
+  min-height: $val;
+  max-width: $val;
+  max-height: $val;
+}
+
 @mixin position-center($w, $h) {
   position: absolute;
   top: 50%;
@@ -95,13 +102,13 @@
 
 
 /**=================================================================================================
- *			兼容性极差 可以看到元素背后内容
+ *			兼容性极差 高斯模糊 透明
  *=================================================================================================*/
 
-@mixin backdrop-filter($effect) {
-  backdrop-filter: $effect;
-  -webkit-backdrop-filter: $effect;
-}
+// @mixin backdrop-filter($effect) {
+//   backdrop-filter: $effect;
+//   -webkit-backdrop-filter: $effect;
+// }
 
 @mixin fillPseudoFull {
   position: absolute;
@@ -111,13 +118,13 @@
   bottom: 0;
 }
 
-@mixin noWhiteBorderBlur($radius) {
-  margin: -$radius;
-  @include filter(blur($radius));
-}
+// @mixin noWhiteBorderBlur($radius) {
+//   margin: -$radius;
+//   @include filter(blur($radius));
+// }
 
-@mixin clearFloat {
-  clear: both;
-  display: block;
-  content: "";
-}
+// @mixin clearFloat {
+//   clear: both;
+//   display: block;
+//   content: "";
+// }

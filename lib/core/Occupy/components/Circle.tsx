@@ -50,7 +50,7 @@ const Circle: FC<CircleProps> = function(props) {
 		<div
 			{...nativeProps}
 			style={containerStyle}
-			className={classNames(commonPrefix, className, {
+			className={classNames(commonPrefix, subPrefix, className, {
 				[`${subPrefix}-${size}`]: accordType(size, 'String', false),
 				[`${commonPrefix}-effect`]: effect
 			})}

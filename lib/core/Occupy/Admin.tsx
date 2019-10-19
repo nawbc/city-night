@@ -11,7 +11,7 @@ import classNames from 'classnames';
 import Flex from '../Layout/Flex';
 import { Circle, Sliver } from './components';
 
-const prefix = 's-articleOccupy-admin';
+const prefix = 's-occupy-admin';
 
 const AdminAttrs = ['style', 'className', 'size', 'effect', 'fillet', 'capital'];
 

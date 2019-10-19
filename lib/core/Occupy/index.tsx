@@ -1,7 +1,8 @@
 import React, { HTMLAttributes } from 'react';
 import Letter from './Letter';
-import News from './News';
 import Admin from './Admin';
+import News from './News';
+import Card from './Card';
 import { Circle, Sliver, Square, Rectangle } from './components';
 
 export const prefix = 's-occupy';
@@ -12,6 +13,7 @@ export default class Occupy extends React.PureComponent<HTMLAttributes<HTMLDivEl
 	static Letter: typeof Letter = Letter;
 	static News: typeof News = News;
 	static Admin: typeof Admin = Admin;
+	static Card: typeof Card = Card;
 	static Circle: typeof Circle = Circle;
 	static Sliver: typeof Sliver = Sliver;
 	static Square: typeof Square = Square;

@@ -14,7 +14,7 @@ import './rectangle.scss';
 
 const subPrefix = 'rectangle';
 
-const RectangleAttrs = ['size', 'style', 'className', 'children', 'fillet'];
+const RectangleAttrs = ['size', 'style', 'className', 'children', 'fillet', 'effect'];
 
 interface RectangleTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	className?: any;
@@ -41,7 +41,7 @@ const presetProps = function(props: RectangleProps) {
 
 const Rectangle: FC<RectangleProps> = function(props) {
 	const { nativeProps, customProps } = presetProps(props);
-	const { className, size, style, children, fillet } = customProps;
+	const { className, size, style, children, fillet, effect } = customProps;
 	const containerStyle = {
 		...accordType(size, 'Object', {}),
 		...style
@@ -53,6 +53,7 @@ const Rectangle: FC<RectangleProps> = function(props) {
 			style={containerStyle}
 			className={classNames(commonPrefix, className, {
 				[`${subPrefix}-${size}`]: accordType(size, 'String', false),
+				[`${commonPrefix}-effect`]: effect,
 				[`${subPrefix}-fillet`]: fillet
 			})}
 		>

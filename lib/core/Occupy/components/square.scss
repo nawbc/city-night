@@ -6,31 +6,28 @@ $lg: 100px;
 $lgest: 120px;
 
 $prefix: square;
+$commonPrefix: s-occupy-component;
 
-.#{$prefix}-small {
+.#{$commonPrefix}#{$prefix}-small {
   position: relative;
-  min-width: $sm;
-  min-height: $sm;
+  @include exactSquareBox($sm);
 }
 
-.#{$prefix}-normal {
+.#{$commonPrefix}.#{$prefix}-normal {
   position: relative;
-  min-width: $nor;
-  min-height: $nor;
+  @include exactSquareBox($nor);
 }
 
-.#{$prefix}-large {
+.#{$commonPrefix}.#{$prefix}-large {
   position: relative;
-  min-width: $lg;
-  min-height: $lg;
+  @include exactSquareBox($lg);
 }
 
-.#{$prefix}-largest {
+.#{$commonPrefix}.#{$prefix}-largest {
   position: relative;
-  min-width: $lgest;
-  min-height: $lgest;
+  @include exactSquareBox($lgest);
 }
 
-.#{$prefix}-fillet {
+.#{$commonPrefix}.#{$prefix}-fillet {
   @include border-radius($global-border-radius);
 }
