@@ -6,6 +6,16 @@
 
 </div>
 
+[![github](https://flat.badgen.net/badge/sewerganger/silent-concept/black?icon=github)](https://github.com/sewerganger/silent-concept)
+![react](https://flat.badgen.net/badge/react.js/16.8.6/blue)
+![stars](https://flat.badgen.net/github/stars/sewerganger/silent-concept?color=green)
+![](https://flat.badgen.net/badge/icon/typescript?icon=typescript&label)
+![](https://flat.badgen.net/travis/sewerganger/silent-concept?icon=travis&label)
+![](https://flat.badgen.net/codecov/c/github/sewerganger/silent-concept)
+![recat](https://flat.badgen.net/github/last-commit/sewerganger/silent-concept)
+![](https://flat.badgen.net/github/license/sewerganger/silent-concept?color=cyan)
+
+
 
 ### if you want to pr see [for contributors](./for_contributors.md)
 
