@@ -1,4 +1,4 @@
-## Silent-Concept --- custom, beauty, fast.  react ui library
+## Silent-Concept --- custom, beauty, fast. react ui library
 
 <div align="center">
 
@@ -14,10 +14,10 @@
 ![](https://flat.badgen.net/codecov/c/github/sewerganger/silent-concept)
 ![recat](https://flat.badgen.net/github/last-commit/sewerganger/silent-concept)
 ![](https://flat.badgen.net/github/license/sewerganger/silent-concept?color=cyan)
-
-
+![](https://img.shields.io/github/package-json/v/sewerganger/silent-concept?style=flat-square)
 
 ### if you want to pr see [for contributors](./for_contributors.md)
 
-### 遇到想笑的bug 尽量忍着
+### 遇到想笑的 bug 尽量忍着
+
 ### 暂时关闭了 husky lint-staged
