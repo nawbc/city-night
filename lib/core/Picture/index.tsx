@@ -8,22 +8,22 @@ import React, { ReactElement, HTMLAttributes, FC } from 'react';
 import classNames from 'classnames';
 import { SilentCommonAttr, SizeType, ClassValue } from '../../interfaces';
 import { accordType, splitJsxProps, handleSize } from '../../helper';
-import Loading from '../../core/Loading';
 import './style/picture.scss';
 import LazyPicture from './LazyPicture';
 
 const prefix = 's-picture';
 
-const PictureAttrs = ['src', 'size', 'lazy', 'style', 'autSize', 'beforeLoad', 'className'];
+const PictureAttrs = ['src', 'size', 'lazy', 'style', 'autSize', 'className', 'onLoaded'];
 
 interface PictureTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	src?: string;
-	beforeLoad?: string | ReactElement;
 	lazy?: boolean;
-	size?: SizeType;
+	size: SizeType;
 	auto?: boolean;
 	className?: any;
+	onLoaded?: (img: HTMLImageElement) => boolean;
 }
+
 export interface PictureProps extends PictureTempProps {
 	className?: ClassValue;
 }
@@ -49,7 +49,7 @@ const presetProps = function(props: PictureProps) {
  *
  *			PROPS
  *				--- size [SizeType]
- *				--- beforeLoad [string|ReactElement]
+ *				---  [string|ReactElement]
  *				--- lazy [boolean]
  *				--- src [boolean]
  *
@@ -78,7 +78,6 @@ const Picture: FC<PictureProps> = function(props) {
 };
 
 Picture.defaultProps = {
-	beforeLoad: <Loading.Breath style={{ margin: '0px' }} />,
 	lazy: false
 };
 

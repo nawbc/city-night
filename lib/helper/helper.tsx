@@ -33,13 +33,15 @@ export const accordType = (a: any, b: string, c: any) => (is.type(a, b) ? a : c)
  *			DESCRIPTION --- 随机数
  *=================================================================================================*/
 
-export const randomNumber = (min: number, max: number): number => min + Math.floor(Math.random() * (max - min)) + 1;
+export const randomNumber = (min: number, max: number): number =>
+	min + Math.floor(Math.random() * (max - min)) + 1;
 
 /**=================================================================================================
  *			LASTMODIFY --- 2019-09-07T07:01:05.769Z
  *			DESCRIPTION --- 随机生成字母
  *=================================================================================================*/
-export const randomAlphabet = (from: number, to: number): string => String.fromCharCode(randomNumber(from, to));
+export const randomAlphabet = (from: number, to: number): string =>
+	String.fromCharCode(randomNumber(from, to));
 
 /**=================================================================================================
  *			LASTMODIFY --- 2019-09-07T07:02:16.386Z
@@ -47,4 +49,5 @@ export const randomAlphabet = (from: number, to: number): string => String.fromC
  *=================================================================================================*/
 export const randomGradients = (arr: string[]): string => arr[randomNumber(0, arr.length - 1)];
 
-export const generateToken = () => (Math.round(Math.random() * 0x1000000000) + new Date().getTime()).toString(36);
+export const generateToken = () =>
+	(Math.round(Math.random() * 0x1000000000) + new Date().getTime()).toString(36);

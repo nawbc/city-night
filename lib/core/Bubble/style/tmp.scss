@@ -1,0 +1,195 @@
+@import "../../../stylesheet/mixin.scss";
+@import "../../../stylesheet/animations.scss";
+@import "./bubble.scss";
+
+$prefix: m-bubble;
+
+$tsw: $bubble-triangle-size-width;
+$tsh: $tsw;
+
+@mixin setWholeColor($color) {
+  border-color: $color;
+  background-color: $color;
+}
+
+@mixin borderTransparent($which) {
+  @if ($which==top) {
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+  }
+
+  @else if($which==left) {
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+  }
+
+  @else if($which==right) {
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+
+  @else if($which==bottom) {
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+}
+
+//bubble style
+.#{$prefix}-type-success {
+  @include setWholeColor($bubble-type-EarthGreen);
+}
+
+.#{$prefix}-type-normal {
+  @include setWholeColor($bubble-type-LightDark);
+}
+
+.#{$prefix}-type-information {
+  @include setWholeColor($bubble-type-SkyBlue);
+}
+
+.#{$prefix}-type-notice {
+  @include setWholeColor($bubble-type-NoticeYellow);
+}
+
+.#{$prefix}-type-danger {
+  @include setWholeColor($bubble-type-DangerRed);
+}
+
+.#{$prefix}-container {
+  display: inline-block;
+  position: relative;
+
+  .#{$prefix}-wrapper {
+    white-space: nowrap;
+    z-index: $bubble-level;
+    position: absolute;
+    visibility: hidden;
+    will-change: transform;
+    @include transition(transform 200ms ease);
+    @include animation(m-bubble-opacity 200ms);
+
+    .#{$prefix}-content {
+      cursor: default;
+      @include flex_average;
+      box-sizing: border-box;
+      font-size: $bubble-size;
+      padding: $bubble-content-size;
+
+      .m-icon-default {
+        margin-right: 10px;
+      }
+    }
+
+    .#{$prefix}-fontColor-white {
+      color: $font-default-color-white;
+    }
+
+    .#{$prefix}-fontColor-black {
+      color: $font-default-color-black;
+    }
+
+    .#{$prefix}-triangle-default {
+      @include box($tsw, $tsh);
+      box-sizing: border-box;
+      position: relative;
+      border-width: $tsw/2;
+      border-style: solid;
+      background-color: transparent;
+    }
+  }
+
+  @each $place_b in top,
+  right,
+  left,
+  bottom {
+    .#{$prefix}-place-#{$place_b} {
+      @if (left==$place_b) {
+        display: inline-flex;
+      }
+
+      @if (right==$place_b) {
+        display: inline-flex;
+      }
+
+      @each $place_t in left,
+      right,
+      middle {
+        @if ($place_b==left) {
+          .#{$prefix}-triangle-#{$place_t} {
+            left: -1px;
+          }
+
+          .#{$prefix}-content-#{$place_b} {
+            border-radius: 5px 0 5px 5px;
+          }
+        }
+
+        @else if($place_b==right) {
+          .#{$prefix}-triangle-#{$place_t} {
+            right: -1px;
+          }
+
+          .#{$prefix}-content-#{$place_b} {
+            border-radius: 0px 5px 5px 5px;
+          }
+        }
+
+        @else if($place_b==top) {
+          .#{$prefix}-triangle-#{$place_t} {
+            top: -1px;
+          }
+
+          .#{$prefix}-content-#{$place_b} {
+            border-radius: 5px;
+          }
+        }
+
+        @else if($place_b==bottom) {
+          .#{$prefix}-content-#{$place_b} {
+            border-radius: 5px;
+          }
+
+          .#{$prefix}-triangle-#{$place_t} {
+            bottom: -1px;
+          }
+        }
+
+        .#{$prefix}-triangle-#{$place_t} {
+          @include borderTransparent($place_b);
+          position: relative;
+
+          @if ($place_t==left) {
+            left: 8px;
+          }
+
+          @else if($place_t==right) {
+            float: right;
+            right: 8px;
+
+            &:after {
+              @include clearfloat;
+            }
+          }
+
+          @else if($place_t==middle) {
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes m-bubble-opacity {
+  from {
+    @include opacity(0.5);
+  }
+
+  to {
+    @include opacity(1);
+  }
+}

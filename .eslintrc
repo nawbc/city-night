@@ -91,6 +91,7 @@
 		"@typescript-eslint/explicit-function-return-type": 0,
 		"@typescript-eslint/no-object-literal-type-assertion": 0,
 		"@typescript-eslint/explicit-member-accessibility": 0,
+		"react/no-children-prop": 0,
 		"react/self-closing-comp": 1,
 		"react/display-name": 0,
 		// 修复interface unused 的问题

@@ -33,9 +33,7 @@ interface ClassNameEx {
 const presetClassName = function(cProps: LoadingHoopProps): ClassNameEx {
 	const { size, pigment } = cProps;
 	return {
-		containerCN: classNames(prefix, {
-			[`${prefix}-${size}`]: accordType(size, 'String', false)
-		}),
+		containerCN: classNames(prefix),
 		innerCN: classNames({
 			inner: true,
 			[`inner-${size}`]: accordType(size, 'String', false),
@@ -83,7 +81,7 @@ const Hoop: FC<LoadingHoopProps> = function(props) {
 };
 
 Hoop.defaultProps = {
-	pigment: 'white',
+	pigment: 'grey',
 	size: 'normal' as SizeType,
 	speed: '1s'
 };

@@ -94,6 +94,9 @@ $hc-animation: $name-c 500ms linear infinite;
     @include borderHoop($loading-c-white, $loading-i-white);
   }
 
+  .black {
+    @include borderHoop($loading-c-black, $loading-i-black);
+  }
 }
 
 

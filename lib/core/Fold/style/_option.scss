@@ -35,8 +35,8 @@ $panel-icon-margin-left: 16px;
 
 @mixin normalStyle {
   border: {
-    left: $panel-border-color;
-    right: $panel-border-color;
-    top: $panel-border-color;
-  }
+   left: $panel-border-color;
+   right: $panel-border-color;
+   top: $panel-border-color;
+ }
 }

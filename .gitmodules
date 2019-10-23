@@ -1,0 +1,3 @@
+[submodule "plugins/react-mini-plugins"]
+	path = plugins/react-mini-plugins
+	url = https://github.com/sewerganger/react-mini-plugins.git

@@ -63,10 +63,15 @@ export interface IconFunction {
 	(props: IconProps): ReactElement;
 }
 
+/**=================================================================================================
+ *			AUTHOR --- Han Wang
+ *			DESCRIPTION --- icon 组件
+ * =================================================================================================*/
+
 const Icon: FC<IconProps> = function(props) {
 	const { nativeProps, customProps } = presetProps(props);
 	const className = presetClassName(customProps);
-	const { src, lazy, beforeLoad, type, pigment, size, style } = customProps;
+	const { src, lazy, type, pigment, size, style } = customProps;
 	const DefaultIcon = DefaultSvg[type!];
 	const refEle = useRef(null);
 	const customStyle = {
@@ -88,7 +93,7 @@ const Icon: FC<IconProps> = function(props) {
 			) : !!props.children ? (
 				props.children
 			) : (
-				<Picture size={['100%', '100%']} src={src} lazy={lazy} beforeLoad={beforeLoad} />
+				<Picture size={['100%', '100%']} src={src} lazy={lazy} />
 			)}
 		</i>
 	);

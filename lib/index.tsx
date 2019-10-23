@@ -5,11 +5,7 @@
 export { default as Silent } from './Silent';
 
 /**=================================================================================================
- *			DESCRIPTION --- TOOLS
- *=================================================================================================*/
-
-/**=================================================================================================
- *			DESCRIPTION --- VIEWS
+ *			DESCRIPTION --- CORE
  *=================================================================================================*/
 
 export { default as Picture } from './core/Picture';
@@ -18,5 +14,6 @@ export { default as Loading } from './core/Loading';
 export { default as Button } from './core/Button';
 export { Fold, Panel } from './core/Fold';
 export { default as Occupy } from './core/Occupy';
-export * from './core/Layout';
 export { Map } from './core/Tools';
+export * from './core/Tools/Scroll';
+export * from './core/Layout';

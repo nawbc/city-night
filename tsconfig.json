@@ -27,7 +27,8 @@
 	},
 	"exclude": [
 		"node_modules",
-		"lib/assets"
+		"lib/assets",
+		"example"
 	],
 	"include": [
 		"."

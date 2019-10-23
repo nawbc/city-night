@@ -1,0 +1,36 @@
+@import "../../../stylesheet/index";
+@import "compass/css3";
+
+@mixin displayBorderSide($place) {
+  @if ($place==top) {
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+  }
+
+  @else if($place==left) {
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+  }
+
+  @else if($place==right) {
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+
+  @else if($place==bottom) {
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+}
+
+$width: 10px;
+
+.s-bubble-triangle {
+  display: inline-block;
+  border: 10px solid #000;
+  @include displayBorderSide(top);
+}

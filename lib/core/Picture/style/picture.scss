@@ -4,10 +4,12 @@
 $prefix: s-picture;
 
 .#{$prefix} {
+  position: relative;
   display: inline-block;
 }
 
 .#{$prefix}-lazy {
-  @include flex-align-items-center(inline-flex);
-  @include justify-content(center);
+  position: relative;
+  // @include flex-align-items-center(inline-flex);
+  // @include justify-content(center);
 }

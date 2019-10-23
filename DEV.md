@@ -1,5 +1,7 @@
+
 LOG:
-<br />	 
+<br />
+withContext 全局
 2019/10/17 移动到linux平台 , @增加 relation 布局 相似安卓的约束性布局 位置相对于绑定的元素
 2019/10/15 增加 类似于 安卓的recyclerView
 

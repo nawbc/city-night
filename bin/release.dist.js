@@ -20,6 +20,7 @@ const startBuild = async function() {
 		const handledCssName = isDevelopment ? handleDevName(cssName) : cssName;
 		config['cssName'] = handledCssName;
 		const webpackConfig = setConfig(handledJsName, config);
+
 		const compiler = webpack(webpackConfig);
 
 		compiler.run(err => {
