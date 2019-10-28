@@ -1,12 +1,18 @@
+/* eslint-disable no-console */
 'use strict';
 
 const webpack = require('webpack');
 const setConfig = require('../scripts/webpack/webpack.lib');
 const buildTarget = require('./buildTargets.json');
-const formatMessages = require('webpack-format-messages');
-const chalk = require('chalk');
 const isDevelopment = process.env.NODE_ENV === 'development';
+const fs = require('fs-extra');
 const path = require('path');
+const {
+	reportResultIfSuccess,
+	reportErrors,
+	reportWarnings,
+	reportInvalidResult
+} = require('../scripts/utils/reportResults');
 
 const handleDevName = n => {
 	const { name, ext } = path.parse(n);
@@ -14,6 +20,9 @@ const handleDevName = n => {
 };
 
 const startBuild = async function() {
+	fs.emptyDirSync(path.resolve('./release/dist'));
+	fs.emptyDirSync(path.resolve('./release/components'));
+
 	for await (const [name, config] of Object.entries(buildTarget)) {
 		const cssName = config['cssName'];
 		const handledJsName = isDevelopment ? handleDevName(name) : name;
@@ -27,27 +36,19 @@ const startBuild = async function() {
 			if (err) throw err;
 		});
 
-		compiler.hooks.invalid.tap('invalid', function() {
-			console.log(chalk.blue('Compiling...'));
-		});
+		compiler.hooks.invalid.tap('invalid', reportInvalidResult);
 
 		compiler.hooks.done.tap('done', stats => {
-			const messages = formatMessages(stats);
+			const statsJson = stats.toJson();
 
-			if (!messages.errors.length && !messages.warnings.length) {
-				console.log(chalk.green('Compiled successfully!'));
-			}
+			console.log();
+			console.log('[ ======================================================== ]');
 
-			if (messages.errors.length) {
-				console.log(chalk.red('Failed to compile.'));
-				messages.errors.forEach(e => console.log(e));
-				return;
+			reportResultIfSuccess(statsJson);
+			if (reportErrors(statsJson)) {
+				process.exit();
 			}
-
-			if (messages.warnings.length) {
-				console.log(chalk.yellow('Compiled with warnings.'));
-				messages.warnings.forEach(w => console.log(w));
-			}
+			reportWarnings(statsJson);
 		});
 	}
 };

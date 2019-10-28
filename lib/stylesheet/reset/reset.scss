@@ -2,7 +2,6 @@
  *			AUTHOR --- 1000.tech <info@1000.tech>
  *			LASTMODIFY --- 2019-08-23T07:18:53.766Z
  *			REPOSITORY --- https://github.com/1000tech/godlike.css
- *			LICENSE --- 作者使用了 what the fuck 协议 甚是优秀
  *=================================================================================================*/
 @charset "UTF-8";
 @import "../preset/default";
@@ -34,7 +33,14 @@ body {
   -webkit-overflow-scrolling: touch;
   -ms-touch-action: manipulation;
   touch-action: manipulation;
-  font-family: $font-family-pc;
+
+  @media screen and (max-width: $desktop-width) {
+    font-family: $font-family;
+  }
+
+  @media screen and (min-width: $desktop-width) {
+    font-family: $font-family-pc;
+  }
 }
 
 article,

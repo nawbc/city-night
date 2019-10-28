@@ -21,6 +21,7 @@ export const useResize = function(init = initRect): [RefObject<any>, typeof init
 		return () => {
 			ob.disconnect();
 		};
+		/* eslint-disable react-hooks/exhaustive-deps */
 	}, []);
 	return [ref, bounds];
 };

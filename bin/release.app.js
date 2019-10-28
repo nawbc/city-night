@@ -2,7 +2,7 @@
 
 const webpack = require('webpack');
 const appConfig = require('../scripts/webpack/webpack.app');
-const formatMessages = require('webpack-format-messages');
+// const formatMessages = require('webpack-format-messages');
 const chalk = require('chalk');
 
 const devAppBuildTarget = {
@@ -27,7 +27,7 @@ const startBuild = function() {
 	});
 
 	compiler.hooks.done.tap('done', stats => {
-		const messages = formatMessages(stats);
+		const jsonStats = stats.toJson();
 
 		if (!messages.errors.length && !messages.warnings.length) {
 			console.log(chalk.green('Compiled successfully!'));

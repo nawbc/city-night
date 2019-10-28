@@ -46,16 +46,15 @@ const getGradientColors = url =>
 			      .m-gradient-${name}{
 			          ${color.replace(/linear|radial|to\s/gi, val => ('to ' === val ? '' : '-webkit-' + val))}
 			          ${color.replace(/linear|radial|to\s/gi, val => ('to ' === val ? '' : '-moz-' + val))}
-			          ${color.replace(/linear|radial|to\s/gi, val => ('to ' === val ? '' : '-ms-' + val))}
 			          ${color.replace(/linear|radial|to\s/gi, val => ('to ' === val ? '' : '-o-' + val))}
 			          ${color}
 			      }\n`;
 				gradientScss += template;
-				gradientArrContent += '\'' + name + (collections.length - 1 === index ? '\'' : '\',');
+				gradientArrContent += "'" + name + (collections.length - 1 === index ? "'" : "',");
 				gradientTypesContent +=
 					index === 0
 						? '\n'
-						: '\t| ' + '\'' + (name + '\'' + (index === collections.length - 1 ? ';' : '')) + '\n';
+						: '\t| ' + "'" + (name + "'" + (index === collections.length - 1 ? ';' : '')) + '\n';
 			});
 			const typesArr = 'export const gradientsArray = [' + gradientArrContent + '];';
 			const gradientTypes = 'export type GradientTypes =' + gradientTypesContent;

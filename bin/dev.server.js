@@ -5,8 +5,13 @@ const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const { LAUNCH_HOST, LAUNCH_PORT } = require('../scripts/utils/preHandleDev');
 const openBrowser = require('../scripts/utils/openBrowser');
-const formatMessages = require('webpack-format-messages');
 const { appPublicPath } = require('../scripts/utils/helper');
+const {
+	reportResultIfSuccess,
+	reportErrors,
+	reportWarnings,
+	reportInvalidResult
+} = require('../scripts/utils/reportResults');
 const appConfig = require('../scripts/webpack/webpack.app');
 const chalk = require('chalk');
 const url = require('url');
@@ -44,40 +49,16 @@ const serverConfig = {
 	}
 };
 
-const displayAfterSuccess = () => {
-	console.clear();
-	console.log(chalk.green('Silent development server running on ...\n'));
-	console.log('=====================================================\n');
-	console.log(chalk.green(`[ADDR]: ${targetAddress}`));
-	console.log();
-	console.log('[Fuck] Good luck to myself 😜');
-};
-
 const compilerHooks = compiler => {
 	compiler.hooks.done.tap('done', function(stats) {
-		const messages = formatMessages(stats);
-
+		const statsJson = stats.toJson();
 		console.clear();
-		if (messages.errors.length) {
-			console.log(chalk.red('Failed to compile.'));
-			messages.errors.forEach(e => console.log(e));
-			return;
-		}
-
-		if (!messages.errors.length && !messages.warnings.length) {
-			console.log(`${chalk.green('###')} Compiling Success ${chalk.green('###')}`);
-			displayAfterSuccess();
-		}
-		if (messages.warnings.length) {
-			console.log(chalk.yellow('Compiled with warnings.'));
-			messages.warnings.forEach(w => console.log(w));
-		}
+		reportResultIfSuccess(statsJson, targetAddress);
+		reportErrors(statsJson);
+		reportWarnings(statsJson);
 	});
 
-	compiler.hooks.invalid.tap('invalid', function() {
-		console.clear();
-		console.log(`${chalk.green('###')} Compiling ${chalk.green('###')}`);
-	});
+	compiler.hooks.invalid.tap('invalid', reportInvalidResult);
 };
 
 const compile = () => {

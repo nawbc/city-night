@@ -19,6 +19,7 @@ export const useResize = function() {
 		return () => {
 			ob.disconnect();
 		};
+		/* eslint-disable */
 	}, []);
 	return [ref, bounds];
 };

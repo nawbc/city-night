@@ -16,6 +16,7 @@ import { accordType, is } from './helper';
  *                            {fonSize:'10px'} or {width:'10px'}
  * =================================================================================================*/
 
+/* eslint-disable @typescript-eslint/indent*/
 export const handleSize = (size: SizeType): SizeType =>
 	Array.isArray(size)
 		? 1 === size.length

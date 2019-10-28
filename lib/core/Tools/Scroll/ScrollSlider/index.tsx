@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, FC, useRef, useEffect } from 'react';
+import React, { HTMLAttributes, FC, useRef } from 'react';
 import { SilentCommonAttr, ClassValue } from '../../../../../lib/interfaces';
 import { accordType, splitJsxProps, handleSize } from '../../../../../lib/helper';
 import classNames from 'classnames';
@@ -28,7 +28,7 @@ interface ScrollSliderProps extends ScrollSliderTempProps {
 }
 
 const presetClassName = function(cProps: ScrollSliderProps) {
-	const { x, y, className } = cProps;
+	const { className } = cProps;
 
 	return {
 		containerCN: classNames(prefix, className),
