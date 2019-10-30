@@ -12,8 +12,6 @@ import './style/font.scss';
 
 const prefix = 's-loading-font';
 
-const FontAttrs = ['size', 'style', 'pigment', 'className', 'children', 'endWith', 'duration', 'max'];
-
 interface LoadingFontTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	pigment?: string;
 	endWith?: ReactElement<any> | string;
@@ -35,7 +33,16 @@ const presetClassName = function(cProps: LoadingFontProps): string {
 };
 
 const presetProps = function(props: LoadingFontProps) {
-	const sProps = splitJsxProps<LoadingFontProps>(props, FontAttrs);
+	const sProps = splitJsxProps<LoadingFontProps>(props, [
+		'size',
+		'style',
+		'pigment',
+		'className',
+		'children',
+		'endWith',
+		'duration',
+		'max'
+	]);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };

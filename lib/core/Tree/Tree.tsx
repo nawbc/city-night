@@ -2,8 +2,6 @@ import React, { HTMLAttributes, FC } from 'react';
 import { SilentCommonAttr, ClassValue } from '../../../lib/interfaces';
 import { accordType, splitJsxProps, handleSize } from '../../../lib/helper';
 
-const ParallaxAttrs = ['size', 'className', 'style'];
-
 interface ParallaxTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	className?: any;
 }
@@ -17,7 +15,7 @@ const presetClassName = function(): string {
 };
 
 const presetProps = function(props: ParallaxProps) {
-	const sProps = splitJsxProps<ParallaxProps>(props, ParallaxAttrs);
+	const sProps = splitJsxProps<ParallaxProps>(props, ['size', 'className', 'style']);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };

@@ -14,8 +14,6 @@ import './square.scss';
 
 const subPrefix = 'square';
 
-const SquareAttrs = ['size', 'style', 'className', 'children', 'fillet', 'effect'];
-
 interface SquareTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	className?: any;
 	fillet?: boolean;
@@ -25,7 +23,14 @@ interface SquareProps extends SquareTempProps {
 }
 
 const presetProps = function(props: SquareProps) {
-	const sProps = splitJsxProps<SquareProps>(props, SquareAttrs);
+	const sProps = splitJsxProps<SquareProps>(props, [
+		'size',
+		'style',
+		'className',
+		'children',
+		'fillet',
+		'effect'
+	]);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };

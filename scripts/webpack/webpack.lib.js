@@ -183,7 +183,6 @@ const setLibConfig = function(entryName, packageConfig, ruleInject = {}) {
 				tsconfig: tsConfigPath,
 				reportFiles: ['**', '!**/*.json', '!**/__tests__/**', '!**/?(*.)(spec|test).*'],
 				watch: [libPath, pluginsPath, !!ruleInject.useAppPath && appPath].filter(Boolean),
-				silent: true,
 				eslint: true
 			}),
 			isProduction && new BannerPlugin(bannerText)

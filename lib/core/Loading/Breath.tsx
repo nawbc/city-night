@@ -12,8 +12,6 @@ import './style/breath.scss';
 
 const prefix = 's-loading-breath';
 
-const BreathAttrs = ['size', 'style', 'pigment', 'className'];
-
 interface LoadingBreathTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	pigment?: string;
 	className?: any;
@@ -41,7 +39,12 @@ const presetClassName = function(cProps: LoadingBreathProps): ClassNameEx {
 };
 
 const presetProps = function(props: LoadingBreathProps) {
-	const sProps = splitJsxProps<LoadingBreathProps>(props, BreathAttrs);
+	const sProps = splitJsxProps<LoadingBreathProps>(props, [
+		'size',
+		'style',
+		'pigment',
+		'className'
+	]);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };

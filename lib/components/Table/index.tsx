@@ -11,19 +11,6 @@ import classNames from 'classnames';
 
 const prefix = 's-flex-vertical';
 
-const TableAttrs = [
-	'size',
-	'className',
-	'style',
-	'wrap',
-	'inline',
-	'center',
-	'start',
-	'end',
-	'reserve',
-	'children'
-];
-
 interface TableTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	className?: any;
 	wrap?: boolean;
@@ -39,7 +26,18 @@ export interface TableProps extends TableTempProps {
 }
 
 const presetProps = function(props: TableProps) {
-	const sProps = splitJsxProps<TableProps>(props, TableAttrs);
+	const sProps = splitJsxProps<TableProps>(props, [
+		'size',
+		'className',
+		'style',
+		'wrap',
+		'inline',
+		'center',
+		'start',
+		'end',
+		'reserve',
+		'children'
+	]);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };

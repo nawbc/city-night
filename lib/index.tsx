@@ -15,5 +15,5 @@ export { default as Button } from './core/Button';
 export { Fold, Panel } from './core/Fold';
 export { default as Occupy } from './core/Occupy';
 export { Map } from './core/Tools';
-export * from './core/Tools/Scroll';
+export * from './core/Scroll';
 export * from './core/Layout';

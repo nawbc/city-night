@@ -1,2 +1,2 @@
-export * from './CommonInterface';
+export * from './Common';
 export * from './CustomTypes';

@@ -6,7 +6,7 @@
  *			REPOSITORY --- https://github.com/sewerganger/silent-concept
  *=================================================================================================*/
 
-import { SplitJsxPropsInterface, SizeType } from '../interfaces';
+import { SizeType } from '../interfaces';
 import { accordType, is } from './helper';
 
 /**=================================================================================================
@@ -26,30 +26,32 @@ export const handleSize = (size: SizeType): SizeType =>
 					height: accordType(size[1], 'String', size[1] + 'px')
 			  }
 		: size;
-
 /**=================================================================================================
  *			LASTMODIFY --- 2019-08-23T07:45:13.469Z
  *			DESCRIPTION ---  把html 和 react 原有属性 和 组件 要使用的属性分开 深度拷贝props
  * =================================================================================================*/
 
-interface JsxPropsParam {
-	<Type>(receiveProps: React.Props<any>, useProps: string[]): SplitJsxPropsInterface<Type>;
+export interface AfterSplitJsxProps<T> {
+	nativeProps: React.Props<any>;
+	customProps: T;
 }
 
-export const splitJsxProps: JsxPropsParam = function<Type>(receiveProps, useProps: string[]) {
-	const nativeTempProps: React.HTMLProps<any> = {};
-	const customTempProps: Type = {} as Type;
+export type PartialArray<T> = (keyof T)[];
+
+export const splitJsxProps = function<Type>(
+	receiveProps: React.Props<any>,
+	useProps: PartialArray<Type>
+): AfterSplitJsxProps<Type> {
+	const nativeProps: React.Props<any> = {};
+	const customProps: Type = {} as Type;
 
 	for (const prop in receiveProps) {
-		useProps.indexOf(prop) >= 0
-			? (customTempProps[prop] = receiveProps[prop])
-			: (nativeTempProps[prop] = receiveProps[prop]);
+		useProps.indexOf(prop as keyof Type) >= 0
+			? (customProps[prop] = receiveProps[prop])
+			: (nativeProps[prop] = receiveProps[prop]);
 	}
 
-	return {
-		nativeProps: nativeTempProps,
-		customProps: customTempProps
-	};
+	return { nativeProps, customProps };
 };
 
 /**=================================================================================================
@@ -61,6 +63,7 @@ const generateStyleContent = function(prefix: string, styles: object, ssList: CS
 		let content = '';
 		const propVal = styles[prop];
 		const currentProp = prop.trim();
+
 		for (const key in propVal) {
 			const styleVal = propVal[key];
 			if (is.string(styleVal)) {

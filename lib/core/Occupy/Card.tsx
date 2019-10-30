@@ -13,8 +13,6 @@ import Flex from '../Layout/Flex';
 
 const prefix = 's-occupy-card';
 
-const CardAttrs = ['style', 'className', 'size', 'effect', 'fillet', 'capital'];
-
 const { Vertical } = Flex;
 
 interface CardTempProps extends SilentCommonAttr, HTMLAttributes<HTMLDivElement> {
@@ -28,7 +26,14 @@ interface CardProps extends CardTempProps {
 }
 
 const presetProps = function(props: CardProps) {
-	const sProps = splitJsxProps<CardProps>(props, CardAttrs);
+	const sProps = splitJsxProps<CardProps>(props, [
+		'style',
+		'className',
+		'size',
+		'effect',
+		'fillet',
+		'capital'
+	]);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };

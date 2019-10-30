@@ -38,26 +38,6 @@ export type ModeType = 'simple' | 'normal';
 
 const prefix = 's-panel';
 
-const PanelAttrs = [
-	'size',
-	'style',
-	'className',
-	'mode',
-	'duration',
-	'fillet',
-	'children',
-	'isFold',
-	'onClick',
-	'icon',
-	'timingFunction',
-	'duration',
-	'headline',
-	'headlineStyle',
-	'innerStyle',
-	'onDelete',
-	'readOnly'
-];
-
 export const PanelContext = React.createContext({});
 
 interface PanelTempProps extends SilentCommonAttr, HTMLAttributes<any> {
@@ -81,7 +61,25 @@ export interface PanelProps extends PanelTempProps {
 }
 
 const presetProps = function(props: PanelProps) {
-	const sProps = splitJsxProps<PanelProps>(props, PanelAttrs);
+	const sProps = splitJsxProps<PanelProps>(props, [
+		'size',
+		'style',
+		'className',
+		'mode',
+		'duration',
+		'fillet',
+		'children',
+		'isFold',
+		'onClick',
+		'icon',
+		'timingFunction',
+		'duration',
+		'headline',
+		'headlineStyle',
+		'innerStyle',
+		'onDelete',
+		'readOnly'
+	]);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };

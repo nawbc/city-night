@@ -10,8 +10,6 @@ import './style/index.scss';
 
 const prefix = 's-flex';
 
-const FlexAttrs = ['size', 'style', 'children', 'className', 'inline'];
-
 interface FlexTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	className?: any;
 	inline?: boolean;
@@ -37,7 +35,13 @@ export default class Flex extends React.Component<AverageProps, any> {
 	};
 
 	presetProps = (props: FlexProps) => {
-		const sProps = splitJsxProps<FlexProps>(props, FlexAttrs);
+		const sProps = splitJsxProps<FlexProps>(props, [
+			'size',
+			'style',
+			'children',
+			'className',
+			'inline'
+		]);
 		sProps.customProps.size = handleSize(sProps.customProps.size!);
 		return sProps;
 	};

@@ -15,7 +15,9 @@ const initRect = {
 export const useResize = function(init = initRect): [RefObject<any>, typeof initRect] {
 	const ref = useRef();
 	const [bounds, setBounds] = useState(init);
+
 	const ob = new MutationObserver(([entry]) => setBounds(entry.contentRect));
+
 	useEffect(() => {
 		ob.observe((ref.current as unknown) as HTMLElement);
 		return () => {

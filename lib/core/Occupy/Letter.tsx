@@ -12,8 +12,6 @@ import { Sliver } from './components';
 
 const prefix = 's-occupy-letter';
 
-const LetterAttrs = ['style', 'className', 'size', 'effect', 'fillet'];
-
 const { Vertical } = Flex;
 
 interface LetterTempProps extends SilentCommonAttr, HTMLAttributes<HTMLDivElement> {
@@ -26,7 +24,13 @@ interface LetterProps extends LetterTempProps {
 }
 
 const presetProps = function(props: LetterProps) {
-	const sProps = splitJsxProps<LetterProps>(props, LetterAttrs);
+	const sProps = splitJsxProps<LetterProps>(props, [
+		'style',
+		'className',
+		'size',
+		'effect',
+		'fillet'
+	]);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };

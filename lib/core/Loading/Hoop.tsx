@@ -13,8 +13,6 @@ import './style/hoop.scss';
 
 const prefix = 's-loading-hoop';
 
-const HoopAttrs = ['size', 'style', 'speed', 'pigment', 'innerStyle', 'className'];
-
 interface LoadingHoopTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	pigment?: string;
 	speed?: string;
@@ -43,7 +41,14 @@ const presetClassName = function(cProps: LoadingHoopProps): ClassNameEx {
 };
 
 const presetProps = function(props: LoadingHoopProps) {
-	const sProps = splitJsxProps<LoadingHoopProps>(props, HoopAttrs);
+	const sProps = splitJsxProps<LoadingHoopProps>(props, [
+		'size',
+		'style',
+		'speed',
+		'pigment',
+		'innerStyle',
+		'className'
+	]);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };

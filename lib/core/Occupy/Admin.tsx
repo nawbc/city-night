@@ -13,8 +13,6 @@ import { Circle, Sliver } from './components';
 
 const prefix = 's-occupy-admin';
 
-const AdminAttrs = ['style', 'className', 'size', 'effect', 'fillet', 'capital'];
-
 const { Vertical } = Flex;
 
 interface AdminTempProps extends SilentCommonAttr, HTMLAttributes<HTMLDivElement> {
@@ -28,7 +26,14 @@ interface AdminProps extends AdminTempProps {
 }
 
 const presetProps = function(props: AdminProps) {
-	const sProps = splitJsxProps<AdminProps>(props, AdminAttrs);
+	const sProps = splitJsxProps<AdminProps>(props, [
+		'style',
+		'className',
+		'size',
+		'effect',
+		'fillet',
+		'capital'
+	]);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };

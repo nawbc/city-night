@@ -29,26 +29,6 @@ export interface SilentAttributes {
 export interface SilentCommonAttr extends SilentAttributes, React.Props<any> {}
 
 /**=================================================================================================
- *			LASTMODIFY --- 2019-08-24T15:05:48.379Z
- *			DESCRIPTION --- 把jsx 接收到的属性分为原有属性 和自定义属性
- *=================================================================================================*/
-
-export interface SplitJsxPropsInterface<T> {
-	nativeProps: any;
-	customProps: T;
-}
-
-/**=================================================================================================
- *			LASTMODIFY --- 2019-08-24T14:57:44.621Z
- *			DESCRIPTION --- class常用方法的模板
- *=================================================================================================*/
-
-export interface PublicTemplate<T> {
-	presetProps: (props: T) => SplitJsxPropsInterface<T>;
-	preHandleClassName?: (clsProps: T) => string;
-}
-
-/**=================================================================================================
  *			LASTMODIFY --- 2019-08-24T14:57:44.621Z
  *			DESCRIPTION --- className 的 接口使用classnames
  *=================================================================================================*/

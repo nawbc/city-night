@@ -11,21 +11,6 @@ import './style/vertical.scss';
 
 const prefix = 's-flex-vertical';
 
-const VerticalAttrs = [
-	'size',
-	'className',
-	'style',
-	'wrap',
-	'inline',
-	'center',
-	'start',
-	'end',
-	'reserve',
-	'children',
-	'between',
-	'around'
-];
-
 interface VerticalTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	className?: any;
 	wrap?: boolean;
@@ -43,7 +28,20 @@ export interface VerticalProps extends VerticalTempProps {
 }
 
 const presetProps = function(props: VerticalProps) {
-	const sProps = splitJsxProps<VerticalProps>(props, VerticalAttrs);
+	const sProps = splitJsxProps<VerticalProps>(props, [
+		'size',
+		'className',
+		'style',
+		'wrap',
+		'inline',
+		'center',
+		'start',
+		'end',
+		'reserve',
+		'children',
+		'between',
+		'around'
+	]);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };

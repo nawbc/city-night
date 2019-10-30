@@ -11,8 +11,6 @@ import './style/average.scss';
 
 const prefix = 's-flex-average';
 
-const AverageAttrs = ['size', 'className', 'style', 'wrap', 'inline', 'children'];
-
 interface AverageTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	className?: any;
 	wrap?: boolean;
@@ -24,7 +22,14 @@ export interface AverageProps extends AverageTempProps {
 }
 
 const presetProps = function(props: AverageProps) {
-	const sProps = splitJsxProps<AverageProps>(props, AverageAttrs);
+	const sProps = splitJsxProps<AverageProps>(props, [
+		'size',
+		'className',
+		'style',
+		'wrap',
+		'inline',
+		'children'
+	]);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };

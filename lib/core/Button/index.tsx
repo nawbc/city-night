@@ -5,7 +5,14 @@
  *			REPOSITORY --- https://github.com/sewerganger/silent-concept
  *=================================================================================================*/
 
-import React, { ButtonHTMLAttributes, AnchorHTMLAttributes, FC, CSSProperties, ReactElement, useRef } from 'react';
+import React, {
+	ButtonHTMLAttributes,
+	AnchorHTMLAttributes,
+	FC,
+	CSSProperties,
+	ReactElement,
+	useRef
+} from 'react';
 import { SilentCommonAttr, SizeType, ClassValue, EffectType, DefaultColor } from '../../interfaces';
 import Icon from '../Icon/';
 import classNames from 'classnames';
@@ -16,28 +23,6 @@ type ButtonModeType = 'reset' | 'submit' | 'button' | 'link' | 'reload';
 type TargetType = 'blank' | 'self' | 'parent' | 'top' | string;
 
 const prefix = 's-button';
-const ButtonAttrs = [
-	'size',
-	'style',
-	'pigment',
-	'className',
-	'readOnly',
-	'mode',
-	'effect',
-	'target',
-	'children',
-	'shape',
-	'icon',
-	'hoverStyle',
-	'onClick',
-	'onMouseEnter',
-	'onMouseLeave',
-	'onMouseDown',
-	'onMouseUp',
-	'iconStyle',
-	'contentStyle',
-	'value'
-];
 
 /**=================================================================================================
  *			constantly variables
@@ -49,7 +34,11 @@ const buttonIconDefaultStyle = function(shape) {
 		marginTop: 0
 	};
 };
-interface ButtonTempProps<T> extends SilentCommonAttr, ButtonHTMLAttributes<T>, AnchorHTMLAttributes<T> {
+/* eslint-disable @typescript-eslint/indent*/
+interface ButtonTempProps<T>
+	extends SilentCommonAttr,
+		ButtonHTMLAttributes<T>,
+		AnchorHTMLAttributes<T> {
 	pigment?: DefaultColor;
 	mode?: ButtonModeType;
 	target?: TargetType;
@@ -126,7 +115,28 @@ const presetClassName = function(cProps: ButtonProps) {
 };
 
 const presetProps = function(props: ButtonProps) {
-	const sProps = splitJsxProps<ButtonProps>(props, ButtonAttrs);
+	const sProps = splitJsxProps<ButtonProps>(props, [
+		'size',
+		'style',
+		'pigment',
+		'className',
+		'readOnly',
+		'mode',
+		'effect',
+		'target',
+		'children',
+		'shape',
+		'icon',
+		'hoverStyle',
+		'onClick',
+		'onMouseEnter',
+		'onMouseLeave',
+		'onMouseDown',
+		'onMouseUp',
+		'iconStyle',
+		'contentStyle',
+		'value'
+	]);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	sProps.customProps.target = '_' + sProps.customProps.target;
 	return sProps;

@@ -15,20 +15,6 @@ import Picture from '../../core/Picture';
 
 const prefix = 's-icon';
 
-const IconAttrs = [
-	'src',
-	'type',
-	'size',
-	'style',
-	'beforeLoad',
-	'className',
-	'pigment',
-	'style',
-	'lazy',
-	'effect',
-	'iconNotRotate'
-];
-
 interface IconTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	src?: string;
 	beforeLoad?: string | ReactElement;
@@ -54,7 +40,19 @@ const presetClassName = function(cProps: IconProps): string {
 };
 
 const presetProps = function(props: IconProps) {
-	const sProps = splitJsxProps<IconProps>(props, IconAttrs);
+	const sProps = splitJsxProps<IconProps>(props, [
+		'src',
+		'type',
+		'size',
+		'style',
+		'beforeLoad',
+		'className',
+		'pigment',
+		'style',
+		'lazy',
+		'effect',
+		'iconNotRotate'
+	]);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };

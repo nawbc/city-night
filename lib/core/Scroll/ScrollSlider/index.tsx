@@ -1,12 +1,10 @@
 import React, { HTMLAttributes, FC, useRef } from 'react';
-import { SilentCommonAttr, ClassValue } from '../../../../../lib/interfaces';
-import { accordType, splitJsxProps, handleSize } from '../../../../../lib/helper';
+import { SilentCommonAttr, ClassValue } from '../../../../lib/interfaces';
+import { accordType, splitJsxProps, handleSize } from '../../../../lib/helper';
 import classNames from 'classnames';
 import './style/index.scss';
 
 const prefix = 's-scrollSlider';
-
-const ScrollSliderAttrs = ['size', 'className', 'style'];
 
 /**=================================================================================================
  *    滚动条 宽度默认为16
@@ -37,7 +35,7 @@ const presetClassName = function(cProps: ScrollSliderProps) {
 };
 
 const presetProps = function(props: ScrollSliderProps) {
-	const sProps = splitJsxProps<ScrollSliderProps>(props, ScrollSliderAttrs);
+	const sProps = splitJsxProps<ScrollSliderProps>(props, ['size', 'className', 'style']);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };

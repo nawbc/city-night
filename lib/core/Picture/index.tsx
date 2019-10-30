@@ -4,7 +4,7 @@
  *			LASTMODIFY --- 2019-09-13T14:32:49.491Z
  *			REPOSITORY --- https://github.com/sewerganger/silent-concept
  *=================================================================================================*/
-import React, { ReactElement, HTMLAttributes, FC } from 'react';
+import React, { ReactElement, HTMLAttributes, FC, CSSProperties } from 'react';
 import classNames from 'classnames';
 import { SilentCommonAttr, SizeType, ClassValue } from '../../interfaces';
 import { accordType, splitJsxProps, handleSize } from '../../helper';
@@ -13,11 +13,10 @@ import LazyPicture from './LazyPicture';
 
 const prefix = 's-picture';
 
-const PictureAttrs = ['src', 'size', 'lazy', 'style', 'autSize', 'className', 'onLoaded'];
-
 interface PictureTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	src?: string;
 	lazy?: boolean;
+	style?: CSSProperties;
 	size: SizeType;
 	auto?: boolean;
 	className?: any;
@@ -36,7 +35,15 @@ const presetClassName = function(cProps: PictureProps): string {
 };
 
 const presetProps = function(props: PictureProps) {
-	const sProps = splitJsxProps<PictureProps>(props, PictureAttrs);
+	const sProps = splitJsxProps<PictureProps>(props, [
+		'src',
+		'size',
+		'lazy',
+		'style',
+		'auto',
+		'className',
+		'onLoaded'
+	]);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };

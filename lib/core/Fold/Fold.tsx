@@ -13,8 +13,6 @@ export type modeType = 'simple' | 'normal';
 
 const prefix = 's-fold';
 
-const FoldAttrs = ['size', 'style', 'className', 'mode', 'duration', 'fillet', 'children', 'isFold', 'addStyle'];
-
 export const FoldContext = React.createContext({});
 
 export interface FoldTempProps extends SilentCommonAttr, HTMLAttributes<any> {
@@ -31,7 +29,17 @@ export interface FoldProps extends FoldTempProps {
 }
 
 const presetProps = function(props: FoldProps) {
-	const sProps = splitJsxProps<FoldProps>(props, FoldAttrs);
+	const sProps = splitJsxProps<FoldProps>(props, [
+		'size',
+		'style',
+		'className',
+		'mode',
+		'duration',
+		'fillet',
+		'children',
+		'isFold',
+		'addStyle'
+	]);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };
@@ -68,7 +76,11 @@ const Fold: FC<FoldProps> = function(props) {
 	}, [addStyle]);
 
 	return (
-		<div {...nativeProps} className={classNames(prefix, customProps.className)} style={containerStyle}>
+		<div
+			{...nativeProps}
+			className={classNames(prefix, customProps.className)}
+			style={containerStyle}
+		>
 			{props.children}
 		</div>
 	);

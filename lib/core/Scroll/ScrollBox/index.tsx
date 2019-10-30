@@ -1,22 +1,11 @@
 import React, { HTMLAttributes, FC, useRef, useLayoutEffect } from 'react';
-import { SilentCommonAttr, ClassValue } from '../../../../../lib/interfaces';
-import { accordType, splitJsxProps, handleSize } from '../../../../../lib/helper';
+import { SilentCommonAttr, ClassValue } from '../../../../lib/interfaces';
+import { accordType, splitJsxProps, handleSize } from '../../../../lib/helper';
 import classNames from 'classnames';
-import { useResize } from '../../hooks/useResize';
+import { useResize } from '../../Tools/hooks/useResize';
 import './style/index.scss';
 
 const prefix = 's-scrollBox';
-
-const ScrollBoxAttrs = [
-	'size',
-	'className',
-	'style',
-	'children',
-	'hoverDisplayScrollSlider'
-	// 'scrollX',
-	// 'scrollY',
-	// 'disable'
-];
 
 interface ScrollBoxTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	className?: any;
@@ -43,7 +32,16 @@ const presetClassName = function(cProps: ScrollBoxProps) {
 };
 
 const presetProps = function(props: ScrollBoxProps) {
-	const sProps = splitJsxProps<ScrollBoxProps>(props, ScrollBoxAttrs);
+	const sProps = splitJsxProps<ScrollBoxProps>(props, [
+		'size',
+		'className',
+		'style',
+		'children',
+		'hoverDisplayScrollSlider'
+		// 'scrollX',
+		// 'scrollY',
+		// 'disable'
+	]);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };

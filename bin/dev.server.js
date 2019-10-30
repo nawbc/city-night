@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const { LAUNCH_HOST, LAUNCH_PORT } = require('../scripts/utils/preHandleDev');
 const openBrowser = require('../scripts/utils/openBrowser');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const { appPublicPath } = require('../scripts/utils/helper');
 const {
 	reportResultIfSuccess,
@@ -50,14 +51,18 @@ const serverConfig = {
 };
 
 const compilerHooks = compiler => {
+	const tsCheckerHooks = ForkTsCheckerWebpackPlugin.getCompilerHooks(compiler);
+
+	tsCheckerHooks.done.tap('done', () => {
+		process.stdout.write('\x1B[2J\x1B[3J\x1B[H');
+	});
+
 	compiler.hooks.done.tap('done', function(stats) {
 		const statsJson = stats.toJson();
-		console.clear();
 		reportResultIfSuccess(statsJson, targetAddress);
 		reportErrors(statsJson);
 		reportWarnings(statsJson);
 	});
-
 	compiler.hooks.invalid.tap('invalid', reportInvalidResult);
 };
 
@@ -77,10 +82,12 @@ const compile = () => {
 const runServer = compiler => {
 	return new Promise(() => {
 		const devServer = new WebpackDevServer(compiler, serverConfig);
+
 		devServer.listen(LAUNCH_PORT, LAUNCH_HOST, err => {
 			err && console.log(chalk.red(err));
 			openBrowser(targetAddress);
 		});
+
 		['SIGINT', 'SIGTERM'].forEach(signal => {
 			process.on(signal, () => {
 				devServer.close();

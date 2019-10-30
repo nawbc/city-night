@@ -14,8 +14,6 @@ import './rectangle.scss';
 
 const subPrefix = 'rectangle';
 
-const RectangleAttrs = ['size', 'style', 'className', 'children', 'fillet', 'effect'];
-
 interface RectangleTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	className?: any;
 	fillet?: boolean;
@@ -25,7 +23,14 @@ interface RectangleProps extends RectangleTempProps {
 }
 
 const presetProps = function(props: RectangleProps) {
-	const sProps = splitJsxProps<RectangleProps>(props, RectangleAttrs);
+	const sProps = splitJsxProps<RectangleProps>(props, [
+		'size',
+		'style',
+		'className',
+		'children',
+		'fillet',
+		'effect'
+	]);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };

@@ -12,8 +12,6 @@ import classNames from 'classnames';
 
 const prefix = 's-occupy-news';
 
-const NewsAttrs = ['style', 'className', 'size', 'effect', 'fillet', 'capital'];
-
 const { Vertical } = Flex;
 
 interface NewsTempProps extends SilentCommonAttr, HTMLAttributes<HTMLDivElement> {
@@ -27,7 +25,14 @@ interface NewsProps extends NewsTempProps {
 }
 
 const presetProps = function(props: NewsProps) {
-	const sProps = splitJsxProps<NewsProps>(props, NewsAttrs);
+	const sProps = splitJsxProps<NewsProps>(props, [
+		'style',
+		'className',
+		'size',
+		'effect',
+		'fillet',
+		'capital'
+	]);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };

@@ -14,8 +14,6 @@ import './sliver.scss';
 
 const subPrefix = 'sliver';
 
-const SliverAttrs = ['size', 'style', 'className', 'effect', 'fillet'];
-
 interface SliverTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	className?: any;
 	fillet?: boolean;
@@ -26,7 +24,13 @@ interface SliverProps extends SliverTempProps {
 }
 
 const presetProps = function(props: SliverProps) {
-	const sProps = splitJsxProps<SliverProps>(props, SliverAttrs);
+	const sProps = splitJsxProps<SliverProps>(props, [
+		'size',
+		'style',
+		'className',
+		'effect',
+		'fillet'
+	]);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };

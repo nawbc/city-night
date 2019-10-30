@@ -14,8 +14,6 @@ import './circle.scss';
 
 const subPrefix = 'circle';
 
-const CircleAttrs = ['size', 'style', 'className', 'children', 'effect'];
-
 interface CircleTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	className?: any;
 }
@@ -24,7 +22,13 @@ interface CircleProps extends CircleTempProps {
 }
 
 const presetProps = function(props: CircleProps) {
-	const sProps = splitJsxProps<CircleProps>(props, CircleAttrs);
+	const sProps = splitJsxProps<CircleProps>(props, [
+		'size',
+		'style',
+		'className',
+		'children',
+		'effect'
+	]);
 	sProps.customProps.size = handleSize(sProps.customProps.size!);
 	return sProps;
 };
