@@ -5,8 +5,8 @@ import './index.scss';
 
 function App() {
 	return (
-		<ScrollBox size={['100%', window.innerHeight]}>
-			<div id="a" style={{ marginLeft: '50px' }}>
+		<ScrollBox size={['50%', 500]}>
+			<div id="a" style={{ marginLeft: '0' }}>
 				{Array(100)
 					.fill('')
 					.map(

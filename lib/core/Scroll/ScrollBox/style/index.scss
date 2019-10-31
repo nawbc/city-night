@@ -1,26 +1,27 @@
 @import "../../../../stylesheet/preset/mixin.scss";
 @import "compass/css3";
 
-
 $prefix: s-scrollBox;
 
 .#{$prefix} {
   position: relative;
-  display: inline-block;
+  // display: inline-block;
   overflow: hidden;
   margin-right: 16px;
 
-  .wrapper {
+  .scroll {
     height: 100%;
+    width: 100%;
     overflow: auto;
+    position: relative;
   }
 
-  .wrapper-x {
+  .scroll-x {
     overflow-x: auto;
     @include word-break(keep-all);
   }
 
-  .wrapper-y {
+  .scroll-y {
     overflow-y: auto;
     @include word-break(break-all);
   }

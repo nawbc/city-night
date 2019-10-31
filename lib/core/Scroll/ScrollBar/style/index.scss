@@ -1,0 +1,50 @@
+@import "../../../../stylesheet/index";
+@import "compass/css3";
+
+$prefix: s-scrollBar;
+
+@mixin nativeSlider {
+  width: 100%;
+  background-color: $grey-d;
+  position: absolute;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.#{$prefix} {
+  background-color: $grey-a;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: inline-block;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.#{$prefix}-normal {
+  @include box(14px, 100%);
+
+
+  .slider {
+    height: 100px;
+    @include nativeSlider;
+  }
+}
+
+.#{$prefix}-autoShrink {
+  @include box(14px, 100%);
+  transform: translateX(8px);
+  transition: transform 200ms ease;
+
+  &:hover {
+    transform: translateX(0px);
+  }
+
+  .slider {
+    height: 100px;
+    @include nativeSlider;
+  }
+}

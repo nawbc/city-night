@@ -1,8 +1,10 @@
-import React, { HTMLAttributes, FC, useRef, useLayoutEffect } from 'react';
+import React, { HTMLAttributes, FC, useRef, useLayoutEffect, ReactNode, useState } from 'react';
 import { SilentCommonAttr, ClassValue } from '../../../../lib/interfaces';
 import { accordType, splitJsxProps, handleSize } from '../../../../lib/helper';
 import classNames from 'classnames';
+import ScrollBar from '../ScrollBar';
 import { useResize } from '../../Tools/hooks/useResize';
+import computedStyle from 'computed-style';
 import './style/index.scss';
 
 const prefix = 's-scrollBox';
@@ -12,7 +14,7 @@ interface ScrollBoxTempProps extends SilentCommonAttr, HTMLAttributes<any> {
 	hoverDisplayScrollSlider?: boolean;
 	x?: boolean;
 	y?: boolean;
-	withSlider?: boolean;
+	withScrollBar?: boolean | ReactNode;
 }
 
 interface ScrollBoxProps extends ScrollBoxTempProps {
@@ -24,9 +26,9 @@ const presetClassName = function(cProps: ScrollBoxProps) {
 
 	return {
 		containerCN: classNames(prefix, className),
-		wrapperCN: classNames('wrapper', {
-			'wrapper-x': x,
-			'wrapper-y': y
+		scrollCN: classNames('scroll', {
+			'scroll-x': x,
+			'scroll-y': y
 		})
 	};
 };
@@ -37,7 +39,8 @@ const presetProps = function(props: ScrollBoxProps) {
 		'className',
 		'style',
 		'children',
-		'hoverDisplayScrollSlider'
+		'hoverDisplayScrollSlider',
+		'withScrollBar'
 		// 'scrollX',
 		// 'scrollY',
 		// 'disable'
@@ -55,35 +58,55 @@ const presetProps = function(props: ScrollBoxProps) {
 
 const ScrollBox: FC<ScrollBoxProps> = function(props) {
 	const { nativeProps, customProps } = presetProps(props);
-	const { containerCN, wrapperCN } = presetClassName(props);
-	const { size, style, children } = customProps;
+	const { containerCN, scrollCN } = presetClassName(customProps);
+	const { size, style, children, withScrollBar } = customProps;
 	const contentRef = useRef(null);
 	const [dySize, bounds] = useResize();
+	const scrollRef = useRef(null);
+	const [contentHeight, setContentHeight] = useState(0);
+	const barRef = useRef();
 
 	const containerStyle = {
 		...accordType(size, 'Object', {}),
 		...style
 	};
 
+	const scrollBar = !!withScrollBar ? (
+		React.isValidElement(withScrollBar) ? (
+			React.cloneElement(withScrollBar, { ref: barRef, _contentHeight: contentHeight })
+		) : (
+			<ScrollBar ref={barRef} _contentHeight={contentHeight} />
+		)
+	) : null;
+
 	useLayoutEffect(() => {
 		const contentEle = (contentRef.current as unknown) as HTMLElement;
-		// const containerEle = dySize.current as HTMLElement;
-		// containerEle.style.width = (bounds as any).width + 'px';
-		contentEle.style.width = (bounds as any).width - 16 + 'px';
-		return () => {};
+		contentEle.style.width = (bounds as any).width + 'px';
+		// 待实现  container的通过mutationObserver改变  更新contentEle的height
+		setContentHeight(parseInt(computedStyle(contentEle, 'height')));
 	}, [bounds]);
 
 	return (
 		<div ref={dySize} {...nativeProps} style={containerStyle} className={containerCN}>
-			<div className={wrapperCN}>
+			<div
+				className={scrollCN}
+				ref={scrollRef}
+				onScroll={e => {
+					const ev = window.event || e;
+					const targetEle = ev.target as HTMLElement;
+					(barRef.current as any).updateSliderTop(targetEle.scrollTop);
+				}}
+			>
 				<div ref={contentRef}>{children}</div>
 			</div>
+			{scrollBar}
 		</div>
 	);
 };
 
 ScrollBox.defaultProps = {
-	size: ['100%', '100%']
+	size: ['100%', '100%'],
+	withScrollBar: true
 };
 
-export default React.memo(ScrollBox);
+export default ScrollBox;

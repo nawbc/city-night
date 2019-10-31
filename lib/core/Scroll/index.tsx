@@ -1,2 +1,2 @@
 export { default as ScrollBox } from './ScrollBox';
-export { default as ScrollSlider } from './ScrollSlider';
+export { default as ScrollSlider } from './ScrollBar';
