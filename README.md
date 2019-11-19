@@ -16,6 +16,8 @@
 ![](https://flat.badgen.net/github/license/sewerganger/silent-concept?color=cyan)
 ![](https://img.shields.io/github/package-json/v/sewerganger/silent-concept?style=flat-square)
 
+### master　branch不可用 项目移至[silent-private](https://github.com/sewerganger/silent-private)开发
+
 ### if you want to pr see [for contributors](./for_contributors.md)
 
 ### 遇到想笑的 bug 尽量忍着
