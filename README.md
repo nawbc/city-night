@@ -16,10 +16,8 @@
 ![](https://flat.badgen.net/github/license/sewerganger/silent-concept?color=cyan)
 ![](https://img.shields.io/github/package-json/v/sewerganger/silent-concept?style=flat-square)
 
-### master branch不可用 项目移至[silent-private](https://github.com/sewerganger/silent-private)开发
+### master branch stop update and move to [silent-private](https://github.com/sewerganger/silent-private)
 
 ### if you want to pr see [for contributors](./for_contributors.md)
 
-### 遇到想笑的 bug 尽量忍着
-
-### 暂时关闭了 husky lint-staged
+### temporarily closed husky and lint-staged
