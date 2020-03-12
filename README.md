@@ -16,7 +16,9 @@
 ![](https://flat.badgen.net/github/license/sewerganger/silent-concept?color=cyan)
 ![](https://img.shields.io/github/package-json/v/sewerganger/silent-concept?style=flat-square)
 
-### master branch stop update and move to [silent-private](https://github.com/sewerganger/silent-private)
+# stop working
+
+### master branch stops updates and move to [silent-private](https://github.com/sewerganger/silent-private)
 
 ### if you want to pr see [for contributors](./for_contributors.md)
 
